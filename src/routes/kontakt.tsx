@@ -101,6 +101,23 @@ function Kontakt() {
           </p>
         </Container>
       </Section>
+
+      <Section tone="paper" className="border-t border-line">
+        <Container className="max-w-3xl">
+          <Eyebrow>Nachricht schreiben</Eyebrow>
+          <HeadlineDot as="h2" className="mt-3">
+            Formular für Ihre Anfrage
+          </HeadlineDot>
+          <p className="mt-4 text-sm text-ink/70">
+            Wenn Sie lieber schreiben als anrufen, nutzen Sie dieses Formular.
+            Die Nachricht geht direkt an Luca Sandhoff.
+          </p>
+          <div className="mt-8">
+            <DigitalCheckForm source="kontakt" submitLabel="Nachricht senden" />
+          </div>
+        </Container>
+      </Section>
+
     </>
   );
 }
