@@ -4,11 +4,9 @@ import { PageHeader } from "@/components/layout/page-header";
 import { Container, Eyebrow, Section } from "@/components/layout/primitives";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
 
 const route = findRoute("/referenzen")!;
-
-// TODO Asset: Logo SLT Rental (Freigabe liegt vor). Bis zur Lieferung
-// zeigen wir eine typografische Wortmarke.
 
 // Alle Zahlen sind vom Kunden bestätigt bzw. direkt aus der Google
 // Search Console entnommen (Zeitraum 28 Tage, Auszug vom 12. Juli 2026).
