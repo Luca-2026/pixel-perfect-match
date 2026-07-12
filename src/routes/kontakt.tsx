@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
-import { Container, Eyebrow, Section } from "@/components/layout/primitives";
+import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
+import { DigitalCheckForm } from "@/components/forms/digital-check-form";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+
 
 const route = findRoute("/kontakt")!;
 
