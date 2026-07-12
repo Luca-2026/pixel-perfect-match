@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
-import { findRoute } from "@/lib/site-routes";
+import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
-import { services } from "@/lib/site-routes";
 
 const route = findRoute("/")!;
 
