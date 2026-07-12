@@ -7,7 +7,7 @@ import { CountUp } from "@/components/motion/count-up";
 import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
-import sltScreenshot from "@/assets/slt-rental-screenshot.png.asset.json";
+import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 import { LogoWall } from "@/components/showcase/logo-wall";
 
@@ -159,7 +159,7 @@ function Home() {
             </div>
           </Reveal>
           <div className="mt-12">
-            <LaptopMockup src={sltScreenshot.url} alt="Referenz-Website slt-rental.de im Laptop-Mockup" />
+            <LaptopMockup src={sltLaptop.url} alt="Referenz-Website slt-rental.de im Laptop-Mockup" />
           </div>
           <Reveal delay={0.1}>
             <div className="mt-10 flex justify-center">

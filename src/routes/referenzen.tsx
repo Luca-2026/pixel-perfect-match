@@ -5,6 +5,8 @@ import { Container, Eyebrow, Section } from "@/components/layout/primitives";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
+import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
+import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 
 const route = findRoute("/referenzen")!;
 
@@ -89,6 +91,10 @@ function Referenzen() {
                 </ul>
               </div>
             </header>
+
+            <div className="border-b border-line bg-paper px-6 pt-8 pb-2 sm:px-8">
+              <LaptopMockup src={sltLaptop.url} alt="Startseite von slt-rental.de im MacBook-Mockup" />
+            </div>
 
             <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-3">
               <div className="md:col-span-2">
