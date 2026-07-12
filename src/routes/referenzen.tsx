@@ -54,16 +54,24 @@ function Referenzen() {
         <Container className="max-w-5xl">
           <article className="surface-card overflow-hidden">
             <header className="flex flex-wrap items-start justify-between gap-6 border-b border-line bg-mint/30 p-6 sm:p-8">
-              <div className="min-w-0">
-                <Eyebrow>Case Study 01 · Vermietung</Eyebrow>
-                <p className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink">
-                  SLT Rental
-                </p>
-                <p className="mt-1 text-sm text-ink/70">
-                  Vermietung von Baumaschinen, Anhängern und Eventausstattung
-                  in Nordrhein-Westfalen. Standorte in Krefeld, Bonn und
-                  Mülheim.
-                </p>
+              <div className="flex min-w-0 items-start gap-5">
+                <img
+                  src={sltLogo.url}
+                  alt="Logo SLT Rental"
+                  className="h-16 w-16 shrink-0 rounded-md bg-paper object-contain p-1 ring-1 ring-line sm:h-20 sm:w-20"
+                  loading="lazy"
+                />
+                <div className="min-w-0">
+                  <Eyebrow>Case Study 01 · Vermietung</Eyebrow>
+                  <p className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink">
+                    SLT Rental
+                  </p>
+                  <p className="mt-1 text-sm text-ink/70">
+                    Vermietung von Baumaschinen, Anhängern und Eventausstattung
+                    in Nordrhein-Westfalen. Standorte in Krefeld, Bonn und
+                    Mülheim.
+                  </p>
+                </div>
               </div>
               <div className="shrink-0 rounded-md border border-line bg-paper px-4 py-3 text-sm">
                 <p className="eyebrow">Leistungen</p>
