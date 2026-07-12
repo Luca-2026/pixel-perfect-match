@@ -107,7 +107,7 @@ export const articles: RatgeberArticle[] = [
     description:
       "Wie Sie ChatGPT oder Copilot im Unternehmen sauber einführen: geeignete Anwendungsfälle, Datenschutz, Lizenzmodelle und Regeln für Mitarbeitende.",
     excerpt:
-      "„Wir müssen etwas mit KI machen" reicht nicht. So bringen Sie ChatGPT und Copilot in Ihre Firma, ohne rechtliche und organisatorische Baustellen zu öffnen.",
+      "„Wir müssen etwas mit KI machen“ reicht nicht. So bringen Sie ChatGPT und Copilot in Ihre Firma, ohne rechtliche und organisatorische Baustellen zu öffnen.",
     topic: "KI",
     publishedAt: "2026-07-13",
     readingMinutes: 8,
