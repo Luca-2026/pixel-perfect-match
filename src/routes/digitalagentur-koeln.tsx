@@ -119,6 +119,40 @@ function Koeln() {
 
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
+          <Eyebrow>Branchen</Eyebrow>
+          <HeadlineDot as="h2" className="mt-3 max-w-3xl">
+            Typische Auftraggeber aus Köln und Umgebung
+          </HeadlineDot>
+          <p className="mt-6 max-w-2xl text-ink/75">
+            Wir sind branchenoffen, sehen aber wiederkehrende Muster. In
+            diesen Feldern kennen wir Prozesse und Kundensprache besonders gut:
+          </p>
+          <ul className="mt-6 grid gap-3 text-sm text-ink/80 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              "Handwerk und lokale Dienstleister",
+              "Kanzleien und Beratungen",
+              "Praxen und Gesundheitswesen",
+              "Ausrüster und Vermietung",
+              "E-Commerce und Fachhandel",
+              "Vereine und Verbände",
+            ].map((b) => (
+              <li key={b} className="rounded-md border border-line bg-white px-4 py-3">
+                {b}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-ink/60">
+            Belastbares Beispiel aus der Region:{" "}
+            <Link to="/referenzen" className="text-petrol">
+              Case Study SLT Rental
+            </Link>
+            .
+          </p>
+        </Container>
+
+
+      <Section tone="paper" className="border-t border-line">
+        <Container className="max-w-5xl">
           <Faq
             eyebrow="Region Köln"
             headline="Häufige Fragen aus Köln und Umgebung"
