@@ -118,6 +118,44 @@ function Bonn() {
 
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
+          <Eyebrow>Branchen</Eyebrow>
+          <HeadlineDot as="h2" className="mt-3 max-w-3xl">
+            Typische Auftraggeber aus Bonn und der Region
+          </HeadlineDot>
+          <p className="mt-6 max-w-2xl text-ink/75">
+            Wir arbeiten inhaltsoffen, sehen aber wiederkehrende Muster – in
+            diesen Feldern kennen wir die typischen Prozesse und die Sprache
+            der Kundschaft besonders gut:
+          </p>
+          <ul className="mt-6 grid gap-3 text-sm text-ink/80 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              "Handwerk und Bauzulieferer",
+              "Kanzleien und Beratungen",
+              "Praxen und Gesundheitswesen",
+              "Ausrüster und Vermietung",
+              "Bildungs- und Weiterbildungsträger",
+              "Vereine und Verbände",
+            ].map((b) => (
+              <li key={b} className="rounded-md border border-line bg-white px-4 py-3">
+                {b}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-ink/60">
+            Belastbares Beispiel aus der Region:{" "}
+            <Link to="/referenzen" className="text-petrol">
+              Case Study SLT Rental
+            </Link>
+            .
+          </p>
+        </Container>
+      </Section>
+
+
+
+
+      <Section tone="paper" className="border-t border-line">
+        <Container className="max-w-5xl">
           <Faq
             eyebrow="Region Bonn"
             headline="Häufige Fragen aus Bonn und der Region"

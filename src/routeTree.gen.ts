@@ -23,6 +23,10 @@ import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
 import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
+import { Route as RatgeberWasKostetEineWebsiteKmuRouteImport } from './routes/ratgeber.was-kostet-eine-website-kmu'
+import { Route as RatgeberSeoGrundlagenFuerKmuRouteImport } from './routes/ratgeber.seo-grundlagen-fuer-kmu'
+import { Route as RatgeberKiSichtbarkeitChatgptPerplexityRouteImport } from './routes/ratgeber.ki-sichtbarkeit-chatgpt-perplexity'
+import { Route as RatgeberKiAutomatisierungKmuEinstiegRouteImport } from './routes/ratgeber.ki-automatisierung-kmu-einstieg'
 import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
 import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.webdesign'
 import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
@@ -99,6 +103,30 @@ const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
   path: '/leistungen/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RatgeberWasKostetEineWebsiteKmuRoute =
+  RatgeberWasKostetEineWebsiteKmuRouteImport.update({
+    id: '/ratgeber/was-kostet-eine-website-kmu',
+    path: '/ratgeber/was-kostet-eine-website-kmu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RatgeberSeoGrundlagenFuerKmuRoute =
+  RatgeberSeoGrundlagenFuerKmuRouteImport.update({
+    id: '/ratgeber/seo-grundlagen-fuer-kmu',
+    path: '/ratgeber/seo-grundlagen-fuer-kmu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RatgeberKiSichtbarkeitChatgptPerplexityRoute =
+  RatgeberKiSichtbarkeitChatgptPerplexityRouteImport.update({
+    id: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity',
+    path: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RatgeberKiAutomatisierungKmuEinstiegRoute =
+  RatgeberKiAutomatisierungKmuEinstiegRouteImport.update({
+    id: '/ratgeber/ki-automatisierung-kmu-einstieg',
+    path: '/ratgeber/ki-automatisierung-kmu-einstieg',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const RatgeberSlugRoute = RatgeberSlugRouteImport.update({
   id: '/ratgeber/$slug',
   path: '/ratgeber/$slug',
@@ -145,6 +173,10 @@ export interface FileRoutesByFullPath {
   '/leistungen/seo': typeof LeistungenSeoRoute
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
+  '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
+  '/ratgeber/seo-grundlagen-fuer-kmu': typeof RatgeberSeoGrundlagenFuerKmuRoute
+  '/ratgeber/was-kostet-eine-website-kmu': typeof RatgeberWasKostetEineWebsiteKmuRoute
   '/leistungen/': typeof LeistungenIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
 }
@@ -166,6 +198,10 @@ export interface FileRoutesByTo {
   '/leistungen/seo': typeof LeistungenSeoRoute
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
+  '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
+  '/ratgeber/seo-grundlagen-fuer-kmu': typeof RatgeberSeoGrundlagenFuerKmuRoute
+  '/ratgeber/was-kostet-eine-website-kmu': typeof RatgeberWasKostetEineWebsiteKmuRoute
   '/leistungen': typeof LeistungenIndexRoute
   '/ratgeber': typeof RatgeberIndexRoute
 }
@@ -188,6 +224,10 @@ export interface FileRoutesById {
   '/leistungen/seo': typeof LeistungenSeoRoute
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
+  '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
+  '/ratgeber/seo-grundlagen-fuer-kmu': typeof RatgeberSeoGrundlagenFuerKmuRoute
+  '/ratgeber/was-kostet-eine-website-kmu': typeof RatgeberWasKostetEineWebsiteKmuRoute
   '/leistungen/': typeof LeistungenIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
 }
@@ -211,6 +251,10 @@ export interface FileRouteTypes {
     | '/leistungen/seo'
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
+    | '/ratgeber/ki-automatisierung-kmu-einstieg'
+    | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+    | '/ratgeber/seo-grundlagen-fuer-kmu'
+    | '/ratgeber/was-kostet-eine-website-kmu'
     | '/leistungen/'
     | '/ratgeber/'
   fileRoutesByTo: FileRoutesByTo
@@ -232,6 +276,10 @@ export interface FileRouteTypes {
     | '/leistungen/seo'
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
+    | '/ratgeber/ki-automatisierung-kmu-einstieg'
+    | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+    | '/ratgeber/seo-grundlagen-fuer-kmu'
+    | '/ratgeber/was-kostet-eine-website-kmu'
     | '/leistungen'
     | '/ratgeber'
   id:
@@ -253,6 +301,10 @@ export interface FileRouteTypes {
     | '/leistungen/seo'
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
+    | '/ratgeber/ki-automatisierung-kmu-einstieg'
+    | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+    | '/ratgeber/seo-grundlagen-fuer-kmu'
+    | '/ratgeber/was-kostet-eine-website-kmu'
     | '/leistungen/'
     | '/ratgeber/'
   fileRoutesById: FileRoutesById
@@ -275,6 +327,10 @@ export interface RootRouteChildren {
   LeistungenSeoRoute: typeof LeistungenSeoRoute
   LeistungenWebdesignRoute: typeof LeistungenWebdesignRoute
   RatgeberSlugRoute: typeof RatgeberSlugRoute
+  RatgeberKiAutomatisierungKmuEinstiegRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRoute
+  RatgeberKiSichtbarkeitChatgptPerplexityRoute: typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
+  RatgeberSeoGrundlagenFuerKmuRoute: typeof RatgeberSeoGrundlagenFuerKmuRoute
+  RatgeberWasKostetEineWebsiteKmuRoute: typeof RatgeberWasKostetEineWebsiteKmuRoute
   LeistungenIndexRoute: typeof LeistungenIndexRoute
   RatgeberIndexRoute: typeof RatgeberIndexRoute
 }
@@ -379,6 +435,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeistungenIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ratgeber/was-kostet-eine-website-kmu': {
+      id: '/ratgeber/was-kostet-eine-website-kmu'
+      path: '/ratgeber/was-kostet-eine-website-kmu'
+      fullPath: '/ratgeber/was-kostet-eine-website-kmu'
+      preLoaderRoute: typeof RatgeberWasKostetEineWebsiteKmuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/seo-grundlagen-fuer-kmu': {
+      id: '/ratgeber/seo-grundlagen-fuer-kmu'
+      path: '/ratgeber/seo-grundlagen-fuer-kmu'
+      fullPath: '/ratgeber/seo-grundlagen-fuer-kmu'
+      preLoaderRoute: typeof RatgeberSeoGrundlagenFuerKmuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': {
+      id: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+      path: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+      fullPath: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+      preLoaderRoute: typeof RatgeberKiSichtbarkeitChatgptPerplexityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/ki-automatisierung-kmu-einstieg': {
+      id: '/ratgeber/ki-automatisierung-kmu-einstieg'
+      path: '/ratgeber/ki-automatisierung-kmu-einstieg'
+      fullPath: '/ratgeber/ki-automatisierung-kmu-einstieg'
+      preLoaderRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ratgeber/$slug': {
       id: '/ratgeber/$slug'
       path: '/ratgeber/$slug'
@@ -435,6 +519,12 @@ const rootRouteChildren: RootRouteChildren = {
   LeistungenSeoRoute: LeistungenSeoRoute,
   LeistungenWebdesignRoute: LeistungenWebdesignRoute,
   RatgeberSlugRoute: RatgeberSlugRoute,
+  RatgeberKiAutomatisierungKmuEinstiegRoute:
+    RatgeberKiAutomatisierungKmuEinstiegRoute,
+  RatgeberKiSichtbarkeitChatgptPerplexityRoute:
+    RatgeberKiSichtbarkeitChatgptPerplexityRoute,
+  RatgeberSeoGrundlagenFuerKmuRoute: RatgeberSeoGrundlagenFuerKmuRoute,
+  RatgeberWasKostetEineWebsiteKmuRoute: RatgeberWasKostetEineWebsiteKmuRoute,
   LeistungenIndexRoute: LeistungenIndexRoute,
   RatgeberIndexRoute: RatgeberIndexRoute,
 }
