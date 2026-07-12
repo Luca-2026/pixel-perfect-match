@@ -163,3 +163,26 @@ export function ServiceLayout({
     </>
   );
 }
+
+function ServiceRelatedCard({ path, label, description }: { path: string; label: string; description: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      whileHover={reduce ? undefined : { y: -4 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      className="h-full"
+    >
+      <Link
+        to={path}
+        className="surface-card group block h-full p-6 no-underline transition-shadow hover:border-petrol hover:shadow-md hover:no-underline"
+      >
+        <h3 className="font-display text-base font-semibold text-ink">{label}</h3>
+        <p className="mt-2 text-sm text-ink/70">{description}</p>
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-petrol">
+          Ansehen
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden />
+        </span>
+      </Link>
+    </motion.div>
+  );
+}
