@@ -102,12 +102,53 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://sandhoff.digital/#organization",
+              name: "sandhoff.digital",
+              url: "https://sandhoff.digital",
+              email: "luca@sandhoff.digital",
+              telephone: "+4922876388805",
+              founder: { "@type": "Person", name: "Luca Sandhoff" },
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Marienforster Weg 2",
+                postalCode: "53343",
+                addressLocality: "Wachtberg",
+                addressRegion: "Nordrhein-Westfalen",
+                addressCountry: "DE",
+              },
+              areaServed: [
+                { "@type": "Country", name: "Deutschland" },
+                { "@type": "City", name: "Bonn" },
+                { "@type": "City", name: "Köln" },
+              ],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sandhoff.digital/#website",
+              url: "https://sandhoff.digital",
+              name: "sandhoff.digital",
+              inLanguage: "de-DE",
+              publisher: { "@id": "https://sandhoff.digital/#organization" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
+
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
