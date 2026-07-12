@@ -89,7 +89,31 @@ export const Route = createFileRoute("/preise")({
 });
 
 function Preise() {
-  return (
+  const offerJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: "Leistungen und Preise von sandhoff.digital",
+    url: "https://sandhoff.digital/preise",
+    itemListElement: priceTiers.map((t) => ({
+      "@type": "Offer",
+      name: t.name,
+      description: t.description,
+      url: `https://sandhoff.digital${t.path}`,
+      priceCurrency: "EUR",
+      priceSpecification:
+        t.price.startsWith("ab ")
+          ? {
+              "@type": "PriceSpecification",
+              price: Number(t.price.replace(/[^0-9]/g, "")),
+              priceCurrency: "EUR",
+              valueAddedTaxIncluded: false,
+              description: t.unit,
+            }
+          : undefined,
+      category: t.name,
+    })),
+  };
+
     <>
       <PageHeader
         route={route}
