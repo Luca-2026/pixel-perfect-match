@@ -114,7 +114,9 @@ function Preise() {
     })),
   };
 
+  return (
     <>
+
       <PageHeader
         route={route}
         crumbs={[{ to: "/preise", label: "Preise" }]}
@@ -203,6 +205,12 @@ function Preise() {
           </div>
         </Container>
       </Section>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
+      />
     </>
   );
 }
+
