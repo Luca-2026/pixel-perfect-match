@@ -119,37 +119,79 @@ function KiAutomatisierung() {
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {[
               {
-                title: "Angebots-Vorlagen aus Anfragen",
+                title: "Angebote aus eingehenden Anfragen entwerfen",
                 body:
-                  "Anfrage kommt per Formular oder E-Mail, die KI zieht Daten, Historie und Preisliste, ein Mensch prüft und schickt raus.",
+                  "Auslöser ist eine neue Anfrage per Formular oder E-Mail. Ein Sprachmodell zieht die Eckdaten heraus, gleicht sie mit Ihrer Preisliste und Historie im CRM ab und erzeugt einen Angebotsentwurf als PDF. Ihr Team prüft, ergänzt Sonderkonditionen und schickt raus.",
+                tools: "Bausteine: n8n oder Make, OpenAI oder Mistral, Ihr CRM.",
+                gate: "Freigabe: Angebot geht erst nach Sichtprüfung raus.",
+              },
+              {
+                title: "E-Mail-Postfach vorsortieren und Antworten vorbereiten",
+                body:
+                  "Neue Nachrichten werden nach Anfrage, Reklamation, Rechnung oder Werbung klassifiziert, wichtige Fälle werden mit einem Antwortentwurf versehen. Sie öffnen den Posteingang und arbeiten sortiert von oben nach unten.",
+                tools: "Bausteine: Microsoft 365 oder Google Workspace, n8n, Sprachmodell per API.",
+                gate: "Freigabe: kein Entwurf verlässt das Haus ohne Klick.",
+              },
+              {
+                title: "Rechnungen und Lieferscheine strukturiert erfassen",
+                body:
+                  "PDF- oder Foto-Belege werden per OCR und KI ausgelesen, Beträge, Positionen und Lieferant landen als Datensatz in der Buchhaltung. Abweichungen zur Bestellung werden markiert.",
+                tools: "Bausteine: n8n mit OCR-Schritt, Sprachmodell, Anbindung an DATEV, lexoffice oder sevDesk.",
+                gate: "Freigabe: Buchhalter kontiert und gibt Zahlung frei.",
               },
               {
                 title: "Digitaler Assistent auf der Website",
                 body:
-                  "Beantwortet wiederkehrende Fragen zu Verfügbarkeit, Öffnungszeiten oder Konditionen und übergibt qualifizierte Anfragen ans Team.",
+                  "Ein Chat-Assistent beantwortet wiederkehrende Fragen zu Verfügbarkeit, Öffnungszeiten und Konditionen auf Basis Ihrer eigenen Inhalte (RAG). Komplexe Fälle werden mit vollständigem Verlauf an Ihr Team übergeben.",
+                tools: "Bausteine: eigene Wissensbasis aus Website und FAQ, Sprachmodell per API, Übergabe an Ihr Ticket- oder Postfachsystem.",
+                gate: "Freigabe: klare Eskalationsregel definiert, was der Assistent nicht selbst beantwortet.",
+              },
+              {
+                title: "Leads recherchieren und im CRM anreichern",
+                body:
+                  "Neu eintreffende Kontakte werden mit öffentlich verfügbaren Firmendaten angereichert, Duplikate erkannt und einer Vertriebsperson zugewiesen. Der Datensatz ist vollständig, bevor der erste Anruf ansteht.",
+                tools: "Bausteine: n8n, HubSpot oder Pipedrive, Sprachmodell per API.",
+                gate: "Freigabe: Vertrieb prüft stichprobenartig und priorisiert.",
+              },
+              {
+                title: "Meeting-Protokolle in Aufgaben verwandeln",
+                body:
+                  "Aus Teams- oder Zoom-Aufzeichnungen entstehen strukturiertes Protokoll, Entscheidungen und Aufgaben mit Zuständigkeiten, direkt im Task-System.",
+                tools: "Bausteine: Microsoft 365 Copilot, Otter.ai oder Meet Jamie, Anbindung an Ihr Task-Tool.",
+                gate: "Freigabe: Moderator prüft Aufgabenliste vor Verteilung.",
               },
               {
                 title: "Daten zwischen Systemen synchronisieren",
                 body:
-                  "Kundendaten aus CRM ins Buchhaltungstool, Buchungen aus dem Formular ins CRM – ohne doppeltes Eintippen.",
+                  "Kundendaten aus dem CRM ins Rechnungstool, Buchungen aus dem Website-Formular ins CRM, alles ohne doppelte Eingabe. Fehlerhafte Datensätze landen in einer Prüfliste statt lautlos verloren zu gehen.",
+                tools: "Bausteine: n8n oder Make, Ihre bestehenden Systeme über deren API.",
+                gate: "Freigabe: Fehlerliste wird täglich kurz gesichtet.",
               },
               {
-                title: "Wiederkehrende Berichte",
+                title: "Wiederkehrende Berichte automatisch erstellen",
                 body:
-                  "Wöchentliche Zusammenfassungen aus Zahlen, Terminen und Anfragen, direkt in Ihr Postfach oder Team-Chat.",
+                  "Zahlen, Termine und Anfragen der letzten Woche werden als kompakte Zusammenfassung ausgeliefert, per E-Mail oder in Ihren Team-Chat.",
+                tools: "Bausteine: n8n oder Make, Ihre Datenquellen, Sprachmodell für die Textzusammenfassung.",
+                gate: "Freigabe: der Bericht ist informativ, keine Freigabe nötig.",
               },
             ].map((c) => (
               <article key={c.title} className="surface-card p-6">
                 <h3 className="font-display text-base font-semibold text-ink">{c.title}</h3>
                 <p className="mt-3 text-sm text-ink/75">{c.body}</p>
+                <p className="mt-3 text-xs text-ink/60">{c.tools}</p>
+                <p className="mt-1 text-xs text-petrol">{c.gate}</p>
               </article>
             ))}
           </div>
           <p className="mt-6 text-sm text-ink/60">
-            Konkrete Kundenbeispiele zeigen wir auf der{" "}
+            Alle genannten Bausteine sind heute (Stand 2026) verfügbar und im
+            Einsatz. Welche Kombination in Ihrem Betrieb sinnvoll ist, klären
+            wir im Digital-Check anhand Ihres konkreten Prozesses. Konkrete
+            Kundenbeispiele finden Sie auf der{" "}
             <a href="/referenzen" className="text-petrol">Referenzen-Seite</a>{" "}
-            – wir nennen dort ausschließlich freigegebene Projekte.
+            – dort nennen wir ausschließlich freigegebene Projekte.
           </p>
+
         </Container>
       </Section>
 
