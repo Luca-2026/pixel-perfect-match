@@ -10,7 +10,17 @@ const route = findRoute("/preise")!;
 // Ab-Preise sind vom Inhaber freigegeben (siehe site-routes.ts
 // Meta-Descriptions). Detaillierte Leistungsbeschreibungen pro Paket
 // folgen und sind hier bewusst als [Platzhalter] markiert.
-const priceTiers = [
+type PriceTier = {
+  path: string;
+  name: string;
+  price: string;
+  unit: string;
+  description: string;
+  included: readonly string[];
+  highlight?: boolean;
+};
+
+const priceTiers: readonly PriceTier[] = [
   {
     path: "/leistungen/webdesign",
     name: "Webdesign & Entwicklung",
