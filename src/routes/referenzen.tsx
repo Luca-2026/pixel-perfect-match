@@ -5,6 +5,8 @@ import { Container, Eyebrow, Section } from "@/components/layout/primitives";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
+import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
+import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 
 const route = findRoute("/referenzen")!;
 
