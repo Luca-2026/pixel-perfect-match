@@ -71,6 +71,48 @@ export const articles: RatgeberArticle[] = [
     readingMinutes: 6,
     relatedServicePath: "/leistungen/webdesign",
   },
+  {
+    slug: "google-unternehmensprofil-optimieren",
+    path: "/ratgeber/google-unternehmensprofil-optimieren",
+    title: "Google-Unternehmensprofil optimieren: Schritt für Schritt",
+    metaTitle: "Google-Unternehmensprofil optimieren: Anleitung | Ratgeber",
+    description:
+      "So richten Sie Ihr Google-Unternehmensprofil sauber ein, sammeln echte Bewertungen und werden in der lokalen Suche und in Google Maps sichtbarer.",
+    excerpt:
+      "Für viele KMU ist das Google-Unternehmensprofil die wichtigste kostenlose Sichtbarkeitsquelle. Diese Schritte holen den größten Effekt heraus.",
+    topic: "SEO",
+    publishedAt: "2026-07-13",
+    readingMinutes: 7,
+    relatedServicePath: "/leistungen/seo",
+  },
+  {
+    slug: "website-relaunch-checkliste",
+    path: "/ratgeber/website-relaunch-checkliste",
+    title: "Website-Relaunch-Checkliste: ohne Sichtbarkeitsverlust umziehen",
+    metaTitle: "Website-Relaunch: Checkliste ohne SEO-Verlust | Ratgeber",
+    description:
+      "Praktische Checkliste für den Website-Relaunch: Redirects, Inhalte, Technik und Messung. So verlieren Sie beim Umzug keine Rankings.",
+    excerpt:
+      "Ein Relaunch kann Ihre Sichtbarkeit verdoppeln oder halbieren. Diese Checkliste zeigt, worauf es vor, während und nach dem Livegang ankommt.",
+    topic: "Webdesign",
+    publishedAt: "2026-07-13",
+    readingMinutes: 8,
+    relatedServicePath: "/leistungen/webdesign",
+  },
+  {
+    slug: "chatgpt-fuer-unternehmen-einfuehren",
+    path: "/ratgeber/chatgpt-fuer-unternehmen-einfuehren",
+    title: "ChatGPT für Unternehmen einführen: sicher und mit Nutzen",
+    metaTitle: "ChatGPT für Unternehmen einführen: Leitfaden | Ratgeber",
+    description:
+      "Wie Sie ChatGPT oder Copilot im Unternehmen sauber einführen: geeignete Anwendungsfälle, Datenschutz, Lizenzmodelle und Regeln für Mitarbeitende.",
+    excerpt:
+      "„Wir müssen etwas mit KI machen" reicht nicht. So bringen Sie ChatGPT und Copilot in Ihre Firma, ohne rechtliche und organisatorische Baustellen zu öffnen.",
+    topic: "KI",
+    publishedAt: "2026-07-13",
+    readingMinutes: 8,
+    relatedServicePath: "/leistungen/ki-automatisierung",
+  },
 ];
 
 export function findArticle(slug: string): RatgeberArticle | undefined {
