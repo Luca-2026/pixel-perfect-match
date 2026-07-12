@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { Faq, type FaqItem } from "@/components/content/faq";
 import { CtaSection } from "@/components/content/cta-section";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import type { SiteRoute } from "@/lib/site-routes";
 import type { Crumb } from "@/components/layout/breadcrumbs";
 
@@ -105,50 +107,48 @@ export function ServiceLayout({
 
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
-          <Eyebrow>So arbeiten wir</Eyebrow>
-          <HeadlineDot as="h2" className="mt-3 max-w-2xl">
-            In vier Schritten zum Ergebnis
-          </HeadlineDot>
-          <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal>
+            <Eyebrow>So arbeiten wir</Eyebrow>
+            <HeadlineDot as="h2" className="mt-3 max-w-2xl">
+              In vier Schritten zum Ergebnis
+            </HeadlineDot>
+          </Reveal>
+          <Stagger as="ol" className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 list-none p-0" gap={0.09}>
             {process.map((step, i) => (
-              <li key={step.title} className="surface-card p-6">
+              <StaggerItem as="li" key={step.title} className="surface-card p-6 transition-shadow hover:shadow-md">
                 <p className="metric text-sm text-petrol">Schritt {String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-3 font-display text-lg font-semibold text-ink">{step.title}</h3>
                 <p className="mt-3 text-sm text-ink/75">{step.body}</p>
-              </li>
+              </StaggerItem>
             ))}
-          </ol>
+          </Stagger>
         </Container>
       </Section>
 
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
-          <Faq items={faq} />
+          <Reveal>
+            <Faq items={faq} />
+          </Reveal>
         </Container>
       </Section>
 
       {related.length > 0 && (
         <Section tone="paper" className="border-t border-line">
           <Container className="max-w-5xl">
-            <Eyebrow>Passt dazu</Eyebrow>
-            <HeadlineDot as="h2" className="mt-3">
-              Weiterlesen
-            </HeadlineDot>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <Reveal>
+              <Eyebrow>Passt dazu</Eyebrow>
+              <HeadlineDot as="h2" className="mt-3">
+                Weiterlesen
+              </HeadlineDot>
+            </Reveal>
+            <Stagger className="mt-8 grid gap-5 md:grid-cols-3" gap={0.08}>
               {related.map((r) => (
-                <Link
-                  key={r.path}
-                  to={r.path}
-                  className="surface-card block p-6 no-underline hover:border-petrol hover:no-underline"
-                >
-                  <h3 className="font-display text-base font-semibold text-ink">{r.label}</h3>
-                  <p className="mt-2 text-sm text-ink/70">{r.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-petrol">
-                    Ansehen <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-                  </span>
-                </Link>
+                <StaggerItem key={r.path}>
+                  <ServiceRelatedCard path={r.path} label={r.label} description={r.description} />
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </Container>
         </Section>
       )}
@@ -161,5 +161,28 @@ export function ServiceLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     </>
+  );
+}
+
+function ServiceRelatedCard({ path, label, description }: { path: string; label: string; description: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      whileHover={reduce ? undefined : { y: -4 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      className="h-full"
+    >
+      <Link
+        to={path}
+        className="surface-card group block h-full p-6 no-underline transition-shadow hover:border-petrol hover:shadow-md hover:no-underline"
+      >
+        <h3 className="font-display text-base font-semibold text-ink">{label}</h3>
+        <p className="mt-2 text-sm text-ink/70">{description}</p>
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-petrol">
+          Ansehen
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden />
+        </span>
+      </Link>
+    </motion.div>
   );
 }

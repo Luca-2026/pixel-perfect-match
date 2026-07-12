@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container } from "@/components/layout/primitives";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { services, mainPages } from "@/lib/site-routes";
 
 function NotFoundComponent() {
@@ -170,6 +171,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-paper text-ink">
+        <ScrollProgress />
         <SiteHeader />
         <main className="flex flex-1 flex-col">
           <Outlet />

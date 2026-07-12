@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoAsset from "@/assets/sandhoff-digital-logo-farbig.svg.asset.json";
 import { Container } from "./primitives";
@@ -17,6 +18,7 @@ const primaryNav = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const reduceHeader = useReducedMotion();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
@@ -48,24 +50,44 @@ export function SiteHeader() {
               activeProps={{ className: "bg-mint/40" }}
             >
               Leistungen
-              <ChevronDown className="h-4 w-4" aria-hidden />
+              <motion.span
+                animate={{ rotate: servicesOpen ? 180 : 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="inline-flex"
+              >
+                <ChevronDown className="h-4 w-4" aria-hidden />
+              </motion.span>
             </Link>
-            {servicesOpen && (
-              <div className="absolute left-0 top-full w-72 pt-2">
-                <ul className="surface-card overflow-hidden p-2 shadow-sm">
-                  {services.map((s) => (
-                    <li key={s.path}>
-                      <Link
-                        to={s.path}
-                        className="block rounded-md px-3 py-2 text-sm text-ink no-underline hover:bg-mint/50 hover:no-underline"
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div
+                  key="services-dropdown"
+                  className="absolute left-0 top-full w-72 pt-2"
+                  initial={reduceHeader ? false : { opacity: 0, y: -6 }}
+                  animate={reduceHeader ? undefined : { opacity: 1, y: 0 }}
+                  exit={reduceHeader ? undefined : { opacity: 0, y: -6 }}
+                  transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <ul className="surface-card overflow-hidden p-2 shadow-lg">
+                    {services.map((s, i) => (
+                      <motion.li
+                        key={s.path}
+                        initial={reduceHeader ? false : { opacity: 0, x: -6 }}
+                        animate={reduceHeader ? undefined : { opacity: 1, x: 0 }}
+                        transition={{ duration: 0.25, delay: reduceHeader ? 0 : 0.03 * i }}
                       >
-                        {s.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+                        <Link
+                          to={s.path}
+                          className="block rounded-md px-3 py-2 text-sm text-ink no-underline hover:bg-mint/50 hover:no-underline"
+                        >
+                          {s.title}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           {primaryNav.map((item) => (
             <Link
