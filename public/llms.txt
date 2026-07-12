@@ -1,0 +1,23 @@
+# sandhoff.digital
+
+sandhoff.digital ist eine Digitalagentur für kleine und mittelständische Unternehmen in Deutschland. Wir setzen KI und Prozessautomatisierung, Websites und SEO mit messbaren Ergebnissen zum Festpreis um. Inhabergeführt von Luca Sandhoff, Region Bonn/Köln, deutschlandweit tätig.
+
+## Leistungen
+- KI und Prozessautomatisierung: /leistungen/ki-automatisierung
+- Webdesign und Webentwicklung: /leistungen/webdesign
+- SEO für KMU: /leistungen/seo
+- Sichtbarkeit in KI-Suchsystemen (AEO/GEO): /leistungen/ki-sichtbarkeit
+- Preisübersicht: /preise
+
+## Angebot
+- Kostenloser Digital-Check: /digital-check
+- Referenzen: /referenzen
+- Ratgeber: /ratgeber
+
+## Standorte
+- Digitalagentur Bonn: /digitalagentur-bonn
+- Digitalagentur Köln: /digitalagentur-koeln
+
+## Über
+- Über den Inhaber: /ueber
+- Kontakt: /kontakt
