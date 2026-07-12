@@ -18,6 +18,7 @@ const primaryNav = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const reduceHeader = useReducedMotion();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
