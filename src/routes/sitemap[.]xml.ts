@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { allRoutes } from "@/lib/site-routes";
+import { articles } from "@/lib/ratgeber";
 
 // TODO: sobald Domain live ist, hier durch "https://sandhoff.digital" ersetzen.
 const BASE_URL = "";
@@ -9,10 +10,21 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const urls = allRoutes.map((r) => {
+        const siteEntries = allRoutes.map((r) => ({
+          loc: r.path,
+          changefreq: r.changefreq,
+          priority: r.priority,
+        }));
+        const articleEntries = articles.map((a) => ({
+          loc: a.path,
+          changefreq: "monthly" as const,
+          priority: "0.6",
+        }));
+
+        const urls = [...siteEntries, ...articleEntries].map((r) => {
           const parts = [
             `  <url>`,
-            `    <loc>${BASE_URL}${r.path}</loc>`,
+            `    <loc>${BASE_URL}${r.loc}</loc>`,
             r.changefreq ? `    <changefreq>${r.changefreq}</changefreq>` : null,
             r.priority ? `    <priority>${r.priority}</priority>` : null,
             `  </url>`,
