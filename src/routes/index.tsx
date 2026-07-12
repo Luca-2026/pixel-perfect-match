@@ -7,7 +7,7 @@ import { CountUp } from "@/components/motion/count-up";
 import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
-import sltScreenshot from "@/assets/slt-rental-screenshot.png.asset.json";
+import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 import { LogoWall } from "@/components/showcase/logo-wall";
 
