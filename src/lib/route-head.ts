@@ -1,11 +1,14 @@
 import type { SiteRoute } from "./site-routes";
+import { SITE_URL } from "./site";
 
 /**
  * Baut die head()-Metadaten für eine Route.
- * og:image bewusst weggelassen (kommt in Etappe 5 pro Leaf-Route dazu).
+ * Kanonische URL und og:url absolut auf SITE_URL, damit Crawler
+ * und KI-Antwortsysteme die Seite eindeutig zuordnen können.
  */
 export function routeHead(route: SiteRoute, canonicalPath?: string) {
   const path = canonicalPath ?? route.path;
+  const url = `${SITE_URL}${path}`;
   return {
     meta: [
       { title: route.metaTitle },
@@ -17,11 +20,12 @@ export function routeHead(route: SiteRoute, canonicalPath?: string) {
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "de_DE" },
       { property: "og:site_name", content: "sandhoff.digital" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: url },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: route.metaTitle },
       { name: "twitter:description", content: route.description },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: url }],
   };
 }
+

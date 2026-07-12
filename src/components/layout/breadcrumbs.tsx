@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Container } from "./primitives";
+import { SITE_URL } from "@/lib/site";
 
 export interface Crumb {
   to: string;
@@ -9,6 +10,16 @@ export interface Crumb {
 
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   const trail = [{ to: "/", label: "Start" }, ...items];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.label,
+      item: `${SITE_URL}${c.to}`,
+    })),
+  };
   return (
     <div className="border-b border-line bg-paper">
       <Container>
@@ -34,6 +45,11 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
           </ol>
         </nav>
       </Container>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }
