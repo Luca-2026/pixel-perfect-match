@@ -14,8 +14,9 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <section className="border-b border-line bg-paper py-20 sm:py-28">
+      <section className="flex min-h-[calc(100svh-4rem)] items-center border-b border-line bg-paper py-20 sm:py-24">
         <Container className="max-w-4xl">
+
           <Eyebrow>{route.eyebrow}</Eyebrow>
           <HeadlineDot as="h1" className="mt-4">
             {route.h1}
