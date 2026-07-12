@@ -72,133 +72,16 @@ function DigitalCheck() {
             Erzählen Sie uns kurz, worum es geht
           </HeadlineDot>
           <p className="mt-4 text-sm text-ink/70">
-            [Das Formular unten dient aktuell nur der Darstellung. In der
-            nächsten Ausbaustufe wird die Anfrage direkt an den Inhaber
-            übermittelt. Bis dahin bitte per{" "}
-            <Link to="/kontakt" className="text-petrol">Kontakt</Link>{" "}
-            direkt melden.]
+            Wenige Angaben genügen. Die Anfrage geht direkt an Luca Sandhoff,
+            Antwort in der Regel innerhalb eines Werktags.
           </p>
 
-          <form
-            className="mt-8 grid gap-5"
-            onSubmit={(e) => e.preventDefault()}
-            aria-label="Digital-Check anfragen (Vorschau)"
-          >
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="block">
-                <span className="text-sm font-medium text-ink">Name</span>
-                <input
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  required
-                  disabled
-                  className="mt-2 w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink/40 focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/20"
-                  placeholder="Ihr vollständiger Name"
-                />
-              </label>
-              <label className="block">
-                <span className="text-sm font-medium text-ink">Unternehmen</span>
-                <input
-                  type="text"
-                  name="company"
-                  autoComplete="organization"
-                  disabled
-                  className="mt-2 w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink/40 focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/20"
-                  placeholder="Name Ihres Unternehmens"
-                />
-              </label>
-              <label className="block">
-                <span className="text-sm font-medium text-ink">E-Mail</span>
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  required
-                  disabled
-                  className="mt-2 w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink/40 focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/20"
-                  placeholder="name@firma.de"
-                />
-              </label>
-              <label className="block">
-                <span className="text-sm font-medium text-ink">Website (optional)</span>
-                <input
-                  type="url"
-                  name="website"
-                  autoComplete="url"
-                  disabled
-                  className="mt-2 w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink/40 focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/20"
-                  placeholder="https://ihre-firma.de"
-                />
-              </label>
-            </div>
-
-            <fieldset className="rounded-md border border-line p-4">
-              <legend className="px-1 text-sm font-medium text-ink">
-                Worauf sollen wir schauen?
-              </legend>
-              <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                {[
-                  "KI-Automatisierung",
-                  "Webdesign",
-                  "SEO",
-                  "KI-Sichtbarkeit",
-                ].map((topic) => (
-                  <label key={topic} className="flex items-center gap-2 text-sm text-ink/85">
-                    <input
-                      type="checkbox"
-                      name="topics"
-                      value={topic}
-                      disabled
-                      className="h-4 w-4 rounded border-line text-petrol focus:ring-petrol/30"
-                    />
-                    {topic}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            <label className="block">
-              <span className="text-sm font-medium text-ink">Ausgangslage</span>
-              <textarea
-                name="message"
-                rows={5}
-                disabled
-                className="mt-2 w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink/40 focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/20"
-                placeholder="Was läuft heute gut, wo drückt der Schuh? Ein paar Sätze reichen."
-              />
-            </label>
-
-            <label className="flex items-start gap-3 text-sm text-ink/80">
-              <input
-                type="checkbox"
-                name="privacy"
-                required
-                disabled
-                className="mt-1 h-4 w-4 rounded border-line text-petrol focus:ring-petrol/30"
-              />
-              <span>
-                Ich habe die{" "}
-                <Link to="/datenschutz" className="text-petrol">Datenschutzerklärung</Link>{" "}
-                gelesen und bin mit der Kontaktaufnahme einverstanden.
-              </span>
-            </label>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <button
-                type="submit"
-                disabled
-                className="inline-flex cursor-not-allowed items-center gap-2 rounded-md bg-petrol/60 px-5 py-3 text-sm font-medium text-paper"
-              >
-                Anfrage senden
-              </button>
-              <p className="text-xs text-ink/60">
-                [Anfrage-Backend folgt in der nächsten Etappe.]
-              </p>
-            </div>
-          </form>
+          <div className="mt-8">
+            <DigitalCheckForm source="digital-check" submitLabel="Digital-Check anfragen" />
+          </div>
         </Container>
       </Section>
+
 
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
