@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
 
 const route = findRoute("/")!;
 
@@ -14,30 +15,47 @@ function Home() {
   return (
     <>
       <section className="flex min-h-[calc(100svh-4rem)] items-center border-b border-line bg-paper py-20 sm:py-24">
-        <Container className="max-w-4xl">
-
-          <Eyebrow>{route.eyebrow}</Eyebrow>
-          <HeadlineDot as="h1" className="mt-4">
-            {route.h1}
-          </HeadlineDot>
-          <p className="mt-6 text-lg text-ink/80 sm:text-xl">
-            Wir setzen KI-Automatisierung, Websites und Suchmaschinen-Sichtbarkeit
-            für kleine und mittelständische Unternehmen um. Messbar, zum Festpreis,
-            direkt mit dem Inhaber.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/digital-check"
-              className="inline-flex items-center rounded-md bg-petrol px-5 py-3 text-sm font-medium text-paper no-underline hover:bg-ink hover:no-underline"
-            >
-              Digital-Check starten
-            </Link>
-            <Link
-              to="/leistungen"
-              className="inline-flex items-center rounded-md border border-line bg-paper px-5 py-3 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
-            >
-              Leistungen ansehen
-            </Link>
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:gap-16">
+            <div className="max-w-2xl">
+              <Eyebrow>{route.eyebrow}</Eyebrow>
+              <HeadlineDot as="h1" className="mt-4">
+                {route.h1}
+              </HeadlineDot>
+              <p className="mt-6 text-lg text-ink/80 sm:text-xl">
+                Wir setzen KI-Automatisierung, Websites und Suchmaschinen-Sichtbarkeit
+                für kleine und mittelständische Unternehmen um. Messbar, zum Festpreis,
+                direkt mit dem Inhaber.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/digital-check"
+                  className="inline-flex items-center rounded-md bg-petrol px-5 py-3 text-sm font-medium text-paper no-underline hover:bg-ink hover:no-underline"
+                >
+                  Digital-Check starten
+                </Link>
+                <Link
+                  to="/leistungen"
+                  className="inline-flex items-center rounded-md border border-line bg-paper px-5 py-3 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
+                >
+                  Leistungen ansehen
+                </Link>
+              </div>
+            </div>
+            <figure className="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
+              <div className="relative overflow-hidden rounded-lg border border-line bg-mint/30 shadow-sm">
+                <img
+                  src={lucaPortrait.url}
+                  alt="Luca Sandhoff, Inhaber von sandhoff.digital"
+                  loading="eager"
+                  className="aspect-[4/5] w-full object-cover object-[50%_28%]"
+                />
+              </div>
+              <figcaption className="mt-4 text-sm text-ink/70">
+                <span className="block font-medium text-ink">Luca Sandhoff</span>
+                Inhaber, Ihr direkter Ansprechpartner
+              </figcaption>
+            </figure>
           </div>
         </Container>
       </section>
