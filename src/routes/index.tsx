@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
 
 const route = findRoute("/")!;
 
