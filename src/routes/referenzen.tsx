@@ -92,6 +92,10 @@ function Referenzen() {
               </div>
             </header>
 
+            <div className="border-b border-line bg-paper px-6 pt-8 pb-2 sm:px-8">
+              <LaptopMockup src={sltLaptop.url} alt="Startseite von slt-rental.de im MacBook-Mockup" />
+            </div>
+
             <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-3">
               <div className="md:col-span-2">
                 <h2 className="headline-dot text-2xl">
