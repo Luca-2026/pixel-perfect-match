@@ -135,7 +135,48 @@ function Home() {
         </Container>
       </section>
 
+      {/* Logo-Leiste: aktuell nur freigegebene Kunden */}
+      <section className="border-b border-line bg-paper py-10 sm:py-12">
+        <Container>
+          <LogoWall />
+        </Container>
+      </section>
+
+      {/* Showcase: Referenz-Website im MacBook-Mockup */}
+      <Section tone="paper" className="border-b border-line">
+        <Container>
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <Eyebrow>Case Study · SLT Rental</Eyebrow>
+              <HeadlineDot as="h2" className="mt-3">
+                Website, SEO und KI-Assistent aus einer Hand
+              </HeadlineDot>
+              <p className="mt-4 text-ink/80">
+                Neu aufgebauter Auftritt für den NRW-Vermieter SLT Rental —
+                inklusive digitalem Assistenten „Renty", der wiederkehrende
+                Mietanfragen automatisiert beantwortet.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-12">
+            <LaptopMockup src={sltScreenshot.url} alt="Referenz-Website slt-rental.de im Laptop-Mockup" />
+          </div>
+          <Reveal delay={0.1}>
+            <div className="mt-10 flex justify-center">
+              <Link
+                to="/referenzen"
+                className="group inline-flex items-center gap-2 rounded-md border border-line bg-paper px-5 py-3 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
+              >
+                Case Study ansehen
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
+              </Link>
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
       <Section tone="paper">
+
         <Container>
           <Reveal>
             <Eyebrow>Leistungen</Eyebrow>
