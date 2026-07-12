@@ -5,7 +5,7 @@ import { routeHead } from "@/lib/route-head";
 
 const route = findRoute("/leistungen")!;
 
-export const Route = createFileRoute("/leistungen")({
+export const Route = createFileRoute("/leistungen/")({
   head: () => routeHead(route),
   component: () => (
     <PlaceholderPage

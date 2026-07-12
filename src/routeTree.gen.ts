@@ -9,38 +9,355 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UeberRouteImport } from './routes/ueber'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ReferenzenRouteImport } from './routes/referenzen'
+import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as DigitalagenturKoelnRouteImport } from './routes/digitalagentur-koeln'
+import { Route as DigitalagenturBonnRouteImport } from './routes/digitalagentur-bonn'
+import { Route as DigitalCheckRouteImport } from './routes/digital-check'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
+import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
+import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
+import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.webdesign'
+import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
+import { Route as LeistungenKiSichtbarkeitRouteImport } from './routes/leistungen.ki-sichtbarkeit'
+import { Route as LeistungenKiAutomatisierungRouteImport } from './routes/leistungen.ki-automatisierung'
 
+const UeberRoute = UeberRouteImport.update({
+  id: '/ueber',
+  path: '/ueber',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenzenRoute = ReferenzenRouteImport.update({
+  id: '/referenzen',
+  path: '/referenzen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreiseRoute = PreiseRouteImport.update({
+  id: '/preise',
+  path: '/preise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalagenturKoelnRoute = DigitalagenturKoelnRouteImport.update({
+  id: '/digitalagentur-koeln',
+  path: '/digitalagentur-koeln',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalagenturBonnRoute = DigitalagenturBonnRouteImport.update({
+  id: '/digitalagentur-bonn',
+  path: '/digitalagentur-bonn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalCheckRoute = DigitalCheckRouteImport.update({
+  id: '/digital-check',
+  path: '/digital-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgbRoute = AgbRouteImport.update({
+  id: '/agb',
+  path: '/agb',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RatgeberIndexRoute = RatgeberIndexRouteImport.update({
+  id: '/ratgeber/',
+  path: '/ratgeber/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
+  id: '/leistungen/',
+  path: '/leistungen/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatgeberSlugRoute = RatgeberSlugRouteImport.update({
+  id: '/ratgeber/$slug',
+  path: '/ratgeber/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenWebdesignRoute = LeistungenWebdesignRouteImport.update({
+  id: '/leistungen/webdesign',
+  path: '/leistungen/webdesign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenSeoRoute = LeistungenSeoRouteImport.update({
+  id: '/leistungen/seo',
+  path: '/leistungen/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenKiSichtbarkeitRoute =
+  LeistungenKiSichtbarkeitRouteImport.update({
+    id: '/leistungen/ki-sichtbarkeit',
+    path: '/leistungen/ki-sichtbarkeit',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LeistungenKiAutomatisierungRoute =
+  LeistungenKiAutomatisierungRouteImport.update({
+    id: '/leistungen/ki-automatisierung',
+    path: '/leistungen/ki-automatisierung',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/digital-check': typeof DigitalCheckRoute
+  '/digitalagentur-bonn': typeof DigitalagenturBonnRoute
+  '/digitalagentur-koeln': typeof DigitalagenturKoelnRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/preise': typeof PreiseRoute
+  '/referenzen': typeof ReferenzenRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ueber': typeof UeberRoute
+  '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
+  '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
+  '/leistungen/seo': typeof LeistungenSeoRoute
+  '/leistungen/webdesign': typeof LeistungenWebdesignRoute
+  '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/leistungen/': typeof LeistungenIndexRoute
+  '/ratgeber/': typeof RatgeberIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/digital-check': typeof DigitalCheckRoute
+  '/digitalagentur-bonn': typeof DigitalagenturBonnRoute
+  '/digitalagentur-koeln': typeof DigitalagenturKoelnRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/preise': typeof PreiseRoute
+  '/referenzen': typeof ReferenzenRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ueber': typeof UeberRoute
+  '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
+  '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
+  '/leistungen/seo': typeof LeistungenSeoRoute
+  '/leistungen/webdesign': typeof LeistungenWebdesignRoute
+  '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/leistungen': typeof LeistungenIndexRoute
+  '/ratgeber': typeof RatgeberIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/digital-check': typeof DigitalCheckRoute
+  '/digitalagentur-bonn': typeof DigitalagenturBonnRoute
+  '/digitalagentur-koeln': typeof DigitalagenturKoelnRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/preise': typeof PreiseRoute
+  '/referenzen': typeof ReferenzenRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ueber': typeof UeberRoute
+  '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
+  '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
+  '/leistungen/seo': typeof LeistungenSeoRoute
+  '/leistungen/webdesign': typeof LeistungenWebdesignRoute
+  '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/leistungen/': typeof LeistungenIndexRoute
+  '/ratgeber/': typeof RatgeberIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agb'
+    | '/datenschutz'
+    | '/digital-check'
+    | '/digitalagentur-bonn'
+    | '/digitalagentur-koeln'
+    | '/impressum'
+    | '/kontakt'
+    | '/preise'
+    | '/referenzen'
+    | '/sitemap.xml'
+    | '/ueber'
+    | '/leistungen/ki-automatisierung'
+    | '/leistungen/ki-sichtbarkeit'
+    | '/leistungen/seo'
+    | '/leistungen/webdesign'
+    | '/ratgeber/$slug'
+    | '/leistungen/'
+    | '/ratgeber/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agb'
+    | '/datenschutz'
+    | '/digital-check'
+    | '/digitalagentur-bonn'
+    | '/digitalagentur-koeln'
+    | '/impressum'
+    | '/kontakt'
+    | '/preise'
+    | '/referenzen'
+    | '/sitemap.xml'
+    | '/ueber'
+    | '/leistungen/ki-automatisierung'
+    | '/leistungen/ki-sichtbarkeit'
+    | '/leistungen/seo'
+    | '/leistungen/webdesign'
+    | '/ratgeber/$slug'
+    | '/leistungen'
+    | '/ratgeber'
+  id:
+    | '__root__'
+    | '/'
+    | '/agb'
+    | '/datenschutz'
+    | '/digital-check'
+    | '/digitalagentur-bonn'
+    | '/digitalagentur-koeln'
+    | '/impressum'
+    | '/kontakt'
+    | '/preise'
+    | '/referenzen'
+    | '/sitemap.xml'
+    | '/ueber'
+    | '/leistungen/ki-automatisierung'
+    | '/leistungen/ki-sichtbarkeit'
+    | '/leistungen/seo'
+    | '/leistungen/webdesign'
+    | '/ratgeber/$slug'
+    | '/leistungen/'
+    | '/ratgeber/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgbRoute: typeof AgbRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  DigitalCheckRoute: typeof DigitalCheckRoute
+  DigitalagenturBonnRoute: typeof DigitalagenturBonnRoute
+  DigitalagenturKoelnRoute: typeof DigitalagenturKoelnRoute
+  ImpressumRoute: typeof ImpressumRoute
+  KontaktRoute: typeof KontaktRoute
+  PreiseRoute: typeof PreiseRoute
+  ReferenzenRoute: typeof ReferenzenRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UeberRoute: typeof UeberRoute
+  LeistungenKiAutomatisierungRoute: typeof LeistungenKiAutomatisierungRoute
+  LeistungenKiSichtbarkeitRoute: typeof LeistungenKiSichtbarkeitRoute
+  LeistungenSeoRoute: typeof LeistungenSeoRoute
+  LeistungenWebdesignRoute: typeof LeistungenWebdesignRoute
+  RatgeberSlugRoute: typeof RatgeberSlugRoute
+  LeistungenIndexRoute: typeof LeistungenIndexRoute
+  RatgeberIndexRoute: typeof RatgeberIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ueber': {
+      id: '/ueber'
+      path: '/ueber'
+      fullPath: '/ueber'
+      preLoaderRoute: typeof UeberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/referenzen': {
+      id: '/referenzen'
+      path: '/referenzen'
+      fullPath: '/referenzen'
+      preLoaderRoute: typeof ReferenzenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preise': {
+      id: '/preise'
+      path: '/preise'
+      fullPath: '/preise'
+      preLoaderRoute: typeof PreiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digitalagentur-koeln': {
+      id: '/digitalagentur-koeln'
+      path: '/digitalagentur-koeln'
+      fullPath: '/digitalagentur-koeln'
+      preLoaderRoute: typeof DigitalagenturKoelnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digitalagentur-bonn': {
+      id: '/digitalagentur-bonn'
+      path: '/digitalagentur-bonn'
+      fullPath: '/digitalagentur-bonn'
+      preLoaderRoute: typeof DigitalagenturBonnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-check': {
+      id: '/digital-check'
+      path: '/digital-check'
+      fullPath: '/digital-check'
+      preLoaderRoute: typeof DigitalCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agb': {
+      id: '/agb'
+      path: '/agb'
+      fullPath: '/agb'
+      preLoaderRoute: typeof AgbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +365,89 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ratgeber/': {
+      id: '/ratgeber/'
+      path: '/ratgeber'
+      fullPath: '/ratgeber/'
+      preLoaderRoute: typeof RatgeberIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/': {
+      id: '/leistungen/'
+      path: '/leistungen'
+      fullPath: '/leistungen/'
+      preLoaderRoute: typeof LeistungenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/$slug': {
+      id: '/ratgeber/$slug'
+      path: '/ratgeber/$slug'
+      fullPath: '/ratgeber/$slug'
+      preLoaderRoute: typeof RatgeberSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/webdesign': {
+      id: '/leistungen/webdesign'
+      path: '/leistungen/webdesign'
+      fullPath: '/leistungen/webdesign'
+      preLoaderRoute: typeof LeistungenWebdesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/seo': {
+      id: '/leistungen/seo'
+      path: '/leistungen/seo'
+      fullPath: '/leistungen/seo'
+      preLoaderRoute: typeof LeistungenSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/ki-sichtbarkeit': {
+      id: '/leistungen/ki-sichtbarkeit'
+      path: '/leistungen/ki-sichtbarkeit'
+      fullPath: '/leistungen/ki-sichtbarkeit'
+      preLoaderRoute: typeof LeistungenKiSichtbarkeitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/ki-automatisierung': {
+      id: '/leistungen/ki-automatisierung'
+      path: '/leistungen/ki-automatisierung'
+      fullPath: '/leistungen/ki-automatisierung'
+      preLoaderRoute: typeof LeistungenKiAutomatisierungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgbRoute: AgbRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  DigitalCheckRoute: DigitalCheckRoute,
+  DigitalagenturBonnRoute: DigitalagenturBonnRoute,
+  DigitalagenturKoelnRoute: DigitalagenturKoelnRoute,
+  ImpressumRoute: ImpressumRoute,
+  KontaktRoute: KontaktRoute,
+  PreiseRoute: PreiseRoute,
+  ReferenzenRoute: ReferenzenRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UeberRoute: UeberRoute,
+  LeistungenKiAutomatisierungRoute: LeistungenKiAutomatisierungRoute,
+  LeistungenKiSichtbarkeitRoute: LeistungenKiSichtbarkeitRoute,
+  LeistungenSeoRoute: LeistungenSeoRoute,
+  LeistungenWebdesignRoute: LeistungenWebdesignRoute,
+  RatgeberSlugRoute: RatgeberSlugRoute,
+  LeistungenIndexRoute: LeistungenIndexRoute,
+  RatgeberIndexRoute: RatgeberIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
