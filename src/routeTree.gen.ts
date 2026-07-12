@@ -23,10 +23,13 @@ import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
 import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
+import { Route as RatgeberWebsiteRelaunchChecklisteRouteImport } from './routes/ratgeber.website-relaunch-checkliste'
 import { Route as RatgeberWasKostetEineWebsiteKmuRouteImport } from './routes/ratgeber.was-kostet-eine-website-kmu'
 import { Route as RatgeberSeoGrundlagenFuerKmuRouteImport } from './routes/ratgeber.seo-grundlagen-fuer-kmu'
 import { Route as RatgeberKiSichtbarkeitChatgptPerplexityRouteImport } from './routes/ratgeber.ki-sichtbarkeit-chatgpt-perplexity'
 import { Route as RatgeberKiAutomatisierungKmuEinstiegRouteImport } from './routes/ratgeber.ki-automatisierung-kmu-einstieg'
+import { Route as RatgeberGoogleUnternehmensprofilOptimierenRouteImport } from './routes/ratgeber.google-unternehmensprofil-optimieren'
+import { Route as RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport } from './routes/ratgeber.chatgpt-fuer-unternehmen-einfuehren'
 import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
 import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.webdesign'
 import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
@@ -103,6 +106,12 @@ const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
   path: '/leistungen/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RatgeberWebsiteRelaunchChecklisteRoute =
+  RatgeberWebsiteRelaunchChecklisteRouteImport.update({
+    id: '/ratgeber/website-relaunch-checkliste',
+    path: '/ratgeber/website-relaunch-checkliste',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const RatgeberWasKostetEineWebsiteKmuRoute =
   RatgeberWasKostetEineWebsiteKmuRouteImport.update({
     id: '/ratgeber/was-kostet-eine-website-kmu',
@@ -125,6 +134,18 @@ const RatgeberKiAutomatisierungKmuEinstiegRoute =
   RatgeberKiAutomatisierungKmuEinstiegRouteImport.update({
     id: '/ratgeber/ki-automatisierung-kmu-einstieg',
     path: '/ratgeber/ki-automatisierung-kmu-einstieg',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RatgeberGoogleUnternehmensprofilOptimierenRoute =
+  RatgeberGoogleUnternehmensprofilOptimierenRouteImport.update({
+    id: '/ratgeber/google-unternehmensprofil-optimieren',
+    path: '/ratgeber/google-unternehmensprofil-optimieren',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RatgeberChatgptFuerUnternehmenEinfuehrenRoute =
+  RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport.update({
+    id: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
+    path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
     getParentRoute: () => rootRouteImport,
   } as any)
 const RatgeberSlugRoute = RatgeberSlugRouteImport.update({
@@ -173,10 +194,13 @@ export interface FileRoutesByFullPath {
   '/leistungen/seo': typeof LeistungenSeoRoute
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  '/ratgeber/google-unternehmensprofil-optimieren': typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
   '/ratgeber/seo-grundlagen-fuer-kmu': typeof RatgeberSeoGrundlagenFuerKmuRoute
   '/ratgeber/was-kostet-eine-website-kmu': typeof RatgeberWasKostetEineWebsiteKmuRoute
+  '/ratgeber/website-relaunch-checkliste': typeof RatgeberWebsiteRelaunchChecklisteRoute
   '/leistungen/': typeof LeistungenIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
 }
@@ -198,10 +222,13 @@ export interface FileRoutesByTo {
   '/leistungen/seo': typeof LeistungenSeoRoute
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  '/ratgeber/google-unternehmensprofil-optimieren': typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
   '/ratgeber/seo-grundlagen-fuer-kmu': typeof RatgeberSeoGrundlagenFuerKmuRoute
   '/ratgeber/was-kostet-eine-website-kmu': typeof RatgeberWasKostetEineWebsiteKmuRoute
+  '/ratgeber/website-relaunch-checkliste': typeof RatgeberWebsiteRelaunchChecklisteRoute
   '/leistungen': typeof LeistungenIndexRoute
   '/ratgeber': typeof RatgeberIndexRoute
 }
@@ -224,10 +251,13 @@ export interface FileRoutesById {
   '/leistungen/seo': typeof LeistungenSeoRoute
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
+  '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  '/ratgeber/google-unternehmensprofil-optimieren': typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
   '/ratgeber/seo-grundlagen-fuer-kmu': typeof RatgeberSeoGrundlagenFuerKmuRoute
   '/ratgeber/was-kostet-eine-website-kmu': typeof RatgeberWasKostetEineWebsiteKmuRoute
+  '/ratgeber/website-relaunch-checkliste': typeof RatgeberWebsiteRelaunchChecklisteRoute
   '/leistungen/': typeof LeistungenIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
 }
@@ -251,10 +281,13 @@ export interface FileRouteTypes {
     | '/leistungen/seo'
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
+    | '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+    | '/ratgeber/google-unternehmensprofil-optimieren'
     | '/ratgeber/ki-automatisierung-kmu-einstieg'
     | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
     | '/ratgeber/seo-grundlagen-fuer-kmu'
     | '/ratgeber/was-kostet-eine-website-kmu'
+    | '/ratgeber/website-relaunch-checkliste'
     | '/leistungen/'
     | '/ratgeber/'
   fileRoutesByTo: FileRoutesByTo
@@ -276,10 +309,13 @@ export interface FileRouteTypes {
     | '/leistungen/seo'
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
+    | '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+    | '/ratgeber/google-unternehmensprofil-optimieren'
     | '/ratgeber/ki-automatisierung-kmu-einstieg'
     | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
     | '/ratgeber/seo-grundlagen-fuer-kmu'
     | '/ratgeber/was-kostet-eine-website-kmu'
+    | '/ratgeber/website-relaunch-checkliste'
     | '/leistungen'
     | '/ratgeber'
   id:
@@ -301,10 +337,13 @@ export interface FileRouteTypes {
     | '/leistungen/seo'
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
+    | '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+    | '/ratgeber/google-unternehmensprofil-optimieren'
     | '/ratgeber/ki-automatisierung-kmu-einstieg'
     | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
     | '/ratgeber/seo-grundlagen-fuer-kmu'
     | '/ratgeber/was-kostet-eine-website-kmu'
+    | '/ratgeber/website-relaunch-checkliste'
     | '/leistungen/'
     | '/ratgeber/'
   fileRoutesById: FileRoutesById
@@ -327,10 +366,13 @@ export interface RootRouteChildren {
   LeistungenSeoRoute: typeof LeistungenSeoRoute
   LeistungenWebdesignRoute: typeof LeistungenWebdesignRoute
   RatgeberSlugRoute: typeof RatgeberSlugRoute
+  RatgeberChatgptFuerUnternehmenEinfuehrenRoute: typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  RatgeberGoogleUnternehmensprofilOptimierenRoute: typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   RatgeberKiAutomatisierungKmuEinstiegRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   RatgeberKiSichtbarkeitChatgptPerplexityRoute: typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
   RatgeberSeoGrundlagenFuerKmuRoute: typeof RatgeberSeoGrundlagenFuerKmuRoute
   RatgeberWasKostetEineWebsiteKmuRoute: typeof RatgeberWasKostetEineWebsiteKmuRoute
+  RatgeberWebsiteRelaunchChecklisteRoute: typeof RatgeberWebsiteRelaunchChecklisteRoute
   LeistungenIndexRoute: typeof LeistungenIndexRoute
   RatgeberIndexRoute: typeof RatgeberIndexRoute
 }
@@ -435,6 +477,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeistungenIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ratgeber/website-relaunch-checkliste': {
+      id: '/ratgeber/website-relaunch-checkliste'
+      path: '/ratgeber/website-relaunch-checkliste'
+      fullPath: '/ratgeber/website-relaunch-checkliste'
+      preLoaderRoute: typeof RatgeberWebsiteRelaunchChecklisteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ratgeber/was-kostet-eine-website-kmu': {
       id: '/ratgeber/was-kostet-eine-website-kmu'
       path: '/ratgeber/was-kostet-eine-website-kmu'
@@ -461,6 +510,20 @@ declare module '@tanstack/react-router' {
       path: '/ratgeber/ki-automatisierung-kmu-einstieg'
       fullPath: '/ratgeber/ki-automatisierung-kmu-einstieg'
       preLoaderRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/google-unternehmensprofil-optimieren': {
+      id: '/ratgeber/google-unternehmensprofil-optimieren'
+      path: '/ratgeber/google-unternehmensprofil-optimieren'
+      fullPath: '/ratgeber/google-unternehmensprofil-optimieren'
+      preLoaderRoute: typeof RatgeberGoogleUnternehmensprofilOptimierenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': {
+      id: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+      path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+      fullPath: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+      preLoaderRoute: typeof RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ratgeber/$slug': {
@@ -519,25 +582,21 @@ const rootRouteChildren: RootRouteChildren = {
   LeistungenSeoRoute: LeistungenSeoRoute,
   LeistungenWebdesignRoute: LeistungenWebdesignRoute,
   RatgeberSlugRoute: RatgeberSlugRoute,
+  RatgeberChatgptFuerUnternehmenEinfuehrenRoute:
+    RatgeberChatgptFuerUnternehmenEinfuehrenRoute,
+  RatgeberGoogleUnternehmensprofilOptimierenRoute:
+    RatgeberGoogleUnternehmensprofilOptimierenRoute,
   RatgeberKiAutomatisierungKmuEinstiegRoute:
     RatgeberKiAutomatisierungKmuEinstiegRoute,
   RatgeberKiSichtbarkeitChatgptPerplexityRoute:
     RatgeberKiSichtbarkeitChatgptPerplexityRoute,
   RatgeberSeoGrundlagenFuerKmuRoute: RatgeberSeoGrundlagenFuerKmuRoute,
   RatgeberWasKostetEineWebsiteKmuRoute: RatgeberWasKostetEineWebsiteKmuRoute,
+  RatgeberWebsiteRelaunchChecklisteRoute:
+    RatgeberWebsiteRelaunchChecklisteRoute,
   LeistungenIndexRoute: LeistungenIndexRoute,
   RatgeberIndexRoute: RatgeberIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
