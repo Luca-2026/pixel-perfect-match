@@ -1,12 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Clock, ShieldCheck } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { Faq } from "@/components/content/faq";
+import { DigitalCheckForm } from "@/components/forms/digital-check-form";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 
 const route = findRoute("/digital-check")!;
+
 
 export const Route = createFileRoute("/digital-check")({
   head: () => routeHead(route),
