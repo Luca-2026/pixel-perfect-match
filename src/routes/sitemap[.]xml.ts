@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { allRoutes } from "@/lib/site-routes";
 import { articles } from "@/lib/ratgeber";
+import { SITE_URL } from "@/lib/site";
 
-// TODO: sobald Domain live ist, hier durch "https://sandhoff.digital" ersetzen.
-const BASE_URL = "";
+const BASE_URL = SITE_URL;
+
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
