@@ -198,37 +198,6 @@ export function LaptopMockup({ src, alt, liveUrl, liveLabel }: LaptopMockupProps
         )}
       </div>
 
-      {liveUrl && (
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-ink/60">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1 font-mono">
-            <span
-              className={
-                "h-2 w-2 rounded-full " +
-                (status === "live"
-                  ? "bg-mint"
-                  : status === "blocked"
-                    ? "bg-amber"
-                    : "bg-ink/30 animate-pulse")
-              }
-              aria-hidden
-            />
-            {status === "live"
-              ? `Live: ${liveLabel ?? liveUrl.replace(/^https?:\/\//, "")}`
-              : status === "blocked"
-                ? `Vorschau: ${liveLabel ?? liveUrl.replace(/^https?:\/\//, "")}`
-                : `Lade ${liveLabel ?? liveUrl.replace(/^https?:\/\//, "")} …`}
-          </span>
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center gap-1 text-petrol no-underline hover:underline"
-          >
-            in neuem Tab öffnen
-            <ExternalLink className="h-3 w-3" aria-hidden />
-          </a>
-        </div>
-      )}
     </motion.div>
   );
 }
