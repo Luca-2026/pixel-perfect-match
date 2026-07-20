@@ -79,6 +79,61 @@ export function LaptopMockup({ src, alt, liveUrl, liveLabel }: LaptopMockupProps
         }}
       />
 
+      {liveUrl && (
+        <div
+          role="status"
+          aria-live="polite"
+          className={
+            "mx-auto mb-4 flex max-w-2xl items-start gap-3 rounded-md border px-4 py-3 text-sm " +
+            (status === "live"
+              ? "border-mint bg-mint/30 text-ink"
+              : status === "blocked"
+                ? "border-amber/60 bg-amber/15 text-ink"
+                : "border-line bg-paper text-ink/70")
+          }
+        >
+          {status === "loading" && (
+            <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-ink/50" aria-hidden />
+          )}
+          {status === "live" && (
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-petrol" aria-hidden />
+          )}
+          {status === "blocked" && (
+            <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-amber" aria-hidden />
+          )}
+          <div className="min-w-0 flex-1">
+            <p className="font-medium">
+              {status === "loading" && `Prüfe Live-Einbettung von ${liveLabel ?? liveUrl.replace(/^https?:\/\//, "")} …`}
+              {status === "live" && `Live-Einbettung aktiv — ${liveLabel ?? liveUrl.replace(/^https?:\/\//, "")} läuft im MacBook.`}
+              {status === "blocked" && `Live-Einbettung vom Browser blockiert — ${liveLabel ?? liveUrl.replace(/^https?:\/\//, "")}`}
+            </p>
+            {status === "blocked" && (
+              <p className="mt-1 text-xs text-ink/70">
+                Der Server sendet <code className="rounded bg-paper px-1 font-mono text-[11px]">X-Frame-Options: SAMEORIGIN</code>{" "}
+                bzw. eine <code className="rounded bg-paper px-1 font-mono text-[11px]">frame-ancestors</code>-Richtlinie,
+                die fremde Domains ausschließt. Bis der Header freigegeben ist,
+                zeigen wir den Screenshot als Vorschau.
+              </p>
+            )}
+            {status === "loading" && (
+              <p className="mt-1 text-xs text-ink/60">
+                Falls der Zielserver die Einbettung blockiert, schalten wir nach
+                7 Sekunden automatisch auf die Screenshot-Vorschau um.
+              </p>
+            )}
+          </div>
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener"
+            className="ml-auto inline-flex shrink-0 items-center gap-1 rounded-md border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
+          >
+            Neuer Tab
+            <ExternalLink className="h-3 w-3" aria-hidden />
+          </a>
+        </div>
+      )}
+
       <div className="relative mx-auto block w-full">
         <img src={src} alt={alt} loading="lazy" className="relative block w-full h-auto" />
 
