@@ -159,7 +159,12 @@ function Home() {
             </div>
           </Reveal>
           <div className="mt-12">
-            <LaptopMockup src={sltLaptop.url} alt="Referenz-Website slt-rental.de im Laptop-Mockup" />
+            <LaptopMockup
+              src={sltLaptop.url}
+              alt="Referenz-Website slt-rental.de im Laptop-Mockup"
+              liveUrl="https://slt-rental.de"
+              liveLabel="slt-rental.de"
+            />
           </div>
           <Reveal delay={0.1}>
             <div className="mt-10 flex justify-center">
