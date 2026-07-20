@@ -1,7 +1,7 @@
 "use client";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { CheckCircle2, ExternalLink, Loader2, ShieldAlert } from "lucide-react";
 
 interface LaptopMockupProps {
   src: string;
