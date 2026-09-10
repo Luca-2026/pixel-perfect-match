@@ -88,6 +88,14 @@ function KiAutomatisierung() {
           a: "Ein klar umrissener Anwendungsfall ist in wenigen Wochen produktiv. Die genaue Dauer nennen wir verbindlich nach dem Digital-Check.",
         },
         {
+          q: "Kann ein KI-Telefonagent Anrufe für uns übernehmen?",
+          a: "Ja, für klar abgegrenzte Anliegen: Anrufe annehmen, Anliegen erfassen, Termine vorschlagen, Rückrufwünsche strukturiert weitergeben. Der Agent bekommt einen festen Gesprächsrahmen, eine geprüfte Wissensbasis und eine Übergaberegel an einen Menschen. Vor dem Livegang testen wir mit echten Anrufszenarien.",
+        },
+        {
+          q: "Müssen wir Anrufer über den KI-Agenten informieren?",
+          a: "Wir gestalten den Einstieg so, dass der Agent sich als digitale Assistenz zu erkennen gibt und ein Weg zum Menschen jederzeit offen bleibt. Aufzeichnungen und Transkripte werden nur mit passender Rechtsgrundlage und dokumentierter Einwilligung verarbeitet. Die konkrete Ausgestaltung stimmen wir mit Ihrer Datenschutzberatung ab.",
+        },
+        {
           q: "Können Sie bestehende Tools anbinden?",
           a: "Für gängige Systeme (CRM, Ticketing, E-Mail, Buchhaltung) ist die Anbindung Standard. Bei Spezialsoftware prüfen wir die Schnittstelle im Digital-Check.",
         },
