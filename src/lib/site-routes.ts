@@ -48,7 +48,7 @@ export const services: SiteRoute[] = [
   {
     path: "/leistungen/ki-sichtbarkeit",
     title: "KI-Sichtbarkeit (AEO/GEO)",
-    metaTitle: "In ChatGPT, Gemini und Google-KI gefunden werden | KI-Sichtbarkeit",
+    metaTitle: "KI-Sichtbarkeit in ChatGPT und Google | sandhoff.digital",
     description:
       "AEO und GEO für KMU: sichtbar in ChatGPT, Gemini, Perplexity und Google-KI. Strukturierte Inhalte, Monitoring, Kombi mit SEO.",
     h1: "Sichtbar, wenn Kunden die KI fragen",

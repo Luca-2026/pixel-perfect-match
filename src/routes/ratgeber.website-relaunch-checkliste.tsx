@@ -24,10 +24,9 @@ function Article() {
   return (
     <ArticleLayout article={article}>
       <p>
-        Ein Website-Relaunch ist eine der wenigen Situationen, in denen Sie
-        Ihre Sichtbarkeit bei Google innerhalb weniger Tage verdoppeln oder
-        halbieren können. Der Unterschied liegt fast nie am Design, sondern an
-        Redirects, Inhalten und Technik. Diese Checkliste geht in der
+        Ein Website-Relaunch kann bestehende Sichtbarkeit in Suchmaschinen
+        deutlich verändern. Entscheidend sind dabei nicht nur Gestaltung,
+        sondern vor allem Weiterleitungen, Inhalte und Technik. Diese Checkliste geht in der
         praxisüblichen Reihenfolge vor.
       </p>
 
@@ -93,8 +92,8 @@ function Article() {
         <li>
           <strong>noindex und Staging-Sperren entfernen.</strong> Der klassische
           Fehler ist, dass die Live-Seite mit dem Staging-Header
-          <code>X-Robots-Tag: noindex</code> ausgeliefert wird. Das trifft
-          jedes zweite Relaunch-Projekt.
+          <code>X-Robots-Tag: noindex</code> ausgeliefert wird. Dieser Fehler
+          kommt in Relaunch-Projekten immer wieder vor.
         </li>
       </ol>
 
@@ -107,9 +106,9 @@ function Article() {
         </li>
         <li>
           <strong>Traffic und Rankings kontrollieren.</strong> Ein leichter
-          Einbruch für ein bis zwei Wochen ist normal, danach sollten die
-          wichtigsten Rankings wieder auf altem Niveau sein. Bleibt der
-          Einbruch, prüfen Sie zuerst Redirects und Inhalte.
+        Einbruch kann nach einem Relaunch auftreten. Beobachten Sie die
+        wichtigsten Rankings und prüfen Sie bei anhaltenden Verlusten zuerst
+        Weiterleitungen, Indexierung und Inhalte.
         </li>
         <li>
           <strong>Backlinks aktualisieren.</strong> Die zehn wichtigsten
@@ -126,10 +125,10 @@ function Article() {
 
       <h2>Realistische Erwartung</h2>
       <p>
-        Selbst ein sauber geplanter Relaunch schwankt in den ersten Wochen. Die
-        Erholung dauert je nach Umfang zwei bis acht Wochen. Wenn Sie nach zwei
-        Monaten nicht wieder auf Ausgangsniveau sind, liegt fast immer ein
-        technischer Fehler vor, kein „Algorithmus-Problem".
+        Selbst ein sauber geplanter Relaunch kann in den ersten Wochen schwanken.
+        Dauer und Ausmaß hängen von Umfang, Crawling, Wettbewerb und den
+        vorgenommenen Änderungen ab. Bei anhaltenden Verlusten sollten Technik,
+        Weiterleitungen, Indexierung und Inhalte systematisch geprüft werden.
       </p>
     </ArticleLayout>
   );

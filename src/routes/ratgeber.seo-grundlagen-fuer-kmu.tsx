@@ -61,8 +61,8 @@ function Article() {
         umkämpftes Hauptkeyword", sondern „Wie werde ich für die konkreten
         Anfragen gefunden, die meine Zielkundschaft heute stellt". Das sind
         meistens Kombinationen aus Leistung und Region oder Leistung und Branche.
-        Diese Anfragen haben weniger Volumen, dafür deutlich höhere
-        Abschlussquoten.
+        Diese Anfragen haben oft weniger Suchvolumen und können dafür näher an
+        einer konkreten Kaufabsicht liegen.
       </p>
       <p>
         Konkret heißt das: eine Handvoll wirklich guter Landingpages,
@@ -97,10 +97,11 @@ function Article() {
 
       <h2>Wie lange dauert es, bis SEO wirkt</h2>
       <p>
-        Sichtbare Bewegung in den Rankings zeigt sich meist nach zwei bis vier
-        Monaten, spürbare Auswirkungen auf Anfragen typischerweise nach sechs
-        Monaten. Wer schneller Ergebnisse braucht, sollte SEO mit bezahlter
-        Sichtbarkeit kombinieren, statt vom SEO-Retainer Wunder zu erwarten.
+        Wie schnell SEO wirkt, hängt von Ausgangslage, Wettbewerb, Technik und
+        Umfang der Änderungen ab. Technische Korrekturen können früher sichtbar
+        werden als neue Inhalte. Belastbare Auswirkungen auf Anfragen brauchen
+        häufig mehrere Monate. Wer kurzfristig Reichweite benötigt, kann SEO
+        zeitweise mit bezahlter Sichtbarkeit kombinieren.
       </p>
       <p>
         Und ja: es gibt Fälle mit stärkerem Effekt in kürzerer Zeit – meist

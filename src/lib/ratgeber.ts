@@ -49,7 +49,7 @@ export const articles: RatgeberArticle[] = [
     title: "In ChatGPT, Perplexity und Google-KI gefunden werden",
     metaTitle: "In ChatGPT und Perplexity gefunden werden | KI-Sichtbarkeit",
     description:
-      "Antwortmaschinen ersetzen zunehmend die klassische Google-Suche. So bereiten Sie Ihre Website darauf vor, in KI-Antworten zitiert zu werden.",
+      "KI-Antwortsysteme ergänzen die klassische Google-Suche. So bereiten Sie Ihre Website darauf vor, als Quelle verständlich und zitierfähig zu sein.",
     excerpt:
       "AEO und GEO in verständlich: warum KI-Antworten Ihre Marke gerade neu sortieren und was Sie jetzt tun sollten.",
     topic: "KI-Sichtbarkeit",
@@ -65,7 +65,7 @@ export const articles: RatgeberArticle[] = [
     description:
       "Ehrliche Preisorientierung für Websites im Mittelstand: welche Faktoren den Preis treiben, wo Sie sparen können und wo es sich nie lohnt.",
     excerpt:
-      "Von 500 Euro bis 50.000 Euro ist alles zu haben. Warum die Spanne so groß ist und welche Investition in Ihrem Fall realistisch ist.",
+      "Website-Angebote unterscheiden sich stark. Welche Leistungen den Preis treiben und wie Sie Angebote nachvollziehbar vergleichen.",
     topic: "Webdesign",
     publishedAt: "2026-07-12",
     readingMinutes: 6,
@@ -93,7 +93,7 @@ export const articles: RatgeberArticle[] = [
     description:
       "Praktische Checkliste für den Website-Relaunch: Redirects, Inhalte, Technik und Messung. So verlieren Sie beim Umzug keine Rankings.",
     excerpt:
-      "Ein Relaunch kann Ihre Sichtbarkeit verdoppeln oder halbieren. Diese Checkliste zeigt, worauf es vor, während und nach dem Livegang ankommt.",
+      "Ein Relaunch kann bestehende Sichtbarkeit gefährden. Diese Checkliste zeigt, worauf es vor, während und nach dem Livegang ankommt.",
     topic: "Webdesign",
     publishedAt: "2026-07-13",
     readingMinutes: 8,

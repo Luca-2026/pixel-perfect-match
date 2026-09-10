@@ -157,7 +157,7 @@ function KiAutomatisierung() {
                 title: "Meeting-Protokolle in Aufgaben verwandeln",
                 body:
                   "Aus Teams- oder Zoom-Aufzeichnungen entstehen strukturiertes Protokoll, Entscheidungen und Aufgaben mit Zuständigkeiten, direkt im Task-System.",
-                tools: "Bausteine: Microsoft 365 Copilot, Otter.ai oder Meet Jamie, Anbindung an Ihr Task-Tool.",
+                tools: "Bausteine: Microsoft 365 Copilot, Otter.ai oder Jamie, Anbindung an Ihr Task-Tool.",
                 gate: "Freigabe: Moderator prüft Aufgabenliste vor Verteilung.",
               },
               {
@@ -184,8 +184,8 @@ function KiAutomatisierung() {
             ))}
           </div>
           <p className="mt-6 text-sm text-ink/60">
-            Alle genannten Bausteine sind heute (Stand 2026) verfügbar und im
-            Einsatz. Welche Kombination in Ihrem Betrieb sinnvoll ist, klären
+            Die genannten Bausteine sind zum Zeitpunkt dieser Veröffentlichung
+            verfügbar. Welche Kombination in Ihrem Betrieb sinnvoll ist, klären
             wir im Digital-Check anhand Ihres konkreten Prozesses. Konkrete
             Kundenbeispiele finden Sie auf der{" "}
             <a href="/referenzen" className="text-petrol">Referenzen-Seite</a>{" "}

@@ -22,11 +22,11 @@ function KiSichtbarkeit() {
       ]}
       directAnswer={
         <p>
-          KI-Sichtbarkeit – international auch Answer Engine Optimization
-          (AEO) oder Generative Engine Optimization (GEO) genannt – sorgt
-          dafür, dass KI-Antwortsysteme wie ChatGPT, Google-KI, Gemini und
-          Perplexity Ihr Unternehmen als Quelle zitieren. Wir strukturieren
-          Ihre Inhalte so, dass sie zitierfähig sind, und begleiten das
+          KI-Sichtbarkeit, international auch Answer Engine Optimization
+          (AEO) oder Generative Engine Optimization (GEO) genannt, verbessert
+          die Voraussetzungen dafür, dass Systeme wie ChatGPT, Google-KI,
+          Gemini, Perplexity und Claude Ihre Inhalte finden und als Quelle
+          einordnen. Wir strukturieren Inhalte und begleiten das
           Monitoring der Zitierungen.
         </p>
       }
@@ -72,7 +72,7 @@ function KiSichtbarkeit() {
         },
         {
           q: "Bringt KI-Sichtbarkeit noch Anfragen, wenn Nutzer nicht klicken?",
-          a: "Ja – wenn Ihre Marke in der KI-Antwort genannt wird, entstehen Markenbekanntheit und Vertrauen. Nutzer merken sich Namen und suchen später gezielt. Direkte Klicks aus KI-Systemen sind der zweite Effekt, der langsam wächst.",
+          a: "Eine Nennung kann Markenbekanntheit unterstützen. Ob daraus Anfragen entstehen, hängt von Thema, Darstellung und weiterem Nutzerweg ab. Direkte Verweise und wiederholte Erwähnungen lassen sich im Monitoring teilweise beobachten.",
         },
         {
           q: "Kann man den Erfolg messen?",

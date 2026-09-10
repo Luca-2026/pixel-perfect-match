@@ -49,8 +49,8 @@ function Koeln() {
           <p>
             Für Kölner Unternehmen aus Handwerk, Dienstleistung, Handel
             und lokalem Mittelstand: KI-Automatisierung, Webdesign, SEO
-            und KI-Sichtbarkeit. Inhabergeführt, mit Sitz in Wachtberg –
-            eine gute halbe Stunde nach Köln. Termine vor Ort auf Wunsch.
+            und KI-Sichtbarkeit. Inhabergeführt, mit Sitz in Wachtberg im
+            Bonner Umland. Termine vor Ort auf Wunsch.
           </p>
         }
       />
@@ -162,7 +162,7 @@ function Koeln() {
             items={[
               {
                 q: "Muss ich für einen Termin nach Wachtberg kommen?",
-                a: "Nein. Termine laufen meist per Videocall. Für Kick-Offs, Workshops oder Übergaben komme ich nach Köln – im Kernstadtgebiet und im Umland (Hürth, Leverkusen, Brühl) unkompliziert.",
+                a: "Nein. Termine laufen meist per Videocall. Für Auftakttermine, Workshops oder Übergaben komme ich auf Wunsch nach Köln sowie ins genannte Umland.",
               },
               {
                 q: "Was kostet eine typische Website für ein Kölner KMU?",

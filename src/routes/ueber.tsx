@@ -59,7 +59,7 @@ function Ueber() {
           </HeadlineDot>
           <div className="mt-6 space-y-5 text-ink/85">
             <p>
-              Praxis aus IT und Medientechnik, seit Jahren an der
+              Praxis aus IT und Medientechnik, angewendet an der
               Schnittstelle von Web, KI und Prozessen. Bei sandhoff.digital
               führe ich jedes Projekt persönlich – vom ersten Digital-Check
               bis zur laufenden Betreuung.
