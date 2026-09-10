@@ -1,6 +1,7 @@
 "use client";
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import type { ReactNode, ElementType, ComponentProps } from "react";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 type MotionTag = "div" | "section" | "article" | "header" | "footer" | "ul" | "ol" | "li" | "figure" | "span";
 
@@ -20,11 +21,11 @@ export function Reveal({
   children,
   className,
   delay = 0,
-  y = 24,
+  y = 18,
   once = true,
   amount = 0.2,
 }: RevealProps) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Comp = motion[as] as ElementType;
   const props: ComponentProps<typeof motion.div> = reduce
     ? { initial: false }
@@ -33,7 +34,7 @@ export function Reveal({
         whileInView: { opacity: 1, y: 0 },
         viewport: { once, amount },
         transition: {
-          duration: 0.7,
+          duration: 0.65,
           delay,
           ease: [0.22, 1, 0.36, 1],
         },
@@ -55,7 +56,7 @@ export function Stagger({
   once = true,
   amount = 0.2,
 }: RevealProps & { gap?: number }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Comp = motion[as] as ElementType;
   const variants: Variants = {
     hidden: {},
@@ -83,21 +84,21 @@ export function StaggerItem({
   as = "div",
   children,
   className,
-  y = 20,
+  y = 16,
 }: {
   as?: MotionTag;
   children: ReactNode;
   className?: string;
   y?: number;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Comp = motion[as] as ElementType;
   const variants: Variants = {
     hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
     },
   };
   return (

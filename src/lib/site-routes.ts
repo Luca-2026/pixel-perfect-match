@@ -15,7 +15,7 @@ export const services: SiteRoute[] = [
   {
     path: "/leistungen/ki-automatisierung",
     title: "KI & Prozessautomatisierung",
-    metaTitle: "KI und Prozessautomatisierung für KMU zum Festpreis | sandhoff.digital",
+    metaTitle: "KI-Automatisierung für KMU | sandhoff.digital",
     description:
       "KI und Prozessautomatisierung für kleine und mittelständische Unternehmen. Zeitersparnis dokumentiert, Festpreis nach Digital-Check.",
     h1: "Geschäftsprozesse automatisieren, Zeit zurückgewinnen",
@@ -48,7 +48,7 @@ export const services: SiteRoute[] = [
   {
     path: "/leistungen/ki-sichtbarkeit",
     title: "KI-Sichtbarkeit (AEO/GEO)",
-    metaTitle: "In ChatGPT, Gemini und Google-KI gefunden werden | KI-Sichtbarkeit",
+    metaTitle: "KI-Sichtbarkeit in ChatGPT und Google | sandhoff.digital",
     description:
       "AEO und GEO für KMU: sichtbar in ChatGPT, Gemini, Perplexity und Google-KI. Strukturierte Inhalte, Monitoring, Kombi mit SEO.",
     h1: "Sichtbar, wenn Kunden die KI fragen",
@@ -62,7 +62,7 @@ export const mainPages: SiteRoute[] = [
   {
     path: "/",
     title: "Start",
-    metaTitle: "Digitalagentur für den Mittelstand: KI, Web und SEO | sandhoff.digital",
+    metaTitle: "Digitalagentur für KMU: KI, Web und SEO",
     description:
       "KI-Automatisierung, Webdesign und SEO für kleine und mittelständische Unternehmen. Messbare Ergebnisse zum Festpreis. Jetzt kostenlosen Digital-Check starten.",
     h1: "Digital auf den Punkt",
@@ -73,7 +73,7 @@ export const mainPages: SiteRoute[] = [
   {
     path: "/leistungen",
     title: "Leistungen",
-    metaTitle: "Leistungen: KI, Webdesign und SEO für KMU | sandhoff.digital",
+    metaTitle: "KI, Webdesign und SEO für KMU | Leistungen",
     description:
       "Übersicht unserer Leistungen für kleine und mittelständische Unternehmen: KI-Automatisierung, Webdesign, SEO und KI-Sichtbarkeit.",
     h1: "Leistungen für den Mittelstand",
@@ -96,7 +96,7 @@ export const mainPages: SiteRoute[] = [
   {
     path: "/digital-check",
     title: "Digital-Check",
-    metaTitle: "Kostenloser Digital-Check für Ihr Unternehmen | sandhoff.digital",
+    metaTitle: "Kostenloser Digital-Check | sandhoff.digital",
     description:
       "Der kostenlose Digital-Check: persönliche Einschätzung mit den drei größten Potenzialen für Ihr Unternehmen. Unverbindlich, kein Newsletter.",
     h1: "Der kostenlose Digital-Check",

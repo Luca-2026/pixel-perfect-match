@@ -137,7 +137,7 @@ function Preise() {
             {priceTiers.map((t) => (
               <article
                 key={t.path}
-                className={`surface-card flex flex-col p-6 ${
+                className={`surface-card flex min-w-0 flex-col overflow-hidden p-6 ${
                   t.highlight ? "border-petrol shadow-sm" : ""
                 }`}
               >
@@ -157,7 +157,7 @@ function Preise() {
 
                 <p className="mt-4 text-sm text-ink/70">{t.description}</p>
 
-                <p className="metric mt-6 text-2xl font-semibold text-ink">
+                <p className="mt-6 text-2xl font-semibold text-ink">
                   {t.price}
                   <span className="ml-2 text-sm font-normal text-ink/60">
                     {t.unit}
@@ -190,7 +190,7 @@ function Preise() {
           <div className="mt-14 rounded-md border border-line bg-mint/25 p-6 sm:p-8">
             <Eyebrow>Nächster Schritt</Eyebrow>
             <p className="mt-3 max-w-2xl font-display text-xl text-ink">
-              Wir nennen Ihnen im Digital-Check einen konkreten Festpreis –
+              Wir nennen Ihnen im Digital-Check einen konkreten Festpreis ,
               vorher entstehen keine Kosten.
             </p>
             <Link

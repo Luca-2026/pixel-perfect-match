@@ -24,8 +24,8 @@ function Article() {
   return (
     <ArticleLayout article={article}>
       <p>
-        Immer mehr Menschen stellen Kaufentscheidungen und
-        Recherchefragen zuerst einer KI – ChatGPT, Perplexity, Gemini oder
+        Menschen nutzen für Recherchefragen neben Suchmaschinen zunehmend
+        KI-Systeme wie ChatGPT, Perplexity, Gemini oder
         der KI-Übersicht in der Google-Suche. Wer dort nicht als sinnvolle
         Quelle vorkommt, verliert Sichtbarkeit an genau dem Ort, an dem sich
         Meinung heute bildet. Dieser Artikel erklärt, was Sie konkret tun
@@ -39,7 +39,7 @@ function Article() {
         beantworten, statt eine Trefferliste zu zeigen. GEO steht für
         Generative Engine Optimization: die Ausrichtung auf generative
         KI-Systeme, die aus vielen Quellen einen eigenen Antworttext
-        formulieren und Ihre Marke darin nennen können – oder eben nicht.
+        formulieren und Ihre Marke darin nennen können. oder eben nicht.
       </p>
       <p>
         Beide Disziplinen bauen auf klassischer SEO auf. Ohne saubere
@@ -56,7 +56,7 @@ function Article() {
       <ul>
         <li>
           <strong>Klare Antworten am Anfang.</strong> Wenn Ihre Seite eine
-          Frage stellt, sollte die Antwort in den ersten Absätzen stehen –
+          Frage stellt, sollte die Antwort in den ersten Absätzen stehen ,
           nicht am Ende einer langen Story.
         </li>
         <li>
@@ -66,8 +66,8 @@ function Article() {
         </li>
         <li>
           <strong>Sichtbare FAQs.</strong> Fragen in normaler Sprache mit
-          direkten Antworten sind das mit Abstand meistgenutzte Muster
-          für KI-Zitate.
+          direkten Antworten gehören zu den Formaten, die Inhalte für Menschen
+          und Antwortsysteme leichter erfassbar machen.
         </li>
         <li>
           <strong>Strukturierte Daten.</strong> Schema.org-Auszeichnungen für
@@ -78,10 +78,10 @@ function Article() {
 
       <h2>Warum Marke plötzlich SEO ist</h2>
       <p>
-        In klassischen Suchergebnissen war Ihr Ranking weitgehend
-        unabhängig davon, ob jemand Ihre Marke kennt. In generativen
-        Antworten spielt Markenerwähnung eine viel größere Rolle: Ein
-        System wird eher ein Unternehmen nennen, das in Fachartikeln,
+        Auch in klassischen Suchergebnissen spielen Bekanntheit, Verweise und
+        Vertrauen eine Rolle. Für generative Antworten sind eindeutige externe
+        Erwähnungen ebenfalls hilfreich: Ein System kann ein Unternehmen besser
+        einordnen, wenn es in Fachartikeln,
         Verzeichnissen, Bewertungen und Interviews vorkommt, als eines
         ohne solche Spuren. Konsistente Namensschreibweise, saubere
         Unternehmenseinträge und regelmäßige Erwähnungen in der Branche

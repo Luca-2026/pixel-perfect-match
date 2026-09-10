@@ -84,7 +84,7 @@ export function SiteFooter() {
                     <li key={link.to}>
                       <Link
                         to={link.to}
-                        className="text-paper/85 no-underline hover:text-paper hover:underline"
+                        className="inline-flex min-h-11 items-center py-2 text-paper/85 no-underline hover:text-paper hover:underline"
                       >
                         {link.label}
                       </Link>
@@ -101,7 +101,7 @@ export function SiteFooter() {
           <ul className="flex flex-wrap gap-4">
             {legalPages.map((p) => (
               <li key={p.path}>
-                <Link to={p.path} className="text-paper/70 no-underline hover:text-paper hover:underline">
+                <Link to={p.path} className="inline-flex min-h-11 items-center py-2 text-paper/70 no-underline hover:text-paper hover:underline">
                   {p.title}
                 </Link>
               </li>

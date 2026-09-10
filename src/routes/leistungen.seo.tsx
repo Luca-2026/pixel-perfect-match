@@ -33,7 +33,7 @@ function Seo() {
         </p>
       }
       forWho={[
-        "Sie werden aktuell zu selten gefunden – oder unter falschen Begriffen.",
+        "Sie werden aktuell zu selten gefunden. oder unter falschen Begriffen.",
         "Ihre Website ist grundsätzlich in Ordnung, aber es fehlt eine kontinuierliche SEO-Arbeit.",
         "Sie wollen wissen, welche Themen Anfragen bringen, nicht nur, welche Rankings sich ändern.",
         "Sie haben mindestens einen physischen Standort oder ein klar umrissenes Einzugsgebiet.",
@@ -41,7 +41,7 @@ function Seo() {
       pricingNote={
         <p>
           Monatlicher Retainer ab 890 € netto. Der Umfang orientiert sich
-          an Ausgangslage und Zielen – wir empfehlen keinen Retainer, den
+          an Ausgangslage und Zielen. wir empfehlen keinen Retainer, den
           Sie nicht brauchen.
         </p>
       }
@@ -59,18 +59,18 @@ function Seo() {
         {
           title: "Umsetzung & Inhalte",
           body:
-            "Technische Fixes, neue Landingpages, Ratgeber-Artikel, Google-Unternehmensprofil-Pflege – je nach Priorität.",
+            "Technische Fixes, neue Landingpages, Ratgeber-Artikel, Google-Unternehmensprofil-Pflege. je nach Priorität.",
         },
         {
           title: "Reporting in Anfragen",
           body:
-            "Monatliches Reporting mit Klicks, Impressionen, Positionen und – wo trackbar – Anfragen. Keine Vanity-Metrics.",
+            "Monatliches Reporting mit Klicks, Impressionen, Positionen und. wo trackbar. Anfragen. Keine Vanity-Metrics.",
         },
       ]}
       faq={[
         {
           q: "Wie lange dauert es, bis SEO wirkt?",
-          a: "Erste technische Verbesserungen wirken innerhalb von Wochen. Bei Inhalten und lokaler Sichtbarkeit sind drei bis sechs Monate realistisch, bevor die Zahlen deutlich anziehen. Der SLT-Rental-Verlauf zeigt, was in rund einem Jahr möglich ist – Ergebnisse sind aber keine Garantie und hängen von Branche, Wettbewerb und Ausgangslage ab.",
+          a: "Erste technische Verbesserungen wirken innerhalb von Wochen. Bei Inhalten und lokaler Sichtbarkeit sind drei bis sechs Monate realistisch, bevor die Zahlen deutlich anziehen. Der SLT-Rental-Verlauf zeigt, was in rund einem Jahr möglich ist. Ergebnisse sind aber keine Garantie und hängen von Branche, Wettbewerb und Ausgangslage ab.",
         },
         {
           q: "Machen Sie auch Linkaufbau?",
@@ -111,7 +111,7 @@ function Seo() {
         },
       ]}
       ctaHeadline="Wo verlieren Sie heute Suchanfragen"
-      ctaBody="Der kostenlose Digital-Check zeigt Ihnen die drei größten SEO-Baustellen für Ihr Unternehmen – ohne Verkaufsgespräch, mit konkreten Empfehlungen."
+      ctaBody="Der kostenlose Digital-Check zeigt Ihnen die drei größten SEO-Baustellen für Ihr Unternehmen. ohne Verkaufsgespräch, mit konkreten Empfehlungen."
     >
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">

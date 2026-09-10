@@ -41,7 +41,7 @@ export function Faq({ eyebrow = "Häufige Fragen", headline = "Was Kundinnen und
       </HeadlineDot>
       <dl className="mt-10 divide-y divide-line border-y border-line">
         {items.map((item, i) => (
-          <div key={`${id}-${i}`} className="grid gap-3 py-6 md:grid-cols-[1fr_2fr] md:gap-10">
+          <div key={`${id}-${i}`} className="grid gap-3 py-6 lg:grid-cols-[minmax(14rem,1fr)_2fr] lg:gap-10">
             <dt className="font-display text-lg font-semibold text-ink">{item.q}</dt>
             <dd className="text-ink/80">{item.a}</dd>
           </div>

@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoAsset from "@/assets/sandhoff-digital-logo-farbig.svg.asset.json";
 import { Container } from "./primitives";
 import { services } from "@/lib/site-routes";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 const primaryNav = [
   { to: "/preise", label: "Preise" },
@@ -19,7 +20,7 @@ const primaryNav = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const reduceHeader = useReducedMotion();
+  const reduceHeader = useSafeReducedMotion();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-xl">
@@ -102,7 +103,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="ml-auto hidden md:block lg:ml-0">
           <Button asChild className="rounded-full bg-ink px-5 text-paper hover:bg-amber">
             <Link to="/digital-check" className="no-underline hover:no-underline">Digital-Check starten</Link>
           </Button>
@@ -112,7 +113,7 @@ export function SiteHeader() {
           variant="ghost"
           size="icon"
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink lg:hidden"
+          className="h-11 w-11 shrink-0 rounded-full text-ink lg:hidden"
           aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}

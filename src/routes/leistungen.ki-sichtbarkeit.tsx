@@ -22,11 +22,11 @@ function KiSichtbarkeit() {
       ]}
       directAnswer={
         <p>
-          KI-Sichtbarkeit – international auch Answer Engine Optimization
-          (AEO) oder Generative Engine Optimization (GEO) genannt – sorgt
-          dafür, dass KI-Antwortsysteme wie ChatGPT, Google-KI, Gemini und
-          Perplexity Ihr Unternehmen als Quelle zitieren. Wir strukturieren
-          Ihre Inhalte so, dass sie zitierfähig sind, und begleiten das
+          KI-Sichtbarkeit, international auch Answer Engine Optimization
+          (AEO) oder Generative Engine Optimization (GEO) genannt, verbessert
+          die Voraussetzungen dafür, dass Systeme wie ChatGPT, Google-KI,
+          Gemini, Perplexity und Claude Ihre Inhalte finden und als Quelle
+          einordnen. Wir strukturieren Inhalte und begleiten das
           Monitoring der Zitierungen.
         </p>
       }
@@ -39,7 +39,7 @@ function KiSichtbarkeit() {
       pricingNote={
         <p>
           Preis auf Anfrage. Wir empfehlen KI-Sichtbarkeit fast immer in
-          Kombination mit dem SEO-Retainer – strukturierte Inhalte wirken
+          Kombination mit dem SEO-Retainer. strukturierte Inhalte wirken
           in beiden Kanälen.
         </p>
       }
@@ -57,7 +57,7 @@ function KiSichtbarkeit() {
         {
           title: "Zitierbarkeit erhöhen",
           body:
-            "Externe Erwähnungen, Fachverzeichnisse, Presse-Signale – wir machen Ihr Unternehmen zu einer Quelle, die KI-Systeme finden und einordnen.",
+            "Externe Erwähnungen, Fachverzeichnisse, Presse-Signale. wir machen Ihr Unternehmen zu einer Quelle, die KI-Systeme finden und einordnen.",
         },
         {
           title: "Monitoring",
@@ -68,11 +68,11 @@ function KiSichtbarkeit() {
       faq={[
         {
           q: "Was ist der Unterschied zwischen SEO und KI-Sichtbarkeit?",
-          a: "SEO optimiert dafür, dass Ihre Website in Suchergebnissen erscheint und Klicks bringt. KI-Sichtbarkeit optimiert dafür, dass KI-Antwortsysteme Ihre Inhalte als Quelle nutzen – oft ohne dass Nutzer klicken. Beides ergänzt sich, weil die technische Grundlage vieles teilt.",
+          a: "SEO optimiert dafür, dass Ihre Website in Suchergebnissen erscheint und Klicks bringt. KI-Sichtbarkeit optimiert dafür, dass KI-Antwortsysteme Ihre Inhalte als Quelle nutzen. oft ohne dass Nutzer klicken. Beides ergänzt sich, weil die technische Grundlage vieles teilt.",
         },
         {
           q: "Bringt KI-Sichtbarkeit noch Anfragen, wenn Nutzer nicht klicken?",
-          a: "Ja – wenn Ihre Marke in der KI-Antwort genannt wird, entstehen Markenbekanntheit und Vertrauen. Nutzer merken sich Namen und suchen später gezielt. Direkte Klicks aus KI-Systemen sind der zweite Effekt, der langsam wächst.",
+          a: "Eine Nennung kann Markenbekanntheit unterstützen. Ob daraus Anfragen entstehen, hängt von Thema, Darstellung und weiterem Nutzerweg ab. Direkte Verweise und wiederholte Erwähnungen lassen sich im Monitoring teilweise beobachten.",
         },
         {
           q: "Kann man den Erfolg messen?",
@@ -80,7 +80,7 @@ function KiSichtbarkeit() {
         },
         {
           q: "Sind die KI-Systeme nicht zu neu, um darauf zu setzen?",
-          a: "Die Kanäle sind jung, aber die Nutzung wächst schnell. Wir empfehlen KI-Sichtbarkeit nur als Ergänzung zu solidem SEO, nicht als Ersatz – und sind ehrlich, wenn wir für Ihre Zielgruppe noch keinen Effekt sehen.",
+          a: "Die Kanäle sind jung, aber die Nutzung wächst schnell. Wir empfehlen KI-Sichtbarkeit nur als Ergänzung zu solidem SEO, nicht als Ersatz. und sind ehrlich, wenn wir für Ihre Zielgruppe noch keinen Effekt sehen.",
         },
         {
           q: "Welche Systeme deckt das ab?",
@@ -105,17 +105,17 @@ function KiSichtbarkeit() {
         {
           path: "/leistungen/ki-automatisierung",
           label: "KI-Automatisierung",
-          description: "Aus KI-Sichtbarkeit werden Anfragen – der Assistent verarbeitet sie.",
+          description: "Aus KI-Sichtbarkeit werden Anfragen. der Assistent verarbeitet sie.",
         },
       ]}
       ctaHeadline="Wird Ihr Unternehmen in ChatGPT und Co. gefunden"
-      ctaBody="Im Digital-Check prüfen wir konkret, wie sichtbar Sie in ChatGPT, Google-KI und Perplexity heute schon sind – und wo der größte Hebel liegt."
+      ctaBody="Im Digital-Check prüfen wir konkret, wie sichtbar Sie in ChatGPT, Google-KI und Perplexity heute schon sind. und wo der größte Hebel liegt."
     >
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
           <Eyebrow>Begriffe</Eyebrow>
           <HeadlineDot as="h2" className="mt-3 max-w-3xl">
-            AEO, GEO, LLMO – gemeint ist meist dasselbe
+            AEO, GEO, LLMO. gemeint ist meist dasselbe
           </HeadlineDot>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {[
@@ -123,7 +123,7 @@ function KiSichtbarkeit() {
                 term: "AEO",
                 long: "Answer Engine Optimization",
                 body:
-                  "Optimierung für Systeme, die direkte Antworten liefern statt Trefferlisten – etwa ChatGPT oder Perplexity.",
+                  "Optimierung für Systeme, die direkte Antworten liefern statt Trefferlisten. etwa ChatGPT oder Perplexity.",
               },
               {
                 term: "GEO",

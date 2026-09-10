@@ -55,7 +55,7 @@ function Referenzen() {
       <Section tone="paper">
         <Container className="max-w-5xl">
           <article className="surface-card overflow-hidden">
-            <header className="flex flex-wrap items-start justify-between gap-6 border-b border-line bg-mint/30 p-6 sm:p-8">
+            <header className="grid grid-cols-1 items-start gap-6 border-b border-line bg-mint/30 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_auto]">
               <div className="flex min-w-0 items-start gap-5">
                 <img
                   src={sltLogo.url}
@@ -75,7 +75,7 @@ function Referenzen() {
                   </p>
                 </div>
               </div>
-              <div className="shrink-0 rounded-md border border-line bg-paper px-4 py-3 text-sm">
+              <div className="min-w-0 rounded-md border border-line bg-paper px-4 py-3 text-sm lg:max-w-md">
                 <p className="eyebrow">Leistungen</p>
                 <ul className="mt-2 flex flex-wrap gap-2">
                   {sltServices.map((s) => (

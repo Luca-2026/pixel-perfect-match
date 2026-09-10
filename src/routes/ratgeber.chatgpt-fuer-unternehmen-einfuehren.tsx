@@ -65,10 +65,11 @@ function Article() {
       </p>
       <ul>
         <li>
-          <strong>ChatGPT Business oder Enterprise.</strong> OpenAI schließt in
-          diesen Tarifen das Training mit Ihren Eingaben aus und bietet
-          zentrale Verwaltung, SSO und Audit-Protokolle. Für reine
-          Text-Assistenz in kleinen und mittleren Teams eine solide Basis.
+          <strong>ChatGPT Business oder Enterprise.</strong> OpenAI verwendet
+          Geschäftsdaten in diesen Angeboten laut eigener Datenschutzangaben
+          standardmäßig nicht zum Training. Verwaltungs- und Sicherheitsfunktionen
+          unterscheiden sich je nach Tarif und sollten vor Vertragsschluss anhand
+          der aktuellen Leistungsbeschreibung geprüft werden.
         </li>
         <li>
           <strong>Microsoft 365 Copilot.</strong> Sinnvoll, wenn Sie ohnehin in
@@ -141,9 +142,9 @@ function Article() {
 
       <h2>Wie ein realistischer Einstieg aussieht</h2>
       <p>
-        Statt einer großen Ausrollung im ganzen Unternehmen bewährt sich ein
-        Pilotteam von fünf bis zehn Personen aus unterschiedlichen Bereichen
-        für vier bis acht Wochen. Am Ende steht eine Auswertung: Welche
+        Statt einer großen Ausrollung im ganzen Unternehmen empfiehlt sich ein
+        begrenztes Pilotteam aus unterschiedlichen Bereichen. Am Ende steht
+        eine Auswertung: Welche
         Aufgaben wurden schneller? Wo waren die Ausgaben verlässlich, wo
         nicht? Auf dieser Grundlage entscheidet die Geschäftsleitung, ob und
         wie breit ausgerollt wird.
