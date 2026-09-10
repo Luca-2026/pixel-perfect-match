@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ServiceLayout } from "@/components/content/service-layout";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { ComparisonTable } from "@/components/content/comparison-table";
+import { AiProcessDemos } from "@/components/showcase/ai-process-demos";
 import { Database, FileCheck2, GraduationCap, MapPin, RefreshCw, Workflow } from "lucide-react";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
@@ -68,7 +69,7 @@ function KiAutomatisierung() {
       faq={[
         {
           q: "Ab welcher Unternehmensgröße lohnt sich KI-Automatisierung?",
-          a: "Die entscheidende Frage ist nicht die Größe, sondern die Wiederholung. Ein Prozess, der wöchentlich mehrere Stunden bindet, rechnet sich meist innerhalb weniger Monate. ob im Zwei-Personen-Betrieb oder im 40-Personen-Unternehmen.",
+          a: "Die entscheidende Frage ist nicht die Größe, sondern die Wiederholung. Ob sich ein Prozess rechnet, hängt von Fallzahl, Zeitgewinn sowie Einführungs und Betriebskosten ab. Das prüfen wir mit Ihren realen Werten.",
         },
         {
           q: "Was passiert mit unseren Daten?",
@@ -80,7 +81,7 @@ function KiAutomatisierung() {
         },
         {
           q: "Was, wenn die KI Fehler macht?",
-          a: "Wir bauen Freigabestellen ein. die KI schlägt vor, ein Mensch bestätigt. Kritische Prozesse laufen erst dann vollautomatisch, wenn die Trefferquote über einen definierten Testzeitraum belegt ist.",
+          a: "Wir bauen Freigabestellen ein. Die KI schlägt vor, ein Mensch bestätigt. Kritische Prozesse laufen erst dann vollautomatisch, wenn die Trefferquote über einen definierten Testzeitraum belegt ist.",
         },
         {
           q: "Wie schnell sehen wir Ergebnisse?",
@@ -180,6 +181,8 @@ function KiAutomatisierung() {
         </Container>
       </Section>
 
+      <AiProcessDemos />
+
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
           <Eyebrow>Beispiele</Eyebrow>
@@ -259,7 +262,7 @@ function KiAutomatisierung() {
             wir im Digital-Check anhand Ihres konkreten Prozesses. Konkrete
             Kundenbeispiele finden Sie auf der{" "}
             <a href="/referenzen" className="text-petrol">Referenzen-Seite</a>{" "}
-           . dort nennen wir ausschließlich freigegebene Projekte.
+           . Dort nennen wir ausschließlich freigegebene Projekte.
           </p>
 
         </Container>
