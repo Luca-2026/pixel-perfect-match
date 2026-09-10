@@ -71,7 +71,7 @@ Der Vertrag ist mit einer Frist von drei Monaten zum Ende eines Vertragsjahres k
 
 export type SampleContractKey = keyof typeof SAMPLE_CONTRACTS;
 
-async function callGateway(system: string, user: string, schemaName: string, schema: object) {
+async function callGateway<T>(system: string, user: string, schemaName: string, schema: object) {
   const key = process.env["LOVABLE_API_KEY"];
   if (!key) throw new Error("AI Gateway ist nicht konfiguriert.");
   const started = Date.now();
@@ -105,7 +105,7 @@ async function callGateway(system: string, user: string, schemaName: string, sch
   };
   const content = json.choices?.[0]?.message?.content ?? "{}";
   return {
-    data: JSON.parse(content) as Record<string, unknown>,
+    data: JSON.parse(content) as T,
     meta: {
       model: MODEL,
       ms: Date.now() - started,
@@ -115,6 +115,22 @@ async function callGateway(system: string, user: string, schemaName: string, sch
 }
 
 /* ---------------------------------------------------------------- Vertrag */
+
+export type ContractFinding = {
+  category: string;
+  title: string;
+  quote: string;
+  clause: string;
+  detail: string;
+  risk: "hoch" | "mittel" | "niedrig";
+};
+export type ContractAnalysis = { summary: string; findings: ContractFinding[] };
+export type QuoteDraft = {
+  title: string;
+  intro: string;
+  positions: { position: string; description: string; quantity: string; unit: string }[];
+  notes: string[];
+};
 
 const contractSchema = {
   type: "object",
@@ -147,7 +163,7 @@ export const analyzeSampleContract = createServerFn({ method: "POST" })
   )
   .handler(async ({ data }) => {
     const sample = SAMPLE_CONTRACTS[data.contract];
-    const result = await callGateway(
+    const result = await callGateway<ContractAnalysis>(
       "Du bist ein Analyse-Assistent für Vertragsdokumente in einem deutschen Mittelstandsbetrieb. Du analysierst ausschließlich den übergebenen Text. Du erfindest keine Inhalte, gibst keine Rechtsberatung und formulierst sachlich in deutscher Sprache mit Sie-Ansprache. Verwende keine Gedankenstriche. Das Feld quote enthält ein wörtliches Zitat aus dem Text, maximal 140 Zeichen. Liefere fünf bis sieben Fundstellen zu Fristen, Kündigung, Zahlung, Pflichten, Haftung und Datenschutz.",
       `Analysiere diesen Vertrag:\n\n${sample.text}`,
       "vertragsanalyse",
@@ -201,7 +217,7 @@ export const draftSampleQuote = createServerFn({ method: "POST" })
       heizkoerper: "Lieferung und Montage von Standardheizkörpern inklusive Dichtheitsprüfung",
     } as const;
 
-    const result = await callGateway(
+    const result = await callGateway<QuoteDraft>(
       "Du bist der Angebots-Assistent eines SHK Handwerksbetriebs im Raum Bonn. Du formulierst Leistungspositionen für einen internen Angebotsentwurf. Sachlich, deutsch, Sie-Ansprache, keine Gedankenstriche, keine Preise nennen, da die Preise aus der Kalkulationsdatenbank stammen. Drei bis fünf Positionen inklusive Anfahrt und Dokumentation. Die Hinweise nennen Annahmen und offene Punkte für die menschliche Prüfung.",
       `Auftragsart: ${jobs[data.job]}\nAnzahl Einheiten: ${data.units}\nDringender Termin: ${data.urgent ? "ja" : "nein"}\nKundenhinweis: ${data.note || "keiner"}`,
       "angebotsentwurf",
