@@ -14,3 +14,7 @@
 - [x] KI Prozessautomatisierung mit konkreter Angebotserstellung positioniert
 - [x] Kontrolliertes Lernen, Personalentlastung und Wettbewerbsdruck erklärt
 - [x] Inhabergeführte Einführung und Schulung vor Ort hervorgehoben
+- [ ] Interaktiven SHK Angebotsprozess mit transparenter Beispielkalkulation bauen
+- [ ] Sichere Vertragsanalyse mit Musterverträgen und nachvollziehbaren Ergebnissen bauen
+- [ ] Veränderbaren Einsparungsrechner mit belegter Methodik ergänzen
+- [ ] Beide Demonstrationen mobil, barrierearm und fehlerfrei prüfen
