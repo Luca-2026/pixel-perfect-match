@@ -105,13 +105,16 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: 0;
-    line-height: 1.04;
+    line-height: 1.06;
     color: var(--color-ink);
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
-  h1 { font-size: clamp(2.65rem, 4.5vw + 1rem, 5.75rem); }
-  h2 { font-size: clamp(2rem, 2.4vw + 1rem, 3.5rem); }
-  h3 { font-size: clamp(1.25rem, 1vw + 0.8rem, 1.5rem); }
+  h1 { font-size: clamp(1.8rem, 5.4vw + 0.7rem, 5.75rem); }
+  h2 { font-size: clamp(1.55rem, 3.2vw + 0.7rem, 3.5rem); }
+  h3 { font-size: clamp(1.15rem, 1vw + 0.8rem, 1.5rem); }
+
 
   a { color: var(--color-petrol); text-underline-offset: 3px; }
   a:hover { text-decoration: underline; }
