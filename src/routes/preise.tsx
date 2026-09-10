@@ -7,9 +7,7 @@ import { routeHead } from "@/lib/route-head";
 
 const route = findRoute("/preise")!;
 
-// Ab-Preise sind vom Inhaber freigegeben (siehe site-routes.ts
-// Meta-Descriptions). Detaillierte Leistungsbeschreibungen pro Paket
-// folgen und sind hier bewusst als [Platzhalter] markiert.
+// Ab-Preise sind vom Inhaber freigegeben.
 type PriceTier = {
   path: string;
   name: string;
@@ -33,7 +31,7 @@ const priceTiers: readonly PriceTier[] = [
       "Umsetzung mit modernem Frontend, mobil zuerst",
       "Technisches SEO-Setup, Ladezeit-Optimierung",
       "Analytics- und Consent-Grundlage",
-      "[Detailleistungen pro Paket folgen]",
+      "Übergabe mit Einweisung und dokumentierten Zugängen",
     ],
   },
   {
@@ -48,7 +46,7 @@ const priceTiers: readonly PriceTier[] = [
       "Technisches SEO, Content-Arbeit und interne Verlinkung",
       "Google-Unternehmensprofil-Pflege (regional)",
       "Reporting mit Klicks, Impressionen, Anfragen",
-      "[Retainer-Stufen folgen]",
+      "Abstimmung der nächsten Maßnahmen im festen Rhythmus",
     ],
     highlight: true,
   },
@@ -64,7 +62,7 @@ const priceTiers: readonly PriceTier[] = [
       "Umsetzung mit dokumentierter Zeitersparnis",
       "Anbindung an bestehende Tools",
       "Übergabe und Schulung im Team",
-      "[Beispielrechnungen folgen]",
+      "Festpreisangebot auf Basis des geprüften Prozesses",
     ],
   },
   {
@@ -78,7 +76,7 @@ const priceTiers: readonly PriceTier[] = [
       "Strukturierung der Inhalte für KI-Antwortsysteme",
       "Monitoring der Zitierungen",
       "Kombinierbar mit dem SEO-Retainer",
-      "[Leistungsdetails folgen]",
+      "Auswertung und laufende Priorisierung der Maßnahmen",
     ],
   },
 ] as const;

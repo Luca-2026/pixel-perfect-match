@@ -26,21 +26,9 @@ export function CtaSection({
   const reduce = useReducedMotion();
   return (
     <Section tone="ink" className="relative overflow-hidden">
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--color-petrol) 55%, transparent), transparent 55%), radial-gradient(circle at 80% 80%, color-mix(in oklab, var(--color-amber) 22%, transparent), transparent 55%)",
-        }}
-        initial={reduce ? false : { opacity: 0 }}
-        whileInView={reduce ? undefined : { opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1.4 }}
-      />
-      <Container className="relative max-w-3xl text-center">
+      <Container className="relative max-w-4xl text-center">
         <Reveal>
-          <Eyebrow className="text-mint">{eyebrow}</Eyebrow>
+          <Eyebrow className="text-amber">{eyebrow}</Eyebrow>
           <HeadlineDot as="h2" className="mt-3 text-paper">
             {headline}
           </HeadlineDot>
@@ -56,7 +44,7 @@ export function CtaSection({
             >
               <Link
                 to={primaryHref}
-                className="group inline-flex items-center gap-2 rounded-md bg-paper px-5 py-3 text-sm font-medium text-ink no-underline hover:bg-mint hover:no-underline"
+                className="group inline-flex items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-ink no-underline hover:bg-amber hover:no-underline"
               >
                 {primaryLabel}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
@@ -70,7 +58,7 @@ export function CtaSection({
               >
                 <Link
                   to={secondaryHref}
-                  className="inline-flex items-center gap-2 rounded-md border border-paper/30 bg-transparent px-5 py-3 text-sm font-medium text-paper no-underline hover:bg-paper/10 hover:no-underline"
+                  className="inline-flex items-center gap-2 rounded-full border border-paper/30 bg-transparent px-6 py-3 text-sm font-semibold text-paper no-underline hover:bg-paper/10 hover:no-underline"
                 >
                   {secondaryLabel}
                 </Link>

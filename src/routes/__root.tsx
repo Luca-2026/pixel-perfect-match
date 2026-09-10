@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container } from "@/components/layout/primitives";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
+import { Button } from "@/components/ui/button";
 import { services, mainPages } from "@/lib/site-routes";
 
 function NotFoundComponent() {
@@ -63,15 +64,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <button
+          <Button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center rounded-md bg-petrol px-4 py-2 text-sm font-medium text-paper hover:bg-ink"
+            className="rounded-full bg-ink text-paper hover:bg-amber hover:text-ink"
           >
             Erneut versuchen
-          </button>
+          </Button>
           <Link
             to="/"
             className="inline-flex items-center rounded-md border border-line bg-paper px-4 py-2 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
@@ -89,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#122A31" },
+      { name: "theme-color", content: "#161817" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -100,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@400;500;600&display=swap",
       },
     ],
     scripts: [
@@ -170,7 +171,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-paper text-ink">
+      <div className="flex min-h-screen flex-col bg-mint text-ink">
         <ScrollProgress />
         <SiteHeader />
         <main className="flex flex-1 flex-col">

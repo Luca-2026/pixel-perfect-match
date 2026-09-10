@@ -33,7 +33,7 @@ const packages = [
       "Mehrsprachigkeit oder mehrere Standorte möglich",
       "Redaktionelle Struktur für laufende Inhalte",
       "Formulare, Termin-Buchung, digitaler Assistent optional",
-      "[Preisspanne folgt nach Digital-Check]",
+      "Webdesign startet ab 2.900 Euro netto. Den verbindlichen Festpreis erhalten Sie nach dem Digital-Check.",
     ],
   },
   {

@@ -30,15 +30,6 @@ export function LaptopMockup({ src, alt, liveUrl, liveLabel }: LaptopMockupProps
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       style={reduce ? undefined : { scale }}
     >
-      <div
-        aria-hidden
-        className="absolute -inset-x-10 bottom-2 h-40 rounded-[50%] blur-3xl"
-        style={{
-          background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--color-petrol) 35%, transparent), transparent 70%)",
-        }}
-      />
-
       <div className="relative mx-auto block w-full">
         <img src={src} alt={alt} loading="lazy" className="relative block w-full h-auto" />
       </div>

@@ -15,8 +15,8 @@ const route = findRoute("/referenzen")!;
 const sltMetrics = [
   { label: "Klicks aus der Google-Suche", before: "12", after: "1.670", note: "28 Tage, Google Search Console" },
   { label: "Impressionen in der Google-Suche", before: "400", after: "65.987", note: "28 Tage, Google Search Console" },
-  { label: "Ø-Position in der Google-Suche", before: "[Platzhalter]", after: "13,4", note: "28 Tage, Google Search Console" },
-  { label: "Klickrate (CTR)", before: "[Platzhalter]", after: "2,5 %", note: "28 Tage, Google Search Console" },
+  { label: "Ø-Position in der Google-Suche", before: null, after: "13,4", note: "28 Tage, Google Search Console" },
+  { label: "Klickrate (CTR)", before: null, after: "2,5 %", note: "28 Tage, Google Search Console" },
 ] as const;
 
 const sltReviews = [
@@ -132,8 +132,8 @@ function Referenzen() {
                     <div key={m.label} className="border-b border-line pb-3 last:border-none last:pb-0">
                       <dt className="text-xs font-medium text-ink/60">{m.label}</dt>
                       <dd className="metric mt-1 flex items-baseline gap-2 text-lg">
-                        <span className="text-ink/50 line-through">{m.before}</span>
-                        <span className="text-ink">→</span>
+                        {m.before && <span className="text-ink/50 line-through">{m.before}</span>}
+                        {m.before && <span className="text-ink">→</span>}
                         <span className="font-semibold text-petrol">{m.after}</span>
                       </dd>
                       <p className="mt-1 text-[11px] text-ink/50">{m.note}</p>
@@ -173,16 +173,18 @@ function Referenzen() {
                 </ul>
               </div>
 
-              <figure className="rounded-md border border-dashed border-line bg-mint/20 p-5">
-                <p className="eyebrow">Kundenstimme</p>
-                <blockquote className="mt-3 font-display text-lg italic text-ink/70">
-                  [Freigegebenes Zitat von SLT Rental folgt. Bis dahin bewusst
-                  leer, wir erfinden keine Testimonials.]
-                </blockquote>
-                <figcaption className="mt-4 text-xs text-ink/60">
-                  [Name, Funktion] · SLT Rental
-                </figcaption>
-              </figure>
+              <div className="rounded-[var(--radius)] bg-ink p-6 text-paper">
+                <p className="eyebrow text-amber">Umgesetzte Leistungen</p>
+                <ul className="mt-5 space-y-3 text-sm text-paper/80">
+                  {sltServices.map((service) => (
+                    <li key={service.path}>
+                      <Link to={service.path} className="text-paper no-underline hover:text-amber hover:no-underline">
+                        {service.label} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-line bg-paper p-6 sm:p-8">

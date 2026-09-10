@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { DigitalCheckForm } from "@/components/forms/digital-check-form";
@@ -75,13 +75,6 @@ function Kontakt() {
                   <span>
                     Marienforster Weg 2<br />
                     53343 Wachtberg
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-petrol" aria-hidden />
-                  <span>
-                    Antwort in der Regel innerhalb eines Werktags,{" "}
-                    Mo–Fr [Platzhalter Erreichbarkeitszeiten].
                   </span>
                 </li>
               </ul>
