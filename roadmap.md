@@ -4,5 +4,5 @@
 - [x] Navigation und Fußbereich visuell überarbeiten und vervollständigen
 - [x] Startseite als vollständige modulare Studio-Seite neu komponieren
 - [x] Sichtbare Platzhalter aus Referenzen und Fußbereich entfernen
-- [ ] Darstellung auf Desktop und Mobil prüfen
-- [ ] Aktuellen Buildstatus prüfen
+- [x] Darstellung auf Desktop und Mobil geprüft
+- [x] Aktuellen Buildstatus geprüft
