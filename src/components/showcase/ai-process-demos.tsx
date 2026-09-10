@@ -425,7 +425,9 @@ function ContractDemo() {
     }
   }
 
-  function focusQuote(quote: string) {
+  function focusQuote(raw: string) {
+    const quote = resolveQuote(raw, sample.text);
+    if (!quote) return;
     setActiveQuote(quote);
     const target = docRef.current?.querySelector<HTMLElement>(`[data-quote="${CSS.escape(quote)}"]`);
     target?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -511,7 +513,7 @@ function ContractDemo() {
                       type="button"
                       onClick={() => focusQuote(finding.quote)}
                       className={`w-full cursor-pointer rounded-[var(--radius-sm)] border p-4 text-left transition-colors ${
-                        activeQuote === finding.quote ? "border-amber bg-paper/10" : "border-paper/15 hover:bg-paper/5"
+                        activeQuote && activeQuote === resolveQuote(finding.quote, sample.text) ? "border-amber bg-paper/10" : "border-paper/15 hover:bg-paper/5"
                       }`}
                     >
                       <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide">
