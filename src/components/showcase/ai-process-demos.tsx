@@ -369,6 +369,17 @@ const contractSteps = [
   "Fundstellen werden mit dem Originaltext belegt",
 ];
 
+/** Findet das Zitat im Original, notfalls über den längsten passenden Anfang. */
+function resolveQuote(raw: string, text: string) {
+  const quote = raw.trim();
+  if (quote.length > 12 && text.includes(quote)) return quote;
+  for (let end = quote.length; end > 24; end -= 4) {
+    const candidate = quote.slice(0, end).trim();
+    if (text.includes(candidate)) return candidate;
+  }
+  return null;
+}
+
 function ContractDemo() {
   const runAnalysis = useServerFn(analyzeSampleContract);
   const [contract, setContract] = useState<SampleContractKey>("wartung");
@@ -383,8 +394,8 @@ function ContractDemo() {
   const highlighted = useMemo(() => {
     if (!result) return [{ text: sample.text, quote: null as string | null }];
     const quotes = result.data.findings
-      .map((finding) => finding.quote.trim())
-      .filter((quote) => quote.length > 12 && sample.text.includes(quote))
+      .map((finding) => resolveQuote(finding.quote, sample.text))
+      .filter((quote): quote is string => Boolean(quote))
       .sort((a, b) => sample.text.indexOf(a) - sample.text.indexOf(b));
     const parts: { text: string; quote: string | null }[] = [];
     let cursor = 0;
