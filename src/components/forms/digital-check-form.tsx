@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { submitDigitalCheck } from "@/lib/digital-check.functions";
+import { Button } from "@/components/ui/button";
 
 type Source = "digital-check" | "kontakt";
 
@@ -197,14 +198,15 @@ export function DigitalCheckForm({
       )}
 
       <div className="flex flex-wrap items-center gap-4">
-        <button
+        <Button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center gap-2 rounded-md bg-petrol px-5 py-3 text-sm font-medium text-paper transition hover:bg-ink disabled:cursor-not-allowed disabled:opacity-70"
+          size="lg"
+          className="rounded-full bg-ink text-paper hover:bg-amber hover:text-ink"
         >
           {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
           {loading ? "Wird gesendet…" : submitLabel}
-        </button>
+        </Button>
         <p className="text-xs text-ink/60">
           Antwort in der Regel innerhalb eines Werktags. Kein Newsletter.
         </p>

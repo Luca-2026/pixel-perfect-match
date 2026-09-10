@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container } from "@/components/layout/primitives";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
+import { Button } from "@/components/ui/button";
 import { services, mainPages } from "@/lib/site-routes";
 
 function NotFoundComponent() {
@@ -63,15 +64,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <button
+          <Button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center rounded-md bg-petrol px-4 py-2 text-sm font-medium text-paper hover:bg-ink"
+            className="rounded-full bg-ink text-paper hover:bg-amber hover:text-ink"
           >
             Erneut versuchen
-          </button>
+          </Button>
           <Link
             to="/"
             className="inline-flex items-center rounded-md border border-line bg-paper px-4 py-2 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
