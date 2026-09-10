@@ -70,7 +70,7 @@ function Article() {
       <ol>
         <li>
           <strong>Wem gehört der Prozess?</strong> Eine Person aus der Fachabteilung
-          muss die inhaltliche Verantwortung tragen – nicht die IT.
+          muss die inhaltliche Verantwortung tragen, nicht die IT.
         </li>
         <li>
           <strong>Was passiert mit den Daten?</strong> Werden personenbezogene Daten
@@ -101,7 +101,7 @@ function Article() {
         </li>
         <li>
           <strong>Ihre bestehenden Systeme</strong>. Das CRM, das Rechnungstool,
-          das Postfach – daran wird angedockt, nichts wird ersetzt.
+          das Postfach. Daran wird angedockt, nichts wird ersetzt.
         </li>
       </ul>
 
