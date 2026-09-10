@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
@@ -9,6 +9,7 @@ import { CtaSection } from "@/components/content/cta-section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import type { SiteRoute } from "@/lib/site-routes";
 import type { Crumb } from "@/components/layout/breadcrumbs";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 export interface ServiceStep {
   title: string;
@@ -165,7 +166,7 @@ export function ServiceLayout({
 }
 
 function ServiceRelatedCard({ path, label, description }: { path: string; label: string; description: string }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   return (
     <motion.div
       whileHover={reduce ? undefined : { y: -4 }}

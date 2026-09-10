@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 import { LogoWall } from "@/components/showcase/logo-wall";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 const route = findRoute("/")!;
 
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
 
   return (
     <>

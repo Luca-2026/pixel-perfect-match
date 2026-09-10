@@ -1,9 +1,10 @@
 "use client";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
 import malvegaLogo from "@/assets/malvega-logo.png.asset.json";
 import zoomlionLogo from "@/assets/zoomlion-nrw-logo.png.asset.json";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 /**
  * Kunden-Leiste. Alle gezeigten Logos sind freigegeben.
@@ -23,7 +24,7 @@ const clients: readonly Client[] = [
 ] as const;
 
 export function LogoWall() {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
 
   return (
     <motion.div

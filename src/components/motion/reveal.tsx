@@ -1,6 +1,7 @@
 "use client";
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import type { ReactNode, ElementType, ComponentProps } from "react";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 type MotionTag = "div" | "section" | "article" | "header" | "footer" | "ul" | "ol" | "li" | "figure" | "span";
 
@@ -24,7 +25,7 @@ export function Reveal({
   once = true,
   amount = 0.2,
 }: RevealProps) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Comp = motion[as] as ElementType;
   const props: ComponentProps<typeof motion.div> = reduce
     ? { initial: false }
@@ -55,7 +56,7 @@ export function Stagger({
   once = true,
   amount = 0.2,
 }: RevealProps & { gap?: number }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Comp = motion[as] as ElementType;
   const variants: Variants = {
     hidden: {},
@@ -90,7 +91,7 @@ export function StaggerItem({
   className?: string;
   y?: number;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Comp = motion[as] as ElementType;
   const variants: Variants = {
     hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y },

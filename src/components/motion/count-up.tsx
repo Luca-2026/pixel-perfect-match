@@ -1,6 +1,7 @@
 "use client";
-import { animate, useInView, useReducedMotion } from "motion/react";
+import { animate, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 interface CountUpProps {
   to: number;
@@ -20,7 +21,7 @@ export function CountUp({
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const [value, setValue] = useState(reduce ? to : from);
 
   useEffect(() => {

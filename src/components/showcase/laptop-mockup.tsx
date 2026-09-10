@@ -1,7 +1,8 @@
 "use client";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 interface LaptopMockupProps {
   src: string;
@@ -12,7 +13,7 @@ interface LaptopMockupProps {
 }
 
 export function LaptopMockup({ src, alt, liveUrl, liveLabel }: LaptopMockupProps) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,

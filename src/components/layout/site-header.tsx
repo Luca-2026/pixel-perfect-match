@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoAsset from "@/assets/sandhoff-digital-logo-farbig.svg.asset.json";
 import { Container } from "./primitives";
 import { services } from "@/lib/site-routes";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 const primaryNav = [
   { to: "/preise", label: "Preise" },
@@ -19,7 +20,7 @@ const primaryNav = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const reduceHeader = useReducedMotion();
+  const reduceHeader = useSafeReducedMotion();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-xl">
