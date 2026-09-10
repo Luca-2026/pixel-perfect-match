@@ -8,7 +8,7 @@ export function Container({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("mx-auto w-full max-w-6xl px-5 sm:px-8", className)}
+      className={cn("mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10", className)}
       {...props}
     >
       {children}
@@ -35,7 +35,7 @@ export function Section({
       ? "bg-mint/40"
       : "bg-paper";
   return (
-    <Tag className={cn("py-16 sm:py-24", toneClass, className)} {...props}>
+    <Tag className={cn("py-20 sm:py-28", toneClass, className)} {...props}>
       {children}
     </Tag>
   );

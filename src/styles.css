@@ -4,19 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * sandhoff.digital Design-System
- *
- * Markenfarben:
- *   --ink    #122A31  Text, Footer, dunkle Flächen
- *   --petrol #0E5F66  Primärfarbe (Buttons, Links)
- *   --amber  #E2A63D  Marken-Punkt und sparsame Akzente
- *   --mint   #BFE0DA  helle Akzentflächen, Hover, Diagramme
- *   --paper  #F7F9F8  Seitenhintergrund
- *   --line   #DFE7E5  Rahmen, Trennlinien
- *
- * Farbverteilung ca. 60 % Papier, 25 % Tinte, 10 % Petrol, 5 % Messing.
- */
+/* Editoriales Studio-System: klare Tinte, Messing, Weiß und Mineralgrau. */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -53,21 +41,20 @@
   --color-paper: var(--paper);
   --color-line: var(--line);
 
-  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Archivo Black", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hind", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Hind", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 1.5rem;
 
-  /* Marken-Rohwerte in oklch */
-  --ink: oklch(0.257 0.028 216);       /* #122A31 */
-  --petrol: oklch(0.469 0.076 200);    /* #0E5F66 */
-  --amber: oklch(0.746 0.13 78);       /* #E2A63D */
-  --mint: oklch(0.887 0.036 178);      /* #BFE0DA */
-  --paper: oklch(0.984 0.003 180);     /* #F7F9F8 */
-  --line: oklch(0.928 0.008 180);      /* #DFE7E5 */
+  --ink: oklch(0.195 0.006 135);
+  --petrol: oklch(0.195 0.006 135);
+  --amber: oklch(0.676 0.112 72);
+  --mint: oklch(0.929 0.009 125);
+  --paper: oklch(1 0 0);
+  --line: oklch(0.895 0.007 125);
 
   /* shadcn-Semantik auf Marke gemappt */
   --background: var(--paper);
@@ -80,8 +67,8 @@
   --primary-foreground: oklch(0.984 0.003 180);
   --secondary: var(--mint);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.96 0.006 180);
-  --muted-foreground: oklch(0.45 0.02 216);
+  --muted: var(--mint);
+  --muted-foreground: oklch(0.43 0.008 135);
   --accent: var(--mint);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.55 0.22 27);
@@ -102,26 +89,26 @@
   }
 
   body {
-    background-color: var(--color-paper);
+    background-color: var(--color-mint);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-weight: 400;
     line-height: 1.65;
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.04;
     color: var(--color-ink);
   }
 
-  h1 { font-size: clamp(2.25rem, 4.5vw + 1rem, 4rem); }
-  h2 { font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem); }
+  h1 { font-size: clamp(2.65rem, 4.5vw + 1rem, 5.75rem); }
+  h2 { font-size: clamp(2rem, 2.4vw + 1rem, 3.5rem); }
   h3 { font-size: clamp(1.25rem, 1vw + 0.8rem, 1.5rem); }
 
   a { color: var(--color-petrol); text-underline-offset: 3px; }
@@ -145,9 +132,9 @@
 /* Mono-Eyebrow / Kennzahlen-Stil */
 @utility eyebrow {
   font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-petrol);
 }
@@ -163,6 +150,13 @@
   background-color: var(--color-card);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
+}
+
+@utility studio-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-ink) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-ink) 5%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 /* Typografie für Ratgeber-Artikel */

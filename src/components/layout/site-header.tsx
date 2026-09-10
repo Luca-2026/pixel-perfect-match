@@ -6,6 +6,7 @@ import logoAsset from "@/assets/sandhoff-digital-logo-farbig.svg.asset.json";
 import { Container } from "./primitives";
 import { services } from "@/lib/site-routes";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const primaryNav = [
   { to: "/preise", label: "Preise" },
@@ -21,7 +22,7 @@ export function SiteHeader() {
   const reduceHeader = useReducedMotion();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between gap-6">
         <Link
           to="/"
@@ -46,8 +47,8 @@ export function SiteHeader() {
           >
             <Link
               to="/leistungen"
-              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
-              activeProps={{ className: "bg-mint/40" }}
+              className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-ink no-underline hover:bg-mint hover:no-underline"
+              activeProps={{ className: "bg-mint" }}
             >
               Leistungen
               <motion.span
@@ -93,8 +94,8 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-md px-3 py-2 text-sm font-medium text-ink no-underline hover:bg-mint/40 hover:no-underline"
-              activeProps={{ className: "bg-mint/40" }}
+              className="rounded-full px-3 py-2 text-sm font-medium text-ink no-underline hover:bg-mint hover:no-underline"
+              activeProps={{ className: "bg-mint" }}
             >
               {item.label}
             </Link>
@@ -102,15 +103,14 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link
-            to="/digital-check"
-            className="inline-flex items-center rounded-md bg-petrol px-4 py-2 text-sm font-medium text-paper no-underline transition-colors hover:bg-ink hover:no-underline"
-          >
-            Digital-Check starten
-          </Link>
+          <Button asChild className="rounded-full bg-ink px-5 text-paper hover:bg-amber">
+            <Link to="/digital-check" className="no-underline hover:no-underline">Digital-Check starten</Link>
+          </Button>
         </div>
 
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink lg:hidden"
           aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
@@ -118,7 +118,7 @@ export function SiteHeader() {
           onClick={() => setMobileOpen((v) => !v)}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        </Button>
       </Container>
 
       {mobileOpen && (

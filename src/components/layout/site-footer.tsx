@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/sandhoff-digital-logo-farbig.svg.asset.json";
-import { Container } from "./primitives";
+import { ArrowUpRight } from "lucide-react";
+import { Container, HeadlineDot } from "./primitives";
 import { services, legalPages } from "@/lib/site-routes";
 
 const columns = [
@@ -34,12 +35,24 @@ const columns = [
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-paper">
-      <Container className="py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_3fr]">
+      <Container className="py-16 sm:py-20">
+        <div className="border-b border-paper/15 pb-12 sm:pb-16">
+          <p className="eyebrow text-amber">Nächster sinnvoller Schritt</p>
+          <div className="mt-5 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <HeadlineDot as="h2" className="max-w-3xl text-paper">
+              Finden wir heraus, was digital wirklich Wirkung bringt
+            </HeadlineDot>
+            <Link
+              to="/digital-check"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-ink no-underline hover:bg-amber hover:no-underline"
+            >
+              Digital-Check starten
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1.2fr_3fr]">
           <div>
-            {/* TODO: sobald sandhoff-digital-logo-invers.svg vorliegt, hier
-                ausschließlich das Invers-Logo verwenden. Bis dahin greift der
-                Filter, um das farbige Logo lesbar auf Tinte darzustellen. */}
             <img
               src={logoAsset.url}
               alt="sandhoff.digital"
@@ -48,15 +61,17 @@ export function SiteFooter() {
               height={28}
             />
             <p className="mt-4 max-w-sm text-sm text-paper/70">
-              Digitalagentur für den Mittelstand. KI, Web und SEO mit messbaren
-              Ergebnissen zum Festpreis.
+              KI, Webdesign und Sichtbarkeit für kleine und mittelständische
+              Unternehmen. Persönlich geführt von Luca Sandhoff.
             </p>
             <address className="mt-6 not-italic text-sm text-paper/70">
-              [Adresse folgt aus Impressum]
+              Marienforster Weg 2
               <br />
-              [Telefonnummer folgt]
+              53343 Wachtberg
               <br />
-              [E-Mail-Adresse folgt]
+              <a href="tel:+4922876388805" className="text-paper/70">0228 763 888 05</a>
+              <br />
+              <a href="mailto:luca@sandhoff.digital" className="text-paper/70">luca@sandhoff.digital</a>
             </address>
           </div>
 
