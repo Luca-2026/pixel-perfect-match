@@ -17,8 +17,8 @@ export const services: SiteRoute[] = [
     title: "KI & Prozessautomatisierung",
     metaTitle: "KI-Automatisierung für KMU | sandhoff.digital",
     description:
-      "KI und Prozessautomatisierung für kleine und mittelständische Unternehmen. Zeitersparnis dokumentiert, Festpreis nach Digital-Check.",
-    h1: "Geschäftsprozesse automatisieren, Zeit zurückgewinnen",
+      "KI-Prozessautomatisierung für KMU: Angebote vorbereiten, Daten matchen und Personalaufwand reduzieren. Persönlich eingeführt im Raum Bonn.",
+    h1: "Geschäftsprozesse automatisieren, Personalaufwand reduzieren",
     eyebrow: "Leistung",
     changefreq: "monthly",
     priority: "0.9",

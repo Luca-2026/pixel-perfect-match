@@ -11,3 +11,6 @@
 - [x] Responsive Design von 320 bis 1440 Pixel geprüft
 - [x] Touchflächen, Tabellen und mobile Überläufe korrigiert
 - [x] Animationen fokussiert und reduzierte Bewegung berücksichtigt
+- [x] KI Prozessautomatisierung mit konkreter Angebotserstellung positioniert
+- [x] Kontrolliertes Lernen, Personalentlastung und Wettbewerbsdruck erklärt
+- [x] Inhabergeführte Einführung und Schulung vor Ort hervorgehoben

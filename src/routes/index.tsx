@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Database, FileCheck2, MapPin, Sparkles, Workflow } from "lucide-react";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { Button } from "@/components/ui/button";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
@@ -115,6 +115,71 @@ function Home() {
       <section className="border-b border-line bg-paper py-12">
         <Container><LogoWall /></Container>
       </section>
+
+      <Section tone="ink" className="overflow-hidden border-b border-line">
+        <Container>
+          <Reveal>
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+              <div className="min-w-0 lg:col-span-7">
+                <Eyebrow className="text-amber">KI Prozessautomatisierung</Eyebrow>
+                <HeadlineDot as="h2" className="mt-4 max-w-4xl text-paper">
+                  Vom Datensatz zum Angebotsentwurf in rund 30 Sekunden
+                </HeadlineDot>
+                <p className="mt-6 max-w-3xl text-lg text-paper/75 sm:text-xl">
+                  Eine Anfrage kommt an. Die KI erkennt den Bedarf, gleicht Kundendaten,
+                  Leistungen und freigegebene Preisregeln ab, schlägt passende Positionen
+                  vor und erstellt den Angebotsentwurf. Ihr Team prüft nur noch dort, wo
+                  kaufmännische Verantwortung gefragt ist.
+                </p>
+              </div>
+              <div className="min-w-0 border-l border-paper/20 pl-6 lg:col-span-5 lg:pl-10">
+                <p className="font-display text-2xl leading-tight text-paper sm:text-3xl">
+                  Nicht jede freie Stelle muss nachbesetzt werden<span className="text-amber">.</span>
+                </p>
+                <p className="mt-5 text-paper/70">
+                  Wir automatisieren standardisierbare Arbeit und reduzieren den dafür
+                  nötigen Personalaufwand. Wer seine Abläufe nicht neu denkt, überlässt
+                  schnelleren Wettbewerbern Zeit und Marge.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Stagger className="mt-12 grid gap-px overflow-hidden rounded-[var(--radius)] border border-paper/20 bg-paper/20 sm:grid-cols-2 lg:grid-cols-4" gap={0.06}>
+            {[
+              { icon: Workflow, step: "01", title: "Anfrage verstehen", body: "Eingaben und Dokumente werden strukturiert erfasst." },
+              { icon: Database, step: "02", title: "Daten abgleichen", body: "Kunden, Leistungen und Regeln werden zusammengeführt." },
+              { icon: Sparkles, step: "03", title: "Preis vorschlagen", body: "Das System matcht Positionen und erstellt einen Vorschlag." },
+              { icon: FileCheck2, step: "04", title: "Angebot freigeben", body: "Der fertige Entwurf geht kontrolliert in die Freigabe." },
+            ].map((item) => (
+              <StaggerItem key={item.step} className="min-w-0 bg-ink p-6 sm:p-7">
+                <div className="flex items-center justify-between">
+                  <item.icon className="h-5 w-5 text-amber" aria-hidden />
+                  <span className="metric text-xs text-paper/45">{item.step}</span>
+                </div>
+                <h3 className="mt-10 text-xl text-paper">{item.title}</h3>
+                <p className="mt-3 text-sm text-paper/65">{item.body}</p>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          <div className="mt-10 flex flex-col gap-6 border-t border-paper/20 pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex max-w-2xl items-start gap-3 text-paper/75">
+              <MapPin className="mt-1 h-5 w-5 shrink-0 text-amber" aria-hidden />
+              <p>
+                Inhabergeführt im Raum Bonn. Wir kommen in Ihr Unternehmen,
+                führen die Lösung persönlich ein und schulen Ihr Team am echten Prozess.
+              </p>
+            </div>
+            <Button asChild size="lg" className="shrink-0 bg-amber text-ink hover:bg-paper">
+              <Link to="/leistungen/ki-automatisierung" className="no-underline hover:no-underline">
+                KI Prozesse ansehen
+                <ArrowRight aria-hidden />
+              </Link>
+            </Button>
+          </div>
+        </Container>
+      </Section>
 
       <Section tone="paper">
         <Container>
