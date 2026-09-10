@@ -21,7 +21,7 @@ function Cell({ value }: { value: string | boolean }) {
 export function ComparisonTable({ headings, rows, caption }: ComparisonTableProps) {
   return (
     <>
-      <div className="grid gap-3 sm:hidden" aria-label={caption}>
+      <div className="grid min-w-0 max-w-full gap-3 overflow-hidden sm:hidden" aria-label={caption}>
         {rows.map((row) => (
           <div key={row.label} className="surface-card min-w-0 p-4">
             <p className="font-semibold text-ink">{row.label}</p>
@@ -38,7 +38,7 @@ export function ComparisonTable({ headings, rows, caption }: ComparisonTableProp
           </div>
         ))}
       </div>
-      <div className="hidden max-w-full overflow-x-auto rounded-md border border-line bg-paper sm:block">
+      <div className="hidden min-w-0 max-w-full overflow-x-auto rounded-md border border-line bg-paper sm:block">
       <table className="w-full min-w-[36rem] text-left text-sm">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead className="bg-mint/30">

@@ -103,7 +103,7 @@ export function ServiceLayout({
         </Container>
       </Section>
 
-      {children}
+      <div className="min-w-0 max-w-full overflow-x-clip">{children}</div>
 
       <Section tone="paper" className="border-t border-line">
         <Container className="max-w-5xl">
