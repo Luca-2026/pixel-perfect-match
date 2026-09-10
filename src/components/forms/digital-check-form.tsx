@@ -147,7 +147,7 @@ export function DigitalCheckForm({
         </legend>
         <div className="mt-2 grid gap-2 sm:grid-cols-2">
           {TOPICS.map((topic) => (
-            <label key={topic} className="flex items-center gap-2 text-sm text-ink/85">
+            <label key={topic} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-md px-2 text-sm text-ink/85 hover:bg-mint">
               <input
                 type="checkbox"
                 name="topics"
@@ -174,7 +174,7 @@ export function DigitalCheckForm({
         />
       </label>
 
-      <label className="flex items-start gap-3 text-sm text-ink/80">
+      <label className="flex min-h-11 cursor-pointer items-start gap-3 rounded-md py-2 text-sm text-ink/80">
         <input
           type="checkbox"
           name="privacy"

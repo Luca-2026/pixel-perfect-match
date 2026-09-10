@@ -137,7 +137,7 @@ function Preise() {
             {priceTiers.map((t) => (
               <article
                 key={t.path}
-                className={`surface-card flex flex-col p-6 ${
+                className={`surface-card flex min-w-0 flex-col overflow-hidden p-6 ${
                   t.highlight ? "border-petrol shadow-sm" : ""
                 }`}
               >
@@ -157,7 +157,7 @@ function Preise() {
 
                 <p className="mt-4 text-sm text-ink/70">{t.description}</p>
 
-                <p className="metric mt-6 text-2xl font-semibold text-ink">
+                <p className="mt-6 text-2xl font-semibold text-ink">
                   {t.price}
                   <span className="ml-2 text-sm font-normal text-ink/60">
                     {t.unit}

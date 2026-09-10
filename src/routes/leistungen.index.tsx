@@ -36,7 +36,7 @@ function LeistungenIndex() {
               <Link
                 key={s.path}
                 to={s.path}
-                className="surface-card group flex flex-col p-6 no-underline hover:border-petrol hover:no-underline"
+                className="surface-card group flex min-w-0 flex-col overflow-hidden p-6 no-underline hover:border-amber hover:no-underline"
               >
                 <Eyebrow>{s.eyebrow}</Eyebrow>
                 <h2 className="mt-3 font-display text-xl font-semibold text-ink">

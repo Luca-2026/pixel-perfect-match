@@ -102,7 +102,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="ml-auto hidden md:block lg:ml-0">
           <Button asChild className="rounded-full bg-ink px-5 text-paper hover:bg-amber">
             <Link to="/digital-check" className="no-underline hover:no-underline">Digital-Check starten</Link>
           </Button>
@@ -112,7 +112,7 @@ export function SiteHeader() {
           variant="ghost"
           size="icon"
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink lg:hidden"
+          className="h-11 w-11 shrink-0 rounded-full text-ink lg:hidden"
           aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}

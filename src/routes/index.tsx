@@ -30,14 +30,14 @@ function Home() {
         <Container>
           <div className="grid gap-4 lg:grid-cols-12 lg:grid-rows-[minmax(250px,1fr)_minmax(210px,.72fr)] lg:gap-5">
             <motion.div
-              className="surface-card flex min-h-[440px] flex-col justify-between p-7 sm:p-10 lg:col-span-8 lg:row-span-1 lg:min-h-0 lg:p-12"
+              className="surface-card flex min-w-0 min-h-[440px] flex-col justify-between p-7 sm:p-10 lg:col-span-8 lg:row-span-1 lg:min-h-0 lg:p-12"
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <div>
                 <Eyebrow>{route.eyebrow}</Eyebrow>
-                <HeadlineDot as="h1" className="mt-5 max-w-4xl text-[clamp(3rem,7vw,6.5rem)] leading-[.94]">
+                <HeadlineDot as="h1" className="mt-5 max-w-4xl break-words text-[clamp(2.65rem,7vw,6.5rem)] leading-[.94]">
                   {route.h1}
                 </HeadlineDot>
               </div>
@@ -57,7 +57,7 @@ function Home() {
             </motion.div>
 
             <motion.figure
-              className="group relative min-h-[430px] overflow-hidden rounded-[var(--radius)] bg-amber lg:col-span-4 lg:row-span-2 lg:min-h-0"
+              className="group relative min-w-0 min-h-[430px] overflow-hidden rounded-[var(--radius)] bg-amber lg:col-span-4 lg:row-span-2 lg:min-h-0"
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -77,7 +77,7 @@ function Home() {
             </motion.figure>
 
             <motion.div
-              className="surface-card flex flex-col justify-between overflow-hidden p-7 sm:p-9 lg:col-span-5"
+              className="surface-card flex min-w-0 flex-col justify-between overflow-hidden p-7 sm:p-9 lg:col-span-5"
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
@@ -90,7 +90,7 @@ function Home() {
               </div>
               <div className="mt-8 flex flex-wrap gap-2">
                 {services.map((service) => (
-                  <Link key={service.path} to={service.path} className="rounded-full border border-line bg-mint px-4 py-2 text-sm font-semibold text-ink no-underline hover:border-amber hover:no-underline">
+                  <Link key={service.path} to={service.path} className="inline-flex min-h-11 items-center rounded-full border border-line bg-mint px-4 py-2 text-sm font-semibold text-ink no-underline hover:border-amber hover:no-underline">
                     {service.title}
                   </Link>
                 ))}
@@ -145,14 +145,14 @@ function Home() {
           </Reveal>
           <Stagger className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-12" gap={0.08}>
             {services.map((service, index) => (
-              <StaggerItem key={service.path} className={index < 2 ? "lg:col-span-7 odd:lg:col-span-5" : "lg:col-span-5 even:lg:col-span-7"}>
-                <Link to={service.path} className="group surface-card flex h-full min-h-64 flex-col justify-between p-7 no-underline transition-colors hover:border-amber hover:no-underline sm:p-9">
+              <StaggerItem key={service.path} className={`${index < 2 ? "lg:col-span-7 odd:lg:col-span-5" : "lg:col-span-5 even:lg:col-span-7"} min-w-0`}>
+                <Link to={service.path} className="group surface-card flex min-w-0 h-full min-h-64 flex-col justify-between overflow-hidden p-7 no-underline transition-colors hover:border-amber hover:no-underline sm:p-9">
                   <div className="flex items-start justify-between gap-4">
                     <span className="metric text-sm text-amber">{serviceNumbers[index]}</span>
                     <ArrowRight className="h-5 w-5 text-ink transition-transform group-hover:translate-x-1" aria-hidden />
                   </div>
                   <div className="mt-12">
-                    <h3 className="text-2xl text-ink sm:text-3xl">{service.title}</h3>
+                    <h3 className="break-words text-2xl text-ink sm:text-3xl">{service.title}</h3>
                     <p className="mt-4 max-w-xl text-ink/65">{service.description}</p>
                   </div>
                 </Link>

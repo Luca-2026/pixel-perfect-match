@@ -20,8 +20,8 @@ function Cell({ value }: { value: string | boolean }) {
 
 export function ComparisonTable({ headings, rows, caption }: ComparisonTableProps) {
   return (
-    <div className="overflow-hidden rounded-md border border-line bg-paper">
-      <table className="w-full text-left text-sm">
+    <div className="overflow-x-auto rounded-md border border-line bg-paper">
+      <table className="w-full min-w-[36rem] text-left text-sm">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead className="bg-mint/30">
           <tr>
