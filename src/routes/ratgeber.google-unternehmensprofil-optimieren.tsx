@@ -26,8 +26,8 @@ function Article() {
       <p>
         Für lokal tätige Unternehmen ist das Google-Unternehmensprofil (früher
         „Google My Business") oft der kürzeste Weg zu neuen Anfragen. Es
-        entscheidet, ob Sie im lokalen 3er-Pack über der klassischen Suche
-        erscheinen und wie überzeugend Sie in Google Maps wirken. Dieser
+        beeinflusst, wie vollständig und überzeugend Ihr Unternehmen in der
+        lokalen Suche und in Google Maps erscheint. Dieser
         Leitfaden zeigt die Schritte, die in der Praxis den größten Effekt
         haben.
       </p>
@@ -44,15 +44,14 @@ function Article() {
       <h2>2. NAP sauber und identisch zur Website halten</h2>
       <p>
         NAP steht für Name, Adresse, Telefonnummer. Diese drei Angaben müssen
-        exakt so auf dem Profil, in Ihrer Website-Fußzeile, im Impressum und in
-        anderen Verzeichnissen stehen. Uneinheitliche Schreibweisen
-        („Str." vs. „Straße", mit oder ohne Ortsteil) schwächen das Signal an
-        Google, dass es sich um denselben Betrieb handelt.
+        sachlich übereinstimmend im Profil, im Impressum und in relevanten
+        Verzeichnissen stehen. Achten Sie besonders auf korrekte Firmierung,
+        Adresse und Telefonnummer.
       </p>
 
       <h2>3. Kategorien präzise wählen</h2>
       <p>
-        Die Hauptkategorie ist der wichtigste Rankingfaktor im lokalen Umfeld.
+        Die Hauptkategorie ist ein wichtiger Faktor für die Einordnung des Profils.
         Wählen Sie die spezifischste Kategorie, die Ihr Kerngeschäft trifft.
         Ergänzen Sie bis zu neun Nebenkategorien für weitere Leistungen. Zu
         allgemein („Dienstleister") oder zu weit gefasst zu wählen, kostet
@@ -71,31 +70,33 @@ function Article() {
 
       <h2>5. Fotos aus dem realen Betrieb</h2>
       <p>
-        Echte Fotos vom Team, den Räumen und Arbeitsproben schlagen jedes
-        Stockbild. Google empfiehlt Aufnahmen im Querformat, mindestens
-        720 × 720 Pixel. Aktualisieren Sie die Bildgalerie regelmäßig; ein
+        Echte Fotos vom Team, den Räumen und Arbeitsproben vermitteln einen
+        nachvollziehbaren Eindruck. Google nennt für Fotos eine empfohlene
+        Auflösung von 720 × 720 Pixeln. Aktualisieren Sie die Bildgalerie bei
+        relevanten Veränderungen; ein
         gepflegtes Profil wirkt in der Vorschau deutlich vertrauenswürdiger.
       </p>
 
       <h2>6. Bewertungen aktiv und ehrlich einsammeln</h2>
       <p>
-        Bewertungen sind der wichtigste Vertrauensfaktor im Profil. Bitten Sie
+        Bewertungen sind ein gut sichtbarer Vertrauensfaktor im Profil. Bitten Sie
         zufriedene Kunden direkt im Anschluss an einen Auftrag um eine
         Bewertung; ein kurzer Link per E-Mail oder QR-Code funktioniert gut.
         Antworten Sie auf jede Bewertung, positiv wie negativ, sachlich und
-        namentlich. Google bewertet die Reaktionsquote als Qualitätssignal.
+        namentlich. Antworten zeigen Interessierten, wie Sie mit Rückmeldungen umgehen.
       </p>
       <p>
         Verboten sind gekaufte Bewertungen und Bewertungen im Tausch für
         Rabatte oder Gewinnspielteilnahme. Google entfernt solche Bewertungen
-        und kann Profile sperren.
+        und kann Profile einschränken. Vergünstigungen für Bewertungen können
+        außerdem wettbewerbsrechtliche Risiken auslösen.
       </p>
 
       <h2>7. Beiträge und Fragen als laufende Signale</h2>
       <p>
         Über die Funktion „Updates" können Sie regelmäßig kurze Beiträge
         veröffentlichen: Neuigkeiten, Angebote, Veranstaltungen. Diese
-        erscheinen im Profil und geben Google frische Signale. Prüfen Sie
+        erscheinen im Profil und informieren Interessierte über aktuelle Themen. Prüfen Sie
         zusätzlich den Bereich „Fragen &amp; Antworten": Alles, was Nutzer
         stellen, sollten Sie selbst beantworten, bevor es andere tun.
       </p>

@@ -24,7 +24,7 @@ function Article() {
   return (
     <ArticleLayout article={article}>
       <p>
-        „Was kostet eine Website?" ist die häufigste Frage im Erstgespräch – und
+        „Was kostet eine Website?" ist die häufigste Frage im Erstgespräch. und
         die mit der ehrlichsten Antwort „kommt darauf an". Die Preisspanne
         reicht von wenigen hundert Euro bis in den fünfstelligen Bereich. Dieser
         Artikel zeigt, welche Faktoren die Kosten treiben und wo eine Investition
@@ -74,7 +74,7 @@ function Article() {
         </li>
         <li>
           <strong>Inhalte.</strong> Wenn Sie Texte und Bilder liefern, sparen
-          Sie. Wenn die Agentur schreibt und fotografiert, wird es teurer –
+          Sie. Wenn die Agentur schreibt und fotografiert, wird es teurer ,
           und meistens besser.
         </li>
         <li>
@@ -111,7 +111,7 @@ function Article() {
         ist. Meist fehlt der Konzeptteil komplett.
       </p>
 
-      <h2>Wo Sparen sich rechnet – und wo nicht</h2>
+      <h2>Wo Sparen sich rechnet. und wo nicht</h2>
       <p>
         Sparen lohnt sich fast immer beim Grafikaufwand von reinen
         Detaildesigns, bei Stock-Fotos statt individuellem Shooting und bei

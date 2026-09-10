@@ -61,7 +61,7 @@ function Ueber() {
             <p>
               Praxis aus IT und Medientechnik, angewendet an der
               Schnittstelle von Web, KI und Prozessen. Bei sandhoff.digital
-              führe ich jedes Projekt persönlich – vom ersten Digital-Check
+              führe ich jedes Projekt persönlich. vom ersten Digital-Check
               bis zur laufenden Betreuung.
             </p>
             <p>
@@ -108,7 +108,7 @@ function Ueber() {
               {
                 title: "Ehrliche Empfehlungen",
                 body:
-                  "Wenn eine Leistung für Ihr Unternehmen aktuell nicht sinnvoll ist, sagen wir das – auch wenn wir daran verdient hätten.",
+                  "Wenn eine Leistung für Ihr Unternehmen aktuell nicht sinnvoll ist, sagen wir das. auch wenn wir daran verdient hätten.",
               },
               {
                 title: "Belege statt Behauptungen",
@@ -135,7 +135,7 @@ function Ueber() {
 
       <CtaSection
         headline="Lernen wir uns im Digital-Check kennen"
-        body="Der Digital-Check ist der einfachste Weg, sich einen persönlichen Eindruck zu verschaffen – ohne Verkaufsgespräch, ohne Verpflichtung."
+        body="Der Digital-Check ist der einfachste Weg, sich einen persönlichen Eindruck zu verschaffen. ohne Verkaufsgespräch, ohne Verpflichtung."
         secondaryHref="/kontakt"
         secondaryLabel="Direkt schreiben"
       />

@@ -65,7 +65,7 @@ function Article() {
       <h2>Was Sie vor dem ersten Projekt klären sollten</h2>
       <p>
         Bevor Sie ein Tool auswählen, klären Sie intern drei Fragen. Sie ersparen
-        sich damit zwei Drittel der späteren Diskussionen:
+        sich damit spätere Grundsatzdiskussionen:
       </p>
       <ol>
         <li>
@@ -75,7 +75,8 @@ function Article() {
         <li>
           <strong>Was passiert mit den Daten?</strong> Werden personenbezogene Daten
           verarbeitet, gehört das in eine Verarbeitungstätigkeit nach DSGVO.
-          Für Standard-Bürodaten reicht ein Anbieter mit EU-Rechenzentrum.
+          Prüfen Sie Rechtsgrundlage, Auftragsverarbeitung, Speicherort,
+          Zugriffsrechte und Schutzbedarf gemeinsam mit Ihrer Datenschutzberatung.
         </li>
         <li>
           <strong>Was passiert, wenn die Automatisierung ausfällt?</strong>
@@ -106,8 +107,9 @@ function Article() {
 
       <h2>Realistische Erwartung an den ersten Erfolg</h2>
       <p>
-        Ein erster produktiver Ablauf ist in wenigen Wochen erreichbar. Realistisch
-        ist eine spürbare Zeitersparnis auf einem klar umrissenen Prozess – nicht
+        Ein erster produktiver Ablauf kann bei klarer Ausgangslage in wenigen
+        Wochen erreichbar sein. Ziel ist eine messbare Zeitersparnis auf einem
+        klar umrissenen Prozess, nicht
         die vollautomatische Firma. Der Wert entsteht durch die Summe kleiner
         Bausteine, die jeweils sauber laufen. Wer damit Erfahrung sammelt, kann
         Schritt für Schritt weiterbauen, ohne sich zu verheben.

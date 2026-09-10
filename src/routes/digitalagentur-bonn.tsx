@@ -78,7 +78,7 @@ function Bonn() {
               {
                 title: "Persönlicher Ansprechpartner",
                 body:
-                  "Sie sprechen direkt mit dem Inhaber – nicht mit einem wechselnden Projektteam.",
+                  "Sie sprechen direkt mit dem Inhaber. nicht mit einem wechselnden Projektteam.",
               },
             ].map((c) => (
               <article key={c.title} className="surface-card p-6">
@@ -123,7 +123,7 @@ function Bonn() {
             Typische Auftraggeber aus Bonn und der Region
           </HeadlineDot>
           <p className="mt-6 max-w-2xl text-ink/75">
-            Wir arbeiten inhaltsoffen, sehen aber wiederkehrende Muster – in
+            Wir arbeiten inhaltsoffen, sehen aber wiederkehrende Muster. in
             diesen Feldern kennen wir die typischen Prozesse und die Sprache
             der Kundschaft besonders gut:
           </p>
@@ -183,7 +183,7 @@ function Bonn() {
 
       <CtaSection
         headline="Digital-Check in Bonn oder online"
-        body="Der kostenlose Digital-Check ist die einfachste Art, uns kennenzulernen – als Videocall oder auf einen Kaffee in Bonn."
+        body="Der kostenlose Digital-Check ist die einfachste Art, uns kennenzulernen. als Videocall oder auf einen Kaffee in Bonn."
         secondaryHref="/kontakt"
         secondaryLabel="Direkt schreiben"
       />

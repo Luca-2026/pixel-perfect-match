@@ -190,7 +190,7 @@ function Preise() {
           <div className="mt-14 rounded-md border border-line bg-mint/25 p-6 sm:p-8">
             <Eyebrow>Nächster Schritt</Eyebrow>
             <p className="mt-3 max-w-2xl font-display text-xl text-ink">
-              Wir nennen Ihnen im Digital-Check einen konkreten Festpreis –
+              Wir nennen Ihnen im Digital-Check einen konkreten Festpreis ,
               vorher entstehen keine Kosten.
             </p>
             <Link

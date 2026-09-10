@@ -31,7 +31,7 @@ function KiAutomatisierung() {
         </p>
       }
       forWho={[
-        "Sie oder Ihr Team verbringen erkennbar Zeit mit wiederkehrenden Handgriffen – Angebote, Anfragen, Datenübertragungen, Standard-E-Mails.",
+        "Sie oder Ihr Team verbringen erkennbar Zeit mit wiederkehrenden Handgriffen. Angebote, Anfragen, Datenübertragungen, Standard-E-Mails.",
         "Sie wissen, welcher Prozess Sie am meisten Zeit kostet, oder Sie wollen es im Digital-Check herausfinden.",
         "Sie möchten mit einem klar umrissenen Anwendungsfall anfangen, statt eine Konzernstrategie zu bezahlen.",
         "Ihre Daten sollen in der EU verarbeitet werden.",
@@ -51,7 +51,7 @@ function KiAutomatisierung() {
         {
           title: "Umsetzung",
           body:
-            "Wir bauen die Automatisierung mit passenden Bausteinen – KI-Modell, Anbindung an Ihre Systeme, saubere Fallback-Pfade. Sie sehen Zwischenstände.",
+            "Wir bauen die Automatisierung mit passenden Bausteinen. KI-Modell, Anbindung an Ihre Systeme, saubere Fallback-Pfade. Sie sehen Zwischenstände.",
         },
         {
           title: "Übergabe & Test",
@@ -67,7 +67,7 @@ function KiAutomatisierung() {
       faq={[
         {
           q: "Ab welcher Unternehmensgröße lohnt sich KI-Automatisierung?",
-          a: "Die entscheidende Frage ist nicht die Größe, sondern die Wiederholung. Ein Prozess, der wöchentlich mehrere Stunden bindet, rechnet sich meist innerhalb weniger Monate – ob im Zwei-Personen-Betrieb oder im 40-Personen-Unternehmen.",
+          a: "Die entscheidende Frage ist nicht die Größe, sondern die Wiederholung. Ein Prozess, der wöchentlich mehrere Stunden bindet, rechnet sich meist innerhalb weniger Monate. ob im Zwei-Personen-Betrieb oder im 40-Personen-Unternehmen.",
         },
         {
           q: "Was passiert mit unseren Daten?",
@@ -79,7 +79,7 @@ function KiAutomatisierung() {
         },
         {
           q: "Was, wenn die KI Fehler macht?",
-          a: "Wir bauen Freigabestellen ein – die KI schlägt vor, ein Mensch bestätigt. Kritische Prozesse laufen erst dann vollautomatisch, wenn die Trefferquote über einen definierten Testzeitraum belegt ist.",
+          a: "Wir bauen Freigabestellen ein. die KI schlägt vor, ein Mensch bestätigt. Kritische Prozesse laufen erst dann vollautomatisch, wenn die Trefferquote über einen definierten Testzeitraum belegt ist.",
         },
         {
           q: "Wie schnell sehen wir Ergebnisse?",
@@ -189,7 +189,7 @@ function KiAutomatisierung() {
             wir im Digital-Check anhand Ihres konkreten Prozesses. Konkrete
             Kundenbeispiele finden Sie auf der{" "}
             <a href="/referenzen" className="text-petrol">Referenzen-Seite</a>{" "}
-            – dort nennen wir ausschließlich freigegebene Projekte.
+           . dort nennen wir ausschließlich freigegebene Projekte.
           </p>
 
         </Container>

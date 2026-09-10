@@ -24,7 +24,7 @@ function LeistungenIndex() {
             Vier klar umrissene Leistungen für kleine und mittelständische
             Unternehmen: KI-Automatisierung, Webdesign, SEO und
             KI-Sichtbarkeit. Jede mit definiertem Ergebnis, transparentem
-            Preis und einem Ansprechpartner – dem Inhaber.
+            Preis und einem Ansprechpartner. dem Inhaber.
           </p>
         }
       />

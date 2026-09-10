@@ -39,7 +39,7 @@ function Article() {
         beantworten, statt eine Trefferliste zu zeigen. GEO steht für
         Generative Engine Optimization: die Ausrichtung auf generative
         KI-Systeme, die aus vielen Quellen einen eigenen Antworttext
-        formulieren und Ihre Marke darin nennen können – oder eben nicht.
+        formulieren und Ihre Marke darin nennen können. oder eben nicht.
       </p>
       <p>
         Beide Disziplinen bauen auf klassischer SEO auf. Ohne saubere
@@ -56,7 +56,7 @@ function Article() {
       <ul>
         <li>
           <strong>Klare Antworten am Anfang.</strong> Wenn Ihre Seite eine
-          Frage stellt, sollte die Antwort in den ersten Absätzen stehen –
+          Frage stellt, sollte die Antwort in den ersten Absätzen stehen ,
           nicht am Ende einer langen Story.
         </li>
         <li>

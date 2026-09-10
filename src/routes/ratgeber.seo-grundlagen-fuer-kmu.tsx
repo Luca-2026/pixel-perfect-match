@@ -104,7 +104,7 @@ function Article() {
         zeitweise mit bezahlter Sichtbarkeit kombinieren.
       </p>
       <p>
-        Und ja: es gibt Fälle mit stärkerem Effekt in kürzerer Zeit – meist
+        Und ja: es gibt Fälle mit stärkerem Effekt in kürzerer Zeit. meist
         dann, wenn die technische Basis dramatisch schlecht war oder eine
         Nische wenig bespielt ist. Verlassen sollten Sie sich darauf nicht.
       </p>

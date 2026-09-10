@@ -82,7 +82,7 @@ function Webdesign() {
       pricingNote={
         <p>
           Drei Pakete ab 2.900 € netto einmalig. Business- und Individuell-Preise
-          folgen aus Umfang und Ausgangslage – verbindlich nach dem Digital-Check.
+          folgen aus Umfang und Ausgangslage. verbindlich nach dem Digital-Check.
         </p>
       }
       process={[
@@ -118,7 +118,7 @@ function Webdesign() {
         },
         {
           q: "Welches System nutzen Sie?",
-          a: "Wir setzen auf moderne, wartungsarme Frameworks mit statischer Auslieferung (aktuell TanStack Start auf Cloudflare). Für Redaktionsteams binden wir bei Bedarf ein Headless-CMS an – die Wahl legen wir im Digital-Check fest.",
+          a: "Wir setzen auf moderne, wartungsarme Frameworks mit statischer Auslieferung (aktuell TanStack Start auf Cloudflare). Für Redaktionsteams binden wir bei Bedarf ein Headless-CMS an. die Wahl legen wir im Digital-Check fest.",
         },
         {
           q: "Können wir später selbst Inhalte pflegen?",
@@ -126,11 +126,11 @@ function Webdesign() {
         },
         {
           q: "Ist Datenschutz und Barrierefreiheit enthalten?",
-          a: "Datenschutz-Grundlagen (Consent, Datensparsamkeit) sind Teil jedes Pakets. Für vollständige Barrierefreiheit nach BFSG kalkulieren wir bei Bedarf zusätzlich – im Digital-Check klären wir den Umfang.",
+          a: "Datenschutz-Grundlagen (Consent, Datensparsamkeit) sind Teil jedes Pakets. Für vollständige Barrierefreiheit nach BFSG kalkulieren wir bei Bedarf zusätzlich. im Digital-Check klären wir den Umfang.",
         },
         {
           q: "Was passiert nach dem Launch?",
-          a: "Wartung, Sicherheit und Content-Weiterentwicklung können Sie über einen kleinen Monats-Retainer buchen. Sie sind nicht verpflichtet – die Website bleibt in Ihrem Besitz und läuft auch ohne uns weiter.",
+          a: "Wartung, Sicherheit und Content-Weiterentwicklung können Sie über einen kleinen Monats-Retainer buchen. Sie sind nicht verpflichtet. die Website bleibt in Ihrem Besitz und läuft auch ohne uns weiter.",
         },
       ]}
       related={[

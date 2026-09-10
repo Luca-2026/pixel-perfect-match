@@ -91,7 +91,7 @@ function DigitalCheck() {
             items={[
               {
                 q: "Ist der Digital-Check wirklich kostenlos?",
-                a: "Ja. Sie zahlen nichts und gehen keine Verpflichtung ein. Der Aufwand ist auf unserer Seite so kalkuliert, dass er zu einer belastbaren Ersteinschätzung reicht – nicht zu einem Vollaudit.",
+                a: "Ja. Sie zahlen nichts und gehen keine Verpflichtung ein. Der Aufwand ist auf unserer Seite so kalkuliert, dass er zu einer belastbaren Ersteinschätzung reicht. nicht zu einem Vollaudit.",
               },
               {
                 q: "Bekomme ich einen fertigen Maßnahmenplan?",
