@@ -6,3 +6,8 @@
 - [x] Sichtbare Platzhalter aus Referenzen und Fußbereich entfernen
 - [x] Darstellung auf Desktop und Mobil geprüft
 - [x] Aktuellen Buildstatus geprüft
+- [x] Sämtliche Ratgeber und Leistungsversprechen faktisch geprüft
+- [x] Unbelegte oder zu absolute Aussagen präzisiert
+- [x] Responsive Design von 320 bis 1440 Pixel geprüft
+- [x] Touchflächen, Tabellen und mobile Überläufe korrigiert
+- [x] Animationen fokussiert und reduzierte Bewegung berücksichtigt

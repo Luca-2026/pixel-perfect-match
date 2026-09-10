@@ -20,7 +20,7 @@ export function Reveal({
   children,
   className,
   delay = 0,
-  y = 24,
+  y = 18,
   once = true,
   amount = 0.2,
 }: RevealProps) {
@@ -33,7 +33,7 @@ export function Reveal({
         whileInView: { opacity: 1, y: 0 },
         viewport: { once, amount },
         transition: {
-          duration: 0.7,
+          duration: 0.65,
           delay,
           ease: [0.22, 1, 0.36, 1],
         },
@@ -83,7 +83,7 @@ export function StaggerItem({
   as = "div",
   children,
   className,
-  y = 20,
+  y = 16,
 }: {
   as?: MotionTag;
   children: ReactNode;
@@ -97,7 +97,7 @@ export function StaggerItem({
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
     },
   };
   return (

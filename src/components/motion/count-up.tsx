@@ -14,7 +14,7 @@ interface CountUpProps {
 export function CountUp({
   to,
   from = 0,
-  duration = 1.8,
+  duration = 1.4,
   format = (n) => Math.round(n).toLocaleString("de-DE"),
   className,
 }: CountUpProps) {

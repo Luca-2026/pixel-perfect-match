@@ -1,16 +1,18 @@
 "use client";
 import { motion, useScroll, useSpring, useReducedMotion } from "motion/react";
+import { useLocation } from "@tanstack/react-router";
 
 /** Feiner Fortschrittsbalken in Messing am oberen Rand. */
 export function ScrollProgress() {
   const reduce = useReducedMotion();
+  const location = useLocation();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 140,
     damping: 25,
     mass: 0.2,
   });
-  if (reduce) return null;
+  if (reduce || !["/", "/referenzen"].includes(location.pathname)) return null;
   return (
     <motion.div
       aria-hidden
