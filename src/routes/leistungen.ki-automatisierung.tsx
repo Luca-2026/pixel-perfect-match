@@ -228,6 +228,13 @@ function KiAutomatisierung() {
                 gate: "Freigabe: klare Eskalationsregel definiert, was der Assistent nicht selbst beantwortet.",
               },
               {
+                title: "Telefonagent für Anrufe außerhalb der Kapazität",
+                body:
+                  "Ein Sprachagent nimmt Anrufe an, wenn niemand frei ist, erfasst Name, Anliegen und Rückrufwunsch, beantwortet hinterlegte Standardfragen und schlägt bei passenden Fällen einen Termin vor. Jedes Gespräch endet mit einem strukturierten Protokoll im System.",
+                tools: "Bausteine: Telefonanlage oder SIP-Anschluss, Sprach-zu-Text und Text-zu-Sprache, Sprachmodell mit Ihrer Wissensbasis, Anbindung an Kalender und CRM.",
+                gate: "Freigabe: der Agent gibt sich als digitale Assistenz zu erkennen und übergibt definierte Fälle sofort an einen Menschen.",
+              },
+              {
                 title: "Leads recherchieren und im CRM anreichern",
                 body:
                   "Neu eintreffende Kontakte werden mit öffentlich verfügbaren Firmendaten angereichert, Duplikate erkannt und einer Vertriebsperson zugewiesen. Der Datensatz ist vollständig, bevor der erste Anruf ansteht.",
