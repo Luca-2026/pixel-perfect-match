@@ -88,6 +88,14 @@ function KiAutomatisierung() {
           a: "Ein klar umrissener Anwendungsfall ist in wenigen Wochen produktiv. Die genaue Dauer nennen wir verbindlich nach dem Digital-Check.",
         },
         {
+          q: "Kann ein KI-Telefonagent Anrufe für uns übernehmen?",
+          a: "Ja, für klar abgegrenzte Anliegen: Anrufe annehmen, Anliegen erfassen, Termine vorschlagen, Rückrufwünsche strukturiert weitergeben. Der Agent bekommt einen festen Gesprächsrahmen, eine geprüfte Wissensbasis und eine Übergaberegel an einen Menschen. Vor dem Livegang testen wir mit echten Anrufszenarien.",
+        },
+        {
+          q: "Müssen wir Anrufer über den KI-Agenten informieren?",
+          a: "Wir gestalten den Einstieg so, dass der Agent sich als digitale Assistenz zu erkennen gibt und ein Weg zum Menschen jederzeit offen bleibt. Aufzeichnungen und Transkripte werden nur mit passender Rechtsgrundlage und dokumentierter Einwilligung verarbeitet. Die konkrete Ausgestaltung stimmen wir mit Ihrer Datenschutzberatung ab.",
+        },
+        {
           q: "Können Sie bestehende Tools anbinden?",
           a: "Für gängige Systeme (CRM, Ticketing, E-Mail, Buchhaltung) ist die Anbindung Standard. Bei Spezialsoftware prüfen wir die Schnittstelle im Digital-Check.",
         },
@@ -220,6 +228,13 @@ function KiAutomatisierung() {
                 gate: "Freigabe: klare Eskalationsregel definiert, was der Assistent nicht selbst beantwortet.",
               },
               {
+                title: "Telefonagent für Anrufe außerhalb der Kapazität",
+                body:
+                  "Ein Sprachagent nimmt Anrufe an, wenn niemand frei ist, erfasst Name, Anliegen und Rückrufwunsch, beantwortet hinterlegte Standardfragen und schlägt bei passenden Fällen einen Termin vor. Jedes Gespräch endet mit einem strukturierten Protokoll im System.",
+                tools: "Bausteine: Telefonanlage oder SIP-Anschluss, Sprach-zu-Text und Text-zu-Sprache, Sprachmodell mit Ihrer Wissensbasis, Anbindung an Kalender und CRM.",
+                gate: "Freigabe: der Agent gibt sich als digitale Assistenz zu erkennen und übergibt definierte Fälle sofort an einen Menschen.",
+              },
+              {
                 title: "Leads recherchieren und im CRM anreichern",
                 body:
                   "Neu eintreffende Kontakte werden mit öffentlich verfügbaren Firmendaten angereichert, Duplikate erkannt und einer Vertriebsperson zugewiesen. Der Datensatz ist vollständig, bevor der erste Anruf ansteht.",
@@ -265,6 +280,67 @@ function KiAutomatisierung() {
            . Dort nennen wir ausschließlich freigegebene Projekte.
           </p>
 
+        </Container>
+      </Section>
+
+      <Section tone="paper" className="border-t border-line">
+        <Container className="max-w-5xl">
+          <Eyebrow>Telefonagenten</Eyebrow>
+          <HeadlineDot as="h2" className="mt-3 max-w-3xl">
+            KI-Telefonagenten einführen, trainieren und betreuen
+          </HeadlineDot>
+          <p className="mt-5 max-w-3xl text-ink/80">
+            Ein Telefonagent ist kein Ansagetext. Er führt ein Gespräch entlang
+            eines festgelegten Rahmens, greift auf eine geprüfte Wissensbasis zu
+            und übergibt an einen Menschen, sobald ein Fall die definierten
+            Grenzen verlässt. Wir richten ihn ein, trainieren ihn mit Ihren
+            echten Gesprächssituationen und begleiten den laufenden Betrieb.
+          </p>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {[
+              {
+                title: "1. Gespräche aufnehmen",
+                body:
+                  "Wir hören uns an, welche Anrufe wirklich eingehen: Terminwünsche, Standardfragen, Rückrufe, Notfälle. Daraus entsteht eine Liste der Anliegen, die der Agent übernehmen darf, und der Fälle, die immer ein Mensch bekommt.",
+              },
+              {
+                title: "2. Wissensbasis und Gesprächsrahmen bauen",
+                body:
+                  "Leistungen, Öffnungszeiten, Zuständigkeiten und Antworten kommen aus Ihren freigegebenen Inhalten, nicht aus dem Allgemeinwissen des Modells. Der Gesprächsleitfaden legt Begrüßung, Rückfragen, Datenerfassung und Übergabe fest.",
+              },
+              {
+                title: "3. Anbindung an Telefonie und Systeme",
+                body:
+                  "Der Agent hängt an Ihrer Rufnummer oder einer Zweitnummer, etwa für Anrufe außerhalb der Geschäftszeiten oder bei besetzter Leitung. Ergebnisse laufen in Kalender, CRM oder Postfach, inklusive Protokoll je Gespräch.",
+              },
+              {
+                title: "4. Testen mit echten Szenarien",
+                body:
+                  "Vor dem Livegang telefonieren wir die typischen Fälle durch, auch die unangenehmen: Nuscheln, Hintergrundlärm, Themenwechsel, verärgerte Anrufer. Antworten, die nicht sitzen, werden korrigiert, bevor Kunden sie hören.",
+              },
+              {
+                title: "5. Schulung Ihres Teams",
+                body:
+                  "Wir kommen persönlich in Ihr Unternehmen im Raum Bonn und zeigen, wie Ihr Team Protokolle liest, Übergaben annimmt, Antworten pflegt und den Agenten bei Bedarf abschaltet. Praxisnah, an echten Gesprächen.",
+              },
+              {
+                title: "6. Laufende Verbesserung",
+                body:
+                  "Aus Protokollen und Korrekturen aktualisieren wir Wissensbasis, Formulierungen und Übergaberegeln. Der Agent wird dadurch kontrolliert besser, statt unbeaufsichtigt zu lernen.",
+              },
+            ].map((c) => (
+              <article key={c.title} className="surface-card p-6">
+                <h3 className="font-display text-base font-semibold text-ink">{c.title}</h3>
+                <p className="mt-3 text-sm text-ink/75">{c.body}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-6 max-w-3xl text-sm text-ink/60">
+            Grenzen offen benannt: Ein Telefonagent ersetzt keine Beratung bei
+            komplexen oder heiklen Anliegen und übernimmt keine verbindlichen
+            Zusagen. Aufzeichnung und Transkription setzen eine passende
+            Rechtsgrundlage voraus, die wir vor dem Start gemeinsam klären.
+          </p>
         </Container>
       </Section>
 
