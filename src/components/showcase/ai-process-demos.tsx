@@ -6,7 +6,6 @@ import {
   AlertTriangle,
   Check,
   Clock3,
-  Cpu,
   FileDown,
   FileSearch,
   Loader2,
@@ -28,6 +27,8 @@ import {
 import {
   CATALOG,
   CATALOG_ITEMS,
+  DEFAULT_RECIPIENT,
+  DEFAULT_SENDER,
   TRAVEL_FLAT,
   URGENCY_FLAT,
   buildQuote,
@@ -35,6 +36,8 @@ import {
   formatQuantity,
   unitPrice,
   type QuoteDocument,
+  type QuoteRecipient,
+  type QuoteSender,
 } from "@/lib/quote-demo";
 import { downloadQuotePdf } from "@/lib/quote-pdf";
 
@@ -43,7 +46,7 @@ import { downloadQuotePdf } from "@/lib/quote-pdf";
 const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
 const number = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
 
-type Meta = { model: string; ms: number; tokens: number | null };
+type Meta = { ms: number };
 
 export function AiProcessDemos() {
   return (
@@ -69,11 +72,7 @@ function LiveBadge({ running }: { running: boolean }) {
 function MetaLine({ meta }: { meta: Meta }) {
   return (
     <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line/60 pt-4 text-xs text-ink/55">
-      <span className="inline-flex items-center gap-1.5">
-        <Cpu className="h-3.5 w-3.5 text-petrol" aria-hidden /> {meta.model}
-      </span>
       <span>Antwortzeit {(meta.ms / 1000).toFixed(1)} Sekunden</span>
-      {meta.tokens ? <span>{meta.tokens} Tokens</span> : null}
       <span>Ergebnis in Echtzeit erzeugt</span>
     </p>
   );
@@ -682,9 +681,8 @@ function ContractDemo() {
                   ))}
                 </div>
                 <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-paper/20 pt-4 text-xs text-paper/50">
-                  <span className="inline-flex items-center gap-1.5"><Cpu className="h-3.5 w-3.5 text-amber" aria-hidden /> {result.meta.model}</span>
                   <span>Antwortzeit {(result.meta.ms / 1000).toFixed(1)} Sekunden</span>
-                  {result.meta.tokens ? <span>{result.meta.tokens} Tokens</span> : null}
+                  <span>Ergebnis in Echtzeit erzeugt</span>
                 </p>
               </div>
             )}
