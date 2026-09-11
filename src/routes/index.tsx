@@ -254,10 +254,10 @@ function Home() {
 
       <Section tone="ink">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_.7fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_.75fr] lg:items-end">
             <Reveal>
               <Eyebrow className="text-amber">Kostenlos und unverbindlich</Eyebrow>
-              <HeadlineDot as="h2" className="mt-4 max-w-3xl text-paper">Ihre drei größten Potenziale in einem Termin</HeadlineDot>
+              <HeadlineDot as="h2" className="mt-4 max-w-4xl text-paper hyphens-none text-balance">Ihre drei größten Potenziale in einem Termin</HeadlineDot>
               <p className="mt-5 max-w-2xl text-lg text-paper/70">Wir schauen konkret auf Prozesse, Website und Sichtbarkeit. Sie erhalten eine klare Priorisierung ohne Verkaufsgespräch.</p>
             </Reveal>
             <div className="lg:justify-self-end">
