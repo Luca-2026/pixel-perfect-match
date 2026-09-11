@@ -20,7 +20,6 @@ import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/pr
 import { postJson } from "@/lib/api-endpoint";
 import {
   SAMPLE_CONTRACTS,
-  type QuoteDraft,
   type SampleContractKey,
 } from "@/lib/ai-demo-data";
 import {
@@ -605,7 +604,10 @@ function ContractDemo() {
     setActiveQuote(null);
     setRunning(true);
     try {
-      const response = await runAnalysis({ data: { contract } });
+      const response = await postJson("/api/public/ki-demo", {
+        action: "vertrag",
+        input: { contract },
+      });
       setResult(response as { data: { summary: string; findings: Finding[] }; meta: Meta });
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Die Analyse ist fehlgeschlagen.");
