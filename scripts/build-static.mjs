@@ -2,37 +2,48 @@
  * Erzeugt einen statischen Export der Website für klassisches Webhosting
  * (zum Beispiel Serverprofis, Plesk, Apache).
  *
- * Aufruf:  bun run build:static
- * Ergebnis: Ordner "static-export" mit allen HTML-Dateien, Assets,
+ * Aufruf:  npm run build
+ * Ergebnis: Ordner "dist" mit allen HTML-Dateien, Assets,
  *           sitemap.xml, robots.txt und .htaccess.
  *
  * Formularversand und Live-Demos laufen weiter über die von Lovable
  * betriebene Adresse, die in VITE_API_BASE hinterlegt ist.
  */
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  renameSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
+import { basename, extname, join, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const out = resolve(root, "static-export");
+const buildDir = resolve(root, "dist");
+const out = resolve(root, ".static-export-tmp");
+const legacyOut = resolve(root, "static-export");
+const assetMetadataDir = resolve(root, "src/assets");
+const assetOrigin = "https://id-preview--e266328c-1aba-4d1e-8b6c-688d05b93ea0.lovable.app";
+const defaultApiBase =
+  "https://project--e266328c-1aba-4d1e-8b6c-688d05b93ea0-dev.lovable.app";
 
-const apiBase = process.env.VITE_API_BASE;
-if (!apiBase) {
-  console.error(
-    "\nVITE_API_BASE fehlt.\nBeispiel: VITE_API_BASE=https://sandhoff-digital.lovable.app bun run build:static\n",
-  );
-  process.exit(1);
-}
+const apiBase = process.env.VITE_API_BASE || defaultApiBase;
 
 console.log(`\n[static] Build mit VITE_API_BASE=${apiBase}`);
-const build = spawnSync("bunx", ["vite", "build"], {
+const viteEntry = resolve(root, "node_modules/vite/bin/vite.js");
+const build = spawnSync(process.execPath, [viteEntry, "build"], {
   cwd: root,
   stdio: "inherit",
   env: { ...process.env, VITE_API_BASE: apiBase },
 });
 if (build.status !== 0) process.exit(build.status ?? 1);
 
-const client = resolve(root, "dist/client");
+const client = resolve(buildDir, "client");
 if (!existsSync(client)) {
   console.error("[static] dist/client wurde nicht erzeugt.");
   process.exit(1);
@@ -41,6 +52,53 @@ if (!existsSync(client)) {
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 cpSync(client, out, { recursive: true });
+
+/* ------------------------------------------ Lovable-Medien lokal übernehmen */
+
+const assetFiles = readdirSync(assetMetadataDir)
+  .filter((name) => name.endsWith(".asset.json"))
+  .map((name) => resolve(assetMetadataDir, name));
+const replacements = new Map();
+const mediaDir = resolve(out, "media");
+mkdirSync(mediaDir, { recursive: true });
+
+for (const metadataPath of assetFiles) {
+  const metadata = JSON.parse(readFileSync(metadataPath, "utf8"));
+  if (typeof metadata.url !== "string" || !metadata.url.startsWith("/__l5e/")) continue;
+
+  const originalName = basename(new URL(metadata.url, assetOrigin).pathname);
+  const localName = `${String(metadata.asset_id).slice(0, 8)}-${originalName}`;
+  const localUrl = `/media/${localName}`;
+  const target = resolve(mediaDir, localName);
+  const response = await fetch(new URL(metadata.url, assetOrigin));
+
+  if (!response.ok) {
+    console.error(`[static] Medium konnte nicht geladen werden: ${metadata.url}`);
+    process.exit(1);
+  }
+
+  writeFileSync(target, Buffer.from(await response.arrayBuffer()));
+  replacements.set(metadata.url, localUrl);
+}
+
+function walk(directory) {
+  return readdirSync(directory).flatMap((name) => {
+    const path = join(directory, name);
+    return statSync(path).isDirectory() ? walk(path) : [path];
+  });
+}
+
+for (const file of walk(out)) {
+  if (![".html", ".js", ".css", ".json", ".xml", ".txt"].includes(extname(file))) continue;
+  let content = readFileSync(file, "utf8");
+  let changed = false;
+  for (const [remoteUrl, localUrl] of replacements) {
+    if (!content.includes(remoteUrl)) continue;
+    content = content.replaceAll(remoteUrl, localUrl);
+    changed = true;
+  }
+  if (changed) writeFileSync(file, content, "utf8");
+}
 
 /* ------------------------------------------------------------- sitemap.xml */
 
@@ -130,4 +188,10 @@ DirectoryIndex index.html
 
 writeFileSync(resolve(out, ".htaccess"), htaccess, "utf8");
 
-console.log(`\n[static] Fertig. Inhalt von "static-export" in das Web-Verzeichnis hochladen.\n`);
+// Repo2web erwartet – wie beim SLT-Projekt – den fertigen Webauftritt direkt
+// im Buildordner. Die interne Serverausgabe wird deshalb erst jetzt ersetzt.
+rmSync(buildDir, { recursive: true, force: true });
+renameSync(out, buildDir);
+rmSync(legacyOut, { recursive: true, force: true });
+
+console.log(`\n[static] Fertig. "dist" ist der vollständige FTP-Upload.\n`);

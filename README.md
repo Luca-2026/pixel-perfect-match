@@ -1,20 +1,8 @@
-# Pixel Perfect Match
+# sandhoff.digital
 
-Implement exactly the screenshot and nothing else
+Website von sandhoff.digital.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/e266328c-1aba-4d1e-8b6c-688d05b93ea0).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Lokale Entwicklung
 
 ```sh
 git clone <this-repository-url>
@@ -22,3 +10,12 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Fertigen FTP-Upload erzeugen
+
+```sh
+npm run build
+```
+
+Der vollständig statische Webauftritt liegt danach direkt im Ordner `dist`.
+Weitere Hinweise stehen in `DEPLOY.md`.
