@@ -43,6 +43,14 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     pages: staticPages,
-    prerender: { enabled: true, autoStaticPathsDiscovery: false },
+    prerender: {
+      enabled: true,
+      autoStaticPathsDiscovery: false,
+      crawlLinks: false,
+      // Nur echte Seitenpfade vorrendern. Datei-Links (PDF, Bilder aus dem
+      // Asset-CDN) sind keine Routen und würden den Build abbrechen.
+      filter: (page: { path: string }) =>
+        staticPages.some((p) => p.path === page.path),
+    },
   },
 });
