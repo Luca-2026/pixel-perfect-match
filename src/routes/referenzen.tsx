@@ -44,7 +44,7 @@ const sltDeliverables = [
   },
   {
     title: "Eigenentwickeltes CMS mit KI-SEO-Generator",
-    text: "Das eigens für SLT Rental entwickelte CMS erzeugt SEO-optimierte Inhalte per Knopfdruck: Die KI schreibt auf Basis der Unternehmensdaten neue Beiträge, die das Team nur noch freigibt. Das Video unten zeigt den Prozess live.",
+    text: "Das eigens für SLT Rental entwickelte CMS erzeugt SEO-optimierte Inhalte per Knopfdruck: Die KI schreibt auf Basis der Unternehmensdaten neue Beiträge, die das Team nur noch freigibt. Eine so tief integrierte Lösung ist in dieser Form selten im Mittelstand. Das Video unten zeigt den Prozess live.",
   },
 ] as const;
 
