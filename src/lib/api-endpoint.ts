@@ -6,10 +6,9 @@
  * bei einem klassischen Webhosting abgelegt, zeigt VITE_API_BASE auf die von
  * Lovable betriebene Domain, die die Endpunkte bereitstellt.
  */
-export const API_BASE = (import.meta.env["VITE_API_BASE"] as string | undefined)?.replace(
-  /\/+$/,
-  "",
-) ?? "";
+const RAW_BASE = import.meta.env.VITE_API_BASE as string | undefined;
+
+export const API_BASE = RAW_BASE?.replace(/\/+$/, "") ?? "";
 
 export function apiUrl(path: string): string {
   return `${API_BASE}${path}`;
