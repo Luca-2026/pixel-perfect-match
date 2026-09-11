@@ -42,7 +42,9 @@ export function parseAgb(source: string): Block[] {
 
   const flushParagraph = () => {
     if (!paragraph.length) return;
-    const text = paragraph.join(" ").trim();
+    const text = paragraph
+      .reduce((acc, part) => (acc === "" || acc.endsWith("\n") ? acc + part : `${acc} ${part}`), "")
+      .trim();
     paragraph = [];
     if (!text) return;
     const backLink = /^\[([^\]]+)\]\((#[^)]+)\)$/.exec(text);
