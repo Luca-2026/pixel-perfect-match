@@ -231,13 +231,10 @@ function Referenzen() {
                   das Team prüft und gibt frei. Aufgezeichnet direkt im
                   produktiven System.
                 </p>
-                <video
+                <AutoplayVideo
                   src={sltCmsDemo.url}
-                  controls
-                  preload="metadata"
-                  playsInline
                   className="mt-6 w-full rounded-md border border-paper/15 bg-black"
-                  aria-label="Video: SEO-Content-Generierung im SLT Rental CMS"
+                  label="Video: SEO-Content-Generierung im SLT Rental CMS"
                 />
               </div>
             </div>
