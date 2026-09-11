@@ -211,6 +211,17 @@ export function DigitalCheckForm({
           Antwort in der Regel innerhalb eines Werktags. Kein Newsletter.
         </p>
       </div>
+      <p className="text-xs leading-relaxed text-ink/60">
+        Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß
+        unserer{" "}
+        <a
+          href={source === "kontakt" ? "/datenschutz#ds-4" : "/datenschutz#ds-5"}
+          className="text-petrol underline decoration-petrol/30 underline-offset-2"
+        >
+          Datenschutzerklärung
+        </a>{" "}
+        zu.
+      </p>
     </form>
   );
 }
