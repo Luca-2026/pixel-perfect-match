@@ -128,14 +128,14 @@ function Article() {
           veröffentlicht unter der „Sustainable Use License". Diese erlaubt die
           Nutzung für eigene interne Geschäftszwecke, untersagt aber, n8n als
           gehostetes Produkt an Dritte weiterzuverkaufen
-          [3](https://nordflux.de/en/guides/the-n8n-sustainable-use-license-explained).
+          (<a href="https://docs.n8n.io/sustainable-use-license/" target="_blank" rel="noopener noreferrer">n8n Sustainable Use License</a>).
           Für KMU ist vor allem der Selbstbetrieb interessant: n8n lässt sich
           per Docker auf einem eigenen oder europäischen Server betreiben,
           wodurch Daten und Zugangsdaten Ihr Umfeld nicht verlassen
-          [2](https://docs.n8n.io/deploy/host-n8n/deploy-with-the-ai-starter-kit).
+          (<a href="https://docs.n8n.io/hosting/" target="_blank" rel="noopener noreferrer">n8n Hosting-Dokumentation</a>).
           Neben klassischen Abläufen bietet n8n eigene Bausteine für
           KI-Agenten, die Werkzeuge selbstständig aufrufen
-          [1](https://github.com/n8n-io/n8n/blob/master/README.md).
+          (<a href="https://docs.n8n.io/advanced-ai/" target="_blank" rel="noopener noreferrer">n8n AI-Dokumentation</a>).
         </li>
         <li>
           <strong>Make und Zapier.</strong> Beide laufen ausschließlich als
@@ -175,11 +175,11 @@ function Article() {
         seinen Zugriff auf Ihre Daten. Genau dafür gibt es seit dem
         25. November 2024 einen offenen Standard: das Model Context Protocol
         (MCP), von Anthropic vorgestellt und quelloffen veröffentlicht
-        [4](https://www.anthropic.com/news/model-context-protocol). MCP
+        (<a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">Anthropic zu MCP</a>). MCP
         beschreibt einheitlich, wie ein KI-System externe Werkzeuge und
         Datenquellen ansprechen darf, etwa ein CRM, ein Ticketsystem oder eine
         Artikeldatenbank
-        [3](https://modelcontextprotocol.io/specification/2025-06-18).
+        (<a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">MCP-Spezifikation</a>).
       </p>
       <p>
         Für Sie als Unternehmen hat das zwei Folgen. Erstens sinkt der
@@ -235,7 +235,7 @@ function Article() {
         KI-Kompetenz nach Artikel 4 greift bereits seit dem 2. Februar 2025,
         die allgemeine Anwendung samt der Transparenzpflichten aus Artikel 50
         beginnt am 2. August 2026
-        [4](https://certailex.com/wissen/eu-ai-act-fristen.html).
+        (<a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689" target="_blank" rel="noopener noreferrer">Verordnung (EU) 2024/1689</a>).
       </p>
       <p>
         Für ein typisches Automatisierungsprojekt im Mittelstand folgen daraus

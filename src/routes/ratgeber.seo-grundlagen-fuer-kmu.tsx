@@ -114,7 +114,7 @@ function Article() {
         Statt allgemeiner „Ladezeit" nennt Google drei konkrete Messwerte, die
         Core Web Vitals, und empfiehlt Websitebetreibern ausdrücklich, gute
         Werte anzustreben
-        [3](https://developers.google.com/search/docs/appearance/core-web-vitals):
+        (<a href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank" rel="noopener noreferrer">Google Search Central</a>):
       </p>
       <ul>
         <li>
@@ -135,7 +135,7 @@ function Article() {
       <p>
         Diese Werte finden Sie im Core-Web-Vitals-Bericht der Google Search
         Console, und zwar auf Basis echter Nutzungsdaten Ihrer Besucher
-        [1](https://support.google.com/webmasters/answer/9205520?hl=de). Genau
+        (<a href="https://support.google.com/webmasters/answer/9205520?hl=de" target="_blank" rel="noopener noreferrer">Search-Console-Hilfe</a>). Genau
         das ist der Unterschied zu Testwerkzeugen: Laborwerte sind hilfreich
         für die Fehlersuche, bewertet werden aber die Felddaten.
       </p>
@@ -145,7 +145,7 @@ function Article() {
         Google zeigt für einen wachsenden Teil der Anfragen KI-Übersichten
         über den klassischen Treffern und bietet mit dem AI Mode eine eigene
         dialogorientierte Suche an
-        [2](https://search.google/pdf/google-about-AI-overviews-AI-Mode.pdf).
+        (<a href="https://blog.google/products/search/ai-mode-search/" target="_blank" rel="noopener noreferrer">Google zu AI Mode</a>).
         Für den Mittelstand hat das eine unbequeme und eine gute Seite.
       </p>
       <p>

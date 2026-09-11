@@ -113,7 +113,7 @@ function Article() {
         KI-Übersichten (AI Overviews), die über den klassischen Treffern eine
         zusammengefasste Antwort mit Quellenlinks zeigen, und den AI Mode, eine
         eigene, dialogorientierte Suchoberfläche für komplexere Fragen
-        [2](https://search.google/pdf/google-about-AI-overviews-AI-Mode.pdf).
+        (<a href="https://blog.google/products/search/ai-mode-search/" target="_blank" rel="noopener noreferrer">Google zu AI Mode</a>).
         Beide sind in verschiedenen Märkten unterschiedlich weit ausgerollt.
       </p>
       <p>
