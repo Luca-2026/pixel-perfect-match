@@ -4,6 +4,7 @@ import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/pr
 import { CtaSection } from "@/components/content/cta-section";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import majBrittAsset from "@/assets/maj-britt-breuer.webp.asset.json";
 
 const route = findRoute("/ueber")!;
 
@@ -89,6 +90,44 @@ function Ueber() {
               </p>
             </li>
           </ul>
+        </Container>
+      </Section>
+
+      <Section tone="paper" className="border-t border-line">
+        <Container className="max-w-3xl">
+          <Eyebrow>Team</Eyebrow>
+          <HeadlineDot as="h2" className="mt-3">
+            Kreativität im Haus
+          </HeadlineDot>
+          <div className="mt-8 grid gap-8 sm:grid-cols-[240px_1fr] sm:items-start">
+            <div className="group overflow-hidden rounded-2xl border border-line">
+              <img
+                src={majBrittAsset.url}
+                alt="Porträt von Maj-Britt Breuer, Kommunikationsdesignerin bei sandhoff.digital"
+                width={900}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                className="aspect-square h-full w-full object-cover object-[50%_38%] grayscale transition duration-700 group-hover:grayscale-0"
+              />
+            </div>
+            <div className="space-y-5 text-ink/85">
+              <h3 className="font-display text-lg font-semibold text-ink">
+                Maj-Britt Breuer. Grafikdesign
+              </h3>
+              <p>
+                Maj-Britt Breuer ist studierte Kommunikationsdesignerin und
+                verantwortet bei sandhoff.digital den grafischen Teil. Von der
+                Bildwelt über Layouts bis zum Feinschliff, der eine Website
+                von einer Vorlage unterscheidet.
+              </p>
+              <p>
+                So bleibt die kreative Arbeit dort, wo sie hingehört: im
+                Haus, abgestimmt auf Konzept und Technik, ohne externe
+                Zwischenstationen.
+              </p>
+            </div>
+          </div>
         </Container>
       </Section>
 
