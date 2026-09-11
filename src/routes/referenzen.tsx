@@ -137,14 +137,21 @@ function Referenzen() {
                   regionalen Vermieter mit drei Standorten passt.
                 </p>
                 <p className="mt-4 text-ink/80">
-                  Wir haben die Website neu aufgesetzt, die Inhalte
-                  konsequent an tatsächlichen Suchanfragen ausgerichtet, die
-                  Google-Unternehmensprofile für Krefeld und Bonn strukturiert
-                  gepflegt und den digitalen Assistenten „Renty" für
-                  wiederkehrende Anfragen automatisiert. Ergänzend arbeiten
-                  wir daran, dass SLT Rental in KI-Antwortsystemen wie
-                  ChatGPT und Google-KI als Quelle auftaucht.
+                  Dafür haben wir weit mehr geliefert als eine neue Website:
+                  Webauftritt, SEO und KI-Sichtbarkeit komplett neu, einen
+                  KI-Telefonassistenten für den First-Level-Support und ein
+                  eigenes Portal, in dem Angebote in unter 30 Sekunden als PDF
+                  entstehen, Zeiterfassung und Standort-Disposition laufen und
+                  der komplette Feedback-Prozess automatisiert ist.
                 </p>
+                <ul className="mt-6 space-y-4">
+                  {sltDeliverables.map((d) => (
+                    <li key={d.title} className="rounded-md border border-line bg-paper p-4">
+                      <p className="font-display text-base font-semibold text-ink">{d.title}</p>
+                      <p className="mt-1.5 text-sm leading-6 text-ink/75">{d.text}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <aside className="rounded-md border border-line bg-paper p-5">
                 <p className="eyebrow flex items-center gap-2">
