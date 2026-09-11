@@ -27,7 +27,7 @@ function Home() {
 
   return (
     <>
-      <section className="studio-grid flex min-h-[calc(100svh-4rem)] items-center border-b border-line bg-mint py-6 sm:py-10">
+      <section className="flex min-h-[calc(100svh-4rem)] items-center border-b border-line bg-mint py-6 sm:py-10">
         <Container>
           <div className="grid gap-4 lg:grid-cols-12 lg:grid-rows-[minmax(250px,1fr)_minmax(210px,.72fr)] lg:gap-5">
             <motion.div
