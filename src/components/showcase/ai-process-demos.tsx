@@ -410,34 +410,29 @@ function QuoteDemo() {
                 <h3 className="mt-6 font-display text-2xl text-ink">{quote.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-ink/70">{quote.intro}</p>
 
-                <div className="mt-6 overflow-x-auto">
-                  <table className="w-full min-w-[30rem] text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-line text-xs uppercase tracking-wide text-ink/55">
-                        <th className="py-2 pr-3 font-semibold">Position</th>
-                        <th className="py-2 pr-3 text-right font-semibold">Menge</th>
-                        <th className="py-2 text-right font-semibold">Gesamt</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {quote.lines.map((line, index) => (
-                        <tr key={line.key} className="border-b border-line/60 align-top">
-                          <td className="py-3 pr-3">
-                            <span className="font-semibold text-ink">
-                              {String(index + 1).padStart(2, "0")} {line.label}
-                            </span>
-                            <span className="mt-1 block text-ink/65">{line.description}</span>
-                          </td>
-                          <td className="whitespace-nowrap py-3 pr-3 text-right text-ink/70">
-                            {formatQuantity(line.quantity)} {line.unit}
-                          </td>
-                          <td className="whitespace-nowrap py-3 text-right font-medium text-ink">
+                <div className="mt-6">
+                  <p className="border-b border-line pb-2 text-xs uppercase tracking-wide text-ink/55">
+                    Positionen
+                  </p>
+                  <ul>
+                    {quote.lines.map((line, index) => (
+                      <li key={line.key} className="border-b border-line/60 py-3 text-sm">
+                        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                          <span className="font-semibold text-ink">
+                            {String(index + 1).padStart(2, "0")} {line.label}
+                          </span>
+                          <span className="whitespace-nowrap font-medium text-ink">
                             {formatEuro(line.total)}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                          </span>
+                        </div>
+                        <p className="mt-1 text-ink/65">{line.description}</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                          {formatQuantity(line.quantity)} {line.unit} zu {formatEuro(line.unitPrice)}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+
                 </div>
 
                 <dl className="mt-6 space-y-2 rounded-[var(--radius-sm)] bg-mint p-5 text-sm">
