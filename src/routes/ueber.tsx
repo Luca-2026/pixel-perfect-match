@@ -103,7 +103,7 @@ function Ueber() {
             <div className="group overflow-hidden rounded-2xl border border-line">
               <img
                 src={majBrittAsset.url}
-                alt="Porträt von Maj-Britt Breuer, Kommunikationsdesignerin bei sandhoff.digital"
+                alt="Porträt von Maibrit Breuer, Kommunikationsdesignerin bei sandhoff.digital"
                 width={900}
                 height={900}
                 loading="lazy"
@@ -113,10 +113,10 @@ function Ueber() {
             </div>
             <div className="space-y-5 text-ink/85">
               <h3 className="font-display text-lg font-semibold text-ink">
-                Maj-Britt Breuer. Grafikdesign
+                Maibrit Breuer. Grafikdesign
               </h3>
               <p>
-                Maj-Britt Breuer ist studierte Kommunikationsdesignerin und
+                Maibrit Breuer ist studierte Kommunikationsdesignerin und
                 verantwortet bei sandhoff.digital den grafischen Teil. Von der
                 Bildwelt über Layouts bis zum Feinschliff, der eine Website
                 von einer Vorlage unterscheidet.
