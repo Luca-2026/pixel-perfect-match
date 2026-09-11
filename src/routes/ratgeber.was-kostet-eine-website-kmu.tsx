@@ -121,6 +121,125 @@ function Article() {
         Textqualität. Diese drei Punkte entscheiden, ob die Website Anfragen
         bringt oder nur existiert.
       </p>
+
+      <h2>Die laufenden Kosten, die im Angebot oft fehlen</h2>
+      <p>
+        Der Kaufpreis ist nur der Anfang. Diese Posten fallen nach dem
+        Livegang an und gehören vor der Entscheidung auf den Tisch:
+      </p>
+      <ul>
+        <li>
+          <strong>Domain und Hosting.</strong> Je nach Anforderung von wenigen
+          Euro im Monat bis zu dreistelligen Beträgen bei höherem Bedarf an
+          Leistung, Backups und Verfügbarkeit.
+        </li>
+        <li>
+          <strong>Aktualisierungen.</strong> Bei einem CMS wie WordPress
+          müssen Kern, Erweiterungen und Design regelmäßig aktualisiert
+          werden. Ungepflegte Installationen sind das häufigste Einfallstor
+          für Angriffe.
+        </li>
+        <li>
+          <strong>Rechtliche Pflege.</strong> Impressum, Datenschutzerklärung
+          und Einwilligungsbanner müssen zu dem passen, was die Seite
+          tatsächlich lädt.
+        </li>
+        <li>
+          <strong>Inhalte.</strong> Neue Leistungen, neue Referenzen, neue
+          Preise. Eine Website ohne Pflege verliert innerhalb von zwei Jahren
+          spürbar an Wirkung.
+        </li>
+        <li>
+          <strong>Messung.</strong> Webanalyse und Search Console kosten kein
+          Geld, aber Arbeitszeit für die Auswertung.
+        </li>
+      </ul>
+
+      <h2>Was Barrierefreiheit seit 2025 mit dem Preis zu tun hat</h2>
+      <p>
+        Das Barrierefreiheitsstärkungsgesetz setzt den European Accessibility
+        Act in deutsches Recht um und gilt seit dem 28. Juni 2025. Es
+        betrifft nicht jede Firmenwebsite, sondern bestimmte Produkte und
+        Dienstleistungen im Verbrauchergeschäft, etwa den elektronischen
+        Geschäftsverkehr. Für Kleinstunternehmen sieht das Gesetz Ausnahmen
+        vor. Ob Sie betroffen sind, sollten Sie rechtlich prüfen lassen; die
+        Details finden Sie bei der{" "}
+        <a
+          href="https://www.bundesfachstelle-barrierefreiheit.de/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Bundesfachstelle Barrierefreiheit
+        </a>
+        .
+      </p>
+      <p>
+        Für die Kalkulation ist wichtig: Barrierefreiheit von Anfang an
+        mitzudenken kostet wenig zusätzlichen Aufwand. Sie später
+        nachzurüsten, ist deutlich teurer, weil Farbkontraste, Struktur,
+        Tastaturbedienung und Formulare tief im Design und im Code stecken.
+      </p>
+
+      <h2>Vertrag und Eigentum: die drei teuersten Fallen</h2>
+      <ol>
+        <li>
+          <strong>Sie besitzen Ihre Domain nicht.</strong> Domain und
+          Hosting-Zugang gehören auf Ihren Namen. Sonst wird ein
+          Dienstleisterwechsel zur Verhandlung.
+        </li>
+        <li>
+          <strong>Sie bekommen den Quellcode nicht.</strong> Klären Sie
+          schriftlich, welche Nutzungsrechte Sie an Design, Code und Texten
+          erhalten und ob Sie die Seite zu einem anderen Anbieter umziehen
+          dürfen.
+        </li>
+        <li>
+          <strong>Mietmodell ohne Ausstieg.</strong> Monatsmodelle können
+          sinnvoll sein, wenn Betreuung enthalten ist. Prüfen Sie aber, was
+          nach der Kündigung bleibt. In manchen Modellen ist das nichts.
+        </li>
+      </ol>
+
+      <h2>Wie Sie zwei Angebote wirklich vergleichbar machen</h2>
+      <p>
+        Bitten Sie beide Anbieter, dieselben acht Punkte schriftlich zu
+        beantworten. Danach vergleichen sich Angebote fast von allein:
+      </p>
+      <ul>
+        <li>Wie viele Seitentypen und wie viele Einzelseiten sind enthalten?</li>
+        <li>Wer schreibt die Texte, wer liefert Bilder?</li>
+        <li>Welche SEO-Leistungen sind enthalten, welche kosten extra?</li>
+        <li>Welche Ladezeit- und Barrierefreiheitsziele werden zugesagt?</li>
+        <li>Wie viele Korrekturschleifen sind eingeplant?</li>
+        <li>Was kostet der Betrieb pro Jahr, was eine Stunde Anpassung?</li>
+        <li>Welche Reaktionszeit gilt bei Ausfall der Seite?</li>
+        <li>Wem gehören Domain, Code und Inhalte nach Projektende?</li>
+      </ul>
+
+      <h2>Was eine Website einbringen muss, damit sie sich rechnet</h2>
+      <p>
+        Rechnen Sie nicht in Kosten, sondern in Deckungsbeiträgen. Wenn ein
+        gewonnener Auftrag Ihnen im Schnitt einen bestimmten Deckungsbeitrag
+        bringt und die Website über die Nutzungsdauer eine bestimmte Summe
+        kostet, ergibt sich sofort, wie viele zusätzliche Aufträge nötig
+        sind. Setzen Sie Ihre eigenen Zahlen ein: Investition geteilt durch
+        Deckungsbeitrag je Auftrag ergibt die Zahl der Aufträge, ab der sich
+        das Projekt trägt. Bei erklärungsbedürftigen B2B-Leistungen mit hohem
+        Auftragswert ist diese Zahl oft überraschend klein. Genau deshalb
+        lohnt sich die Investition in Konzept und Text an dieser Stelle mehr
+        als jede Ersparnis beim Design.
+      </p>
+
+      <h2>Und was ist mit KI-Baukästen?</h2>
+      <p>
+        Werkzeuge, die aus einer Beschreibung eine komplette Website erzeugen,
+        sind inzwischen brauchbar. Sie ersetzen den Umsetzungsteil teilweise,
+        aber nicht die Arbeit davor und danach: Positionierung, Struktur,
+        belastbare Inhalte, rechtliche Prüfung, Anbindung an Ihre Systeme und
+        laufende Pflege. Wenn Sie einen Baukasten nutzen, planen Sie das
+        eingesparte Geld in genau diese Punkte um. Dann ist das Ergebnis
+        besser als eine teure Seite ohne Aussage.
+      </p>
     </ArticleLayout>
   );
 }

@@ -25,8 +25,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "Nicht jeder Prozess eignet sich für KI. Welche drei Merkmale einen guten Startpunkt ausmachen und wie Sie ohne Millionenbudget beginnen.",
     topic: "KI",
-    publishedAt: "2026-07-12",
-    readingMinutes: 6,
+    publishedAt: "2026-03-04",
+    readingMinutes: 12,
     relatedServicePath: "/leistungen/ki-automatisierung",
   },
   {
@@ -39,8 +39,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "SEO ist kein Trick und kein Ranking-Zaubertrank. Der ehrliche Blick auf das, was für KMU wirklich Anfragen bringt.",
     topic: "SEO",
-    publishedAt: "2026-07-12",
-    readingMinutes: 7,
+    publishedAt: "2026-05-06",
+    readingMinutes: 12,
     relatedServicePath: "/leistungen/seo",
   },
   {
@@ -53,8 +53,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "AEO und GEO in verständlich: warum KI-Antworten Ihre Marke gerade neu sortieren und was Sie jetzt tun sollten.",
     topic: "KI-Sichtbarkeit",
-    publishedAt: "2026-07-12",
-    readingMinutes: 6,
+    publishedAt: "2026-09-02",
+    readingMinutes: 12,
     relatedServicePath: "/leistungen/ki-sichtbarkeit",
   },
   {
@@ -67,8 +67,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "Website-Angebote unterscheiden sich stark. Welche Leistungen den Preis treiben und wie Sie Angebote nachvollziehbar vergleichen.",
     topic: "Webdesign",
-    publishedAt: "2026-07-12",
-    readingMinutes: 6,
+    publishedAt: "2026-04-08",
+    readingMinutes: 11,
     relatedServicePath: "/leistungen/webdesign",
   },
   {
@@ -81,8 +81,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "Für viele KMU ist das Google-Unternehmensprofil die wichtigste kostenlose Sichtbarkeitsquelle. Diese Schritte holen den größten Effekt heraus.",
     topic: "SEO",
-    publishedAt: "2026-07-13",
-    readingMinutes: 7,
+    publishedAt: "2026-07-01",
+    readingMinutes: 11,
     relatedServicePath: "/leistungen/seo",
   },
   {
@@ -95,8 +95,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "Ein Relaunch kann bestehende Sichtbarkeit gefährden. Diese Checkliste zeigt, worauf es vor, während und nach dem Livegang ankommt.",
     topic: "Webdesign",
-    publishedAt: "2026-07-13",
-    readingMinutes: 8,
+    publishedAt: "2026-06-10",
+    readingMinutes: 13,
     relatedServicePath: "/leistungen/webdesign",
   },
   {
@@ -109,8 +109,8 @@ export const articles: RatgeberArticle[] = [
     excerpt:
       "„Wir müssen etwas mit KI machen“ reicht nicht. So bringen Sie ChatGPT und Copilot in Ihre Firma, ohne rechtliche und organisatorische Baustellen zu öffnen.",
     topic: "KI",
-    publishedAt: "2026-07-13",
-    readingMinutes: 8,
+    publishedAt: "2026-08-05",
+    readingMinutes: 13,
     relatedServicePath: "/leistungen/ki-automatisierung",
   },
 ];
