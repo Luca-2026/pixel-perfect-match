@@ -18,7 +18,17 @@ const route = findRoute("/")!;
 const serviceNumbers = ["01", "02", "03", "04"] as const;
 
 export const Route = createFileRoute("/")({
-  head: () => routeHead(route),
+  head: () => {
+    const base = routeHead(route);
+    return {
+      ...base,
+      links: [
+        ...base.links,
+        // LCP-Bild der Startseite früh anfordern
+        { rel: "preload", as: "image", href: lucaPortrait.url, fetchpriority: "high" },
+      ],
+    };
+  },
   component: Home,
 });
 
