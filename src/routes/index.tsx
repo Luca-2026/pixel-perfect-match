@@ -66,7 +66,7 @@ function Home() {
               <motion.img
                 src={lucaPortrait.url}
                 alt="Luca Sandhoff, Inhaber von sandhoff.digital"
-                className="absolute inset-0 h-full w-full object-cover object-[50%_28%] grayscale transition duration-700 group-hover:grayscale-0"
+                className="absolute inset-0 h-full w-full object-cover object-[50%_48%] grayscale transition duration-700 group-hover:grayscale-0"
                 initial={reduce ? false : { scale: 1.06 }}
                 animate={reduce ? undefined : { scale: 1 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
