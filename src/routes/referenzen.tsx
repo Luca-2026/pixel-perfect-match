@@ -218,6 +218,29 @@ function Referenzen() {
               </div>
             </div>
 
+            <div className="border-t border-line bg-ink p-6 sm:p-8">
+              <div className="mx-auto max-w-3xl">
+                <Eyebrow className="text-amber">Live-Einblick</Eyebrow>
+                <h2 className="headline-dot mt-2 text-2xl text-paper">
+                  SEO-Content per Knopfdruck im eigenen CMS
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-paper/75">
+                  Das eigens für SLT Rental entwickelte CMS im Einsatz: Die KI
+                  generiert auf Basis der Unternehmensdaten neue SEO-Inhalte,
+                  das Team prüft und gibt frei. Aufgezeichnet direkt im
+                  produktiven System.
+                </p>
+                <video
+                  src={sltCmsDemo.url}
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="mt-6 w-full rounded-md border border-paper/15 bg-black"
+                  aria-label="Video: SEO-Content-Generierung im SLT Rental CMS"
+                />
+              </div>
+            </div>
+
             <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-line bg-paper p-6 sm:p-8">
               <p className="text-sm text-ink/70">
                 Datenquelle: Google Search Console (Property slt-rental.de)
