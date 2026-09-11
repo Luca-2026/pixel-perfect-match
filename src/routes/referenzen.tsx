@@ -184,9 +184,10 @@ function Referenzen() {
                   Echte Rezensionen an zwei Standorten
                 </h3>
                 <p className="mt-3 text-sm text-ink/80">
-                  Durch redaktionell begleitete Aktionen im Tagesgeschäft
-                  haben die Standorte in rund zwölf Monaten diese Zahl an
-                  echten Google-Bewertungen erreicht.
+                  Über den automatisierten Feedback-Prozess im eigenen Portal
+                  werden Kundinnen und Kunden nach jedem Auftrag um eine
+                  Bewertung gebeten. So sind diese echten Google-Bewertungen
+                  seit Projektstart zusammengekommen.
                 </p>
                 <ul className="mt-5 space-y-3">
                   {sltReviews.map((r) => (
