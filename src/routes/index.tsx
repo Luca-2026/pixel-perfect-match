@@ -7,6 +7,8 @@ import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { CountUp } from "@/components/motion/count-up";
 import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import { SITE_URL } from "@/lib/site";
+import ogStartseite from "@/assets/og-startseite.jpg.asset.json";
 import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
@@ -19,7 +21,21 @@ const serviceNumbers = ["01", "02", "03", "04"] as const;
 
 export const Route = createFileRoute("/")({
   // Das Hero-Bild wird über fetchPriority="high" am <img> automatisch vorgeladen.
-  head: () => routeHead(route),
+  head: () => {
+    const base = routeHead(route);
+    const ogImage = `${SITE_URL}${ogStartseite.url}`;
+    return {
+      ...base,
+      meta: [
+        ...base.meta,
+        { property: "og:image", content: ogImage },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: "Luca Sandhoff, Inhaber von sandhoff.digital" },
+        { name: "twitter:image", content: ogImage },
+      ],
+    };
+  },
   component: Home,
 });
 
