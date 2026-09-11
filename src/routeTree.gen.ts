@@ -35,6 +35,8 @@ import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.web
 import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
 import { Route as LeistungenKiSichtbarkeitRouteImport } from './routes/leistungen.ki-sichtbarkeit'
 import { Route as LeistungenKiAutomatisierungRouteImport } from './routes/leistungen.ki-automatisierung'
+import { Route as ApiPublicKontaktRouteImport } from './routes/api/public/kontakt'
+import { Route as ApiPublicKiDemoRouteImport } from './routes/api/public/ki-demo'
 
 const UeberRoute = UeberRouteImport.update({
   id: '/ueber',
@@ -175,6 +177,16 @@ const LeistungenKiAutomatisierungRoute =
     path: '/leistungen/ki-automatisierung',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicKontaktRoute = ApiPublicKontaktRouteImport.update({
+  id: '/api/public/kontakt',
+  path: '/api/public/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicKiDemoRoute = ApiPublicKiDemoRouteImport.update({
+  id: '/api/public/ki-demo',
+  path: '/api/public/ki-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -203,6 +215,8 @@ export interface FileRoutesByFullPath {
   '/ratgeber/website-relaunch-checkliste': typeof RatgeberWebsiteRelaunchChecklisteRoute
   '/leistungen/': typeof LeistungenIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
+  '/api/public/ki-demo': typeof ApiPublicKiDemoRoute
+  '/api/public/kontakt': typeof ApiPublicKontaktRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -231,6 +245,8 @@ export interface FileRoutesByTo {
   '/ratgeber/website-relaunch-checkliste': typeof RatgeberWebsiteRelaunchChecklisteRoute
   '/leistungen': typeof LeistungenIndexRoute
   '/ratgeber': typeof RatgeberIndexRoute
+  '/api/public/ki-demo': typeof ApiPublicKiDemoRoute
+  '/api/public/kontakt': typeof ApiPublicKontaktRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -260,6 +276,8 @@ export interface FileRoutesById {
   '/ratgeber/website-relaunch-checkliste': typeof RatgeberWebsiteRelaunchChecklisteRoute
   '/leistungen/': typeof LeistungenIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
+  '/api/public/ki-demo': typeof ApiPublicKiDemoRoute
+  '/api/public/kontakt': typeof ApiPublicKontaktRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -290,6 +308,8 @@ export interface FileRouteTypes {
     | '/ratgeber/website-relaunch-checkliste'
     | '/leistungen/'
     | '/ratgeber/'
+    | '/api/public/ki-demo'
+    | '/api/public/kontakt'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -318,6 +338,8 @@ export interface FileRouteTypes {
     | '/ratgeber/website-relaunch-checkliste'
     | '/leistungen'
     | '/ratgeber'
+    | '/api/public/ki-demo'
+    | '/api/public/kontakt'
   id:
     | '__root__'
     | '/'
@@ -346,6 +368,8 @@ export interface FileRouteTypes {
     | '/ratgeber/website-relaunch-checkliste'
     | '/leistungen/'
     | '/ratgeber/'
+    | '/api/public/ki-demo'
+    | '/api/public/kontakt'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -375,6 +399,8 @@ export interface RootRouteChildren {
   RatgeberWebsiteRelaunchChecklisteRoute: typeof RatgeberWebsiteRelaunchChecklisteRoute
   LeistungenIndexRoute: typeof LeistungenIndexRoute
   RatgeberIndexRoute: typeof RatgeberIndexRoute
+  ApiPublicKiDemoRoute: typeof ApiPublicKiDemoRoute
+  ApiPublicKontaktRoute: typeof ApiPublicKontaktRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -561,6 +587,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeistungenKiAutomatisierungRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/kontakt': {
+      id: '/api/public/kontakt'
+      path: '/api/public/kontakt'
+      fullPath: '/api/public/kontakt'
+      preLoaderRoute: typeof ApiPublicKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/ki-demo': {
+      id: '/api/public/ki-demo'
+      path: '/api/public/ki-demo'
+      fullPath: '/api/public/ki-demo'
+      preLoaderRoute: typeof ApiPublicKiDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -596,6 +636,8 @@ const rootRouteChildren: RootRouteChildren = {
     RatgeberWebsiteRelaunchChecklisteRoute,
   LeistungenIndexRoute: LeistungenIndexRoute,
   RatgeberIndexRoute: RatgeberIndexRoute,
+  ApiPublicKiDemoRoute: ApiPublicKiDemoRoute,
+  ApiPublicKontaktRoute: ApiPublicKontaktRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

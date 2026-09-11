@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import {
   AlertTriangle,
   Check,
@@ -18,12 +17,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
+import { postJson } from "@/lib/api-endpoint";
 import {
   SAMPLE_CONTRACTS,
-  analyzeSampleContract,
-  draftSampleQuote,
   type SampleContractKey,
-} from "@/lib/ai-demo.functions";
+} from "@/lib/ai-demo-data";
 import {
   CATALOG,
   CATALOG_ITEMS,
@@ -132,7 +130,6 @@ const quoteSteps = [
 ];
 
 function QuoteDemo() {
-  const runQuote = useServerFn(draftSampleQuote);
   const [selection, setSelection] = useState<Record<string, number>>({ "wartung-gastherme": 2 });
   const [urgent, setUrgent] = useState(false);
   const [object, setObject] = useState("Mehrfamilienhaus, Bonn Beuel");
@@ -195,8 +192,9 @@ function QuoteDemo() {
     reset();
     setRunning(true);
     try {
-      const response = (await runQuote({
-        data: {
+      const response = (await postJson("/api/public/ki-demo", {
+        action: "angebot",
+        input: {
           items: chosen.map((entry) => ({
             key: entry.item.key,
             label: entry.item.label,
@@ -572,7 +570,6 @@ function resolveQuote(raw: string, text: string) {
 }
 
 function ContractDemo() {
-  const runAnalysis = useServerFn(analyzeSampleContract);
   const [contract, setContract] = useState<SampleContractKey>("wartung");
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<{ data: { summary: string; findings: Finding[] }; meta: Meta } | null>(null);
@@ -607,7 +604,10 @@ function ContractDemo() {
     setActiveQuote(null);
     setRunning(true);
     try {
-      const response = await runAnalysis({ data: { contract } });
+      const response = await postJson("/api/public/ki-demo", {
+        action: "vertrag",
+        input: { contract },
+      });
       setResult(response as { data: { summary: string; findings: Finding[] }; meta: Meta });
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Die Analyse ist fehlgeschlagen.");
