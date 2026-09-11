@@ -18,6 +18,7 @@ const route = findRoute("/")!;
 const serviceNumbers = ["01", "02", "03", "04"] as const;
 
 export const Route = createFileRoute("/")({
+  // Das Hero-Bild wird über fetchPriority="high" am <img> automatisch vorgeladen.
   head: () => routeHead(route),
   component: Home,
 });
@@ -66,6 +67,10 @@ function Home() {
               <motion.img
                 src={lucaPortrait.url}
                 alt="Luca Sandhoff, Inhaber von sandhoff.digital"
+                width={1200}
+                height={1600}
+                fetchPriority="high"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover object-[50%_48%] grayscale transition duration-700 group-hover:grayscale-0"
                 initial={reduce ? false : { scale: 1.06 }}
                 animate={reduce ? undefined : { scale: 1 }}
