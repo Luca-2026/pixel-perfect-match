@@ -102,7 +102,7 @@ function Ueber() {
           <div className="mt-8 grid gap-8 sm:grid-cols-[240px_1fr] sm:items-start">
             <div className="group overflow-hidden rounded-2xl border border-line">
               <img
-                src={majBrittAsset.url}
+                src={maibritAsset.url}
                 alt="Porträt von Maibrit Breuer, Kommunikationsdesignerin bei sandhoff.digital"
                 width={900}
                 height={900}
