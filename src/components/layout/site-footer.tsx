@@ -56,6 +56,8 @@ export function SiteFooter() {
             <img
               src={logoAsset.url}
               alt="sandhoff.digital"
+              loading="lazy"
+              decoding="async"
               className="h-7 w-auto brightness-0 invert"
               width={220}
               height={28}
