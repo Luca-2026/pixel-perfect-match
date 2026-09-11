@@ -33,7 +33,17 @@ function renderInline(content: Inline[]) {
         </a>
       );
     }
-    return <span key={index}>{part.text}</span>;
+    const segments = part.text.split("\n");
+    return (
+      <span key={index}>
+        {segments.map((segment, i) => (
+          <span key={i}>
+            {i > 0 ? <br /> : null}
+            {segment}
+          </span>
+        ))}
+      </span>
+    );
   });
 }
 
