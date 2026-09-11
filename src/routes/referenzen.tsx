@@ -6,6 +6,7 @@ import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
+import sltCmsDemo from "@/assets/slt-cms-demo.mp4.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 
 const route = findRoute("/referenzen")!;
@@ -20,8 +21,31 @@ const sltMetrics = [
 ] as const;
 
 const sltReviews = [
-  { location: "Krefeld", count: "über 220", note: "echte Google-Bewertungen, innerhalb von rund zwölf Monaten" },
-  { location: "Bonn", count: "über 115", note: "echte Google-Bewertungen, innerhalb von rund zwölf Monaten" },
+  { location: "Krefeld", count: "über 250", note: "echte Google-Bewertungen, aufgebaut seit Projektstart" },
+  { location: "Bonn", count: "über 140", note: "echte Google-Bewertungen, aufgebaut seit Projektstart" },
+] as const;
+
+const sltDeliverables = [
+  {
+    title: "Webauftritt, SEO und KI-Sichtbarkeit",
+    text: "Kompletter Neuaufbau der Website mit Ausrichtung auf tatsächliche Suchanfragen, technische SEO-Grundlage und strukturierte Inhalte, damit SLT Rental auch in KI-Antwortsystemen wie ChatGPT und Google-KI als Quelle auftaucht.",
+  },
+  {
+    title: "KI-Telefonassistent für den First-Level-Support",
+    text: "Ein Telefonassistent nimmt Anrufe entgegen, greift auf alle relevanten Unternehmensdaten zu und berät Anrufer aktiv zu Verfügbarkeit, Mietpreisen und Abläufen. Komplexe Fälle werden mit strukturierter Notiz an das Team übergeben.",
+  },
+  {
+    title: "Eigenes Portal mit Angebotserstellung in unter 30 Sekunden",
+    text: "Für SLT Rental haben wir ein eigenes Backend entwickelt: Angebote werden per Knopfdruck als PDF erzeugt, die Zeiterfassung der Mitarbeitenden läuft vollständig automatisiert, und die Disposition der Baumaschinen und Mietprodukte zwischen den Standorten Krefeld, Bonn und Mülheim ist zentral abgebildet.",
+  },
+  {
+    title: "Automatisierter Feedback-Prozess",
+    text: "Nach jedem abgeschlossenen Auftrag werden Kundinnen und Kunden automatisiert um eine Bewertung gebeten. So sind allein in Krefeld über 250 und in Bonn über 140 echte Google-Bewertungen zusammengekommen.",
+  },
+  {
+    title: "Eigenentwickeltes CMS mit KI-SEO-Generator",
+    text: "Das eigens für SLT Rental entwickelte CMS erzeugt SEO-optimierte Inhalte per Knopfdruck: Die KI schreibt auf Basis der Unternehmensdaten neue Beiträge, die das Team nur noch freigibt. Das Video unten zeigt den Prozess live.",
+  },
 ] as const;
 
 const sltServices = [
