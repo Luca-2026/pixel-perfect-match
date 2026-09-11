@@ -14,7 +14,7 @@ export function PageHeader({ route, crumbs, intro }: PageHeaderProps) {
   return (
     <>
       {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
-      <section className="studio-grid border-b border-line bg-mint py-16 sm:py-24">
+      <section className="border-b border-line bg-mint py-16 sm:py-24">
         <Container className="max-w-5xl">
           <Reveal>
             {route.eyebrow && <Eyebrow>{route.eyebrow}</Eyebrow>}
