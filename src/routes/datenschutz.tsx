@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/page-header";
 import { Container, Section } from "@/components/layout/primitives";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import { datenschutzBlocks, type Block, type Inline } from "@/lib/datenschutz";
 
 const route = findRoute("/datenschutz")!;
 
@@ -10,6 +11,97 @@ export const Route = createFileRoute("/datenschutz")({
   head: () => routeHead(route),
   component: Datenschutz,
 });
+
+function renderInline(content: Inline[]) {
+  return content.map((part, index) => {
+    if (part.kind === "strong") {
+      return (
+        <strong key={index} className="font-semibold text-ink">
+          {part.text}
+        </strong>
+      );
+    }
+    if (part.kind === "link") {
+      const isAnchor = part.href.startsWith("#");
+      return (
+        <a
+          key={index}
+          href={part.href}
+          {...(isAnchor
+            ? {}
+            : { target: "_blank", rel: "noopener noreferrer" })}
+          className="text-petrol underline decoration-petrol/30 underline-offset-4 transition-colors hover:decoration-petrol"
+        >
+          {part.text}
+        </a>
+      );
+    }
+    const segments = part.text.split("\n");
+    return (
+      <span key={index}>
+        {segments.map((segment, i) => (
+          <span key={i}>
+            {i > 0 ? <br /> : null}
+            {segment}
+          </span>
+        ))}
+      </span>
+    );
+  });
+}
+
+function renderBlock(block: Block, index: number) {
+  switch (block.kind) {
+    case "heading":
+      if (block.level === 1) return null;
+      return (
+        <h2
+          key={index}
+          id={block.id}
+          className="mt-12 scroll-mt-28 font-display text-xl font-semibold text-ink first:mt-0 sm:text-2xl"
+        >
+          {block.text}
+        </h2>
+      );
+    case "paragraph":
+      return (
+        <p key={index} className="mt-4 leading-relaxed">
+          {renderInline(block.content)}
+        </p>
+      );
+    case "list": {
+      const items = block.items.map((item, i) => (
+        <li key={i} className="leading-relaxed">
+          {renderInline(item)}
+        </li>
+      ));
+      return block.ordered ? (
+        <ol key={index} className="mt-4 list-decimal space-y-2 pl-5 marker:text-ink/40">
+          {items}
+        </ol>
+      ) : (
+        <ul key={index} className="mt-4 list-disc space-y-2 pl-5 marker:text-ink/40">
+          {items}
+        </ul>
+      );
+    }
+    case "back-link":
+      return (
+        <p key={index} className="mt-4">
+          <a
+            href={block.href}
+            className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-petrol transition-opacity hover:opacity-70"
+          >
+            {block.text} &uarr;
+          </a>
+        </p>
+      );
+    case "rule":
+      return <hr key={index} className="mt-12 border-line" />;
+    default:
+      return null;
+  }
+}
 
 function Datenschutz() {
   return (
@@ -19,101 +111,19 @@ function Datenschutz() {
         crumbs={[{ to: "/datenschutz", label: "Datenschutz" }]}
         intro={
           <p>
-            Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese
-            Erklärung informiert über Art, Umfang und Zweck der Verarbeitung
-            personenbezogener Daten auf sandhoff.digital. Der ausführliche,
-            juristisch geprüfte Volltext wird ergänzt, sobald die Website
-            veröffentlicht und die eingesetzten Dienste final sind.
+            Diese Datenschutzerklärung informiert Sie darüber, welche
+            personenbezogenen Daten wir beim Besuch von sandhoff.digital, bei
+            der Kontaktaufnahme und im Rahmen unserer Geschäftsbeziehungen
+            verarbeiten, auf welcher Rechtsgrundlage dies geschieht und welche
+            Rechte Ihnen zustehen. Stand: 11. September 2026.
           </p>
         }
       />
 
       <Section tone="paper">
         <Container className="max-w-3xl">
-          <div className="space-y-10 text-ink/85">
-            <section>
-              <h2 className="font-display text-xl font-semibold text-ink">
-                Verantwortliche Stelle
-              </h2>
-              <address className="mt-4 not-italic leading-relaxed">
-                Luca Sandhoff<br />
-                Marienforster Weg 2<br />
-                53343 Wachtberg<br />
-                E-Mail:{" "}
-                <a href="mailto:luca@sandhoff.digital" className="text-petrol">
-                  luca@sandhoff.digital
-                </a>
-                <br />
-                Telefon:{" "}
-                <a href="tel:+4922876388805" className="text-petrol">
-                  0228 763 888 05
-                </a>
-              </address>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-ink">
-                Erhebung und Speicherung personenbezogener Daten
-              </h2>
-              <p className="mt-4 leading-relaxed">
-                Beim Aufruf dieser Website werden durch den Browser
-                automatisch technisch notwendige Informationen an unseren
-                Server übermittelt (z. B. IP-Adresse, Datum und Uhrzeit,
-                aufgerufene Seite). Diese Daten dienen ausschließlich dem
-                Betrieb und der Sicherheit der Website. Eine Weitergabe an
-                Dritte findet nicht statt.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-ink">
-                Kontaktaufnahme
-              </h2>
-              <p className="mt-4 leading-relaxed">
-                Wenn Sie uns per Kontaktformular, E-Mail oder Telefon
-                erreichen, verarbeiten wir Ihre Angaben ausschließlich zur
-                Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1
-                lit. b DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f
-                DSGVO (berechtigtes Interesse an der Beantwortung von
-                Anfragen). Wir nutzen Ihre Angaben nicht für Newsletter oder
-                automatisierte Werbung.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-ink">
-                Ihre Rechte
-              </h2>
-              <p className="mt-4 leading-relaxed">
-                Sie haben das Recht auf Auskunft (Art. 15 DSGVO),
-                Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO),
-                Einschränkung der Verarbeitung (Art. 18 DSGVO),
-                Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch
-                (Art. 21 DSGVO). Bitte wenden Sie sich dazu an die oben
-                genannte verantwortliche Stelle. Es besteht ein
-                Beschwerderecht bei der zuständigen Aufsichtsbehörde.
-              </p>
-            </section>
-
-            <section className="rounded-md border border-dashed border-line bg-mint/20 p-5">
-              <h2 className="font-display text-base font-semibold text-ink">
-                Hinweis
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed">
-                [Ausführliche Datenschutzerklärung inkl. Auflistung aller
-                eingesetzten Dienste (Hosting, Analyse, ggf. Videocall) wird
-                vor Veröffentlichung juristisch geprüft ergänzt. Fragen zum
-                Datenschutz bitte an{" "}
-                <a href="mailto:luca@sandhoff.digital" className="text-petrol">
-                  luca@sandhoff.digital
-                </a>{" "}
-                oder über{" "}
-                <Link to="/kontakt" className="text-petrol">
-                  /kontakt
-                </Link>
-                .]
-              </p>
-            </section>
+          <div className="text-ink/85">
+            {datenschutzBlocks.map((block, index) => renderBlock(block, index))}
           </div>
         </Container>
       </Section>
