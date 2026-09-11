@@ -34,6 +34,11 @@ const defaultApiBase =
 
 const apiBase = process.env.VITE_API_BASE || defaultApiBase;
 
+// Alte Zwischenstände dürfen bei der späteren Ausgabesuche nicht als
+// vermeintlich neuer Build erkannt werden.
+rmSync(out, { recursive: true, force: true });
+rmSync(legacyOut, { recursive: true, force: true });
+
 console.log(`\n[static] Build mit VITE_API_BASE=${apiBase}`);
 const viteEntry = resolve(root, "node_modules/vite/bin/vite.js");
 const build = spawnSync(process.execPath, [viteEntry, "build"], {
@@ -43,13 +48,45 @@ const build = spawnSync(process.execPath, [viteEntry, "build"], {
 });
 if (build.status !== 0) process.exit(build.status ?? 1);
 
-const client = resolve(buildDir, "client");
-if (!existsSync(client)) {
-  console.error("[static] dist/client wurde nicht erzeugt.");
+function countHtmlPages(directory) {
+  if (!existsSync(directory) || !statSync(directory).isDirectory()) return 0;
+  return readdirSync(directory, { withFileTypes: true }).reduce((count, entry) => {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) return count + countHtmlPages(path);
+    return count + (entry.name === "index.html" ? 1 : 0);
+  }, 0);
+}
+
+// TanStack/Vite schreibt lokal nach dist/client. Manche CI- und Repo2web-
+// Umgebungen verwenden dagegen Nitros .output/public, dist/public oder direkt
+// dist. Entscheidend ist nicht der Ordnername, sondern der tatsächlich
+// erzeugte statische Webauftritt mit index.html und Assets.
+const outputCandidates = [
+  resolve(buildDir, "client"),
+  resolve(root, ".output/public"),
+  resolve(buildDir, "public"),
+  resolve(root, ".output/client"),
+  resolve(root, "build/client"),
+  resolve(root, "build/public"),
+  buildDir,
+]
+  .map((directory) => ({ directory, pages: countHtmlPages(directory) }))
+  .filter(({ directory, pages }) =>
+    pages > 0 && existsSync(resolve(directory, "index.html")),
+  )
+  .sort((a, b) => b.pages - a.pages);
+
+const client = outputCandidates[0]?.directory;
+if (!client) {
+  console.error(
+    "[static] Der Build war erfolgreich, aber es wurde kein statischer Webordner mit index.html gefunden.",
+  );
   process.exit(1);
 }
 
-rmSync(out, { recursive: true, force: true });
+console.log(
+  `[static] Browser-Ausgabe gefunden: ${client.replace(`${root}/`, "")} (${countHtmlPages(client)} Seiten)`,
+);
 mkdirSync(out, { recursive: true });
 cpSync(client, out, { recursive: true });
 
