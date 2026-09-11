@@ -7,6 +7,8 @@ import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { CountUp } from "@/components/motion/count-up";
 import { findRoute, services } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import { SITE_URL } from "@/lib/site";
+import ogStartseite from "@/assets/og-startseite.jpg.asset.json";
 import lucaPortrait from "@/assets/luca-sandhoff.jpg.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
