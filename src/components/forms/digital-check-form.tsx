@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { CheckCircle2, Loader2 } from "lucide-react";
-import { submitDigitalCheck } from "@/lib/digital-check.functions";
+import { postJson } from "@/lib/api-endpoint";
 import { Button } from "@/components/ui/button";
 
 type Source = "digital-check" | "kontakt";
@@ -18,7 +17,6 @@ export function DigitalCheckForm({
   source,
   submitLabel = "Anfrage senden",
 }: DigitalCheckFormProps) {
-  const submit = useServerFn(submitDigitalCheck);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -32,8 +30,7 @@ export function DigitalCheckForm({
     const topics = formData.getAll("topics").map(String);
 
     try {
-      await submit({
-        data: {
+      await postJson("/api/public/kontakt", {
           name: String(formData.get("name") ?? ""),
           email: String(formData.get("email") ?? ""),
           company: String(formData.get("company") ?? ""),
