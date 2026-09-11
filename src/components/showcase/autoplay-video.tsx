@@ -47,6 +47,7 @@ export function AutoplayVideo({
     <video
       ref={ref}
       src={src}
+      poster={poster}
       controls
       muted
       loop
