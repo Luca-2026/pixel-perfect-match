@@ -191,7 +191,7 @@ export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
   /* Hinweise */
   if (quote.notes.length > 0) {
     y += 8;
-    ensure(20 + quote.notes.length * 8);
+    ensure(24);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     doc.setTextColor(...INK);
