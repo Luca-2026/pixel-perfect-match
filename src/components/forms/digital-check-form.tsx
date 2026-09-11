@@ -39,8 +39,7 @@ export function DigitalCheckForm({
           message: String(formData.get("message") ?? ""),
           privacy: formData.get("privacy") === "on" ? true : (false as unknown as true),
           source,
-          website_url: String(formData.get("website_url") ?? ""),
-        },
+        website_url: String(formData.get("website_url") ?? ""),
       });
       setStatus("success");
       form.reset();
