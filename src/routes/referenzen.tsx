@@ -7,6 +7,8 @@ import { routeHead } from "@/lib/route-head";
 import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import sltCmsDemo from "@/assets/slt-cms-demo.mp4.asset.json";
+import sltSeoPerformance from "@/assets/slt-seo-performance-12-monate.webp.asset.json";
+import sltGenerativeKi from "@/assets/slt-generative-ki-impressionen.webp.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 import { AutoplayVideo } from "@/components/showcase/autoplay-video";
 
