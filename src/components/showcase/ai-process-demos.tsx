@@ -7,8 +7,11 @@ import {
   Check,
   Clock3,
   Cpu,
+  FileDown,
   FileSearch,
   Loader2,
+  Minus,
+  Plus,
   RotateCcw,
   ShieldCheck,
   Sparkles,
@@ -22,6 +25,19 @@ import {
   draftSampleQuote,
   type SampleContractKey,
 } from "@/lib/ai-demo.functions";
+import {
+  CATALOG,
+  CATALOG_ITEMS,
+  TRAVEL_FLAT,
+  URGENCY_FLAT,
+  buildQuote,
+  formatEuro,
+  formatQuantity,
+  unitPrice,
+  type QuoteDocument,
+} from "@/lib/quote-demo";
+import { downloadQuotePdf } from "@/lib/quote-pdf";
+
 
 
 const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
