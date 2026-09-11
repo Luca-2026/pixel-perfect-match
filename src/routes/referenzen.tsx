@@ -310,8 +310,8 @@ function Referenzen() {
             <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-line bg-paper p-6 sm:p-8">
               <p className="text-sm text-ink/70">
                 Datenquelle: Google Search Console (Property slt-rental.de)
-                sowie Google-Unternehmensprofile Krefeld und Bonn. Auszug
-                dokumentiert am 12. Juli 2026.
+                sowie Google-Unternehmensprofile Krefeld und Bonn. Auszüge
+                dokumentiert am 12. Juli und 11. September 2026.
               </p>
               <Link
                 to="/digital-check"
