@@ -246,7 +246,10 @@ interface BuildQuoteInput {
   intro: string;
   notes: string[];
   descriptions?: Record<string, string>;
+  sender?: QuoteSender;
+  recipient?: QuoteRecipient;
 }
+
 
 /** Baut das vollständige Angebotsdokument aus Bausteinen und festen Kalkulationsregeln. */
 export function buildQuote(input: BuildQuoteInput): QuoteDocument {
@@ -310,5 +313,8 @@ export function buildQuote(input: BuildQuoteInput): QuoteDocument {
     gross: Math.round((net + vat) * 100) / 100,
     hours: Math.round(hours * 100) / 100,
     notes: input.notes,
+    sender: input.sender ?? DEFAULT_SENDER,
+    recipient: input.recipient ?? DEFAULT_RECIPIENT,
+
   };
 }
