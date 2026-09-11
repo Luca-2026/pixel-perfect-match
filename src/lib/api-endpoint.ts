@@ -21,7 +21,10 @@ export async function postJson<T>(path: string, body: unknown): Promise<T> {
   try {
     response = await fetch(apiUrl(path), {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      // Bewusst text/plain: damit gilt der Aufruf als einfache Anfrage und der
+      // Browser verzichtet auf die Preflight-Abfrage. Der Server liest den
+      // Rumpf ohnehin als JSON.
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
       body: JSON.stringify(body),
     });
   } catch {

@@ -36,8 +36,9 @@ export const submissionSchema = z.object({
     errorMap: () => ({ message: "Bitte bestätigen Sie die Datenschutzerklärung." }),
   }),
   source: z.enum(["digital-check", "kontakt"]).default("digital-check"),
-  // Honeypot: muss leer bleiben. Bots füllen üblicherweise jedes Feld.
-  website_url: z.string().max(0).optional().or(z.literal("")),
+  // Honeypot: bleibt bei echten Besuchern leer. Bots füllen üblicherweise
+  // jedes Feld. Gefüllte Einsendungen werden serverseitig still verworfen.
+  website_url: z.string().max(200).optional(),
 });
 
 export type DigitalCheckInput = z.input<typeof submissionSchema>;
