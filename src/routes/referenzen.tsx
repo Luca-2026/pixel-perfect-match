@@ -8,6 +8,7 @@ import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import sltCmsDemo from "@/assets/slt-cms-demo.mp4.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
+import { AutoplayVideo } from "@/components/showcase/autoplay-video";
 
 const route = findRoute("/referenzen")!;
 
@@ -231,13 +232,11 @@ function Referenzen() {
                   das Team prüft und gibt frei. Aufgezeichnet direkt im
                   produktiven System.
                 </p>
-                <video
+                <AutoplayVideo
                   src={sltCmsDemo.url}
-                  controls
-                  preload="metadata"
-                  playsInline
+                  poster="/slt-cms-poster.jpg"
                   className="mt-6 w-full rounded-md border border-paper/15 bg-black"
-                  aria-label="Video: SEO-Content-Generierung im SLT Rental CMS"
+                  label="Video: SEO-Content-Generierung im SLT Rental CMS"
                 />
               </div>
             </div>
