@@ -3,19 +3,11 @@
 
 import { formatEuro, formatQuantity, type QuoteDocument } from "@/lib/quote-demo";
 
-const SENDER = {
-  name: "Muster SHK Betrieb GmbH",
-  street: "Musterstraße 12",
-  city: "53343 Wachtberg",
-  phone: "Telefon 0228 000000",
-  mail: "angebot@muster-shk.example",
-  web: "www.muster-shk.example",
+const LEGAL = {
   tax: "USt-IdNr. DE000000000",
   register: "Amtsgericht Bonn, HRB 00000",
   bank: "Musterbank, IBAN DE00 0000 0000 0000 0000 00",
 };
-
-const RECIPIENT = ["Beispiel Hausverwaltung GmbH", "Frau Anna Beispiel", "Beispielallee 5", "53113 Bonn"];
 
 const INK: [number, number, number] = [26, 28, 30];
 const PETROL: [number, number, number] = [12, 74, 84];
@@ -27,6 +19,15 @@ const MINT: [number, number, number] = [237, 244, 242];
 export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF({ unit: "mm", format: "a4" });
+
+  const SENDER = quote.sender;
+  const RECIPIENT = [
+    quote.recipient.company,
+    quote.recipient.contact,
+    quote.recipient.street,
+    quote.recipient.city,
+  ].filter((row) => row.trim().length > 0);
+
 
   const left = 20;
   const right = 190;
@@ -47,10 +48,10 @@ export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(15);
-  doc.text(SENDER.name, left, 13);
+  doc.text(SENDER.company, left, 13);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8.5);
-  doc.text(`${SENDER.street} · ${SENDER.city} · ${SENDER.phone}`, left, 19.5);
+  doc.text(`${SENDER.street} · ${SENDER.city} · Telefon ${SENDER.phone}`, left, 19.5);
   doc.setFillColor(...AMBER);
   doc.rect(0, 26, 210, 1.2, "F");
 
@@ -58,7 +59,7 @@ export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
   y = 42;
   doc.setTextColor(...GREY);
   doc.setFontSize(7.5);
-  doc.text(`${SENDER.name} · ${SENDER.street} · ${SENDER.city}`, left, y);
+  doc.text(`${SENDER.company} · ${SENDER.street} · ${SENDER.city}`, left, y);
   doc.setDrawColor(...LINE);
   doc.line(left, y + 1.5, left + 85, y + 1.5);
 
@@ -78,8 +79,8 @@ export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
     ["Angebotsnummer", quote.number],
     ["Datum", quote.date],
     ["Gültig bis", quote.validUntil],
-    ["Kundennummer", "K-10428"],
-    ["Bearbeiter", "M. Beispiel"],
+    ["Kundennummer", quote.recipient.customerNumber],
+    ["Bearbeiter", SENDER.agent],
   ];
   for (const [label, value] of meta) {
     doc.setFont("helvetica", "normal");
@@ -228,7 +229,7 @@ export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
   doc.text("Mit freundlichen Grüßen", left, y);
   doc.setFont("helvetica", "bold");
   doc.setTextColor(...INK);
-  doc.text("M. Beispiel, Muster SHK Betrieb GmbH", left, y + 6);
+  doc.text(`${SENDER.agent}, ${SENDER.company}`, left, y + 6);
 
   /* Fußzeile auf allen Seiten */
   const pages = doc.getNumberOfPages();
@@ -239,8 +240,8 @@ export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(7);
     doc.setTextColor(...GREY);
-    doc.text(`${SENDER.name} · ${SENDER.register} · ${SENDER.tax}`, left, 283.5);
-    doc.text(`${SENDER.bank} · ${SENDER.mail} · ${SENDER.web}`, left, 287);
+    doc.text(`${SENDER.company} · ${LEGAL.register} · ${LEGAL.tax}`, left, 283.5);
+    doc.text(`${LEGAL.bank} · ${SENDER.email}`, left, 287);
     doc.text(
       "Demonstrationsdokument mit fiktiven Musterdaten, erzeugt von sandhoff.digital",
       left,

@@ -168,6 +168,42 @@ export interface QuoteLine {
   total: number;
 }
 
+/** Absenderdaten des Betriebs, im Formular frei änderbar. */
+export interface QuoteSender {
+  company: string;
+  street: string;
+  city: string;
+  phone: string;
+  email: string;
+  agent: string;
+}
+
+/** Empfängerdaten des Kunden, im Formular frei änderbar. */
+export interface QuoteRecipient {
+  company: string;
+  contact: string;
+  street: string;
+  city: string;
+  customerNumber: string;
+}
+
+export const DEFAULT_SENDER: QuoteSender = {
+  company: "Muster SHK Betrieb GmbH",
+  street: "Musterstraße 12",
+  city: "53343 Wachtberg",
+  phone: "0228 000000",
+  email: "angebot@muster-shk.example",
+  agent: "M. Beispiel",
+};
+
+export const DEFAULT_RECIPIENT: QuoteRecipient = {
+  company: "Beispiel Hausverwaltung GmbH",
+  contact: "Frau Anna Beispiel",
+  street: "Beispielallee 5",
+  city: "53113 Bonn",
+  customerNumber: "K-10428",
+};
+
 export interface QuoteDocument {
   number: string;
   date: string;
@@ -180,7 +216,10 @@ export interface QuoteDocument {
   gross: number;
   hours: number;
   notes: string[];
+  sender: QuoteSender;
+  recipient: QuoteRecipient;
 }
+
 
 const euroFormat = new Intl.NumberFormat("de-DE", {
   minimumFractionDigits: 2,
@@ -207,7 +246,10 @@ interface BuildQuoteInput {
   intro: string;
   notes: string[];
   descriptions?: Record<string, string>;
+  sender?: QuoteSender;
+  recipient?: QuoteRecipient;
 }
+
 
 /** Baut das vollständige Angebotsdokument aus Bausteinen und festen Kalkulationsregeln. */
 export function buildQuote(input: BuildQuoteInput): QuoteDocument {
@@ -271,5 +313,8 @@ export function buildQuote(input: BuildQuoteInput): QuoteDocument {
     gross: Math.round((net + vat) * 100) / 100,
     hours: Math.round(hours * 100) / 100,
     notes: input.notes,
+    sender: input.sender ?? DEFAULT_SENDER,
+    recipient: input.recipient ?? DEFAULT_RECIPIENT,
+
   };
 }

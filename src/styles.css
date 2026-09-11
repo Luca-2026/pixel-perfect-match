@@ -108,8 +108,12 @@
     line-height: 1.06;
     color: var(--color-ink);
     overflow-wrap: break-word;
-    hyphens: auto;
+    /* Keine automatische Silbentrennung in Überschriften: verhindert Umbrüche wie „Geschäftsprozes-se". */
+    hyphens: manual;
+    -webkit-hyphens: manual;
+    text-wrap: pretty;
   }
+
 
   h1 { font-size: clamp(1.8rem, 5.4vw + 0.7rem, 5.75rem); }
   h2 { font-size: clamp(1.55rem, 3.2vw + 0.7rem, 3.5rem); }

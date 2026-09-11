@@ -6,7 +6,6 @@ import {
   AlertTriangle,
   Check,
   Clock3,
-  Cpu,
   FileDown,
   FileSearch,
   Loader2,
@@ -28,6 +27,8 @@ import {
 import {
   CATALOG,
   CATALOG_ITEMS,
+  DEFAULT_RECIPIENT,
+  DEFAULT_SENDER,
   TRAVEL_FLAT,
   URGENCY_FLAT,
   buildQuote,
@@ -35,6 +36,8 @@ import {
   formatQuantity,
   unitPrice,
   type QuoteDocument,
+  type QuoteRecipient,
+  type QuoteSender,
 } from "@/lib/quote-demo";
 import { downloadQuotePdf } from "@/lib/quote-pdf";
 
@@ -43,7 +46,7 @@ import { downloadQuotePdf } from "@/lib/quote-pdf";
 const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
 const number = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
 
-type Meta = { model: string; ms: number; tokens: number | null };
+type Meta = { ms: number };
 
 export function AiProcessDemos() {
   return (
@@ -69,11 +72,7 @@ function LiveBadge({ running }: { running: boolean }) {
 function MetaLine({ meta }: { meta: Meta }) {
   return (
     <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line/60 pt-4 text-xs text-ink/55">
-      <span className="inline-flex items-center gap-1.5">
-        <Cpu className="h-3.5 w-3.5 text-petrol" aria-hidden /> {meta.model}
-      </span>
       <span>Antwortzeit {(meta.ms / 1000).toFixed(1)} Sekunden</span>
-      {meta.tokens ? <span>{meta.tokens} Tokens</span> : null}
       <span>Ergebnis in Echtzeit erzeugt</span>
     </p>
   );
@@ -137,6 +136,8 @@ function QuoteDemo() {
   const [selection, setSelection] = useState<Record<string, number>>({ "wartung-gastherme": 2 });
   const [urgent, setUrgent] = useState(false);
   const [object, setObject] = useState("Mehrfamilienhaus, Bonn Beuel");
+  const [sender, setSender] = useState<QuoteSender>(DEFAULT_SENDER);
+  const [recipient, setRecipient] = useState<QuoteRecipient>(DEFAULT_RECIPIENT);
   const [note, setNote] = useState("");
   const [running, setRunning] = useState(false);
   const [quote, setQuote] = useState<QuoteDocument | null>(null);
@@ -219,6 +220,8 @@ function QuoteDemo() {
           intro: response.data.intro,
           notes: response.data.notes ?? [],
           descriptions,
+          sender,
+          recipient,
         }),
       );
       setMeta(response.meta);
@@ -333,6 +336,29 @@ function QuoteDemo() {
               </span>
             </button>
 
+            <div className="mt-7 border-t border-line pt-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">Ihre Firmendaten</p>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                <TextField label="Firma" value={sender.company} max={60} onChange={(value) => { setSender((s) => ({ ...s, company: value })); reset(); }} />
+                <TextField label="Bearbeiter" value={sender.agent} max={40} onChange={(value) => { setSender((s) => ({ ...s, agent: value })); reset(); }} />
+                <TextField label="Straße" value={sender.street} max={60} onChange={(value) => { setSender((s) => ({ ...s, street: value })); reset(); }} />
+                <TextField label="PLZ und Ort" value={sender.city} max={60} onChange={(value) => { setSender((s) => ({ ...s, city: value })); reset(); }} />
+                <TextField label="Telefon" value={sender.phone} max={40} onChange={(value) => { setSender((s) => ({ ...s, phone: value })); reset(); }} />
+                <TextField label="E-Mail" value={sender.email} max={60} onChange={(value) => { setSender((s) => ({ ...s, email: value })); reset(); }} />
+              </div>
+            </div>
+
+            <div className="mt-7 border-t border-line pt-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">Kundendaten</p>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                <TextField label="Firma" value={recipient.company} max={60} onChange={(value) => { setRecipient((r) => ({ ...r, company: value })); reset(); }} />
+                <TextField label="Ansprechpartner" value={recipient.contact} max={60} onChange={(value) => { setRecipient((r) => ({ ...r, contact: value })); reset(); }} />
+                <TextField label="Straße" value={recipient.street} max={60} onChange={(value) => { setRecipient((r) => ({ ...r, street: value })); reset(); }} />
+                <TextField label="PLZ und Ort" value={recipient.city} max={60} onChange={(value) => { setRecipient((r) => ({ ...r, city: value })); reset(); }} />
+                <TextField label="Kundennummer" value={recipient.customerNumber} max={20} onChange={(value) => { setRecipient((r) => ({ ...r, customerNumber: value })); reset(); }} />
+              </div>
+            </div>
+
             <label className="mt-5 block">
               <span className="text-sm font-semibold text-ink">Objekt</span>
               <input
@@ -374,8 +400,10 @@ function QuoteDemo() {
             <div className="flex flex-wrap items-start justify-between gap-3 border-b border-line pb-5">
               <div className="min-w-0">
                 <p className="eyebrow">Angebotsdokument</p>
-                <p className="mt-2 font-display text-xl text-ink">Muster SHK Betrieb GmbH</p>
-                <p className="mt-1 text-sm text-ink/55">Beispiel Hausverwaltung GmbH, Bonn</p>
+                <p className="mt-2 font-display text-xl text-ink">{sender.company || "Ihr Betrieb"}</p>
+                <p className="mt-1 text-sm text-ink/55">
+                  Angebot an {recipient.company || "Ihren Kunden"}{recipient.city ? `, ${recipient.city}` : ""}
+                </p>
               </div>
               <LiveBadge running={running} />
             </div>
@@ -487,6 +515,19 @@ function QuoteDemo() {
         </div>
       </Container>
     </Section>
+  );
+}
+
+function TextField({ label, value, max, onChange }: { label: string; value: string; max: number; onChange: (value: string) => void }) {
+  return (
+    <label className="block min-w-0">
+      <span className="text-xs font-semibold text-ink/70">{label}</span>
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value.slice(0, max))}
+        className="mt-1.5 h-11 w-full min-w-0 rounded-[var(--radius-sm)] border border-line bg-paper px-3 text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      />
+    </label>
   );
 }
 
@@ -682,9 +723,8 @@ function ContractDemo() {
                   ))}
                 </div>
                 <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-paper/20 pt-4 text-xs text-paper/50">
-                  <span className="inline-flex items-center gap-1.5"><Cpu className="h-3.5 w-3.5 text-amber" aria-hidden /> {result.meta.model}</span>
                   <span>Antwortzeit {(result.meta.ms / 1000).toFixed(1)} Sekunden</span>
-                  {result.meta.tokens ? <span>{result.meta.tokens} Tokens</span> : null}
+                  <span>Ergebnis in Echtzeit erzeugt</span>
                 </p>
               </div>
             )}

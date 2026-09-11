@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { getRequest } from "@tanstack/react-start/server";
 import { z } from "zod";
 
 /**
@@ -8,6 +9,59 @@ import { z } from "zod";
  */
 
 const MODEL = "google/gemini-2.5-flash";
+
+/* ------------------------------------------------- Missbrauchsschutz */
+
+const WINDOW_MS = 10 * 60 * 1000;
+const PER_CLIENT = 8;
+const GLOBAL_PER_WINDOW = 150;
+
+const clientHits = new Map<string, number[]>();
+let globalHits: number[] = [];
+
+function clientKey(): string {
+  try {
+    const headers = getRequest().headers;
+    return (
+      headers.get("cf-connecting-ip") ||
+      headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      headers.get("x-real-ip") ||
+      "unbekannt"
+    );
+  } catch {
+    return "unbekannt";
+  }
+}
+
+/** Einfaches Zeitfenster-Limit gegen automatisierte Massenaufrufe der Demos. */
+function enforceRateLimit(): void {
+  const now = Date.now();
+  const since = now - WINDOW_MS;
+
+  globalHits = globalHits.filter((time) => time > since);
+  if (globalHits.length >= GLOBAL_PER_WINDOW) {
+    throw new Error("Die Live-Demo ist gerade stark ausgelastet. Bitte in einigen Minuten erneut versuchen.");
+  }
+
+  const key = clientKey();
+  const hits = (clientHits.get(key) ?? []).filter((time) => time > since);
+  if (hits.length >= PER_CLIENT) {
+    throw new Error(
+      "Sie haben das Demo-Limit erreicht. In wenigen Minuten ist die Live-Demo wieder nutzbar. Für ein echtes Projekt sprechen Sie uns gerne direkt an.",
+    );
+  }
+
+  hits.push(now);
+  clientHits.set(key, hits);
+  globalHits.push(now);
+
+  if (clientHits.size > 500) {
+    for (const [entry, times] of clientHits) {
+      if (times.every((time) => time <= since)) clientHits.delete(entry);
+    }
+  }
+}
+
 
 export const SAMPLE_CONTRACTS = {
   wartung: {
@@ -101,16 +155,12 @@ async function callGateway<T>(system: string, user: string, schemaName: string, 
 
   const json = (await response.json()) as {
     choices?: { message?: { content?: string } }[];
-    usage?: { total_tokens?: number };
   };
   const content = json.choices?.[0]?.message?.content ?? "{}";
+  // Bewusst ohne Modellname und Tokenverbrauch: die Demo zeigt nur die Antwortzeit.
   return {
     data: JSON.parse(content) as T,
-    meta: {
-      model: MODEL,
-      ms: Date.now() - started,
-      tokens: json.usage?.total_tokens ?? null,
-    },
+    meta: { ms: Date.now() - started },
   };
 }
 
@@ -158,6 +208,7 @@ export const analyzeSampleContract = createServerFn({ method: "POST" })
     z.object({ contract: z.enum(["wartung", "lieferung", "software"]) }).parse(data),
   )
   .handler(async ({ data }) => {
+    enforceRateLimit();
     const sample = SAMPLE_CONTRACTS[data.contract];
     const result = await callGateway<ContractAnalysis>(
       "Du bist ein Analyse-Assistent für Vertragsdokumente in einem deutschen Mittelstandsbetrieb. Du analysierst ausschließlich den übergebenen Text. Du erfindest keine Inhalte, gibst keine Rechtsberatung und formulierst sachlich in deutscher Sprache mit Sie-Ansprache. Verwende keine Gedankenstriche. Das Feld quote enthält ein wörtliches Zitat aus dem Text, maximal 140 Zeichen. Liefere fünf bis sieben Fundstellen zu Fristen, Kündigung, Zahlung, Pflichten, Haftung und Datenschutz.",
@@ -222,6 +273,7 @@ export const draftSampleQuote = createServerFn({ method: "POST" })
       .parse(data),
   )
   .handler(async ({ data }) => {
+    enforceRateLimit();
     const list = data.items
       .map((item) => `- ${item.key}: ${item.label}, Menge ${item.quantity} ${item.unit}`)
       .join("\n");
