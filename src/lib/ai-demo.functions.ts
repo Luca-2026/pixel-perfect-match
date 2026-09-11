@@ -125,12 +125,8 @@ export type ContractFinding = {
   risk: "hoch" | "mittel" | "niedrig";
 };
 export type ContractAnalysis = { summary: string; findings: ContractFinding[] };
-export type QuoteDraft = {
-  title: string;
-  intro: string;
-  positions: { position: string; description: string; quantity: string; unit: string }[];
-  notes: string[];
-};
+
+
 
 const contractSchema = {
   type: "object",
