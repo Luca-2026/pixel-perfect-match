@@ -4,6 +4,7 @@ import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/pr
 import { CtaSection } from "@/components/content/cta-section";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
+import majBrittAsset from "@/assets/maj-britt-breuer.webp.asset.json";
 
 const route = findRoute("/ueber")!;
 
