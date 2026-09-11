@@ -4,7 +4,7 @@ import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/pr
 import { CtaSection } from "@/components/content/cta-section";
 import { findRoute } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
-import majBrittAsset from "@/assets/maj-britt-breuer.webp.asset.json";
+import maibritAsset from "@/assets/maj-britt-breuer.webp.asset.json";
 
 const route = findRoute("/ueber")!;
 
@@ -102,8 +102,8 @@ function Ueber() {
           <div className="mt-8 grid gap-8 sm:grid-cols-[240px_1fr] sm:items-start">
             <div className="group overflow-hidden rounded-2xl border border-line">
               <img
-                src={majBrittAsset.url}
-                alt="Porträt von Maj-Britt Breuer, Kommunikationsdesignerin bei sandhoff.digital"
+                src={maibritAsset.url}
+                alt="Porträt von Maibrit Breuer, Kommunikationsdesignerin bei sandhoff.digital"
                 width={900}
                 height={900}
                 loading="lazy"
@@ -113,10 +113,10 @@ function Ueber() {
             </div>
             <div className="space-y-5 text-ink/85">
               <h3 className="font-display text-lg font-semibold text-ink">
-                Maj-Britt Breuer. Grafikdesign
+                Maibrit Breuer. Grafikdesign
               </h3>
               <p>
-                Maj-Britt Breuer ist studierte Kommunikationsdesignerin und
+                Maibrit Breuer ist studierte Kommunikationsdesignerin und
                 verantwortet bei sandhoff.digital den grafischen Teil. Von der
                 Bildwelt über Layouts bis zum Feinschliff, der eine Website
                 von einer Vorlage unterscheidet.
