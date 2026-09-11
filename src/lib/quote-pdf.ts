@@ -3,19 +3,11 @@
 
 import { formatEuro, formatQuantity, type QuoteDocument } from "@/lib/quote-demo";
 
-const SENDER = {
-  name: "Muster SHK Betrieb GmbH",
-  street: "Musterstraße 12",
-  city: "53343 Wachtberg",
-  phone: "Telefon 0228 000000",
-  mail: "angebot@muster-shk.example",
-  web: "www.muster-shk.example",
+const LEGAL = {
   tax: "USt-IdNr. DE000000000",
   register: "Amtsgericht Bonn, HRB 00000",
   bank: "Musterbank, IBAN DE00 0000 0000 0000 0000 00",
 };
-
-const RECIPIENT = ["Beispiel Hausverwaltung GmbH", "Frau Anna Beispiel", "Beispielallee 5", "53113 Bonn"];
 
 const INK: [number, number, number] = [26, 28, 30];
 const PETROL: [number, number, number] = [12, 74, 84];
@@ -27,6 +19,15 @@ const MINT: [number, number, number] = [237, 244, 242];
 export async function downloadQuotePdf(quote: QuoteDocument): Promise<void> {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF({ unit: "mm", format: "a4" });
+
+  const SENDER = quote.sender;
+  const RECIPIENT = [
+    quote.recipient.company,
+    quote.recipient.contact,
+    quote.recipient.street,
+    quote.recipient.city,
+  ].filter((row) => row.trim().length > 0);
+
 
   const left = 20;
   const right = 190;
