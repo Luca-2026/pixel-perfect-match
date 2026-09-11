@@ -22,11 +22,11 @@ function Ratgeber() {
         route={route}
         crumbs={[{ to: "/ratgeber", label: "Ratgeber" }]}
         intro={
-          <p>
-            Praxisnahe Artikel zu KI, Webdesign, SEO und KI-Sichtbarkeit für
-            Entscheider im Mittelstand. Ohne Hype, mit konkreten Beispielen
-            aus dem KMU-Alltag. Wir veröffentlichen erst, wenn ein Artikel
-            tatsächlich weiterhilft. lieber weniger, dafür belastbar.
+          <p className="text-pretty [hyphens:manual]">
+            Praxisnahe Artikel zu KI, Webdesign, SEO und KI-Sichtbarkeit
+            für&nbsp;Entscheider im Mittelstand. Ohne Hype, mit konkreten
+            Beispielen aus dem KMU-Alltag. Wir veröffentlichen erst, wenn ein
+            Artikel tatsächlich weiterhilft: lieber weniger, dafür belastbar.
           </p>
         }
       />
