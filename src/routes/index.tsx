@@ -19,7 +19,21 @@ const serviceNumbers = ["01", "02", "03", "04"] as const;
 
 export const Route = createFileRoute("/")({
   // Das Hero-Bild wird über fetchPriority="high" am <img> automatisch vorgeladen.
-  head: () => routeHead(route),
+  head: () => {
+    const base = routeHead(route);
+    const ogImage = `${SITE_URL}${ogStartseite.url}`;
+    return {
+      ...base,
+      meta: [
+        ...base.meta,
+        { property: "og:image", content: ogImage },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: "Luca Sandhoff, Inhaber von sandhoff.digital" },
+        { name: "twitter:image", content: ogImage },
+      ],
+    };
+  },
   component: Home,
 });
 
