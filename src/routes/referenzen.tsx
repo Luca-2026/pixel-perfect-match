@@ -234,6 +234,7 @@ function Referenzen() {
                 </p>
                 <AutoplayVideo
                   src={sltCmsDemo.url}
+                  poster="/slt-cms-poster.jpg"
                   className="mt-6 w-full rounded-md border border-paper/15 bg-black"
                   label="Video: SEO-Content-Generierung im SLT Rental CMS"
                 />

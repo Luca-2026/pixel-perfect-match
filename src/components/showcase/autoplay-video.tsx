@@ -7,10 +7,12 @@ import { useEffect, useRef } from "react";
  */
 export function AutoplayVideo({
   src,
+  poster,
   className,
   label,
 }: {
   src: string;
+  poster?: string;
   className?: string;
   label: string;
 }) {
