@@ -108,6 +108,105 @@ function Article() {
         Beobachten Sie die Entwicklung monatlich. Wenn Aufrufe stagnieren,
         prüfen Sie Kategorien, Fotos und Bewertungsfrequenz zuerst.
       </p>
+
+      <h2>Wie Google lokale Ergebnisse einordnet</h2>
+      <p>
+        Google nennt für die lokale Platzierung drei Faktoren: Relevanz
+        (passt Ihr Profil zur Suchanfrage), Entfernung (wie weit ist Ihr
+        Standort vom Suchenden oder vom gesuchten Ort entfernt) und Bekanntheit
+        (wie bekannt ist Ihr Unternehmen, auch außerhalb von Google). Die
+        Details beschreibt Google in der{" "}
+        <a
+          href="https://support.google.com/business/answer/7091"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hilfe zum Unternehmensprofil
+        </a>
+        . Praktisch bedeutet das: Die Entfernung können Sie nicht
+        beeinflussen, Relevanz und Bekanntheit sehr wohl.
+      </p>
+
+      <h2>Was Sie besser nicht tun</h2>
+      <ul>
+        <li>
+          <strong>Keywords in den Firmennamen schreiben.</strong> „Müller GmbH
+          Sanitär Heizung Notdienst Bonn" verstößt gegen Googles Richtlinien
+          zur Darstellung Ihres Unternehmens. Der Eintrag muss dem Namen
+          entsprechen, unter dem Sie tatsächlich auftreten. Verstöße können
+          zur Sperrung des Profils führen.
+        </li>
+        <li>
+          <strong>Adressen erfinden.</strong> Ein virtuelles Büro oder eine
+          Anschrift ohne persönliche Besetzung während der angegebenen Zeiten
+          ist nicht zulässig. Wer ohne feste Adresse zum Kunden fährt, richtet
+          stattdessen ein Einzugsgebiet ein.
+        </li>
+        <li>
+          <strong>Mehrere Profile für denselben Standort.</strong> Doppelte
+          Einträge teilen Bewertungen und Signale und werden von Google
+          zusammengeführt oder entfernt.
+        </li>
+      </ul>
+
+      <h2>Ein Bewertungsprozess, der ohne Druck funktioniert</h2>
+      <p>
+        Bewertungen entstehen nicht zufällig, sondern durch einen festen
+        Ablauf. Bewährt hat sich diese Reihenfolge:
+      </p>
+      <ol>
+        <li>
+          Den richtigen Moment festlegen: direkt nach der Abnahme, der
+          Übergabe oder dem letzten Termin, nicht Wochen später.
+        </li>
+        <li>
+          Persönlich fragen, danach den kurzen Bewertungslink per Nachricht
+          oder QR-Code nachreichen. Den Link erzeugen Sie direkt im Profil.
+        </li>
+        <li>
+          Eine Person im Team ist zuständig und beantwortet alle Bewertungen
+          innerhalb weniger Werktage.
+        </li>
+        <li>
+          Kritik sachlich beantworten, Lösung anbieten, Klärung ins
+          Persönliche verlagern. Öffentliche Rechtfertigung schadet mehr als
+          die Kritik selbst.
+        </li>
+        <li>
+          Bei offensichtlich falschen oder beleidigenden Bewertungen den
+          Meldeweg im Profil nutzen, statt zu diskutieren.
+        </li>
+      </ol>
+      <p>
+        Anreize wie Rabatte oder Gewinnspiele für Bewertungen sind nicht
+        zulässig und können zusätzlich wettbewerbsrechtliche Folgen haben.
+      </p>
+
+      <h2>Warum das Profil auch für KI-Antworten zählt</h2>
+      <p>
+        KI-Assistenten beantworten zunehmend Fragen der Form „Wer macht das in
+        meiner Nähe". Sie stützen sich dabei auf öffentlich zugängliche,
+        strukturierte Angaben. Ein vollständig gepflegtes Profil mit
+        einheitlichen Daten, echten Bewertungen und klaren Leistungsangaben
+        ist damit auch eine Grundlage dafür, in solchen Antworten überhaupt
+        vorzukommen. Wichtig ist die Konsistenz: Ihre Angaben im Profil, im
+        Impressum, auf der Kontaktseite und in Verzeichnissen sollten sich
+        nicht widersprechen.
+      </p>
+
+      <h2>Eine Routine, die zwanzig Minuten im Monat kostet</h2>
+      <ul>
+        <li>Neue Bewertungen beantworten.</li>
+        <li>Zwei bis vier aktuelle Fotos hochladen.</li>
+        <li>Einen kurzen Beitrag zu einem aktuellen Projekt oder Angebot veröffentlichen.</li>
+        <li>Neue Fragen im Bereich „Fragen und Antworten" beantworten.</li>
+        <li>Sonderöffnungszeiten für den kommenden Monat eintragen.</li>
+        <li>Statistiken kurz vergleichen: Anrufe, Routenanfragen, Website-Klicks.</li>
+      </ul>
+      <p>
+        Diese Routine ist unspektakulär und genau deshalb wirksam. Die meisten
+        Wettbewerber machen sie nicht.
+      </p>
     </ArticleLayout>
   );
 }

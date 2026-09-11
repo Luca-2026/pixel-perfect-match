@@ -130,6 +130,142 @@ function Article() {
         vorgenommenen Änderungen ab. Bei anhaltenden Verlusten sollten Technik,
         Weiterleitungen, Indexierung und Inhalte systematisch geprüft werden.
       </p>
+
+      <h2>Die Weiterleitungsliste: das Herzstück des Umzugs</h2>
+      <p>
+        Kein anderer Punkt entscheidet so stark über den Ausgang. So bauen Sie
+        die Liste sauber auf:
+      </p>
+      <ol>
+        <li>
+          <strong>Alle alten Adressen sammeln.</strong> Aus der Sitemap, aus
+          einem Crawl der alten Seite, aus der Search Console (Seiten mit
+          Impressionen der letzten zwölf Monate) und aus der Webanalyse
+          (Seiten mit Aufrufen).
+        </li>
+        <li>
+          <strong>Nach Wert sortieren.</strong> Seiten mit Klicks, Anfragen
+          oder externen Verweisen zuerst. Die übrigen dürfen später kommen.
+        </li>
+        <li>
+          <strong>Ziele einzeln zuordnen.</strong> Jede alte Adresse bekommt
+          das inhaltlich nächstliegende neue Ziel. Eine Sammelweiterleitung
+          aller Seiten auf die Startseite ist der klassische Fehler und wird
+          von Suchmaschinen weitgehend wie eine Fehlerseite behandelt.
+        </li>
+        <li>
+          <strong>Dauerhaft weiterleiten.</strong> Statuscode 301, keine
+          Weiterleitungsketten über mehrere Stationen, keine Weiterleitung auf
+          eine Seite, die selbst weiterleitet.
+        </li>
+        <li>
+          <strong>Vor dem Livegang testen.</strong> Die Liste lässt sich gegen
+          die Testumgebung prüfen, bevor jemand sie in der echten Welt
+          bemerkt.
+        </li>
+      </ol>
+
+      <h2>Der Testserver darf nicht in den Index</h2>
+      <p>
+        Eine öffentlich erreichbare Testumgebung kann im schlimmsten Fall
+        indexiert werden und mit der echten Seite konkurrieren. Sichern Sie
+        sie mit einem Passwortschutz auf Serverebene ab. Genauso wichtig ist
+        der umgekehrte Fehler: Nach dem Livegang muss die Sperre für
+        Suchmaschinen wieder verschwinden. Prüfen Sie am Tag des Umzugs die
+        Datei <code>robots.txt</code> und die Meta-Angabe für Indexierung auf
+        mehreren Seiten. Eine versehentlich stehengebliebene Sperre ist die
+        häufigste Ursache für den plötzlichen Totalverlust nach einem
+        Relaunch.
+      </p>
+
+      <h2>Die Ladezeit-Prüfung gehört vor den Livegang</h2>
+      <p>
+        Neue Seiten sind oft schwerer als alte: größere Bilder, mehr
+        Schriften, mehr Skripte. Messen Sie vor dem Umzug die Core Web Vitals
+        der Testumgebung und vergleichen Sie sie mit den bisherigen Werten aus
+        der Search Console, die auf echten Nutzungsdaten beruhen (
+        <a
+          href="https://support.google.com/webmasters/answer/9205520?hl=de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Search-Console-Hilfe
+        </a>
+        ). Google nennt als gute Werte 2,5 Sekunden für LCP,
+        200 Millisekunden für INP und 0,1 für CLS (
+        <a
+          href="https://developers.google.com/search/docs/appearance/core-web-vitals"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Search Central
+        </a>
+        ). Wer diese Prüfung auf „nach dem Livegang" schiebt, sucht später im
+        laufenden Betrieb.
+      </p>
+
+      <h2>Am Tag des Livegangs: die Reihenfolge zählt</h2>
+      <ol>
+        <li>Umzug außerhalb der Hauptgeschäftszeit einplanen.</li>
+        <li>Vollständige Sicherung der alten Seite und der Datenbank anlegen.</li>
+        <li>Neue Seite freischalten, Passwortschutz entfernen.</li>
+        <li>
+          Indexierungssperre entfernen, <code>robots.txt</code> und
+          kanonische Adressen stichprobenartig prüfen.
+        </li>
+        <li>Weiterleitungen an zwanzig wichtigen Adressen von Hand testen.</li>
+        <li>Formulare absenden und prüfen, ob die Nachricht ankommt.</li>
+        <li>
+          Neue Sitemap in der Search Console einreichen, Änderung dort im
+          Änderungsprotokoll vermerken.
+        </li>
+        <li>
+          Webanalyse und Einwilligungsbanner kontrollieren: Werden Zugriffe
+          gezählt und Einwilligungen korrekt beachtet?
+        </li>
+        <li>
+          Zieldefinitionen in der Webanalyse neu setzen, wenn sich Adressen
+          von Danke-Seiten geändert haben.
+        </li>
+      </ol>
+
+      <h2>Domainwechsel: ein Sonderfall mit eigenem Werkzeug</h2>
+      <p>
+        Wenn sich nicht nur die Struktur, sondern auch die Domain ändert,
+        nutzen Sie in der Google Search Console zusätzlich das Werkzeug für
+        den Adresswechsel. Voraussetzung ist, dass Sie beide Domains dort
+        bestätigt haben und die Weiterleitungen bereits laufen. Ändern Sie in
+        diesem Fall nichts anderes gleichzeitig: Domainwechsel und
+        Inhaltsumbau in einem Schritt machen die Fehlersuche später fast
+        unmöglich.
+      </p>
+
+      <h2>Häufige Fehler, die wir immer wieder sehen</h2>
+      <ul>
+        <li>
+          Alte Inhalte werden ersatzlos gestrichen, weil sie „alt" wirken,
+          obwohl sie den Großteil der Suchanfragen erzeugt haben.
+        </li>
+        <li>
+          Seitentitel und Beschreibungen werden im neuen System automatisch
+          generiert und überschreiben die gepflegten Angaben.
+        </li>
+        <li>
+          Bilder verlieren ihre Alternativtexte beim Import.
+        </li>
+        <li>
+          Die interne Verlinkung wird auf Navigation reduziert, verwandte
+          Inhalte verlinken nicht mehr aufeinander.
+        </li>
+        <li>
+          Strukturierte Daten für Organisation, Leistungen und FAQ werden
+          nicht mitgenommen.
+        </li>
+        <li>
+          Niemand hat Vorher-Werte festgehalten, deshalb lässt sich nach vier
+          Wochen nicht sagen, ob etwas schlechter geworden ist.
+        </li>
+      </ul>
     </ArticleLayout>
   );
 }

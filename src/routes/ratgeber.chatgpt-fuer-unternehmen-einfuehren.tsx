@@ -149,6 +149,149 @@ function Article() {
         nicht? Auf dieser Grundlage entscheidet die Geschäftsleitung, ob und
         wie breit ausgerollt wird.
       </p>
+
+      <h2>ChatGPT, Claude oder Gemini: wie Sie sich entscheiden</h2>
+      <p>
+        Die drei großen Anbieter unterscheiden sich für den Mittelstand
+        weniger in der reinen Textqualität als in der Umgebung, in die sie
+        sich einfügen:
+      </p>
+      <ul>
+        <li>
+          <strong>ChatGPT von OpenAI.</strong> Die bekannteste Oberfläche,
+          entsprechend gering der Schulungsaufwand. Für Geschäftskunden gibt
+          es eigene Tarife mit Verwaltungsfunktionen.
+        </li>
+        <li>
+          <strong>Claude von Anthropic.</strong> Stark bei langen Dokumenten
+          und strukturierter Arbeit; Anthropic hat mit dem Model Context
+          Protocol (MCP) außerdem den offenen Standard veröffentlicht, über
+          den Assistenten an Firmensysteme angebunden werden (
+          <a
+            href="https://www.anthropic.com/news/model-context-protocol"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Anthropic zu MCP
+          </a>
+          ). Wer perspektivisch eigene Datenquellen anbinden will, findet hier
+          eine saubere Grundlage.
+        </li>
+        <li>
+          <strong>Gemini von Google.</strong> Sinnvoll, wenn Ihr Unternehmen
+          in Google Workspace arbeitet, weil die Integration in Dokumente,
+          Tabellen und Mail den Alltag trifft.
+        </li>
+        <li>
+          <strong>Microsoft 365 Copilot.</strong> Der pragmatische Weg für
+          Häuser, die ohnehin vollständig in Microsoft 365 arbeiten.
+        </li>
+      </ul>
+      <p>
+        Entscheiden Sie nicht nach Testberichten, sondern nach Ihrer
+        Systemlandschaft und nach zwei bis drei echten Aufgaben, die Sie in
+        einer Testphase parallel durch alle Kandidaten laufen lassen.
+      </p>
+
+      <h2>Der entscheidende Schritt: Ihr Wissen anbinden</h2>
+      <p>
+        Ein Assistent ohne Zugriff auf Ihre Unterlagen bleibt ein besseres
+        Textprogramm. Nützlich wird er, wenn er auf geprüfte eigene Inhalte
+        zugreift: Leistungsbeschreibungen, Preislisten, technische
+        Datenblätter, Verfahrensanweisungen, häufige Kundenfragen.
+      </p>
+      <p>
+        Technisch geschieht das nicht durch „Training" mit Ihren Daten,
+        sondern durch eine Wissensbasis, aus der zur Frage passende Ausschnitte
+        gesucht und dem Modell mitgegeben werden. Für die Anbindung
+        vorhandener Systeme wie CRM oder Ticketsystem gibt es mit MCP seit
+        November 2024 einen offenen Standard (
+        <a
+          href="https://modelcontextprotocol.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          MCP-Spezifikation
+        </a>
+        ). Drei Dinge sind dabei nicht verhandelbar: Die Wissensbasis enthält
+        nur freigegebene, aktuelle Dokumente. Berechtigungen bleiben erhalten,
+        niemand sieht über den Assistenten mehr als über das Quellsystem. Und
+        Antworten nennen ihre Quelle, damit Mitarbeitende nachschlagen können.
+      </p>
+
+      <h2>Was der EU AI Act für Sie bedeutet</h2>
+      <p>
+        Die KI-Verordnung (Verordnung (EU) 2024/1689) gilt seit dem
+        1. August 2024 und wird stufenweise wirksam (
+        <a
+          href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Verordnung im Volltext
+        </a>
+        ). Für ein Unternehmen, das ChatGPT, Claude oder Copilot einsetzt,
+        sind vor allem zwei Punkte praktisch:
+      </p>
+      <ul>
+        <li>
+          <strong>KI-Kompetenz.</strong> Artikel 4 verlangt, dass Personen, die
+          KI-Systeme im Auftrag des Unternehmens einsetzen, über ausreichende
+          Kenntnisse verfügen. Diese Pflicht gilt bereits seit Februar 2025.
+          Eine dokumentierte Schulung ist damit kein Nice-to-have.
+        </li>
+        <li>
+          <strong>Transparenz.</strong> Mit der allgemeinen Anwendung ab
+          August 2026 greifen die Transparenzpflichten aus Artikel 50. Wo
+          Menschen mit einem KI-System sprechen oder KI-erzeugte Inhalte
+          erhalten, muss das erkennbar sein.
+        </li>
+      </ul>
+      <p>
+        Die konkrete Einordnung Ihres Einsatzes und Ihrer Rolle gehört in die
+        Hände Ihrer Rechtsberatung. Vorbereiten können Sie sie, indem Sie eine
+        einfache Liste führen: welches System, für welchen Zweck, mit welchen
+        Daten, wer ist verantwortlich.
+      </p>
+
+      <h2>Schulung, die im Alltag ankommt</h2>
+      <p>
+        Eine wirksame Einführung dauert keinen ganzen Tag. Bewährt hat sich
+        ein kurzer Termin je Abteilung, an echten Aufgaben aus deren Alltag:
+      </p>
+      <ol>
+        <li>
+          Zwei Beispiele vorführen, die diese Abteilung wirklich betreffen,
+          etwa Angebotstext im Vertrieb oder Reklamationsantwort im Service.
+        </li>
+        <li>
+          Gemeinsam eine Anweisung schreiben und schrittweise verbessern, bis
+          das Ergebnis brauchbar ist. Danach als Vorlage speichern.
+        </li>
+        <li>
+          Bewusst einen Fehler des Modells herbeiführen und zeigen, wie er
+          aussieht. Nichts wirkt so gut gegen blindes Vertrauen.
+        </li>
+        <li>
+          Die Regeln zu erlaubten Daten in drei Sätzen wiederholen und
+          schriftlich aushändigen.
+        </li>
+        <li>
+          Nach vier Wochen eine kurze Runde: Was funktioniert, was nicht, was
+          fehlt in der Wissensbasis.
+        </li>
+      </ol>
+
+      <h2>Wie Sie den Nutzen messen</h2>
+      <p>
+        Halten Sie vor dem Start für zwei oder drei Aufgaben fest, wie lange
+        sie heute dauern und wie oft sie vorkommen. Nach acht Wochen messen
+        Sie dieselben Aufgaben erneut. Ergänzen Sie zwei Qualitätsfragen:
+        Wie oft musste die Ausgabe grundlegend überarbeitet werden, und gab
+        es Fälle, in denen ein Fehler nach außen gelangt ist. Diese vier
+        Zahlen sind aussagekräftiger als jede Nutzungsstatistik der
+        Lizenzverwaltung.
+      </p>
     </ArticleLayout>
   );
 }
