@@ -125,12 +125,8 @@ export type ContractFinding = {
   risk: "hoch" | "mittel" | "niedrig";
 };
 export type ContractAnalysis = { summary: string; findings: ContractFinding[] };
-export type QuoteDraft = {
-  title: string;
-  intro: string;
-  positions: { position: string; description: string; quantity: string; unit: string }[];
-  notes: string[];
-};
+
+
 
 const contractSchema = {
   type: "object",
@@ -177,21 +173,19 @@ export const analyzeSampleContract = createServerFn({ method: "POST" })
 const quoteSchema = {
   type: "object",
   additionalProperties: false,
-  required: ["title", "intro", "positions", "notes"],
+  required: ["title", "intro", "descriptions", "notes"],
   properties: {
     title: { type: "string" },
     intro: { type: "string" },
-    positions: {
+    descriptions: {
       type: "array",
       items: {
         type: "object",
         additionalProperties: false,
-        required: ["position", "description", "quantity", "unit"],
+        required: ["key", "text"],
         properties: {
-          position: { type: "string" },
-          description: { type: "string" },
-          quantity: { type: "string" },
-          unit: { type: "string" },
+          key: { type: "string" },
+          text: { type: "string" },
         },
       },
     },
@@ -199,27 +193,44 @@ const quoteSchema = {
   },
 } as const;
 
+export type QuoteDraft = {
+  title: string;
+  intro: string;
+  descriptions: { key: string; text: string }[];
+  notes: string[];
+};
+
 export const draftSampleQuote = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
     z
       .object({
-        job: z.enum(["wartung", "thermostat", "heizkoerper"]),
-        units: z.number().int().min(1).max(6),
+        items: z
+          .array(
+            z.object({
+              key: z.string().max(40),
+              label: z.string().max(80),
+              unit: z.string().max(20),
+              quantity: z.number().int().min(1).max(20),
+            }),
+          )
+          .min(1)
+          .max(12),
         urgent: z.boolean(),
+        object: z.string().trim().max(80).optional().or(z.literal("")),
         note: z.string().trim().max(300).optional().or(z.literal("")),
       })
       .parse(data),
   )
   .handler(async ({ data }) => {
-    const jobs = {
-      wartung: "Jahreswartung einer Gastherme inklusive Messprotokoll",
-      thermostat: "Austausch analoger Thermostate gegen digitale Thermostate",
-      heizkoerper: "Lieferung und Montage von Standardheizkörpern inklusive Dichtheitsprüfung",
-    } as const;
+    const list = data.items
+      .map((item) => `- ${item.key}: ${item.label}, Menge ${item.quantity} ${item.unit}`)
+      .join("\n");
 
     const result = await callGateway<QuoteDraft>(
-      "Du bist der Angebots-Assistent eines SHK Handwerksbetriebs im Raum Bonn. Du formulierst Leistungspositionen für einen internen Angebotsentwurf. Sachlich, deutsch, Sie-Ansprache, keine Gedankenstriche, keine Preise nennen, da die Preise aus der Kalkulationsdatenbank stammen. Drei bis fünf Positionen inklusive Anfahrt und Dokumentation. Die Hinweise nennen Annahmen und offene Punkte für die menschliche Prüfung.",
-      `Auftragsart: ${jobs[data.job]}\nAnzahl Einheiten: ${data.units}\nDringender Termin: ${data.urgent ? "ja" : "nein"}\nKundenhinweis: ${data.note || "keiner"}`,
+      "Du bist der Angebots-Assistent eines SHK Handwerksbetriebs im Raum Bonn. Du formulierst einen Angebotsentwurf für einen gewerblichen Kunden. Sachlich, deutsch, Sie-Ansprache, keine Gedankenstriche, keine Preise und keine Stundensätze nennen, da diese aus der Kalkulationsdatenbank stammen. Der Titel ist eine kurze Auftragsbezeichnung ohne Punkt am Ende. Die Einleitung umfasst zwei bis drei Sätze und nimmt Bezug auf die Anfrage. Zu jedem übergebenen Baustein lieferst du genau einen Eintrag in descriptions mit unverändertem key und einer Leistungsbeschreibung von einem bis zwei Sätzen, die zur genannten Menge passt. Die notes nennen drei bis vier Annahmen oder offene Punkte für die menschliche Prüfung vor dem Versand.",
+      `Bausteine aus dem Leistungskatalog:\n${list}\nDringender Termin: ${
+        data.urgent ? "ja, Ausführung innerhalb von 48 Stunden" : "nein"
+      }\nObjekt: ${data.object || "nicht angegeben"}\nKundenhinweis: ${data.note || "keiner"}`,
       "angebotsentwurf",
       quoteSchema,
     );

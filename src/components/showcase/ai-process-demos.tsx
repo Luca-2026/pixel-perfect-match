@@ -7,8 +7,11 @@ import {
   Check,
   Clock3,
   Cpu,
+  FileDown,
   FileSearch,
   Loader2,
+  Minus,
+  Plus,
   RotateCcw,
   ShieldCheck,
   Sparkles,
@@ -22,29 +25,20 @@ import {
   draftSampleQuote,
   type SampleContractKey,
 } from "@/lib/ai-demo.functions";
+import {
+  CATALOG,
+  CATALOG_ITEMS,
+  TRAVEL_FLAT,
+  URGENCY_FLAT,
+  buildQuote,
+  formatEuro,
+  formatQuantity,
+  unitPrice,
+  type QuoteDocument,
+} from "@/lib/quote-demo";
+import { downloadQuotePdf } from "@/lib/quote-pdf";
 
-type JobKey = "wartung" | "thermostat" | "heizkoerper";
 
-const jobs = {
-  wartung: {
-    label: "Heizungswartung",
-    description: "Gastherme warten, Messwerte dokumentieren",
-    baseMaterial: 32,
-    hours: 1.5,
-  },
-  thermostat: {
-    label: "Thermostat tauschen",
-    description: "Digitales Thermostat liefern und montieren",
-    baseMaterial: 68,
-    hours: 1,
-  },
-  heizkoerper: {
-    label: "Heizkörper montieren",
-    description: "Standardheizkörper liefern, montieren und prüfen",
-    baseMaterial: 295,
-    hours: 3.5,
-  },
-} as const;
 
 const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
 const number = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
@@ -124,15 +118,15 @@ function StepList({ labels, active, done }: { labels: string[]; active: number; 
 
 /* ----------------------------------------------------------------- Angebot */
 
-type QuoteResult = {
+type QuoteDraft = {
   title: string;
   intro: string;
-  positions: { position: string; description: string; quantity: string; unit: string }[];
+  descriptions: { key: string; text: string }[];
   notes: string[];
 };
 
 const quoteSteps = [
-  "Anfrage wird gelesen und strukturiert",
+  "Gewählte Bausteine werden gelesen",
   "Leistungen werden gegen die Stammdaten gematcht",
   "Freigegebene Preisregeln werden angewendet",
   "Angebotstext wird formuliert",
@@ -140,35 +134,94 @@ const quoteSteps = [
 
 function QuoteDemo() {
   const runQuote = useServerFn(draftSampleQuote);
-  const [job, setJob] = useState<JobKey>("wartung");
-  const [units, setUnits] = useState(1);
+  const [selection, setSelection] = useState<Record<string, number>>({ "wartung-gastherme": 2 });
   const [urgent, setUrgent] = useState(false);
+  const [object, setObject] = useState("Mehrfamilienhaus, Bonn Beuel");
   const [note, setNote] = useState("");
   const [running, setRunning] = useState(false);
-  const [result, setResult] = useState<{ data: QuoteResult; meta: Meta } | null>(null);
+  const [quote, setQuote] = useState<QuoteDocument | null>(null);
+  const [meta, setMeta] = useState<Meta | null>(null);
   const [error, setError] = useState<string | null>(null);
   const step = useSteps(quoteSteps, running);
 
-  const selected = jobs[job];
-  const laborRate = 68;
-  const travel = 35;
-  const urgency = urgent ? 45 : 0;
-  const material = selected.baseMaterial * units;
-  const labor = selected.hours * units * laborRate;
-  const net = material + labor + travel + urgency;
-  const vat = net * 0.19;
+  const chosen = useMemo(
+    () =>
+      CATALOG_ITEMS.filter((item) => (selection[item.key] ?? 0) > 0).map((item) => ({
+        item,
+        quantity: selection[item.key] ?? 0,
+      })),
+    [selection],
+  );
+
+  const preview = useMemo(() => {
+    const net =
+      chosen.reduce((sum, entry) => sum + unitPrice(entry.item) * entry.quantity, 0) +
+      TRAVEL_FLAT +
+      (urgent ? URGENCY_FLAT : 0);
+    return Math.round(net * 1.19 * 100) / 100;
+  }, [chosen, urgent]);
 
   function reset() {
-    setResult(null);
+    setQuote(null);
+    setMeta(null);
     setError(null);
   }
 
+  function toggle(key: string, single?: boolean) {
+    setSelection((current) => {
+      const next = { ...current };
+      if (next[key]) delete next[key];
+      else next[key] = 1;
+      return next;
+    });
+    void single;
+    reset();
+  }
+
+  function changeQuantity(key: string, delta: number) {
+    setSelection((current) => {
+      const value = (current[key] ?? 0) + delta;
+      const next = { ...current };
+      if (value <= 0) delete next[key];
+      else next[key] = Math.min(value, 20);
+      return next;
+    });
+    reset();
+  }
+
   async function createQuote() {
+    if (chosen.length === 0) return;
     reset();
     setRunning(true);
     try {
-      const response = await runQuote({ data: { job, units, urgent, note } });
-      setResult(response as { data: QuoteResult; meta: Meta });
+      const response = (await runQuote({
+        data: {
+          items: chosen.map((entry) => ({
+            key: entry.item.key,
+            label: entry.item.label,
+            unit: entry.item.unit,
+            quantity: entry.quantity,
+          })),
+          urgent,
+          object,
+          note,
+        },
+      })) as { data: QuoteDraft; meta: Meta };
+
+      const descriptions: Record<string, string> = {};
+      for (const entry of response.data.descriptions ?? []) descriptions[entry.key] = entry.text;
+
+      setQuote(
+        buildQuote({
+          selection: chosen.map((entry) => ({ key: entry.item.key, quantity: entry.quantity })),
+          urgent,
+          title: response.data.title,
+          intro: response.data.intro,
+          notes: response.data.notes ?? [],
+          descriptions,
+        }),
+      );
+      setMeta(response.meta);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Die Erzeugung ist fehlgeschlagen.");
     } finally {
@@ -182,54 +235,114 @@ function QuoteDemo() {
         <div className="max-w-3xl">
           <Eyebrow>Live-Demo 01</Eyebrow>
           <HeadlineDot as="h2" className="mt-3">
-            SHK Angebot in Echtzeit erzeugen
+            SHK Angebot aus Bausteinen erzeugen
           </HeadlineDot>
           <p className="mt-5 text-lg text-ink/75">
-            Konfigurieren Sie einen typischen Auftrag. Der Entwurf wird bei jedem
-            Klick wirklich neu erzeugt: Ein Sprachmodell formuliert die Positionen,
-            die Preise kommen aus festen Kalkulationsregeln.
+            Klicken Sie die Leistungen zusammen, die der Kunde angefragt hat. Ein
+            Sprachmodell formuliert daraus in Echtzeit den Angebotstext, die Preise
+            kommen aus festen Kalkulationsregeln. Das fertige Angebot laden Sie als
+            PDF herunter.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-[.85fr_1.15fr]">
+        <div className="mt-10 grid gap-5 lg:grid-cols-[.9fr_1.1fr]">
           <div className="surface-card min-w-0 p-6 sm:p-8">
-            <div className="grid gap-2 sm:grid-cols-3">
-              {(Object.entries(jobs) as [JobKey, (typeof jobs)[JobKey]][]).map(([key, item]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => { setJob(key); reset(); }}
-                  aria-pressed={job === key}
-                  className={`min-h-12 cursor-pointer rounded-[var(--radius-sm)] border px-3 py-2 text-sm ${
-                    job === key ? "border-petrol bg-mint text-ink" : "border-line bg-paper text-ink/65"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+            <p className="eyebrow">Leistungskatalog</p>
 
-            <div className="mt-7">
-              <label htmlFor="units" className="text-sm font-semibold text-ink">Anzahl Einheiten</label>
-              <div className="mt-3 flex items-center gap-4">
-                <Slider id="units" min={1} max={6} step={1} value={[units]} onValueChange={([value]) => { setUnits(value ?? 1); reset(); }} aria-label="Anzahl Einheiten" />
-                <output className="metric min-w-10 text-right text-lg">{units}</output>
-              </div>
+            <div className="mt-5 space-y-6">
+              {CATALOG.map((group) => (
+                <div key={group.group}>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">
+                    {group.group}
+                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {group.items.map((item) => {
+                      const quantity = selection[item.key] ?? 0;
+                      const active = quantity > 0;
+                      return (
+                        <li
+                          key={item.key}
+                          className={`rounded-[var(--radius-sm)] border transition-colors ${
+                            active ? "border-petrol bg-mint" : "border-line bg-paper"
+                          }`}
+                        >
+                          <div className="flex min-w-0 items-center gap-2 p-2 pl-3">
+                            <button
+                              type="button"
+                              onClick={() => toggle(item.key, item.single)}
+                              aria-pressed={active}
+                              className="flex min-w-0 flex-1 cursor-pointer items-center gap-3 py-1.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            >
+                              <span
+                                className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-[6px] border ${
+                                  active ? "border-petrol bg-petrol text-paper" : "border-line"
+                                }`}
+                                aria-hidden
+                              >
+                                {active ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5 text-ink/40" />}
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block truncate text-sm font-semibold text-ink">
+                                  {item.label}
+                                </span>
+                                <span className="block text-xs text-ink/55">
+                                  {formatEuro(unitPrice(item))} je {item.unit}
+                                </span>
+                              </span>
+                            </button>
+
+                            {active && !item.single && (
+                              <span className="flex shrink-0 items-center gap-1">
+                                <button
+                                  type="button"
+                                  onClick={() => changeQuantity(item.key, -1)}
+                                  aria-label={`${item.label}: Menge verringern`}
+                                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line bg-paper text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                >
+                                  <Minus className="h-4 w-4" aria-hidden />
+                                </button>
+                                <output className="metric w-6 text-center text-sm">{quantity}</output>
+                                <button
+                                  type="button"
+                                  onClick={() => changeQuantity(item.key, 1)}
+                                  aria-label={`${item.label}: Menge erhöhen`}
+                                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line bg-paper text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                >
+                                  <Plus className="h-4 w-4" aria-hidden />
+                                </button>
+                              </span>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
             </div>
 
             <button
               type="button"
               onClick={() => { setUrgent((value) => !value); reset(); }}
-              className="mt-6 flex min-h-12 w-full cursor-pointer items-center justify-between rounded-[var(--radius-sm)] border border-line bg-paper px-4 text-left text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="mt-7 flex min-h-12 w-full cursor-pointer items-center justify-between rounded-[var(--radius-sm)] border border-line bg-paper px-4 text-left text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-pressed={urgent}
             >
-              Dringender Termin
+              Express innerhalb von 48 Stunden
               <span className={`flex h-6 w-6 items-center justify-center rounded-full border ${urgent ? "border-petrol bg-petrol text-paper" : "border-line"}`}>
                 {urgent && <Check className="h-4 w-4" aria-hidden />}
               </span>
             </button>
 
-            <label className="mt-6 block">
+            <label className="mt-5 block">
+              <span className="text-sm font-semibold text-ink">Objekt</span>
+              <input
+                value={object}
+                onChange={(event) => { setObject(event.target.value.slice(0, 80)); reset(); }}
+                className="mt-2 h-12 w-full rounded-[var(--radius-sm)] border border-line bg-paper px-3 text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
+            </label>
+
+            <label className="mt-5 block">
               <span className="text-sm font-semibold text-ink">Kundenhinweis (optional)</span>
               <textarea
                 value={note}
@@ -240,90 +353,109 @@ function QuoteDemo() {
               />
             </label>
 
-            <Button type="button" size="lg" onClick={createQuote} disabled={running} className="mt-6 w-full">
+            <div className="mt-6 flex items-baseline justify-between border-t border-line pt-5 text-sm">
+              <span className="text-ink/65">
+                {chosen.length} {chosen.length === 1 ? "Baustein" : "Bausteine"} gewählt
+              </span>
+              <span className="metric text-lg">{formatEuro(preview)} brutto</span>
+            </div>
+
+            <Button type="button" size="lg" onClick={createQuote} disabled={running || chosen.length === 0} className="mt-4 w-full">
               {running ? <Loader2 className="animate-spin" aria-hidden /> : <Sparkles aria-hidden />}
-              {running ? "Entwurf wird erzeugt" : "Angebotsentwurf live erzeugen"}
+              {running ? "Angebot wird erzeugt" : "Angebot live erzeugen"}
             </Button>
 
             <div className="mt-7 border-t border-line pt-6">
-              <StepList labels={quoteSteps} active={step} done={Boolean(result)} />
+              <StepList labels={quoteSteps} active={step} done={Boolean(quote)} />
             </div>
           </div>
 
           <div className="min-w-0 rounded-[var(--radius)] border border-line bg-paper p-5 shadow-sm sm:p-8" aria-live="polite">
             <div className="flex flex-wrap items-start justify-between gap-3 border-b border-line pb-5">
-              <div>
-                <p className="eyebrow">Angebotsentwurf, intern</p>
-                <p className="mt-2 font-display text-xl text-ink">Muster SHK Betrieb, Raum Bonn</p>
-                <p className="mt-1 text-sm text-ink/55">Kunde: Beispiel Hausverwaltung GmbH</p>
+              <div className="min-w-0">
+                <p className="eyebrow">Angebotsdokument</p>
+                <p className="mt-2 font-display text-xl text-ink">Muster SHK Betrieb GmbH</p>
+                <p className="mt-1 text-sm text-ink/55">Beispiel Hausverwaltung GmbH, Bonn</p>
               </div>
               <LiveBadge running={running} />
             </div>
 
             {error ? (
               <p className="mt-6 text-sm text-ink/70">{error}</p>
-            ) : !result ? (
+            ) : !quote ? (
               <div className="flex min-h-80 flex-col items-center justify-center text-center text-ink/55">
                 {running ? (
                   <>
                     <Loader2 className="h-8 w-8 animate-spin text-amber" aria-hidden />
-                    <p className="mt-4 max-w-64">Das Modell formuliert gerade Ihren Entwurf.</p>
+                    <p className="mt-4 max-w-64">Das Modell formuliert gerade Ihr Angebot.</p>
                   </>
                 ) : (
                   <>
                     <FileSearch className="h-8 w-8 text-amber" aria-hidden />
-                    <p className="mt-4 max-w-64">Konfiguration wählen und Entwurf erzeugen.</p>
+                    <p className="mt-4 max-w-64">
+                      Bausteine anklicken und Angebot erzeugen. Danach steht das PDF zum
+                      Download bereit.
+                    </p>
                   </>
                 )}
               </div>
             ) : (
               <div className="animate-fade-in">
-                <h3 className="mt-6 font-display text-2xl text-ink">{result.data.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-ink/70">{result.data.intro}</p>
+                <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:grid-cols-3">
+                  <QuoteMeta label="Angebotsnummer" value={quote.number} />
+                  <QuoteMeta label="Datum" value={quote.date} />
+                  <QuoteMeta label="Gültig bis" value={quote.validUntil} />
+                </dl>
 
-                <div className="mt-6 overflow-x-auto">
-                  <table className="w-full min-w-[26rem] text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-line text-xs uppercase tracking-wide text-ink/55">
-                        <th className="py-2 pr-3 font-semibold">Position</th>
-                        <th className="py-2 pr-3 font-semibold">Menge</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {result.data.positions.map((position, index) => (
-                        <tr key={`${position.position}-${index}`} className="border-b border-line/60 align-top">
-                          <td className="py-3 pr-3">
-                            <span className="font-semibold text-ink">{position.position}</span>
-                            <span className="mt-1 block text-ink/65">{position.description}</span>
-                          </td>
-                          <td className="whitespace-nowrap py-3 pr-3 text-ink/70">
-                            {position.quantity} {position.unit}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <h3 className="mt-6 font-display text-2xl text-ink">{quote.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-ink/70">{quote.intro}</p>
+
+                <div className="mt-6">
+                  <p className="border-b border-line pb-2 text-xs uppercase tracking-wide text-ink/55">
+                    Positionen
+                  </p>
+                  <ul>
+                    {quote.lines.map((line, index) => (
+                      <li key={line.key} className="border-b border-line/60 py-3 text-sm">
+                        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                          <span className="font-semibold text-ink">
+                            {String(index + 1).padStart(2, "0")} {line.label}
+                          </span>
+                          <span className="whitespace-nowrap font-medium text-ink">
+                            {formatEuro(line.total)}
+                          </span>
+                        </div>
+                        <p className="mt-1 text-ink/65">{line.description}</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                          {formatQuantity(line.quantity)} {line.unit} zu {formatEuro(line.unitPrice)}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+
                 </div>
 
                 <dl className="mt-6 space-y-2 rounded-[var(--radius-sm)] bg-mint p-5 text-sm">
-                  <QuoteLine label={`Material × ${units}`} value={material} />
-                  <QuoteLine label={`${number.format(selected.hours * units)} Arbeitsstunden × ${euro.format(laborRate)}`} value={labor} />
-                  <QuoteLine label="Anfahrt" value={travel} />
-                  {urgent && <QuoteLine label="Dringlichkeitszuschlag" value={urgency} />}
-                  <div className="flex justify-between border-t border-line pt-2 font-semibold text-ink">
-                    <dt>Summe netto</dt><dd>{euro.format(net)}</dd>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-ink/70">Summe netto</dt>
+                    <dd className="font-medium text-ink">{formatEuro(quote.net)}</dd>
                   </div>
-                  <div className="flex justify-between text-ink/65">
-                    <dt>zzgl. 19 Prozent Umsatzsteuer</dt><dd>{euro.format(vat)}</dd>
+                  <div className="flex justify-between gap-4 text-ink/65">
+                    <dt>zzgl. 19 Prozent Umsatzsteuer</dt>
+                    <dd>{formatEuro(quote.vat)}</dd>
                   </div>
                   <div className="flex justify-between border-t border-line pt-2 font-display text-lg text-ink">
-                    <dt>Gesamt brutto</dt><dd>{euro.format(net + vat)}</dd>
+                    <dt>Gesamt brutto</dt>
+                    <dd>{formatEuro(quote.gross)}</dd>
                   </div>
+                  <p className="pt-1 text-xs text-ink/55">
+                    Kalkulierter Zeitaufwand: {formatQuantity(quote.hours)} Arbeitsstunden
+                  </p>
                 </dl>
 
-                {result.data.notes.length > 0 && (
+                {quote.notes.length > 0 && (
                   <ul className="mt-5 space-y-2 text-sm text-ink/65">
-                    {result.data.notes.map((item) => (
+                    {quote.notes.map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber" aria-hidden />
                         {item}
@@ -332,12 +464,23 @@ function QuoteDemo() {
                   </ul>
                 )}
 
+                <Button
+                  type="button"
+                  size="lg"
+                  variant="secondary"
+                  className="mt-6 w-full"
+                  onClick={() => { void downloadQuotePdf(quote); }}
+                >
+                  <FileDown aria-hidden />
+                  Angebot als PDF herunterladen
+                </Button>
+
                 <p className="mt-5 flex items-start gap-2 text-xs text-ink/55">
                   <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-petrol" aria-hidden />
                   Preise stammen aus festen Kalkulationsregeln dieser Demo und sind fiktiv.
                   Vor Versand prüft ein verantwortlicher Mensch Umfang, Preis und Sonderfälle.
                 </p>
-                <MetaLine meta={result.meta} />
+                {meta && <MetaLine meta={meta} />}
               </div>
             )}
           </div>
@@ -347,9 +490,16 @@ function QuoteDemo() {
   );
 }
 
-function QuoteLine({ label, value }: { label: string; value: number }) {
-  return <div className="flex justify-between gap-4"><dt className="text-ink/70">{label}</dt><dd className="font-medium text-ink">{euro.format(value)}</dd></div>;
+function QuoteMeta({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="text-ink/50">{label}</dt>
+      <dd className="mt-0.5 font-semibold text-ink">{value}</dd>
+    </div>
+  );
 }
+
+
 
 /* ------------------------------------------------------------ Vertrag */
 
