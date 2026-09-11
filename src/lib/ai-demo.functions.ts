@@ -155,16 +155,12 @@ async function callGateway<T>(system: string, user: string, schemaName: string, 
 
   const json = (await response.json()) as {
     choices?: { message?: { content?: string } }[];
-    usage?: { total_tokens?: number };
   };
   const content = json.choices?.[0]?.message?.content ?? "{}";
+  // Bewusst ohne Modellname und Tokenverbrauch: die Demo zeigt nur die Antwortzeit.
   return {
     data: JSON.parse(content) as T,
-    meta: {
-      model: MODEL,
-      ms: Date.now() - started,
-      tokens: json.usage?.total_tokens ?? null,
-    },
+    meta: { ms: Date.now() - started },
   };
 }
 
@@ -212,6 +208,7 @@ export const analyzeSampleContract = createServerFn({ method: "POST" })
     z.object({ contract: z.enum(["wartung", "lieferung", "software"]) }).parse(data),
   )
   .handler(async ({ data }) => {
+    enforceRateLimit();
     const sample = SAMPLE_CONTRACTS[data.contract];
     const result = await callGateway<ContractAnalysis>(
       "Du bist ein Analyse-Assistent für Vertragsdokumente in einem deutschen Mittelstandsbetrieb. Du analysierst ausschließlich den übergebenen Text. Du erfindest keine Inhalte, gibst keine Rechtsberatung und formulierst sachlich in deutscher Sprache mit Sie-Ansprache. Verwende keine Gedankenstriche. Das Feld quote enthält ein wörtliches Zitat aus dem Text, maximal 140 Zeichen. Liefere fünf bis sieben Fundstellen zu Fristen, Kündigung, Zahlung, Pflichten, Haftung und Datenschutz.",
@@ -276,6 +273,7 @@ export const draftSampleQuote = createServerFn({ method: "POST" })
       .parse(data),
   )
   .handler(async ({ data }) => {
+    enforceRateLimit();
     const list = data.items
       .map((item) => `- ${item.key}: ${item.label}, Menge ${item.quantity} ${item.unit}`)
       .join("\n");
