@@ -41,16 +41,16 @@ export function LogoWall() {
             <img
               src={c.src}
               alt={`Logo ${c.name}`}
-              className="h-12 w-full object-contain opacity-65 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-16"
+              className="h-12 w-auto max-w-full object-contain opacity-65 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-16"
               loading="lazy"
             />
           );
           return (
-            <li key={c.name}>
+            <li key={c.name} className="flex items-center justify-center">
               {c.internal ? (
                 <Link
                   to={c.internal}
-                  className="group inline-flex items-center rounded-md px-2 py-1 no-underline hover:no-underline"
+                  className="group flex items-center justify-center rounded-md px-2 py-1 no-underline hover:no-underline"
                   aria-label={`Case Study zu ${c.name}`}
                 >
                   {img}
@@ -60,7 +60,7 @@ export function LogoWall() {
                   href={c.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center rounded-md px-2 py-1 no-underline hover:no-underline"
+                  className="group flex items-center justify-center rounded-md px-2 py-1 no-underline hover:no-underline"
                   aria-label={`Website von ${c.name} öffnen`}
                 >
                   {img}
