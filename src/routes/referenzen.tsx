@@ -238,48 +238,33 @@ function Referenzen() {
                 </p>
                 <div className="mt-6 grid gap-6 md:grid-cols-2">
                   <figure className="rounded-md border border-line bg-paper p-3 sm:p-4">
-                    <a
-                      href={sltSeoPerformance.url}
-                      target="_blank"
-                      rel="noopener"
-                      className="block"
-                    >
-                      <img
-                        src={sltSeoPerformance.url}
-                        alt="Google Search Console, slt-rental.de, Entwicklung über zwölf Monate: 10.181 Klicks und 388.824 Impressionen in der Google-Suche mit deutlich steigender Kurve"
-                        width={1920}
-                        height={1043}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full rounded-sm border border-line/60"
-                      />
-                    </a>
+                    <img
+                      src={sltSeoPerformance.url}
+                      alt="Google Search Console, slt-rental.de, Entwicklung über zwölf Monate: 10.181 Klicks und 388.824 Impressionen in der Google-Suche mit deutlich steigender Kurve"
+                      width={1920}
+                      height={1043}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full rounded-sm border border-line/60"
+                    />
                     <figcaption className="mt-3 text-xs leading-5 text-ink/60">
                       Google Search Console, Suchtyp Web, zwölf Monate bis
-                      September 2026. Klicken zum Vergrößern.
+                      September 2026.
                     </figcaption>
                   </figure>
                   <figure className="rounded-md border border-line bg-paper p-3 sm:p-4">
-                    <a
-                      href={sltGenerativeKi.url}
-                      target="_blank"
-                      rel="noopener"
-                      className="block"
-                    >
-                      <img
-                        src={sltGenerativeKi.url}
-                        alt="Google Search Console, slt-rental.de, auf generativer KI basierende Funktionen: 25.798 Impressionen in zwölf Monaten mit steigendem Verlauf"
-                        width={1920}
-                        height={797}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full rounded-sm border border-line/60"
-                      />
-                    </a>
+                    <img
+                      src={sltGenerativeKi.url}
+                      alt="Google Search Console, slt-rental.de, auf generativer KI basierende Funktionen: 25.798 Impressionen in zwölf Monaten mit steigendem Verlauf"
+                      width={1920}
+                      height={797}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full rounded-sm border border-line/60"
+                    />
                     <figcaption className="mt-3 text-xs leading-5 text-ink/60">
                       Google Search Console, auf generativer KI basierende
-                      Funktionen, zwölf Monate bis September 2026. Klicken zum
-                      Vergrößern.
+                      Funktionen, zwölf Monate bis September 2026.
                     </figcaption>
                   </figure>
                 </div>
