@@ -119,7 +119,7 @@ export function parseAgb(source: string): Block[] {
       continue;
     }
 
-    paragraph.push(line.trim());
+    paragraph.push(line.trim() + (/ {2}$/.test(rawLine) ? "\n" : ""));
   }
 
   flushParagraph();
