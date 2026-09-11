@@ -6,20 +6,18 @@ und die Live-Demos laufen weiter über die von Lovable betriebene Adresse.
 ## 1. Export erzeugen
 
 ```bash
-VITE_API_BASE=https://IHRE-LOVABLE-ADRESSE bun run build:static
+npm run build
 ```
 
-`VITE_API_BASE` ist die veröffentlichte Lovable-Adresse des Projekts, zum
-Beispiel `https://sandhoff-digital.lovable.app`. Diese Adresse verarbeitet die
-Formulare und die Live-Demos. Sie darf nicht identisch mit der Domain sein, auf
-der der statische Export liegt.
+Das ist derselbe Standard-Buildweg wie beim SLT-Rental-Projekt. Eine zusätzliche
+Umgebungsvariable oder ein Sonderbefehl ist für Repo2web nicht erforderlich.
 
-Ergebnis: Ordner `static-export` mit allen Seiten, Bildern, Schriften,
+Ergebnis: Ordner `dist` mit allen Seiten, Bildern, Schriften,
 `sitemap.xml`, `robots.txt` und einer fertigen `.htaccess`.
 
 ## 2. Hochladen
 
-Den **Inhalt** von `static-export` (inklusive der versteckten Datei
+Den **Inhalt** von `dist` (inklusive der versteckten Datei
 `.htaccess`) per FTP oder Plesk-Dateimanager in das Web-Verzeichnis der Domain
 laden, üblicherweise `httpdocs`. Alte Dateien vorher entfernen.
 
@@ -37,6 +35,6 @@ https und ohne www sowie für langlebiges Caching der Bilder und Schriften.
 
 - Bei jeder inhaltlichen Änderung muss der Export neu erzeugt und erneut
   hochgeladen werden.
-- Die Lovable-Adresse aus `VITE_API_BASE` muss veröffentlicht bleiben, sonst
-  funktionieren Formulare und Demos nicht.
+- Die im Build hinterlegte Lovable-Adresse muss erreichbar bleiben, weil sie
+  Formulare und Live-Demos verarbeitet.
 - E-Mails laufen über Resend. Die Domain muss dort verifiziert bleiben.
