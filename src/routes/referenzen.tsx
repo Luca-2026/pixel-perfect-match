@@ -7,6 +7,8 @@ import { routeHead } from "@/lib/route-head";
 import sltLogo from "@/assets/slt-rental-logo.png.asset.json";
 import sltLaptop from "@/assets/slt-laptop-mockup.png.asset.json";
 import sltCmsDemo from "@/assets/slt-cms-demo.mp4.asset.json";
+import sltSeoPerformance from "@/assets/slt-seo-performance-12-monate.webp.asset.json";
+import sltGenerativeKi from "@/assets/slt-generative-ki-impressionen.webp.asset.json";
 import { LaptopMockup } from "@/components/showcase/laptop-mockup";
 import { AutoplayVideo } from "@/components/showcase/autoplay-video";
 
@@ -220,6 +222,70 @@ function Referenzen() {
               </div>
             </div>
 
+            <div className="border-t border-line bg-mint/40 p-6 sm:p-8">
+              <div className="mx-auto max-w-4xl">
+                <Eyebrow>Entwicklung über zwölf Monate</Eyebrow>
+                <h2 className="headline-dot mt-2 text-2xl text-ink">
+                  Messbarer Aufbau der Sichtbarkeit
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/75">
+                  Die Langzeit-Auswertung aus der Google Search Console zeigt
+                  den kontinuierlichen Aufbau: Im Zwölfmonatszeitraum bis
+                  September 2026 kam slt-rental.de auf 10.181 Klicks und
+                  388.824 Impressionen in der Google-Suche (CTR 2,6&nbsp;%,
+                  Ø-Position 12,9). Zusätzlich wurde die Website 25.798 Mal in
+                  den generativen KI-Funktionen von Google angezeigt.
+                </p>
+                <div className="mt-6 grid gap-6 md:grid-cols-2">
+                  <figure className="rounded-md border border-line bg-paper p-3 sm:p-4">
+                    <a
+                      href={sltSeoPerformance.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="block"
+                    >
+                      <img
+                        src={sltSeoPerformance.url}
+                        alt="Google Search Console, slt-rental.de, Entwicklung über zwölf Monate: 10.181 Klicks und 388.824 Impressionen in der Google-Suche mit deutlich steigender Kurve"
+                        width={1920}
+                        height={1043}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full rounded-sm border border-line/60"
+                      />
+                    </a>
+                    <figcaption className="mt-3 text-xs leading-5 text-ink/60">
+                      Google Search Console, Suchtyp Web, zwölf Monate bis
+                      September 2026. Klicken zum Vergrößern.
+                    </figcaption>
+                  </figure>
+                  <figure className="rounded-md border border-line bg-paper p-3 sm:p-4">
+                    <a
+                      href={sltGenerativeKi.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="block"
+                    >
+                      <img
+                        src={sltGenerativeKi.url}
+                        alt="Google Search Console, slt-rental.de, auf generativer KI basierende Funktionen: 25.798 Impressionen in zwölf Monaten mit steigendem Verlauf"
+                        width={1920}
+                        height={797}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full rounded-sm border border-line/60"
+                      />
+                    </a>
+                    <figcaption className="mt-3 text-xs leading-5 text-ink/60">
+                      Google Search Console, auf generativer KI basierende
+                      Funktionen, zwölf Monate bis September 2026. Klicken zum
+                      Vergrößern.
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+
             <div className="border-t border-line bg-ink p-6 sm:p-8">
               <div className="mx-auto max-w-3xl">
                 <Eyebrow className="text-amber">Live-Einblick</Eyebrow>
@@ -244,8 +310,8 @@ function Referenzen() {
             <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-line bg-paper p-6 sm:p-8">
               <p className="text-sm text-ink/70">
                 Datenquelle: Google Search Console (Property slt-rental.de)
-                sowie Google-Unternehmensprofile Krefeld und Bonn. Auszug
-                dokumentiert am 12. Juli 2026.
+                sowie Google-Unternehmensprofile Krefeld und Bonn. Auszüge
+                dokumentiert am 12. Juli und 11. September 2026.
               </p>
               <Link
                 to="/digital-check"
