@@ -51,14 +51,14 @@ function Home() {
         <Container>
           <div className="grid gap-4 lg:grid-cols-12 lg:grid-rows-[minmax(250px,1fr)_minmax(210px,.72fr)] lg:gap-5">
             <motion.div
-              className="surface-card flex min-w-0 min-h-[440px] flex-col justify-between p-7 sm:p-10 lg:col-span-8 lg:row-span-1 lg:min-h-0 lg:p-12"
+              className="surface-card flex min-w-0 min-h-[440px] flex-col justify-between p-5 sm:p-8 lg:col-span-8 lg:row-span-1 lg:min-h-0 lg:p-10"
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <div>
                 <Eyebrow>{route.eyebrow}</Eyebrow>
-                <HeadlineDot as="h1" className="mt-5 max-w-4xl break-words hyphens-auto text-2xl leading-tight min-[390px]:text-3xl sm:text-5xl xl:text-6xl">
+                <HeadlineDot as="h1" className="mt-5 max-w-4xl hyphens-none text-xl leading-tight min-[390px]:text-2xl sm:text-3xl md:text-4xl xl:text-5xl">
                   {route.h1}
                 </HeadlineDot>
               </div>
@@ -107,7 +107,7 @@ function Home() {
             >
               <div>
                 <Eyebrow>Individualsoftware</Eyebrow>
-                <HeadlineDot as="h2" className="mt-3 break-words hyphens-auto text-xl sm:text-3xl">
+                <HeadlineDot as="h2" className="mt-3 text-xl sm:text-3xl">
                   Betriebsplattformen für Ihr Unternehmen
                 </HeadlineDot>
               </div>

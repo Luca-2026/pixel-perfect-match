@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Textumbrüche und abgeschnittene Überschriften auf allen öffentlichen Seiten korrigieren
+- [x] Alle Seiten auf Mobilgerät, Tablet und Desktop auf Textüberläufe prüfen
+
 - [x] Startseite auf Individualsoftware ausrichten, fünf Leistungskarten und sachliche Überschriften umsetzen
 - [x] Kennzahlen statisch ausgeben und Startseite mit und ohne JavaScript auf Desktop und Mobil prüfen
 
