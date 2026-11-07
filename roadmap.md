@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Startseite auf Individualsoftware ausrichten, fünf Leistungskarten und sachliche Überschriften umsetzen
+- [x] Kennzahlen statisch ausgeben und Startseite mit und ohne JavaScript auf Desktop und Mobil prüfen
+
 - [x] Individualsoftware-Seite mit sechs Modulen, Vorgehen, Technik und sechs FAQ erstellen
 - [x] Neue Leistung zuerst in Navigation und Footer sowie Sitemap und Export aufnehmen
 - [x] Seite und CTA auf Desktop und Mobil prüfen

@@ -73,11 +73,11 @@ export const mainPages: SiteRoute[] = [
   {
     path: "/",
     title: "Start",
-    metaTitle: "Digitalagentur für KMU: KI, Web und SEO",
+    metaTitle: "Individualsoftware & Automatisierung | sandhoff.digital",
     description:
-      "KI-Automatisierung, Webdesign und SEO für kleine und mittelständische Unternehmen. Messbare Ergebnisse zum Festpreis. Jetzt kostenlosen Digital-Check starten.",
-    h1: "Digital auf den Punkt",
-    eyebrow: "Digitalagentur für den Mittelstand",
+      "Individualsoftware und Automatisierung für den Mittelstand: Betriebsplattformen, Kundenportale und KI-Prozesse. Inhabergeführt im Raum Bonn.",
+    h1: "Individualsoftware und Automatisierung für den Mittelstand",
+    eyebrow: "Inhabergeführtes Familienunternehmen im Raum Bonn",
     changefreq: "weekly",
     priority: "1.0",
   },
