@@ -1,6 +1,6 @@
 # sandhoff.digital
 
-sandhoff.digital ist eine Digitalagentur für kleine und mittelständische Unternehmen in Deutschland. Wir setzen KI und Prozessautomatisierung, Websites und SEO mit messbaren Ergebnissen zum Festpreis um. Inhabergeführt von Luca Sandhoff, Region Bonn/Köln, deutschlandweit tätig.
+sandhoff.digital ist eine Digitalagentur für kleine und mittelständische Unternehmen in Deutschland. Wir setzen KI und Prozessautomatisierung, Websites und SEO mit messbaren Ergebnissen zum Festpreis um. Inhabergeführtes Familienunternehmen von Luca Sandhoff, Region Bonn/Köln, deutschlandweit tätig. Maibrett Sandhoff ist studierte Kommunikationsdesignerin und verantwortet Grafikdesign und kreative Gestaltung.
 
 ## Leistungen
 - KI und Prozessautomatisierung: /leistungen/ki-automatisierung

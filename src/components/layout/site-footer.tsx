@@ -64,7 +64,7 @@ export function SiteFooter() {
             />
             <p className="mt-4 max-w-sm text-sm text-paper/70">
               KI, Webdesign und Sichtbarkeit für kleine und mittelständische
-              Unternehmen. Persönlich geführt von Luca Sandhoff.
+               Unternehmen. Inhabergeführtes Familienunternehmen, persönlich geführt von Luca Sandhoff.
             </p>
             <address className="mt-6 not-italic text-sm text-paper/70">
               Marienforster Weg 2

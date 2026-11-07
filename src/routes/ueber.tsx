@@ -21,7 +21,7 @@ function Ueber() {
         crumbs={[{ to: "/ueber", label: "Über" }]}
         intro={
           <p>
-            sandhoff.digital ist inhabergeführt. Sie sprechen direkt mit
+            sandhoff.digital ist ein inhabergeführtes Familienunternehmen. Sie sprechen direkt mit
             Luca Sandhoff, der Ihre Projekte konzipiert, umsetzt und
             betreut. Regional verwurzelt in der Region Bonn, deutschlandweit
             tätig, remote und vor Ort.
@@ -103,7 +103,7 @@ function Ueber() {
             <div className="group overflow-hidden rounded-2xl border border-line">
               <img
                 src={maibritAsset.url}
-                alt="Porträt von Maibrit Breuer, Kommunikationsdesignerin bei sandhoff.digital"
+                alt="Porträt von Maibrett Sandhoff, Kommunikationsdesignerin bei sandhoff.digital"
                 width={900}
                 height={900}
                 loading="lazy"
@@ -113,10 +113,10 @@ function Ueber() {
             </div>
             <div className="space-y-5 text-ink/85">
               <h3 className="font-display text-lg font-semibold text-ink">
-                Maibrit Breuer. Grafikdesign
+                Maibrett Sandhoff. Grafikdesign
               </h3>
               <p>
-                Maibrit Breuer ist studierte Kommunikationsdesignerin und
+                Maibrett Sandhoff ist studierte Kommunikationsdesignerin und
                 verantwortet bei sandhoff.digital den grafischen Teil. Von der
                 Bildwelt über Layouts bis zum Feinschliff, der eine Website
                 von einer Vorlage unterscheidet.
