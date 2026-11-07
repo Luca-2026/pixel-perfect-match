@@ -9,83 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UeberRouteImport } from './routes/ueber'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ReferenzenRouteImport } from './routes/referenzen'
-import { Route as PreiseRouteImport } from './routes/preise'
-import { Route as KontaktRouteImport } from './routes/kontakt'
-import { Route as ImpressumRouteImport } from './routes/impressum'
-import { Route as DigitalagenturKoelnRouteImport } from './routes/digitalagentur-koeln'
-import { Route as DigitalagenturBonnRouteImport } from './routes/digitalagentur-bonn'
-import { Route as DigitalCheckRouteImport } from './routes/digital-check'
-import { Route as DatenschutzRouteImport } from './routes/datenschutz'
-import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
+import { Route as AgbRouteImport } from './routes/agb'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as DigitalCheckRouteImport } from './routes/digital-check'
+import { Route as DigitalagenturBonnRouteImport } from './routes/digitalagentur-bonn'
+import { Route as DigitalagenturKoelnRouteImport } from './routes/digitalagentur-koeln'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as ReferenzenRouteImport } from './routes/referenzen'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as UeberRouteImport } from './routes/ueber'
 import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
-import { Route as RatgeberWebsiteRelaunchChecklisteRouteImport } from './routes/ratgeber.website-relaunch-checkliste'
-import { Route as RatgeberWasKostetEineWebsiteKmuRouteImport } from './routes/ratgeber.was-kostet-eine-website-kmu'
-import { Route as RatgeberSeoGrundlagenFuerKmuRouteImport } from './routes/ratgeber.seo-grundlagen-fuer-kmu'
-import { Route as RatgeberKiSichtbarkeitChatgptPerplexityRouteImport } from './routes/ratgeber.ki-sichtbarkeit-chatgpt-perplexity'
-import { Route as RatgeberKiAutomatisierungKmuEinstiegRouteImport } from './routes/ratgeber.ki-automatisierung-kmu-einstieg'
-import { Route as RatgeberGoogleUnternehmensprofilOptimierenRouteImport } from './routes/ratgeber.google-unternehmensprofil-optimieren'
-import { Route as RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport } from './routes/ratgeber.chatgpt-fuer-unternehmen-einfuehren'
-import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
-import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.webdesign'
-import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
-import { Route as LeistungenKiSichtbarkeitRouteImport } from './routes/leistungen.ki-sichtbarkeit'
 import { Route as LeistungenKiAutomatisierungRouteImport } from './routes/leistungen.ki-automatisierung'
-import { Route as ApiPublicKontaktRouteImport } from './routes/api/public/kontakt'
+import { Route as LeistungenKiSichtbarkeitRouteImport } from './routes/leistungen.ki-sichtbarkeit'
+import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
+import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.webdesign'
+import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
+import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
+import { Route as RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport } from './routes/ratgeber.chatgpt-fuer-unternehmen-einfuehren'
+import { Route as RatgeberGoogleUnternehmensprofilOptimierenRouteImport } from './routes/ratgeber.google-unternehmensprofil-optimieren'
+import { Route as RatgeberKiAutomatisierungKmuEinstiegRouteImport } from './routes/ratgeber.ki-automatisierung-kmu-einstieg'
+import { Route as RatgeberKiSichtbarkeitChatgptPerplexityRouteImport } from './routes/ratgeber.ki-sichtbarkeit-chatgpt-perplexity'
+import { Route as RatgeberSeoGrundlagenFuerKmuRouteImport } from './routes/ratgeber.seo-grundlagen-fuer-kmu'
+import { Route as RatgeberWasKostetEineWebsiteKmuRouteImport } from './routes/ratgeber.was-kostet-eine-website-kmu'
+import { Route as RatgeberWebsiteRelaunchChecklisteRouteImport } from './routes/ratgeber.website-relaunch-checkliste'
 import { Route as ApiPublicKiDemoRouteImport } from './routes/api/public/ki-demo'
+import { Route as ApiPublicKontaktRouteImport } from './routes/api/public/kontakt'
 
-const UeberRoute = UeberRouteImport.update({
-  id: '/ueber',
-  path: '/ueber',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferenzenRoute = ReferenzenRouteImport.update({
-  id: '/referenzen',
-  path: '/referenzen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PreiseRoute = PreiseRouteImport.update({
-  id: '/preise',
-  path: '/preise',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KontaktRoute = KontaktRouteImport.update({
-  id: '/kontakt',
-  path: '/kontakt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImpressumRoute = ImpressumRouteImport.update({
-  id: '/impressum',
-  path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DigitalagenturKoelnRoute = DigitalagenturKoelnRouteImport.update({
-  id: '/digitalagentur-koeln',
-  path: '/digitalagentur-koeln',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DigitalagenturBonnRoute = DigitalagenturBonnRouteImport.update({
-  id: '/digitalagentur-bonn',
-  path: '/digitalagentur-bonn',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DigitalCheckRoute = DigitalCheckRouteImport.update({
-  id: '/digital-check',
-  path: '/digital-check',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DatenschutzRoute = DatenschutzRouteImport.update({
-  id: '/datenschutz',
-  path: '/datenschutz',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgbRoute = AgbRouteImport.update({
@@ -93,14 +48,54 @@ const AgbRoute = AgbRouteImport.update({
   path: '/agb',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RatgeberIndexRoute = RatgeberIndexRouteImport.update({
-  id: '/ratgeber/',
-  path: '/ratgeber/',
+const DigitalCheckRoute = DigitalCheckRouteImport.update({
+  id: '/digital-check',
+  path: '/digital-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalagenturBonnRoute = DigitalagenturBonnRouteImport.update({
+  id: '/digitalagentur-bonn',
+  path: '/digitalagentur-bonn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalagenturKoelnRoute = DigitalagenturKoelnRouteImport.update({
+  id: '/digitalagentur-koeln',
+  path: '/digitalagentur-koeln',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreiseRoute = PreiseRouteImport.update({
+  id: '/preise',
+  path: '/preise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenzenRoute = ReferenzenRouteImport.update({
+  id: '/referenzen',
+  path: '/referenzen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UeberRoute = UeberRouteImport.update({
+  id: '/ueber',
+  path: '/ueber',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
@@ -108,34 +103,42 @@ const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
   path: '/leistungen/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RatgeberWebsiteRelaunchChecklisteRoute =
-  RatgeberWebsiteRelaunchChecklisteRouteImport.update({
-    id: '/ratgeber/website-relaunch-checkliste',
-    path: '/ratgeber/website-relaunch-checkliste',
+const LeistungenKiAutomatisierungRoute =
+  LeistungenKiAutomatisierungRouteImport.update({
+    id: '/leistungen/ki-automatisierung',
+    path: '/leistungen/ki-automatisierung',
     getParentRoute: () => rootRouteImport,
   } as any)
-const RatgeberWasKostetEineWebsiteKmuRoute =
-  RatgeberWasKostetEineWebsiteKmuRouteImport.update({
-    id: '/ratgeber/was-kostet-eine-website-kmu',
-    path: '/ratgeber/was-kostet-eine-website-kmu',
+const LeistungenKiSichtbarkeitRoute =
+  LeistungenKiSichtbarkeitRouteImport.update({
+    id: '/leistungen/ki-sichtbarkeit',
+    path: '/leistungen/ki-sichtbarkeit',
     getParentRoute: () => rootRouteImport,
   } as any)
-const RatgeberSeoGrundlagenFuerKmuRoute =
-  RatgeberSeoGrundlagenFuerKmuRouteImport.update({
-    id: '/ratgeber/seo-grundlagen-fuer-kmu',
-    path: '/ratgeber/seo-grundlagen-fuer-kmu',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const RatgeberKiSichtbarkeitChatgptPerplexityRoute =
-  RatgeberKiSichtbarkeitChatgptPerplexityRouteImport.update({
-    id: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity',
-    path: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const RatgeberKiAutomatisierungKmuEinstiegRoute =
-  RatgeberKiAutomatisierungKmuEinstiegRouteImport.update({
-    id: '/ratgeber/ki-automatisierung-kmu-einstieg',
-    path: '/ratgeber/ki-automatisierung-kmu-einstieg',
+const LeistungenSeoRoute = LeistungenSeoRouteImport.update({
+  id: '/leistungen/seo',
+  path: '/leistungen/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenWebdesignRoute = LeistungenWebdesignRouteImport.update({
+  id: '/leistungen/webdesign',
+  path: '/leistungen/webdesign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatgeberIndexRoute = RatgeberIndexRouteImport.update({
+  id: '/ratgeber/',
+  path: '/ratgeber/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatgeberSlugRoute = RatgeberSlugRouteImport.update({
+  id: '/ratgeber/$slug',
+  path: '/ratgeber/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatgeberChatgptFuerUnternehmenEinfuehrenRoute =
+  RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport.update({
+    id: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
+    path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
     getParentRoute: () => rootRouteImport,
   } as any)
 const RatgeberGoogleUnternehmensprofilOptimierenRoute =
@@ -144,47 +147,44 @@ const RatgeberGoogleUnternehmensprofilOptimierenRoute =
     path: '/ratgeber/google-unternehmensprofil-optimieren',
     getParentRoute: () => rootRouteImport,
   } as any)
-const RatgeberChatgptFuerUnternehmenEinfuehrenRoute =
-  RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport.update({
-    id: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
-    path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
+const RatgeberKiAutomatisierungKmuEinstiegRoute =
+  RatgeberKiAutomatisierungKmuEinstiegRouteImport.update({
+    id: '/ratgeber/ki-automatisierung-kmu-einstieg',
+    path: '/ratgeber/ki-automatisierung-kmu-einstieg',
     getParentRoute: () => rootRouteImport,
   } as any)
-const RatgeberSlugRoute = RatgeberSlugRouteImport.update({
-  id: '/ratgeber/$slug',
-  path: '/ratgeber/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LeistungenWebdesignRoute = LeistungenWebdesignRouteImport.update({
-  id: '/leistungen/webdesign',
-  path: '/leistungen/webdesign',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LeistungenSeoRoute = LeistungenSeoRouteImport.update({
-  id: '/leistungen/seo',
-  path: '/leistungen/seo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LeistungenKiSichtbarkeitRoute =
-  LeistungenKiSichtbarkeitRouteImport.update({
-    id: '/leistungen/ki-sichtbarkeit',
-    path: '/leistungen/ki-sichtbarkeit',
+const RatgeberKiSichtbarkeitChatgptPerplexityRoute =
+  RatgeberKiSichtbarkeitChatgptPerplexityRouteImport.update({
+    id: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity',
+    path: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity',
     getParentRoute: () => rootRouteImport,
   } as any)
-const LeistungenKiAutomatisierungRoute =
-  LeistungenKiAutomatisierungRouteImport.update({
-    id: '/leistungen/ki-automatisierung',
-    path: '/leistungen/ki-automatisierung',
+const RatgeberSeoGrundlagenFuerKmuRoute =
+  RatgeberSeoGrundlagenFuerKmuRouteImport.update({
+    id: '/ratgeber/seo-grundlagen-fuer-kmu',
+    path: '/ratgeber/seo-grundlagen-fuer-kmu',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiPublicKontaktRoute = ApiPublicKontaktRouteImport.update({
-  id: '/api/public/kontakt',
-  path: '/api/public/kontakt',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const RatgeberWasKostetEineWebsiteKmuRoute =
+  RatgeberWasKostetEineWebsiteKmuRouteImport.update({
+    id: '/ratgeber/was-kostet-eine-website-kmu',
+    path: '/ratgeber/was-kostet-eine-website-kmu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RatgeberWebsiteRelaunchChecklisteRoute =
+  RatgeberWebsiteRelaunchChecklisteRouteImport.update({
+    id: '/ratgeber/website-relaunch-checkliste',
+    path: '/ratgeber/website-relaunch-checkliste',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicKiDemoRoute = ApiPublicKiDemoRouteImport.update({
   id: '/api/public/ki-demo',
   path: '/api/public/ki-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicKontaktRoute = ApiPublicKontaktRouteImport.update({
+  id: '/api/public/kontakt',
+  path: '/api/public/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -405,74 +405,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/ueber': {
-      id: '/ueber'
-      path: '/ueber'
-      fullPath: '/ueber'
-      preLoaderRoute: typeof UeberRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/referenzen': {
-      id: '/referenzen'
-      path: '/referenzen'
-      fullPath: '/referenzen'
-      preLoaderRoute: typeof ReferenzenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/preise': {
-      id: '/preise'
-      path: '/preise'
-      fullPath: '/preise'
-      preLoaderRoute: typeof PreiseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kontakt': {
-      id: '/kontakt'
-      path: '/kontakt'
-      fullPath: '/kontakt'
-      preLoaderRoute: typeof KontaktRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/impressum': {
-      id: '/impressum'
-      path: '/impressum'
-      fullPath: '/impressum'
-      preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/digitalagentur-koeln': {
-      id: '/digitalagentur-koeln'
-      path: '/digitalagentur-koeln'
-      fullPath: '/digitalagentur-koeln'
-      preLoaderRoute: typeof DigitalagenturKoelnRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/digitalagentur-bonn': {
-      id: '/digitalagentur-bonn'
-      path: '/digitalagentur-bonn'
-      fullPath: '/digitalagentur-bonn'
-      preLoaderRoute: typeof DigitalagenturBonnRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/digital-check': {
-      id: '/digital-check'
-      path: '/digital-check'
-      fullPath: '/digital-check'
-      preLoaderRoute: typeof DigitalCheckRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/datenschutz': {
-      id: '/datenschutz'
-      path: '/datenschutz'
-      fullPath: '/datenschutz'
-      preLoaderRoute: typeof DatenschutzRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agb': {
@@ -482,18 +419,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgbRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ratgeber/': {
-      id: '/ratgeber/'
-      path: '/ratgeber'
-      fullPath: '/ratgeber/'
-      preLoaderRoute: typeof RatgeberIndexRouteImport
+    '/digital-check': {
+      id: '/digital-check'
+      path: '/digital-check'
+      fullPath: '/digital-check'
+      preLoaderRoute: typeof DigitalCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digitalagentur-bonn': {
+      id: '/digitalagentur-bonn'
+      path: '/digitalagentur-bonn'
+      fullPath: '/digitalagentur-bonn'
+      preLoaderRoute: typeof DigitalagenturBonnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digitalagentur-koeln': {
+      id: '/digitalagentur-koeln'
+      path: '/digitalagentur-koeln'
+      fullPath: '/digitalagentur-koeln'
+      preLoaderRoute: typeof DigitalagenturKoelnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preise': {
+      id: '/preise'
+      path: '/preise'
+      fullPath: '/preise'
+      preLoaderRoute: typeof PreiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/referenzen': {
+      id: '/referenzen'
+      path: '/referenzen'
+      fullPath: '/referenzen'
+      preLoaderRoute: typeof ReferenzenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ueber': {
+      id: '/ueber'
+      path: '/ueber'
+      fullPath: '/ueber'
+      preLoaderRoute: typeof UeberRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/leistungen/': {
@@ -503,74 +496,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeistungenIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ratgeber/website-relaunch-checkliste': {
-      id: '/ratgeber/website-relaunch-checkliste'
-      path: '/ratgeber/website-relaunch-checkliste'
-      fullPath: '/ratgeber/website-relaunch-checkliste'
-      preLoaderRoute: typeof RatgeberWebsiteRelaunchChecklisteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/was-kostet-eine-website-kmu': {
-      id: '/ratgeber/was-kostet-eine-website-kmu'
-      path: '/ratgeber/was-kostet-eine-website-kmu'
-      fullPath: '/ratgeber/was-kostet-eine-website-kmu'
-      preLoaderRoute: typeof RatgeberWasKostetEineWebsiteKmuRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/seo-grundlagen-fuer-kmu': {
-      id: '/ratgeber/seo-grundlagen-fuer-kmu'
-      path: '/ratgeber/seo-grundlagen-fuer-kmu'
-      fullPath: '/ratgeber/seo-grundlagen-fuer-kmu'
-      preLoaderRoute: typeof RatgeberSeoGrundlagenFuerKmuRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': {
-      id: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
-      path: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
-      fullPath: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
-      preLoaderRoute: typeof RatgeberKiSichtbarkeitChatgptPerplexityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/ki-automatisierung-kmu-einstieg': {
-      id: '/ratgeber/ki-automatisierung-kmu-einstieg'
-      path: '/ratgeber/ki-automatisierung-kmu-einstieg'
-      fullPath: '/ratgeber/ki-automatisierung-kmu-einstieg'
-      preLoaderRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/google-unternehmensprofil-optimieren': {
-      id: '/ratgeber/google-unternehmensprofil-optimieren'
-      path: '/ratgeber/google-unternehmensprofil-optimieren'
-      fullPath: '/ratgeber/google-unternehmensprofil-optimieren'
-      preLoaderRoute: typeof RatgeberGoogleUnternehmensprofilOptimierenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': {
-      id: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
-      path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
-      fullPath: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
-      preLoaderRoute: typeof RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratgeber/$slug': {
-      id: '/ratgeber/$slug'
-      path: '/ratgeber/$slug'
-      fullPath: '/ratgeber/$slug'
-      preLoaderRoute: typeof RatgeberSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/leistungen/webdesign': {
-      id: '/leistungen/webdesign'
-      path: '/leistungen/webdesign'
-      fullPath: '/leistungen/webdesign'
-      preLoaderRoute: typeof LeistungenWebdesignRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/leistungen/seo': {
-      id: '/leistungen/seo'
-      path: '/leistungen/seo'
-      fullPath: '/leistungen/seo'
-      preLoaderRoute: typeof LeistungenSeoRouteImport
+    '/leistungen/ki-automatisierung': {
+      id: '/leistungen/ki-automatisierung'
+      path: '/leistungen/ki-automatisierung'
+      fullPath: '/leistungen/ki-automatisierung'
+      preLoaderRoute: typeof LeistungenKiAutomatisierungRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/leistungen/ki-sichtbarkeit': {
@@ -580,18 +510,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeistungenKiSichtbarkeitRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/leistungen/ki-automatisierung': {
-      id: '/leistungen/ki-automatisierung'
-      path: '/leistungen/ki-automatisierung'
-      fullPath: '/leistungen/ki-automatisierung'
-      preLoaderRoute: typeof LeistungenKiAutomatisierungRouteImport
+    '/leistungen/seo': {
+      id: '/leistungen/seo'
+      path: '/leistungen/seo'
+      fullPath: '/leistungen/seo'
+      preLoaderRoute: typeof LeistungenSeoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/kontakt': {
-      id: '/api/public/kontakt'
-      path: '/api/public/kontakt'
-      fullPath: '/api/public/kontakt'
-      preLoaderRoute: typeof ApiPublicKontaktRouteImport
+    '/leistungen/webdesign': {
+      id: '/leistungen/webdesign'
+      path: '/leistungen/webdesign'
+      fullPath: '/leistungen/webdesign'
+      preLoaderRoute: typeof LeistungenWebdesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/': {
+      id: '/ratgeber/'
+      path: '/ratgeber'
+      fullPath: '/ratgeber/'
+      preLoaderRoute: typeof RatgeberIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/$slug': {
+      id: '/ratgeber/$slug'
+      path: '/ratgeber/$slug'
+      fullPath: '/ratgeber/$slug'
+      preLoaderRoute: typeof RatgeberSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': {
+      id: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+      path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+      fullPath: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+      preLoaderRoute: typeof RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/google-unternehmensprofil-optimieren': {
+      id: '/ratgeber/google-unternehmensprofil-optimieren'
+      path: '/ratgeber/google-unternehmensprofil-optimieren'
+      fullPath: '/ratgeber/google-unternehmensprofil-optimieren'
+      preLoaderRoute: typeof RatgeberGoogleUnternehmensprofilOptimierenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/ki-automatisierung-kmu-einstieg': {
+      id: '/ratgeber/ki-automatisierung-kmu-einstieg'
+      path: '/ratgeber/ki-automatisierung-kmu-einstieg'
+      fullPath: '/ratgeber/ki-automatisierung-kmu-einstieg'
+      preLoaderRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': {
+      id: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+      path: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+      fullPath: '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
+      preLoaderRoute: typeof RatgeberKiSichtbarkeitChatgptPerplexityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/seo-grundlagen-fuer-kmu': {
+      id: '/ratgeber/seo-grundlagen-fuer-kmu'
+      path: '/ratgeber/seo-grundlagen-fuer-kmu'
+      fullPath: '/ratgeber/seo-grundlagen-fuer-kmu'
+      preLoaderRoute: typeof RatgeberSeoGrundlagenFuerKmuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/was-kostet-eine-website-kmu': {
+      id: '/ratgeber/was-kostet-eine-website-kmu'
+      path: '/ratgeber/was-kostet-eine-website-kmu'
+      fullPath: '/ratgeber/was-kostet-eine-website-kmu'
+      preLoaderRoute: typeof RatgeberWasKostetEineWebsiteKmuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber/website-relaunch-checkliste': {
+      id: '/ratgeber/website-relaunch-checkliste'
+      path: '/ratgeber/website-relaunch-checkliste'
+      fullPath: '/ratgeber/website-relaunch-checkliste'
+      preLoaderRoute: typeof RatgeberWebsiteRelaunchChecklisteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/ki-demo': {
@@ -599,6 +592,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/ki-demo'
       fullPath: '/api/public/ki-demo'
       preLoaderRoute: typeof ApiPublicKiDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/kontakt': {
+      id: '/api/public/kontakt'
+      path: '/api/public/kontakt'
+      fullPath: '/api/public/kontakt'
+      preLoaderRoute: typeof ApiPublicKontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
