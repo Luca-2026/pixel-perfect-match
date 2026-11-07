@@ -13,6 +13,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const staticPages = [
   "/",
   "/leistungen",
+  "/leistungen/individualsoftware",
   "/leistungen/seo",
   "/leistungen/webdesign",
   "/leistungen/ki-automatisierung",

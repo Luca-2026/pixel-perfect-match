@@ -13,6 +13,17 @@ export interface SiteRoute {
 
 export const services: SiteRoute[] = [
   {
+    path: "/leistungen/individualsoftware",
+    title: "Individualsoftware & Betriebsplattformen",
+    metaTitle: "Individualsoftware für den Mittelstand | sandhoff.digital",
+    description:
+      "Individualsoftware und Betriebsplattformen für KMU: Kundenportal, Angebote, Disposition, DATEV-Export und KI-Assistenz. Prozess-Workshop anfragen.",
+    h1: "Ihr Unternehmen aus einer Anwendung steuern – statt aus zehn Tools",
+    eyebrow: "Individualsoftware",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
     path: "/leistungen/ki-automatisierung",
     title: "KI & Prozessautomatisierung",
     metaTitle: "KI-Automatisierung für KMU | sandhoff.digital",
@@ -75,7 +86,7 @@ export const mainPages: SiteRoute[] = [
     title: "Leistungen",
     metaTitle: "KI, Webdesign und SEO für KMU | Leistungen",
     description:
-      "Übersicht unserer Leistungen für kleine und mittelständische Unternehmen: KI-Automatisierung, Webdesign, SEO und KI-Sichtbarkeit.",
+      "Leistungen für den Mittelstand: Individualsoftware, Betriebsplattformen, KI-Automatisierung, Webdesign, SEO und KI-Sichtbarkeit.",
     h1: "Leistungen für den Mittelstand",
     eyebrow: "Leistungen",
     changefreq: "monthly",

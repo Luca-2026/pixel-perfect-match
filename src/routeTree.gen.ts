@@ -22,6 +22,7 @@ import { Route as ReferenzenRouteImport } from './routes/referenzen'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UeberRouteImport } from './routes/ueber'
 import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
+import { Route as LeistungenIndividualsoftwareRouteImport } from './routes/leistungen.individualsoftware'
 import { Route as LeistungenKiAutomatisierungRouteImport } from './routes/leistungen.ki-automatisierung'
 import { Route as LeistungenKiSichtbarkeitRouteImport } from './routes/leistungen.ki-sichtbarkeit'
 import { Route as LeistungenSeoRouteImport } from './routes/leistungen.seo'
@@ -103,6 +104,12 @@ const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
   path: '/leistungen/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LeistungenIndividualsoftwareRoute =
+  LeistungenIndividualsoftwareRouteImport.update({
+    id: '/leistungen/individualsoftware',
+    path: '/leistungen/individualsoftware',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LeistungenKiAutomatisierungRoute =
   LeistungenKiAutomatisierungRouteImport.update({
     id: '/leistungen/ki-automatisierung',
@@ -201,6 +208,7 @@ export interface FileRoutesByFullPath {
   '/referenzen': typeof ReferenzenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
+  '/leistungen/individualsoftware': typeof LeistungenIndividualsoftwareRoute
   '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
   '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
   '/leistungen/seo': typeof LeistungenSeoRoute
@@ -231,6 +239,7 @@ export interface FileRoutesByTo {
   '/referenzen': typeof ReferenzenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
+  '/leistungen/individualsoftware': typeof LeistungenIndividualsoftwareRoute
   '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
   '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
   '/leistungen/seo': typeof LeistungenSeoRoute
@@ -262,6 +271,7 @@ export interface FileRoutesById {
   '/referenzen': typeof ReferenzenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
+  '/leistungen/individualsoftware': typeof LeistungenIndividualsoftwareRoute
   '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
   '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
   '/leistungen/seo': typeof LeistungenSeoRoute
@@ -294,6 +304,7 @@ export interface FileRouteTypes {
     | '/referenzen'
     | '/sitemap.xml'
     | '/ueber'
+    | '/leistungen/individualsoftware'
     | '/leistungen/ki-automatisierung'
     | '/leistungen/ki-sichtbarkeit'
     | '/leistungen/seo'
@@ -324,6 +335,7 @@ export interface FileRouteTypes {
     | '/referenzen'
     | '/sitemap.xml'
     | '/ueber'
+    | '/leistungen/individualsoftware'
     | '/leistungen/ki-automatisierung'
     | '/leistungen/ki-sichtbarkeit'
     | '/leistungen/seo'
@@ -354,6 +366,7 @@ export interface FileRouteTypes {
     | '/referenzen'
     | '/sitemap.xml'
     | '/ueber'
+    | '/leistungen/individualsoftware'
     | '/leistungen/ki-automatisierung'
     | '/leistungen/ki-sichtbarkeit'
     | '/leistungen/seo'
@@ -385,6 +398,7 @@ export interface RootRouteChildren {
   ReferenzenRoute: typeof ReferenzenRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberRoute: typeof UeberRoute
+  LeistungenIndividualsoftwareRoute: typeof LeistungenIndividualsoftwareRoute
   LeistungenKiAutomatisierungRoute: typeof LeistungenKiAutomatisierungRoute
   LeistungenKiSichtbarkeitRoute: typeof LeistungenKiSichtbarkeitRoute
   LeistungenSeoRoute: typeof LeistungenSeoRoute
@@ -494,6 +508,13 @@ declare module '@tanstack/react-router' {
       path: '/leistungen'
       fullPath: '/leistungen/'
       preLoaderRoute: typeof LeistungenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/individualsoftware': {
+      id: '/leistungen/individualsoftware'
+      path: '/leistungen/individualsoftware'
+      fullPath: '/leistungen/individualsoftware'
+      preLoaderRoute: typeof LeistungenIndividualsoftwareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/leistungen/ki-automatisierung': {
@@ -617,6 +638,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferenzenRoute: ReferenzenRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberRoute: UeberRoute,
+  LeistungenIndividualsoftwareRoute: LeistungenIndividualsoftwareRoute,
   LeistungenKiAutomatisierungRoute: LeistungenKiAutomatisierungRoute,
   LeistungenKiSichtbarkeitRoute: LeistungenKiSichtbarkeitRoute,
   LeistungenSeoRoute: LeistungenSeoRoute,

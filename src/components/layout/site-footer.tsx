@@ -8,8 +8,8 @@ const columns = [
   {
     heading: "Leistungen",
     links: [
-      { to: "/leistungen", label: "Übersicht" },
       ...services.map((s) => ({ to: s.path, label: s.title })),
+      { to: "/leistungen", label: "Übersicht" },
     ],
   },
   {

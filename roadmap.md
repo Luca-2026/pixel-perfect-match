@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Individualsoftware-Seite mit sechs Modulen, Vorgehen, Technik und sechs FAQ erstellen
+- [x] Neue Leistung zuerst in Navigation und Footer sowie Sitemap und Export aufnehmen
+- [x] Seite und CTA auf Desktop und Mobil prüfen
+
 - [x] Namen in Maibrit Sandhoff ändern und Familienunternehmen ohne privaten Anlass nennen
 
 - [x] Globales Designsystem auf die gewählte Editorial-Bento-Richtung umstellen
