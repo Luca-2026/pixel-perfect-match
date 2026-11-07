@@ -55,7 +55,7 @@ const steps = [
 
 const questions = [
   { q: "Wer hat die Hoheit über unsere Daten?", a: "Ihre Unternehmensdaten bleiben Ihnen zugeordnet. Wir vereinbaren Zugriffsrechte, Exportformate und die Datenübergabe bei Vertragsende. Rechte am Quellcode und die Übergabe von Zugängen halten wir im Angebot und im Vertrag fest." },
-  { q: "Kann die Anwendung in der EU gehostet werden?", a: "EU-Hosting kann als Anforderung vereinbart werden. Wir prüfen dabei den Standort der Anwendung, der Datenbank und der Sicherungen. Für eingebundene Zahlungs-, Telefonie- oder KI-Dienste prüfen wir Datenflüsse und Unterauftragnehmer gesondert." },
+  { q: "Kann die Anwendung in der EU gehostet werden?", a: "Das Frontend hosten wir auf Servern in Deutschland, beispielsweise bei Hetzner an einem deutschen Standort. Die Datenbank hat einen eigenen Hosting-Standort. Eine EU-Region für Datenbank und Sicherungen wird gesondert festgelegt. Für eingebundene Zahlungs-, Telefonie- oder KI-Dienste prüfen wir Datenflüsse und Unterauftragnehmer gesondert." },
   { q: "Was passiert bei einem Ausfall?", a: "Wir legen Sicherungen, Überwachung und einen Wiederherstellungsablauf fest. Reaktionszeiten und Wiederherstellungsziele gehören in die Betriebsvereinbarung. Für kritische Abläufe stimmen wir eine Übergangslösung ab. Ein Betrieb ohne jeden Ausfall lässt sich nicht zusichern." },
   { q: "Wie vergleichen sich die Kosten mit SaaS-Tools?", a: "Individualsoftware verursacht zunächst Kosten für Konzeption und Entwicklung. Im Betrieb fallen Hosting, Wartung und gegebenenfalls Gebühren angebundener Dienste an. Im Workshop vergleichen wir diese Kosten mit Ihren Lizenzen, Datenübertragungen und manuellen Arbeitsschritten. Eine pauschale Ersparnis lässt sich daraus nicht ableiten." },
   { q: "Lässt sich die Plattform später erweitern?", a: "Wir berücksichtigen geplante Erweiterungen im Datenmodell und in den Schnittstellen. Neue Funktionen erhalten einen abgestimmten Umfang und werden vor der Einführung getestet. Änderungen externer APIs oder zusätzliche Anforderungen können Anpassungen erfordern." },
@@ -141,15 +141,21 @@ function Individualsoftware() {
         <Container className="max-w-5xl">
           <Reveal>
             <HeadlineDot as="h2">Technik</HeadlineDot>
-            <p className="mt-6 max-w-3xl text-ink/80">Der eingesetzte Stack wird hier ergänzt. Die Auswahl für Ihr Projekt wird im Rahmen der Konzeption festgelegt.</p>
+            <p className="mt-6 max-w-3xl text-ink/80">Wir entwickeln browserbasierte Anwendungen mit React und TypeScript. Die Daten liegen in einer PostgreSQL-Datenbank. Oberfläche, Datenbank und angebundene Dienste haben jeweils eigene Aufgaben und Betriebsanforderungen.</p>
             <dl className="mt-8 grid gap-x-10 gap-y-5 sm:grid-cols-2">
-              {["Anwendung und Oberfläche", "Datenbank und Datenmodell", "Hosting und Betrieb", "Schnittstellen und KI-Dienste"].map((label) => (
+              {[
+                { label: "Anwendung und Oberfläche", detail: "React und TypeScript bilden die Grundlage der Oberfläche. Tailwind CSS unterstützt die Darstellung auf Desktop, Tablet und Smartphone. Das Framework und die benötigten Funktionen stimmen wir auf den Projektumfang ab." },
+                { label: "Datenbank und Datenmodell", detail: "Wir nutzen Supabase mit einer PostgreSQL-Datenbank. Kunden, Aufträge und Leistungen werden in einem gemeinsamen Datenmodell verknüpft. Zugriffsregeln auf Datenbankebene begrenzen den Zugriff auf die jeweils erlaubten Datensätze." },
+                { label: "Hosting und Betrieb", detail: "Das Frontend wird auf Servern in Deutschland gehostet, beispielsweise bei Hetzner an einem deutschen Standort. Den Standort der Datenbank und der Sicherungen legen wir separat fest. Wartung, Überwachung und Wiederherstellung werden im Betriebsumfang vereinbart." },
+                { label: "Schnittstellen und KI-Dienste", detail: "Buchhaltung, Zahlung und Telefonie werden über die APIs der jeweiligen Anbieter angebunden. KI-Funktionen erhalten Zugriff auf die dafür freigegebenen Daten. Anbieter, Verarbeitungsorte und laufende Gebühren werden vor der Einbindung geklärt." },
+              ].map(({ label, detail }) => (
                 <div key={label} className="border-t border-line pt-4">
                   <dt className="font-semibold text-ink">{label}</dt>
-                  <dd className="mt-2 text-ink/65">[Platzhalter]</dd>
+                  <dd className="mt-2 text-ink/75">{detail}</dd>
                 </div>
               ))}
             </dl>
+            <p className="mt-8 max-w-3xl text-sm text-ink/65">Frontend-Hosting in Deutschland legt den Verarbeitungsort der Datenbank und externer Dienste nicht automatisch fest. Diese Standorte und die erforderlichen Vereinbarungen prüfen wir für das jeweilige Projekt.</p>
           </Reveal>
         </Container>
       </Section>
