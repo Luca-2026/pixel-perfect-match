@@ -1,6 +1,6 @@
 # Roadmap
 
-- [x] Namen in Maibrett Sandhoff ändern und Familienunternehmen ohne privaten Anlass nennen
+- [x] Namen in Maibrit Sandhoff ändern und Familienunternehmen ohne privaten Anlass nennen
 
 - [x] Globales Designsystem auf die gewählte Editorial-Bento-Richtung umstellen
 - [x] Navigation und Fußbereich visuell überarbeiten und vervollständigen
