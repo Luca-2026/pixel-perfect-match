@@ -18,6 +18,7 @@ const staticPages = [
   "/leistungen/webdesign",
   "/leistungen/ki-automatisierung",
   "/leistungen/ki-sichtbarkeit",
+  "/leistungen/claude-einfuehrung",
   "/digital-check",
   "/preise",
   "/referenzen",

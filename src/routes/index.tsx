@@ -4,7 +4,7 @@ import { ArrowRight, Check, Database, FileCheck2, MapPin, Sparkles, Workflow } f
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { Button } from "@/components/ui/button";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
-import { findRoute, services } from "@/lib/site-routes";
+import { findRoute, featuredServices } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 import { SITE_URL } from "@/lib/site";
 import ogStartseite from "@/assets/og-sandhoff-digital-logo.jpg.asset.json";
@@ -228,7 +228,7 @@ function Home() {
             <HeadlineDot as="h2" className="max-w-3xl">Leistungen</HeadlineDot>
           </Reveal>
           <Stagger className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-12" gap={0.08}>
-            {services.map((service, index) => (
+            {featuredServices.map((service, index) => (
               <StaggerItem key={service.path} className={`${index === 0 ? "md:col-span-2 lg:col-span-12" : "lg:col-span-6"} min-w-0`}>
                 <Link to={service.path} className="group surface-card flex min-w-0 h-full min-h-64 flex-col justify-between overflow-hidden p-7 no-underline transition-colors hover:border-amber hover:no-underline sm:p-9">
                   <div className="flex items-start justify-between gap-4">

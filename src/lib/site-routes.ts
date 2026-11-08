@@ -57,6 +57,17 @@ export const services: SiteRoute[] = [
     priority: "0.9",
   },
   {
+    path: "/leistungen/claude-einfuehrung",
+    title: "Claude: Einrichtung & Schulung",
+    metaTitle: "Claude im Unternehmen einführen: Einrichtung & Schulung | sandhoff.digital",
+    description:
+      "Claude Team oder Enterprise einrichten: Nutzer, Rollen, Datenzugriff, Schulung vor Ort oder remote und Nachbetreuung. Festpreis nach Teamgröße.",
+    h1: "Claude im Unternehmen einführen",
+    eyebrow: "Leistung",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
     path: "/leistungen/ki-sichtbarkeit",
     title: "KI-Sichtbarkeit (AEO/GEO)",
     metaTitle: "KI-Sichtbarkeit in ChatGPT und Google | sandhoff.digital",
@@ -68,6 +79,9 @@ export const services: SiteRoute[] = [
     priority: "0.9",
   },
 ];
+
+// Die bestehenden Leistungsseiten bleiben in Navigation und Sitemap erhalten.
+export const featuredServices = services.slice(0, 5);
 
 export const mainPages: SiteRoute[] = [
   {
@@ -86,7 +100,7 @@ export const mainPages: SiteRoute[] = [
     title: "Leistungen",
     metaTitle: "KI, Webdesign und SEO für KMU | Leistungen",
     description:
-      "Leistungen für den Mittelstand: Individualsoftware, Betriebsplattformen, KI-Automatisierung, Webdesign, SEO und KI-Sichtbarkeit.",
+      "Leistungen für den Mittelstand: Individualsoftware, KI-Automatisierung, Webdesign, SEO, Claude-Einführung und KI-Sichtbarkeit.",
     h1: "Leistungen für den Mittelstand",
     eyebrow: "Leistungen",
     changefreq: "monthly",

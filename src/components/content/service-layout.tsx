@@ -29,6 +29,8 @@ export interface ServiceLayoutProps {
   ctaBody: string;
   children?: ReactNode;
   serviceType: string; // z. B. "Prozessautomatisierung"
+  processHeadline?: string;
+  headlineClassName?: string;
 }
 
 export function ServiceLayout({
@@ -44,6 +46,8 @@ export function ServiceLayout({
   ctaBody,
   children,
   serviceType,
+  processHeadline = "In vier Schritten zum Ergebnis",
+  headlineClassName,
 }: ServiceLayoutProps) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,7 +74,7 @@ export function ServiceLayout({
 
   return (
     <>
-      <PageHeader route={route} crumbs={crumbs} intro={directAnswer} />
+      <PageHeader route={route} crumbs={crumbs} intro={directAnswer} headlineClassName={headlineClassName} />
 
       <Section tone="paper">
         <Container className="max-w-5xl">
@@ -111,7 +115,7 @@ export function ServiceLayout({
           <Reveal>
             <Eyebrow>So arbeiten wir</Eyebrow>
             <HeadlineDot as="h2" className="mt-3 max-w-2xl">
-              In vier Schritten zum Ergebnis
+              {processHeadline}
             </HeadlineDot>
           </Reveal>
           <Stagger as="ol" className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 list-none p-0" gap={0.09}>

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Container, Eyebrow, HeadlineDot, Section } from "@/components/layout/primitives";
 import { CtaSection } from "@/components/content/cta-section";
-import { findRoute, services } from "@/lib/site-routes";
+import { findRoute, featuredServices } from "@/lib/site-routes";
 import { routeHead } from "@/lib/route-head";
 
 const route = findRoute("/leistungen")!;
@@ -24,7 +24,7 @@ function LeistungenIndex() {
             Fünf Leistungen für kleine und mittelständische
             Unternehmen: Individualsoftware und Betriebsplattformen,
             KI-Automatisierung, Webdesign, SEO und
-            KI-Sichtbarkeit. Jede mit definiertem Ergebnis, transparentem
+            Claude-Einführung. Jede mit definiertem Ergebnis, transparentem
             Preis und einem Ansprechpartner: dem Inhaber.
           </p>
         }
@@ -33,7 +33,7 @@ function LeistungenIndex() {
       <Section tone="paper">
         <Container className="max-w-5xl">
           <div className="grid gap-5 md:grid-cols-2">
-            {services.map((s) => (
+            {featuredServices.map((s) => (
               <Link
                 key={s.path}
                 to={s.path}

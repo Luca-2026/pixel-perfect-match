@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Claude-Leistungsseite mit vorgegebenem Umfang, vier FAQ und Digital-Check erstellen
+- [x] Navigation, fünfte Leistungskachel, Sitemap und Pre-Rendering ergänzen
+- [x] Inhalt, strukturierte Daten, Verlinkung und Bildschirmgrößen prüfen
+
 - [x] Linkabstände im gesamten Claude-Artikel prüfen und korrigieren
 - [x] Aussagen erneut anhand aktueller offizieller Quellen und fremder Ratgeber prüfen
 - [x] Zielgruppenrelevanz präzisieren und Artikel auf Mobilgerät, Tablet und Desktop validieren
