@@ -16,6 +16,20 @@ export interface RatgeberArticle {
 
 export const articles: RatgeberArticle[] = [
   {
+    slug: "claude-unternehmen-wissensassistent-einfuehren",
+    path: "/ratgeber/claude-unternehmen-wissensassistent-einfuehren",
+    title: "Claude im Unternehmen: ein Wissensassistent für den Kundenservice",
+    metaTitle: "Claude im Unternehmen einführen | sandhoff.digital",
+    description:
+      "Luca Sandhoff erklärt Claude im Kundenservice: geprüfte Wissensbasis, Datenschutz, Vor-Ort-Schulung und messbarer Nutzen für den Mittelstand.",
+    excerpt:
+      "Wie ich Claude mit freigegebenem Unternehmenswissen einrichten würde: nachvollziehbare Antworten, klare Zugriffsrechte und Schulungen vor Ort.",
+    topic: "KI",
+    publishedAt: "2026-11-08",
+    readingMinutes: 11,
+    relatedServicePath: "/leistungen/ki-automatisierung",
+  },
+  {
     slug: "ki-automatisierung-kmu-einstieg",
     path: "/ratgeber/ki-automatisierung-kmu-einstieg",
     title: "KI-Automatisierung im Mittelstand: wo Sie sinnvoll starten",

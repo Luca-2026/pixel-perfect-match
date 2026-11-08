@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Neuen Claude-Ratgeber aus Inhabersicht mit offiziellen Quellen recherchieren und schreiben
+- [x] Artikel in Ratgeber, Sitemap und Pre-Rendering aufnehmen
+- [x] Artikel, Quellenlinks und Darstellung auf Mobilgerät, Tablet und Desktop prüfen
+
 - [x] Textumbrüche und abgeschnittene Überschriften auf allen öffentlichen Seiten korrigieren
 - [x] Alle Seiten auf Mobilgerät, Tablet und Desktop auf Textüberläufe prüfen
 

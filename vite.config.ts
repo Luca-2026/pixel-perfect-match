@@ -33,6 +33,7 @@ const staticPages = [
   "/ratgeber/google-unternehmensprofil-optimieren",
   "/ratgeber/website-relaunch-checkliste",
   "/ratgeber/chatgpt-fuer-unternehmen-einfuehren",
+  "/ratgeber/claude-unternehmen-wissensassistent-einfuehren",
   "/impressum",
   "/datenschutz",
   "/agb",

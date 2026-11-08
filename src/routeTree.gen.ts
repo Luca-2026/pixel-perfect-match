@@ -30,6 +30,7 @@ import { Route as LeistungenWebdesignRouteImport } from './routes/leistungen.web
 import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
 import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
 import { Route as RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport } from './routes/ratgeber.chatgpt-fuer-unternehmen-einfuehren'
+import { Route as RatgeberClaudeUnternehmenWissensassistentEinfuehrenRouteImport } from './routes/ratgeber.claude-unternehmen-wissensassistent-einfuehren'
 import { Route as RatgeberGoogleUnternehmensprofilOptimierenRouteImport } from './routes/ratgeber.google-unternehmensprofil-optimieren'
 import { Route as RatgeberKiAutomatisierungKmuEinstiegRouteImport } from './routes/ratgeber.ki-automatisierung-kmu-einstieg'
 import { Route as RatgeberKiSichtbarkeitChatgptPerplexityRouteImport } from './routes/ratgeber.ki-sichtbarkeit-chatgpt-perplexity'
@@ -148,6 +149,12 @@ const RatgeberChatgptFuerUnternehmenEinfuehrenRoute =
     path: '/ratgeber/chatgpt-fuer-unternehmen-einfuehren',
     getParentRoute: () => rootRouteImport,
   } as any)
+const RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute =
+  RatgeberClaudeUnternehmenWissensassistentEinfuehrenRouteImport.update({
+    id: '/ratgeber/claude-unternehmen-wissensassistent-einfuehren',
+    path: '/ratgeber/claude-unternehmen-wissensassistent-einfuehren',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const RatgeberGoogleUnternehmensprofilOptimierenRoute =
   RatgeberGoogleUnternehmensprofilOptimierenRouteImport.update({
     id: '/ratgeber/google-unternehmensprofil-optimieren',
@@ -215,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
   '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  '/ratgeber/claude-unternehmen-wissensassistent-einfuehren': typeof RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute
   '/ratgeber/google-unternehmensprofil-optimieren': typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
@@ -246,6 +254,7 @@ export interface FileRoutesByTo {
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
   '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  '/ratgeber/claude-unternehmen-wissensassistent-einfuehren': typeof RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute
   '/ratgeber/google-unternehmensprofil-optimieren': typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
@@ -278,6 +287,7 @@ export interface FileRoutesById {
   '/leistungen/webdesign': typeof LeistungenWebdesignRoute
   '/ratgeber/$slug': typeof RatgeberSlugRoute
   '/ratgeber/chatgpt-fuer-unternehmen-einfuehren': typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  '/ratgeber/claude-unternehmen-wissensassistent-einfuehren': typeof RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute
   '/ratgeber/google-unternehmensprofil-optimieren': typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   '/ratgeber/ki-automatisierung-kmu-einstieg': typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity': typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
@@ -311,6 +321,7 @@ export interface FileRouteTypes {
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
     | '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+    | '/ratgeber/claude-unternehmen-wissensassistent-einfuehren'
     | '/ratgeber/google-unternehmensprofil-optimieren'
     | '/ratgeber/ki-automatisierung-kmu-einstieg'
     | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
@@ -342,6 +353,7 @@ export interface FileRouteTypes {
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
     | '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+    | '/ratgeber/claude-unternehmen-wissensassistent-einfuehren'
     | '/ratgeber/google-unternehmensprofil-optimieren'
     | '/ratgeber/ki-automatisierung-kmu-einstieg'
     | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
@@ -373,6 +385,7 @@ export interface FileRouteTypes {
     | '/leistungen/webdesign'
     | '/ratgeber/$slug'
     | '/ratgeber/chatgpt-fuer-unternehmen-einfuehren'
+    | '/ratgeber/claude-unternehmen-wissensassistent-einfuehren'
     | '/ratgeber/google-unternehmensprofil-optimieren'
     | '/ratgeber/ki-automatisierung-kmu-einstieg'
     | '/ratgeber/ki-sichtbarkeit-chatgpt-perplexity'
@@ -405,6 +418,7 @@ export interface RootRouteChildren {
   LeistungenWebdesignRoute: typeof LeistungenWebdesignRoute
   RatgeberSlugRoute: typeof RatgeberSlugRoute
   RatgeberChatgptFuerUnternehmenEinfuehrenRoute: typeof RatgeberChatgptFuerUnternehmenEinfuehrenRoute
+  RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute: typeof RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute
   RatgeberGoogleUnternehmensprofilOptimierenRoute: typeof RatgeberGoogleUnternehmensprofilOptimierenRoute
   RatgeberKiAutomatisierungKmuEinstiegRoute: typeof RatgeberKiAutomatisierungKmuEinstiegRoute
   RatgeberKiSichtbarkeitChatgptPerplexityRoute: typeof RatgeberKiSichtbarkeitChatgptPerplexityRoute
@@ -566,6 +580,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RatgeberChatgptFuerUnternehmenEinfuehrenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ratgeber/claude-unternehmen-wissensassistent-einfuehren': {
+      id: '/ratgeber/claude-unternehmen-wissensassistent-einfuehren'
+      path: '/ratgeber/claude-unternehmen-wissensassistent-einfuehren'
+      fullPath: '/ratgeber/claude-unternehmen-wissensassistent-einfuehren'
+      preLoaderRoute: typeof RatgeberClaudeUnternehmenWissensassistentEinfuehrenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ratgeber/google-unternehmensprofil-optimieren': {
       id: '/ratgeber/google-unternehmensprofil-optimieren'
       path: '/ratgeber/google-unternehmensprofil-optimieren'
@@ -646,6 +667,8 @@ const rootRouteChildren: RootRouteChildren = {
   RatgeberSlugRoute: RatgeberSlugRoute,
   RatgeberChatgptFuerUnternehmenEinfuehrenRoute:
     RatgeberChatgptFuerUnternehmenEinfuehrenRoute,
+  RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute:
+    RatgeberClaudeUnternehmenWissensassistentEinfuehrenRoute,
   RatgeberGoogleUnternehmensprofilOptimierenRoute:
     RatgeberGoogleUnternehmensprofilOptimierenRoute,
   RatgeberKiAutomatisierungKmuEinstiegRoute:

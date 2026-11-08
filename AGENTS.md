@@ -11,3 +11,4 @@
 
 - Keep the individual software service as a dedicated leaf route using shared layout primitives; register it in the central service registry and explicit prerender list so navigation, sitemap and static export stay aligned.
 - Keep shared heading wrapping and breakpoint-based type sizes in the global stylesheet; use local sizing only when a specific headline needs whole-word fitting in a narrower container.
+- Keep each guide article in a dedicated leaf route using ArticleLayout, with metadata in the article registry and its path in the explicit prerender list; both sitemap implementations read the registry.
