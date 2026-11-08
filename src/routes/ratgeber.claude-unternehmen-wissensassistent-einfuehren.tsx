@@ -9,13 +9,13 @@ if (!registeredArticle) throw new Error("Claude-Ratgeber fehlt im Artikelverzeic
 const article = registeredArticle;
 
 const sources = [
-  { id: "quelle-projekte", title: "Anthropic: Claude Projects und Projektwissen", url: "https://www.anthropic.com/news/projects" },
-  { id: "quelle-rag", title: "Datenschutzkonferenz: Orientierungshilfe zu RAG", url: "https://www.datenschutzkonferenz-online.de/media/oh/DSK_OH_RAG.pdf" },
-  { id: "quelle-training", title: "Anthropic: Verbraucherbedingungen und Abgrenzung kommerzieller Dienste", url: "https://www.anthropic.com/news/updates-to-our-consumer-terms" },
-  { id: "quelle-retention", title: "Anthropic: Datenaufbewahrung und Zero Data Retention", url: "https://docs.anthropic.com/en/docs/build-with-claude/zero-data-retention" },
-  { id: "quelle-vertraege", title: "Anthropic: Vertragsbedingungen und Data Processing Addendum", url: "https://www.anthropic.com/legal" },
-  { id: "quelle-datenschutz", title: "Datenschutzkonferenz: KI und Datenschutz", url: "https://www.datenschutzkonferenz-online.de/media/oh/20240506_DSK_Orientierungshilfe_KI_und_Datenschutz.pdf" },
-  { id: "quelle-aiact", title: "EUR-Lex: Verordnung (EU) 2024/1689, insbesondere Artikel 4", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=de" },
+  { id: "quelle-projekte", title: "Anthropic: aktuelle Hilfe zu Claude Projects, RAG und Projektfreigaben", url: "https://support.claude.com/en/articles/9517075-what-are-projects" },
+  { id: "quelle-rag", title: "Datenschutzkonferenz: Orientierungshilfe zu RAG, Oktober 2025", url: "https://www.datenschutzkonferenz-online.de/media/oh/DSK_OH_RAG.pdf" },
+  { id: "quelle-training", title: "Anthropic: Commercial Terms, Abschnitt B zu Kundendaten", url: "https://www.anthropic.com/legal/commercial-terms" },
+  { id: "quelle-retention", title: "Anthropic: API-Datenaufbewahrung und Grenzen von Zero Data Retention", url: "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention" },
+  { id: "quelle-vertraege", title: "Anthropic: Data Processing Addendum zur Auftragsverarbeitung", url: "https://www.anthropic.com/legal/data-processing-addendum" },
+  { id: "quelle-datenschutz", title: "Datenschutzkonferenz: KI und Datenschutz, Mai 2024", url: "https://www.datenschutzkonferenz-online.de/media/oh/20240506_DSK_Orientierungshilfe_KI_und_Datenschutz.pdf" },
+  { id: "quelle-aiact", title: "EUR-Lex: KI-Verordnung, konsolidierte Fassung vom 27. Juli 2026, Artikel 4", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02024R1689-20260727" },
 ];
 
 export const Route = createFileRoute("/ratgeber/claude-unternehmen-wissensassistent-einfuehren")({
@@ -90,21 +90,39 @@ function ClaudeArticle() {
       <h2 id="wissensbasis" className="headline-dot scroll-mt-24">Projektwissen, RAG und Modelltraining unterscheiden</h2>
       <p>
         Anthropic beschreibt <a href="#quelle-projekte">Claude Projects</a> als Arbeitsbereiche mit eigenem
-        Projektwissen und Anweisungen. Das kann für einen begrenzten Dokumentenbestand ein Ausgangspunkt sein.
+        Projektwissen und Anweisungen. Die aktuelle Hilfe beschreibt außerdem RAG für erweitertes Projektwissen
+        in kostenpflichtigen Plänen sowie Projektfreigaben in Team und Enterprise. Die Verfügbarkeit ist für
+        die konkrete Produktversion zu prüfen. Ein Projekt kann für einen begrenzten Dokumentenbestand ein Ausgangspunkt sein.
         Das Hochladen einer Anleitung ist jedoch nicht gleichbedeutend mit dem Training eines eigenen Modells.
         Die Unterlagen dienen als Kontext für die Bearbeitung einer Aufgabe.
       </p>
       <p>
         Bei Retrieval-Augmented Generation, kurz RAG, werden zu einer Frage passende Inhalte aus einer
-        Wissensquelle abgerufen und dem Modell bereitgestellt. Die <a href="#quelle-rag">Datenschutzkonferenz</a>
+        Wissensquelle abgerufen und dem Modell bereitgestellt. Die <a href="#quelle-rag">Datenschutzkonferenz</a>{" "}
         behandelt diesen Ansatz ausdrücklich als eigenes Gestaltungsthema. RAG kann die Nachvollziehbarkeit
         verbessern. Es bringt zugleich zusätzliche Anforderungen an Datenquellen, Verarbeitung und Berechtigungen mit.
       </p>
       <p>
-        Ein Claude-Projekt und eine individuell aufgebaute RAG-Anwendung sind deshalb nicht pauschal dasselbe.
+        Claude-Projekte können also selbst RAG verwenden. Sie sind damit noch keine individuell aufgebaute
+        Anwendung mit eigenen Datenflüssen und einer auf Ihren Betrieb zugeschnittenen Rechteverwaltung.
         Aus der Projektfunktion lässt sich keine automatische Zusage zu dokumentengenauen Zugriffsrechten,
         Aktualisierung oder vollständigen Quellenbelegen ableiten. Welche Funktionen verfügbar sind, muss für
         den gewählten Tarif und die konkrete Anbindung geprüft werden.
+      </p>
+      <h3>Wann ein Projekt genügt und wann eine eigene Anbindung sinnvoll ist</h3>
+      <p>
+        Für ein kleines Service-Team würde ich ein Claude-Projekt prüfen, wenn alle Teilnehmer auf denselben
+        freigegebenen Dokumentenbestand zugreifen dürfen und ein Verantwortlicher diesen Bestand pflegen kann.
+        Anthropic beschreibt für Team und Enterprise unterschiedliche Projektrollen zum Ansehen und Bearbeiten.
+        Das ist eine Berechtigung auf Projektebene. Es belegt keine automatisch passende Zugriffstrennung für
+        jede einzelne Datei aus Ihren bestehenden Systemen.
+      </p>
+      <p>
+        Wenn Mitarbeiter je nach Standort oder Auftrag unterschiedliche Informationen sehen dürfen, wenn
+        Daten laufend aus Fachsystemen kommen oder Antworten in einen bestehenden Prozess eingebunden werden
+        sollen, würde ich eine separate Anbindung untersuchen. Vor der Entscheidung braucht es einen Test
+        mit Ihren Quellen und Rollen. Eine eigene Anwendung verursacht zusätzlichen Aufwand für Entwicklung,
+        Rechteverwaltung und Betrieb. Sie ist deshalb keine automatische Voraussetzung für jeden Einstieg.
       </p>
       <h3>Welche Unterlagen ich zuerst vorbereiten würde</h3>
       <ul>
@@ -130,15 +148,21 @@ function ClaudeArticle() {
       </p>
       <h3>Kein Training bedeutet nicht keine Speicherung</h3>
       <p>
-        Anthropic unterscheidet Verbraucherangebote und kommerzielle Dienste. Für kommerzielle Dienste werden
-        Kundendaten nach den <a href="#quelle-training">Anbieterangaben</a> standardmäßig nicht für das
-        Modelltraining verwendet. Daraus folgt nicht, dass Eingaben und Dateien überhaupt nicht gespeichert
+        Anthropic unterscheidet Verbraucherangebote und kommerzielle Dienste. Die
+        <a href="#quelle-training"> Commercial Terms, Abschnitt B</a> untersagen Anthropic das Modelltraining
+        mit Kundeneingaben und Ausgaben der darunter fallenden Dienste. Die API-Dokumentation nennt daneben
+        die ausdrückliche Erlaubnis als Voraussetzung für das Training mit aufbewahrten Daten. Für Ihre
+        Einrichtung sind die tatsächlich geltenden Verträge und etwaige gesonderte Freigaben maßgeblich.
+        Daraus folgt nicht, dass Eingaben und Dateien überhaupt nicht gespeichert
         werden. Aufbewahrung und mögliche Ausnahmen sind separat zu prüfen.
       </p>
       <p>
         Die <a href="#quelle-retention">Dokumentation zu Datenaufbewahrung</a> unterscheidet Produkte,
         Funktionen und Bereitstellungswege. Eine Vereinbarung zur Zero Data Retention bei einem API-Einsatz
         darf nicht ungeprüft auf einen Claude-Chat oder sämtliche Zusatzfunktionen übertragen werden.
+        Die API-Dokumentation nennt außerdem funktions- und modellabhängige Ausnahmen von ZDR.
+        Ob eine konkrete Anfrage darunter fällt, ist vor der Nutzung zu prüfen. ZDR darf nur für den
+        bestätigten Geltungsbereich der Vereinbarung angenommen werden.
         Ich würde vor der Freigabe die tatsächlich genutzte Variante, Löschregeln und Ausnahmen dokumentieren.
       </p>
       <h3>Meine Prüfliste für die Einrichtung</h3>
@@ -153,6 +177,8 @@ function ClaudeArticle() {
       <p>
         Ein in Deutschland gehostetes Frontend sagt nichts darüber aus, wo ein angebundener KI-Dienst Daten
         verarbeitet. Auch ein Auftragsverarbeitungsvertrag allein beantwortet nicht alle diese Fragen.
+        Ein öffentlich abrufbares Vertragsdokument bestätigt zudem nicht, dass es für Ihr Konto und
+        den gewählten Bereitstellungsweg tatsächlich vereinbart wurde.
         Wenn der geplante Datenzugriff nicht zu Ihren Anforderungen passt, muss der Umfang reduziert oder
         eine andere technische Lösung geprüft werden.
       </p>
@@ -191,6 +217,9 @@ function ClaudeArticle() {
         Anweisungen enthalten, die den Assistenten vom vorgesehenen Auftrag abbringen. Als Vorsichtsmaßnahme
         würde ich die Quellen begrenzen, zunächst keine Schreibaktionen erlauben und kritische Ergebnisse
         durch Menschen freigeben lassen. Eine vollständige Abwehr lässt sich daraus nicht zusagen.
+        Dokumenteninhalte müssen als potenziell nicht vertrauenswürdige Daten behandelt werden.
+        Die Anwendung muss Zugriffe technisch kontrollieren, bevor nicht freigegebene Inhalte überhaupt
+        an das Modell gelangen. Die Prüfung einer Antwort ist dafür nur eine zusätzliche Kontrolle.
       </p>
 
       <h2 id="schulung" className="headline-dot scroll-mt-24">Vor-Ort-Schulung an den tatsächlichen Aufgaben des Teams</h2>
@@ -214,6 +243,9 @@ function ClaudeArticle() {
         mit KI-Systemen umgehen. Dabei sind unter anderem Kenntnisse, Erfahrung und der Einsatzkontext
         zu berücksichtigen. Ein Schulungstermin oder Zertifikat allein belegt daher nicht automatisch,
         dass sämtliche Anforderungen erfüllt sind.
+        Artikel 4 schreibt kein bestimmtes Schulungsformat und kein bestimmtes Zertifikat vor.
+        Für das Pilotteam würde ich nach Rollen festhalten, welche Aufgaben erlaubt sind, welche Fehler
+        erkannt werden müssen und wann Ergebnisse an eine Fachperson weitergegeben werden.
       </p>
       <p>
         Ich würde Inhalte, Teilnehmer und behandelte Einsatzgrenzen dokumentieren und bei Änderungen erneut
@@ -262,10 +294,10 @@ function ClaudeArticle() {
         Verantwortung bleibt nachvollziehbar.
       </p>
       <p>
-        Für eine spätere Anbindung an Angebote, Aufträge oder interne Abläufe kann eine
+        Für eine spätere Anbindung an Angebote, Aufträge oder interne Abläufe kann eine{" "}
         <Link to="/leistungen/individualsoftware">eigene Betriebsplattform</Link> infrage kommen.
-        Einen breiteren Überblick bietet unser Ratgeber zur
-        <Link to="/ratgeber/chatgpt-fuer-unternehmen-einfuehren"> Einführung von KI-Assistenten im Unternehmen</Link>.
+        Einen breiteren Überblick bietet unser Ratgeber zur{" "}
+        <Link to="/ratgeber/chatgpt-fuer-unternehmen-einfuehren">Einführung von KI-Assistenten im Unternehmen</Link>.
       </p>
       <div className="border-y border-line py-6">
         <p className="font-semibold">Claude-Einführung und Schulung vor Ort besprechen</p>

@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Linkabstände im gesamten Claude-Artikel prüfen und korrigieren
+- [x] Aussagen erneut anhand aktueller offizieller Quellen und fremder Ratgeber prüfen
+- [x] Zielgruppenrelevanz präzisieren und Artikel auf Mobilgerät, Tablet und Desktop validieren
+
 - [x] Neuen Claude-Ratgeber aus Inhabersicht mit offiziellen Quellen recherchieren und schreiben
 - [x] Artikel in Ratgeber, Sitemap und Pre-Rendering aufnehmen
 - [x] Artikel, Quellenlinks und Darstellung auf Mobilgerät, Tablet und Desktop prüfen
