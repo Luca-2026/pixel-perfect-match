@@ -22,6 +22,7 @@ import { Route as ReferenzenRouteImport } from './routes/referenzen'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UeberRouteImport } from './routes/ueber'
 import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
+import { Route as LeistungenClaudeEinfuehrungRouteImport } from './routes/leistungen.claude-einfuehrung'
 import { Route as LeistungenIndividualsoftwareRouteImport } from './routes/leistungen.individualsoftware'
 import { Route as LeistungenKiAutomatisierungRouteImport } from './routes/leistungen.ki-automatisierung'
 import { Route as LeistungenKiSichtbarkeitRouteImport } from './routes/leistungen.ki-sichtbarkeit'
@@ -105,6 +106,12 @@ const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
   path: '/leistungen/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LeistungenClaudeEinfuehrungRoute =
+  LeistungenClaudeEinfuehrungRouteImport.update({
+    id: '/leistungen/claude-einfuehrung',
+    path: '/leistungen/claude-einfuehrung',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LeistungenIndividualsoftwareRoute =
   LeistungenIndividualsoftwareRouteImport.update({
     id: '/leistungen/individualsoftware',
@@ -215,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/referenzen': typeof ReferenzenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
+  '/leistungen/claude-einfuehrung': typeof LeistungenClaudeEinfuehrungRoute
   '/leistungen/individualsoftware': typeof LeistungenIndividualsoftwareRoute
   '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
   '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
@@ -247,6 +255,7 @@ export interface FileRoutesByTo {
   '/referenzen': typeof ReferenzenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
+  '/leistungen/claude-einfuehrung': typeof LeistungenClaudeEinfuehrungRoute
   '/leistungen/individualsoftware': typeof LeistungenIndividualsoftwareRoute
   '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
   '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
@@ -280,6 +289,7 @@ export interface FileRoutesById {
   '/referenzen': typeof ReferenzenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
+  '/leistungen/claude-einfuehrung': typeof LeistungenClaudeEinfuehrungRoute
   '/leistungen/individualsoftware': typeof LeistungenIndividualsoftwareRoute
   '/leistungen/ki-automatisierung': typeof LeistungenKiAutomatisierungRoute
   '/leistungen/ki-sichtbarkeit': typeof LeistungenKiSichtbarkeitRoute
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/referenzen'
     | '/sitemap.xml'
     | '/ueber'
+    | '/leistungen/claude-einfuehrung'
     | '/leistungen/individualsoftware'
     | '/leistungen/ki-automatisierung'
     | '/leistungen/ki-sichtbarkeit'
@@ -346,6 +357,7 @@ export interface FileRouteTypes {
     | '/referenzen'
     | '/sitemap.xml'
     | '/ueber'
+    | '/leistungen/claude-einfuehrung'
     | '/leistungen/individualsoftware'
     | '/leistungen/ki-automatisierung'
     | '/leistungen/ki-sichtbarkeit'
@@ -378,6 +390,7 @@ export interface FileRouteTypes {
     | '/referenzen'
     | '/sitemap.xml'
     | '/ueber'
+    | '/leistungen/claude-einfuehrung'
     | '/leistungen/individualsoftware'
     | '/leistungen/ki-automatisierung'
     | '/leistungen/ki-sichtbarkeit'
@@ -411,6 +424,7 @@ export interface RootRouteChildren {
   ReferenzenRoute: typeof ReferenzenRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberRoute: typeof UeberRoute
+  LeistungenClaudeEinfuehrungRoute: typeof LeistungenClaudeEinfuehrungRoute
   LeistungenIndividualsoftwareRoute: typeof LeistungenIndividualsoftwareRoute
   LeistungenKiAutomatisierungRoute: typeof LeistungenKiAutomatisierungRoute
   LeistungenKiSichtbarkeitRoute: typeof LeistungenKiSichtbarkeitRoute
@@ -522,6 +536,13 @@ declare module '@tanstack/react-router' {
       path: '/leistungen'
       fullPath: '/leistungen/'
       preLoaderRoute: typeof LeistungenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen/claude-einfuehrung': {
+      id: '/leistungen/claude-einfuehrung'
+      path: '/leistungen/claude-einfuehrung'
+      fullPath: '/leistungen/claude-einfuehrung'
+      preLoaderRoute: typeof LeistungenClaudeEinfuehrungRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/leistungen/individualsoftware': {
@@ -659,6 +680,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferenzenRoute: ReferenzenRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberRoute: UeberRoute,
+  LeistungenClaudeEinfuehrungRoute: LeistungenClaudeEinfuehrungRoute,
   LeistungenIndividualsoftwareRoute: LeistungenIndividualsoftwareRoute,
   LeistungenKiAutomatisierungRoute: LeistungenKiAutomatisierungRoute,
   LeistungenKiSichtbarkeitRoute: LeistungenKiSichtbarkeitRoute,
