@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] SLT-Live-Website passgenau in beiden Laptop-Mockups einbetten; eingebetteten Seitenwechsel per Tastatur sowie Darstellung auf Desktop und Mobil prüfen
+
 - [x] Alle 27 öffentlichen Seiten auf Erreichbarkeit, Bilder und Darstellung prüfen
 - [x] Kontaktformular und Digital-Check mit echten Testanfragen und bestätigter Mailzustellung prüfen
 - [x] Aktualitätsprüfung kritischer Claude-Quellen und historische Kennzahlen einordnen

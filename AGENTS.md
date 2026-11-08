@@ -13,3 +13,4 @@
 - Keep shared heading wrapping and breakpoint-based type sizes in the global stylesheet; use local sizing only when a specific headline needs whole-word fitting in a narrower container.
 - Keep each guide article in a dedicated leaf route using ArticleLayout, with metadata in the article registry and its path in the explicit prerender list; both sitemap implementations read the registry.
 - Use featuredServices for homepage and service-overview tiles; retain the full services registry for navigation, footer and sitemap so existing service URLs remain discoverable.
+- Share the live laptop viewport across homepage and references; load the external frame near the viewport and scale a fixed desktop canvas to the photographed display to preserve its geometry.

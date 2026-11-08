@@ -1,13 +1,13 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 
 interface LaptopMockupProps {
   src: string;
   alt: string;
-  /** Optional: URL für dezenten "in neuem Tab öffnen"-Button unter dem Mockup. */
+  /** Optional: interaktive Website im Display und Link zum Öffnen in neuem Tab. */
   liveUrl?: string;
   liveLabel?: string;
 }
@@ -15,6 +15,27 @@ interface LaptopMockupProps {
 export function LaptopMockup({ src, alt, liveUrl, liveLabel }: LaptopMockupProps) {
   const reduce = useSafeReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
+  const screenRef = useRef<HTMLDivElement>(null);
+  const [nearby, setNearby] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0);
+  useEffect(() => {
+    const element = screenRef.current;
+    if (!element || !liveUrl) return;
+    const resize = new ResizeObserver(([entry]) => {
+      if (entry) setScreenWidth(entry.contentRect.width);
+    });
+    resize.observe(element);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) {
+        setNearby(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "200px" });
+    observer.observe(element);
+    return () => { resize.disconnect(); observer.disconnect(); };
+  }, [liveUrl]);
+  const screenScale = screenWidth / 1280;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -33,6 +54,23 @@ export function LaptopMockup({ src, alt, liveUrl, liveLabel }: LaptopMockupProps
     >
       <div className="relative mx-auto block w-full">
         <img src={src} alt={alt} loading="lazy" width={1600} height={1040} className="relative block aspect-[20/13] h-auto w-full object-contain" />
+        {liveUrl && (
+          <div ref={screenRef} className="absolute left-[11.7%] top-[14.3%] h-[74.1%] w-[76.6%] overflow-hidden">
+            {nearby && screenScale > 0 && (
+              <iframe
+                src={liveUrl}
+                title={`Interaktive Website ${liveLabel ?? "im Laptop"}`}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                referrerPolicy="strict-origin-when-cross-origin"
+                onLoad={() => setLoaded(true)}
+                onError={() => setLoaded(false)}
+                tabIndex={loaded ? 0 : -1}
+                className={`absolute left-0 top-0 origin-top-left border-0 bg-paper ${loaded ? "visible" : "invisible"}`}
+                style={{ width: 1280, height: screenRef.current ? screenRef.current.clientHeight / screenScale : 820, transform: `scale(${screenScale})` }}
+              />
+            )}
+          </div>
+        )}
       </div>
 
       {liveUrl && (
