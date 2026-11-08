@@ -1,5 +1,10 @@
 # Roadmap
 
+- [x] Alle 27 öffentlichen Seiten auf Erreichbarkeit, Bilder und Darstellung prüfen
+- [x] Kontaktformular und Digital-Check mit echten Testanfragen und bestätigter Mailzustellung prüfen
+- [x] Aktualitätsprüfung kritischer Claude-Quellen und historische Kennzahlen einordnen
+- [ ] Fertiges FTP-Upload-Paket bereitstellen: kein Produktions-Export im Arbeitsbereich verfügbar; automatischer Build stellt hier keinen Download bereit
+
 - [x] Claude-Leistungsseite mit vorgegebenem Umfang, vier FAQ und Digital-Check erstellen
 - [x] Navigation, fünfte Leistungskachel, Sitemap und Pre-Rendering ergänzen
 - [x] Inhalt, strukturierte Daten, Verlinkung und Bildschirmgrößen prüfen
