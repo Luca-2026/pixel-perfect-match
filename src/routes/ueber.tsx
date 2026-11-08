@@ -160,9 +160,9 @@ function Ueber() {
                   "Code, Zugänge, Inhalte gehören Ihnen. Wir betreuen, weil Sie es wollen, nicht weil Sie ohne uns nicht weiterkommen.",
               },
             ].map((p, i) => (
-              <li key={p.title} className="flex gap-5">
-                <span className="metric text-sm text-petrol">{String(i + 1).padStart(2, "0")}</span>
-                <div>
+              <li key={p.title} className="grid grid-cols-[2rem_minmax(0,1fr)] items-baseline gap-4 sm:gap-5">
+                <span className="metric whitespace-nowrap text-sm tabular-nums text-petrol">{String(i + 1).padStart(2, "0")}</span>
+                <div className="min-w-0">
                   <h3 className="font-display text-lg font-semibold text-ink">{p.title}</h3>
                   <p className="mt-2 text-ink/80">{p.body}</p>
                 </div>
